@@ -13,7 +13,19 @@ __pycache__/
 
 # Large prepared data and historical evidence kept locally
 data/
-artifacts/
+artifacts/*
+# ...except V1's official 13B summary, the reference for the V1-vs-V2 rule (scglm_v2.v1_vs_v2)
+!artifacts/phase_evaluation_v1/
+artifacts/phase_evaluation_v1/*
+!artifacts/phase_evaluation_v1/attempts/
+artifacts/phase_evaluation_v1/attempts/*
+!artifacts/phase_evaluation_v1/attempts/official_13b/
+artifacts/phase_evaluation_v1/attempts/official_13b/*
+!artifacts/phase_evaluation_v1/attempts/official_13b/01/
+artifacts/phase_evaluation_v1/attempts/official_13b/01/*
+!artifacts/phase_evaluation_v1/attempts/official_13b/01/output/
+artifacts/phase_evaluation_v1/attempts/official_13b/01/output/*
+!artifacts/phase_evaluation_v1/attempts/official_13b/01/output/summary.json
 v2/data/*
 !v2/data/rich_v1/
 v2/data/rich_v1/*
