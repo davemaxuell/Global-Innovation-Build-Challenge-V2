@@ -1,0 +1,30 @@
+{
+  "created_at": "2026-10-01T08:34:57.761629+09:00",
+  "source": "checkpoints/v2_best (= v2/runs/main/export)",
+  "files_sha256": {
+    "README.md": "4e067498b6d5502d15292d916af3a2acc2cbe52cc2cde314c118c07919390784",
+    "config.json": "40829ea36a2cabf18165acc07bec807f418dceba7cc9d2f8d2520a8a89c02538",
+    "eval_results.json": "464aa52618dd4c5a37ae233347ca405c5539a2800590859cc8ce7c845e642b25",
+    "generation_config.json": "065c32ced79f04ad5ab5db4530779cf2bbc74a4023f634dd87844e4d7d98d98d",
+    "model.safetensors": "9aac2111b9ca6b06f4a12278f5213c17621ded643b7b54137987ce25028011bd",
+    "tokenizer.json": "f8de5462e2967f502b8a25f2a90a87fee12ecad1f50d980a54552805ed0ea196",
+    "tokenizer_config.json": "c0087298a0d966afc4dc403944b6a54e88e5924bf17a65fcfa2b999e92e8adde",
+    "training_provenance.json": "c76cceacbc719cd5ebcfd5d00e693a9dc14788c978e67d9147c36e97f10a64ae"
+  },
+  "identical_to_source": {
+    "config.json": true,
+    "generation_config.json": true,
+    "model.safetensors": true,
+    "tokenizer.json": true,
+    "tokenizer_config.json": false,
+    "training_provenance.json": true
+  },
+  "changes": [
+    "tokenizer_config.json: tokenizer_class TokenizersBackend -> PreTrainedTokenizerFast and 'backend' key removed, so Transformers 4.x can load it; token IDs verified identical on 4.46.3 and 5.5.4"
+  ],
+  "added": [
+    "README.md (model card)",
+    "eval_results.json (derived from the official summary; source hash recorded)"
+  ],
+  "not_uploaded": "Prepared locally; publishing to the Hugging Face Hub is the user's decision."
+}

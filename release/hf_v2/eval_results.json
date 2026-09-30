@@ -1,0 +1,47 @@
+{
+  "model": "SCG-LM V2 (46M)",
+  "weights_sha256": "9aac2111b9ca6b06f4a12278f5213c17621ded643b7b54137987ce25028011bd",
+  "protocol": "lm-evaluation-harness v0.4.12 (commit 6d642546f4688648fced259eb3302efd36ece5af), zero-shot; WikiText-103 validation, context 1024, stride 512",
+  "benchmarks": {
+    "hellaswag": {
+      "split": "validation",
+      "examples": 10042,
+      "acc": 0.2884883489344752,
+      "acc_stderr": 0.004521334761709171,
+      "acc_norm": 0.3095000995817566,
+      "acc_norm_stderr": 0.004613427745209521
+    },
+    "arc_easy": {
+      "split": "test",
+      "examples": 2376,
+      "acc": 0.4739057239057239,
+      "acc_stderr": 0.01024580199024005,
+      "acc_norm": 0.4208754208754209,
+      "acc_norm_stderr": 0.010130502164066335
+    },
+    "piqa": {
+      "split": "validation",
+      "examples": 1838,
+      "acc": 0.6077257889009793,
+      "acc_stderr": 0.01139184674407223,
+      "acc_norm": 0.6066376496191512,
+      "acc_norm_stderr": 0.01139741854668913
+    },
+    "winogrande": {
+      "split": "validation",
+      "examples": 1267,
+      "acc": 0.5146014206787688,
+      "acc_stderr": 0.014046492383275839
+    }
+  },
+  "wikitext103": {
+    "split": "validation",
+    "token_count": 269569,
+    "nll": 3.1717491889170195,
+    "perplexity": 23.84916458687835,
+    "context_length": 1024,
+    "stride": 512
+  },
+  "source_record_sha256": "413350ca52f2287f940f1d8454cd729a9f6fb55cb77b7577af4739228e1c9653",
+  "selection": "development-only, frozen before official scoring (selection record SHA256 596f4b5ffa6b6ebe9dc1608cc3d38e0b2e251df2309433c62741af1a5dffc33b)"
+}

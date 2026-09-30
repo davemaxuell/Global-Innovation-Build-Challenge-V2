@@ -51,6 +51,7 @@ In a fresh clone, first follow **Setup** in [CURRENT_PIPELINE.md](CURRENT_PIPELI
 | `tests/` | CPU tests for everything above |
 | `v2/` | V2 run configs, corpus, runs, phase records and submission drafts |
 | `checkpoints/` | `v2_best` (selected); V1 `competition_base` and `best_sft` (baselines) |
+| `release/hf_v2/` | Hugging Face release: model card, configs, tokenizer, `eval_results.json` (weights not in git) |
 | `runs/`, `artifacts/`, `data/` | Historical runs, measured results and prepared data (evidence; unchanged) |
 | `docs/history/`, `archive/` | V1-era documents and retired code (inventory in `reports/cleanup/2026-10-01/`) |
 | `vendor/` | Pinned lm-evaluation-harness checkout; fastText for data preparation |
