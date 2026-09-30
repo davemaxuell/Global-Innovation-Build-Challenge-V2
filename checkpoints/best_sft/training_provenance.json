@@ -1,0 +1,20 @@
+{
+  "pipeline": "posttraining-sota-v1",
+  "stage": "sft",
+  "parent_model": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/runs/continuation_13b/export",
+  "parent_model_sha256": "ffa75b07ec377167ab2e4d4263f2fa8374549f8592f9ce2e8166875cab1f38e7",
+  "scratch_base_sha256": "ffa75b07ec377167ab2e4d4263f2fa8374549f8592f9ce2e8166875cab1f38e7",
+  "cumulative_pretraining_tokens": 13000048640,
+  "manifest_sha256": "7bc4e6c72b6dc76819f1aa1e41611c9eeec94cf29cec76bd0a30f64ccbd666ee",
+  "contract_sha256": "475d1b108966dae1b71d611370ba75b415bff46189412aa462d8a0e71cfee96e",
+  "step": 105,
+  "optimizer_updates": 105,
+  "counters": {
+    "response_targets": 862660,
+    "response_processed_tokens": 4670374,
+    "replay_targets": 419498,
+    "replay_processed_tokens": 420106
+  },
+  "disposable_smoke_test": false,
+  "endpoint_kind": "completed_training_prefix"
+}

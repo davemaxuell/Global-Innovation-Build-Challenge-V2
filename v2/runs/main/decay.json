@@ -1,0 +1,6 @@
+{
+  "decay_start_step": 617981,
+  "decay_steps": 68664,
+  "note": "User 2026-09-29 ~20:55 KST: run training to completion regardless of deadline. Registered 10% linear decay to 0, ending at the 45B-token ceiling (step 686645).",
+  "written_kst": "2026-09-29T20:55+09:00"
+}

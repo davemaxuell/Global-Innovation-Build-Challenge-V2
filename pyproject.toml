@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scglm"
+version = "0.1.0"
+description = "SCG-LM V2: a 46M-parameter language model pretrained from scratch (data, training and evaluation pipeline)"
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src", "vendor/pydeps"]
+testpaths = ["tests"]
+

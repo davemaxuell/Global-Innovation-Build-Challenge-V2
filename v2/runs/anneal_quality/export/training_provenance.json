@@ -1,0 +1,32 @@
+{
+  "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/anneal_quality",
+  "step": 68664,
+  "main_tokens": 4499963904,
+  "probe_tokens": 0,
+  "training_tokens_spent": 4499963904,
+  "science_digest": "fe3853048b60fefb266565bd663ac50bb9e913711634098443ba6a30f58efcf6",
+  "tokenizer_sha256": "1d714be4561ca083ef3cb668be7cffa38caa158c0315c22907647cd4f0f9013b",
+  "initialization": "scratch",
+  "source_token_counts": {
+    "dclm": 1123083264,
+    "edu": 1260902400,
+    "targeted": 1125785600,
+    "wiki": 540191744,
+    "stackexchange": 224386048,
+    "books": 225614848
+  },
+  "parent": {
+    "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/main",
+    "checkpoint": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/main/milestones/milestone_decay_start_617981.pt",
+    "checkpoint_sha256": "175d1e297a97569c0546ae491c4a0498890cd9bb303a22b52d4edab06b4bb0c6",
+    "run_record_sha256": "4703599b1a8f32c38076d51380d22518d277aca8d829e342635316c5c0bee8a3",
+    "science_digest": "b5bc1cea97a7d17db94e00f48efc7343543f3c322ce3ea85a38451ed1b340da4",
+    "main_tokens": 40500002816,
+    "step": 617981,
+    "elapsed_seconds": 103461.30136177875,
+    "tokenizer_sha256": "1d714be4561ca083ef3cb668be7cffa38caa158c0315c22907647cd4f0f9013b",
+    "cumulative_tokens": 40500002816,
+    "relation": "branch from a checkpoint of a V2 random-scratch run"
+  },
+  "cumulative_tokens": 44999966720
+}

@@ -1,0 +1,18 @@
+/home/bufsgpu/yes/envs/sw/lib/python3.10/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+........................................................................ [ 93%]
+.....                                                                    [100%]
+=============================== warnings summary ===============================
+tests/test_v2_train.py: 14 warnings
+  /home/bufsgpu/yes/envs/sw/lib/python3.10/site-packages/torch/jit/_script.py:362: DeprecationWarning: `torch.jit.script_method` is deprecated. Please switch to `torch.compile` or `torch.export`.
+    warnings.warn(
+
+tests/test_validation_pipeline.py::test_repeated_preflight_creates_separate_durable_records
+  <frozen importlib._bootstrap>:241: DeprecationWarning: builtin type SwigPyPacked has no __module__ attribute
+
+tests/test_validation_pipeline.py::test_repeated_preflight_creates_separate_durable_records
+  <frozen importlib._bootstrap>:241: DeprecationWarning: builtin type SwigPyObject has no __module__ attribute
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+77 passed, 16 warnings in 12.05s
+sys:1: DeprecationWarning: builtin type swigvarlink has no __module__ attribute

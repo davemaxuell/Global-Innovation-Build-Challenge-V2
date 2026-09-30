@@ -1,0 +1,448 @@
+{
+  "schema": "scglm-training-research-v1",
+  "status": "research_completed",
+  "recorded_at_utc": "2026-09-29T01:37:13.668906+00:00",
+  "research_date_local": "2026-09-29",
+  "timezone": "Asia/Seoul",
+  "root": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2",
+  "report": "reports/research/2026-09-29_mimo_v2_6_training_options.md",
+  "report_sha256": "56f403423de33fc343ecd69091915be135af9a6914055310901afeca5708737b",
+  "execution": {
+    "training_launched": false,
+    "optimizer_updates": 0,
+    "training_targets": 0,
+    "rollout_tokens_for_training": 0,
+    "new_model_evaluations": 0,
+    "active_training_code_changed": false,
+    "retired_code_restored": false,
+    "existing_checkpoints_modified": false
+  },
+  "pdf": {
+    "path": "MiMo_V2_6_technical_report.pdf",
+    "pages": 44,
+    "size_bytes": 3046687,
+    "sha256": "fb81e6e083801b3358f084ed6be953dc23b0d2e434690f4541d5eae03e01e7af",
+    "official_pointer_sha256": "fb81e6e083801b3358f084ed6be953dc23b0d2e434690f4541d5eae03e01e7af",
+    "official_hash_matches": true
+  },
+  "external_sources": [
+    {
+      "id": "mimo_model_card",
+      "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
+      "accessed_date": "2026-09-29"
+    },
+    {
+      "id": "mimo_pdf_pointer",
+      "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL/blob/main/MiMo_V2_6_technical_report.pdf",
+      "accessed_date": "2026-09-29"
+    },
+    {
+      "id": "competition_rules",
+      "url": "https://gibc-v2.devpost.com/rules",
+      "accessed_date": "2026-09-29"
+    },
+    {
+      "id": "muown",
+      "url": "https://arxiv.org/abs/2605.10797",
+      "accessed_date": "2026-09-29"
+    },
+    {
+      "id": "optimizer_switching",
+      "url": "https://arxiv.org/abs/2605.10468",
+      "accessed_date": "2026-09-29"
+    },
+    {
+      "id": "dapo",
+      "url": "https://arxiv.org/abs/2503.14476",
+      "accessed_date": "2026-09-29"
+    },
+    {
+      "id": "mtp",
+      "url": "https://arxiv.org/abs/2404.19737",
+      "accessed_date": "2026-09-29"
+    },
+    {
+      "id": "sciq_card",
+      "url": "https://huggingface.co/datasets/allenai/sciq",
+      "accessed_date": "2026-09-29"
+    },
+    {
+      "id": "social_iqa_card",
+      "url": "https://huggingface.co/datasets/allenai/social_i_qa",
+      "accessed_date": "2026-09-29"
+    }
+  ],
+  "local_evidence": [
+    {
+      "path": "MiMo_V2_6_technical_report.pdf",
+      "sha256": "fb81e6e083801b3358f084ed6be953dc23b0d2e434690f4541d5eae03e01e7af"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "134f802341d4500cd2121020b57e4489daa013fb078c8a89595e04bf8e43ec2c"
+    },
+    {
+      "path": "BEST_CHECKPOINT_TRAINING.md",
+      "sha256": "57eeb3689e1989fceb2b83a3e3a23c86f148898351cccf39acb82033eb82e887"
+    },
+    {
+      "path": "FAILED_APPROACHES.md",
+      "sha256": "79d612c3705c0b9d01a27f85552cea0c850f2ead9b0680352a2a57f80c6cab76"
+    },
+    {
+      "path": "CURRENT_PIPELINE.md",
+      "sha256": "4021012b123625d1a55e9128ee47c5fd7c74499a8a849c9fac00cd7d5070cf5c"
+    },
+    {
+      "path": "configs/current_model.json",
+      "sha256": "d87375cdeae225056623812f18b18cc175e791446bb9ac0833ef3c5e0fd80c74"
+    },
+    {
+      "path": "configs/evaluation.json",
+      "sha256": "fa029d2a7368af109e77158da4f65ab1ec0f4550b8ca3edfd35a9a2010ff351c"
+    },
+    {
+      "path": "src/scglm_pipeline/sota_data.py",
+      "sha256": "c4dcf1b4734659206e2ff0f4ff57ef4b663a8a1697ceb8d4a556410456d9d69d"
+    },
+    {
+      "path": "src/scglm_pipeline/sota_evaluate.py",
+      "sha256": "e5d45c55039dd20e5f1b091116ddcac35b23503cd06ec4860111b7d58454066a"
+    },
+    {
+      "path": "src/scglm_pipeline/generation.py",
+      "sha256": "18f9ea63e77634c41362be9cf422140e89996ede80ad6a14c42766bda3550a2f"
+    },
+    {
+      "path": "src/scglm_pipeline/task_registry.py",
+      "sha256": "7a67fb9610da5aa4d95f716b3fe49467e74776bcf26a5d850239c9a0ab7ab86b"
+    },
+    {
+      "path": "artifacts/posttraining/authorization_13b_20260928.json",
+      "sha256": "caab65acf6f9859cf2428c438723c565165675898c51da119cff2392f6bea3ff"
+    },
+    {
+      "path": "artifacts/posttraining_sota_v1/snapshot/src/scglm_pipeline/curriculum.py",
+      "sha256": "d6246a080400cf448d7d7e37e3be0069f509ef742a1aa1a9081c076a79b47954"
+    },
+    {
+      "path": "artifacts/posttraining_sota_v1/snapshot/src/scglm_pipeline/sota_train.py",
+      "sha256": "ac17602cce5f15846a32f48a42094f5d7461303c526e55fc353abe68b307a401"
+    },
+    {
+      "path": "artifacts/posttraining_sota_v1/snapshot/src/scglm_pipeline/grpo.py",
+      "sha256": "cf663476db0c81bd5f10e9b471b7609b630cb51c08a0bf10099c2021cb2b56d2"
+    },
+    {
+      "path": "artifacts/posttraining_sota_v1/snapshot/src/scglm_pipeline/rewards.py",
+      "sha256": "ce5dfffc018137f5da7585c3960df0e12be5eb2a9e3a66b52c13b4f94f4b52ab"
+    },
+    {
+      "path": "artifacts/posttraining_sota_v1/COMPUTE_LEDGER.json",
+      "sha256": "d2dc02badf4808d4f6131a1b3fc0cc916c986a4b61a2aec8bd73d9b43ecd3755"
+    },
+    {
+      "path": "artifacts/phase_evaluation_v1/attempts/official_13b/01/output/summary.json",
+      "sha256": "3ffb02e65eb50201964353d4869c7c15c82411e7074624f9d12591fb1811b9be"
+    },
+    {
+      "path": "artifacts/posttraining_sota_v1/official/12_defd0d91948ba850/attempt_001/summary.json",
+      "sha256": "71b1f8fba26433d9dfca0fe2121f903d80353b28e0c5d5b86da7af51c8b8c89c"
+    },
+    {
+      "path": "checkpoints/best_sft/model.safetensors",
+      "sha256": "defd0d91948ba8501a33b0c4996bf3bf37ebdf6e90338a05bab3a1773a2d7f72"
+    },
+    {
+      "path": "checkpoints/competition_base/model.safetensors",
+      "sha256": "ffa75b07ec377167ab2e4d4263f2fa8374549f8592f9ce2e8166875cab1f38e7"
+    },
+    {
+      "path": "artifacts/posttraining_sota_v1/runs/rl_sft_pilot_0/status.json",
+      "sha256": "75be9b4d72f2c3d62220d851c5c9c13890930c8bb96fb24c4a8c40e36afd4e15"
+    },
+    {
+      "path": "artifacts/posttraining_sota_v1/runs/rl_sft_pilot_1/status.json",
+      "sha256": "eb7303ae403283998a918407052bdafe2e9d629216afc491dd71db215ec4f0a6"
+    },
+    {
+      "path": "artifacts/posttraining_sota_v1/runs/rl_sft_pilot_2/status.json",
+      "sha256": "5038bd93306a1f41540f3c5380d986fd63d25ed14be3ec989d95e373a7a6b06f"
+    },
+    {
+      "path": "artifacts/posttraining_sota_v1/runs/rl_sft_pilot_3/status.json",
+      "sha256": "8dedb1c69df77343d1dfd9702150e26afd9b8cff9c41a6f35d1398dd608367a0"
+    }
+  ],
+  "previously_observed_metrics": {
+    "base": {
+      "benchmarks": {
+        "hellaswag": {
+          "split": "validation",
+          "examples": 10042,
+          "acc": 0.2848038239394543,
+          "acc_stderr": 0.004503985839041939,
+          "acc_norm": 0.3064130651264688,
+          "acc_norm_stderr": 0.004600612000422636
+        },
+        "arc_easy": {
+          "split": "test",
+          "examples": 2376,
+          "acc": 0.4659090909090909,
+          "acc_stderr": 0.010235908103438688,
+          "acc_norm": 0.4238215488215488,
+          "acc_norm_stderr": 0.010140006095213603
+        },
+        "piqa": {
+          "split": "validation",
+          "examples": 1838,
+          "acc": 0.6207834602829162,
+          "acc_stderr": 0.011320331012905072,
+          "acc_norm": 0.6039173014145811,
+          "acc_norm_stderr": 0.011411089031912475
+        },
+        "winogrande": {
+          "split": "validation",
+          "examples": 1267,
+          "acc": 0.5067087608524072,
+          "acc_stderr": 0.014051220692330349
+        }
+      },
+      "harness_results": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/artifacts/phase_evaluation_v1/attempts/official_13b/01/output/harness/__data__team_a__dave-workspace__Global Innovation Build Challenge V2__runs__continuation_13b__export/results_2026-09-26T23-56-50.799110.json",
+      "harness_results_sha256": "af8f531682b90f542600fc0aaac9c69e1d8448cb53c1284ed773bb3368962dc9",
+      "wikitext103": {
+        "nll_sum": 873256.9367686627,
+        "token_count": 269569,
+        "documents": 60,
+        "nll": 3.2394560827419423,
+        "perplexity": 25.519837291770507,
+        "split": "validation",
+        "context_length": 1024,
+        "stride": 512
+      },
+      "wikitext103_results": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/artifacts/phase_evaluation_v1/attempts/official_13b/01/output/wikitext103.json",
+      "wikitext103_results_sha256": "cbd70c3a63dd61b024bde08f19d08f313cff04e57c4a4b991446d4825ebe6f2f"
+    },
+    "selected_sft": {
+      "benchmarks": {
+        "hellaswag": {
+          "split": "validation",
+          "examples": 10042,
+          "acc": 0.28251344353714397,
+          "acc_stderr": 0.004493015945599712,
+          "acc_norm": 0.3062139016132245,
+          "acc_norm_stderr": 0.004599776866717505
+        },
+        "arc_easy": {
+          "split": "test",
+          "examples": 2376,
+          "acc": 0.46464646464646464,
+          "acc_stderr": 0.010234104543411435,
+          "acc_norm": 0.4276094276094276,
+          "acc_norm_stderr": 0.010151683397430677
+        },
+        "piqa": {
+          "split": "validation",
+          "examples": 1838,
+          "acc": 0.6131664853101197,
+          "acc_stderr": 0.011363095931902854,
+          "acc_norm": 0.6039173014145811,
+          "acc_norm_stderr": 0.011411089031912477
+        },
+        "winogrande": {
+          "split": "validation",
+          "examples": 1267,
+          "acc": 0.5130228887134964,
+          "acc_stderr": 0.014047718393997663
+        }
+      },
+      "harness_results": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/artifacts/posttraining_sota_v1/official/12_defd0d91948ba850/attempt_001/harness/__data__team_a__dave-workspace__Global Innovation Build Challenge V2__artifacts__posttraining_sota_v1__runs__sft_full_5_seed20260928__endpoints__step_0000105__export/results_2026-09-28T22-35-24.696219.json",
+      "harness_results_sha256": "639ce0dd7ef4818db346502809ff6ec7e0c94e651377105a5418cb56f579d210",
+      "wikitext103": {
+        "nll_sum": 877674.2091564089,
+        "token_count": 269569,
+        "documents": 60,
+        "nll": 3.25584250843535,
+        "perplexity": 25.941461229605352,
+        "split": "validation",
+        "context_length": 1024,
+        "stride": 512
+      },
+      "wikitext103_results": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/artifacts/posttraining_sota_v1/official/12_defd0d91948ba850/attempt_001/wikitext103.json",
+      "wikitext103_results_sha256": "b15e5f8b161c665941b70ec324a00b9d4557a75f594668f7eea0d687fcb4bd48"
+    },
+    "newly_measured": false,
+    "official_protocol_sha256": "fa029d2a7368af109e77158da4f65ab1ec0f4550b8ca3edfd35a9a2010ff351c"
+  },
+  "historical_rl_pilots": {
+    "runs": [
+      {
+        "run": "rl_sft_pilot_0",
+        "status": "completed",
+        "step": 100,
+        "counters": {
+          "sampled_tokens": 198852,
+          "prefill_tokens": 1957296,
+          "target_tokens": 21457,
+          "policy_processed_tokens": 236857,
+          "reference_processed_tokens": 236857
+        },
+        "optimizer_updates": 43
+      },
+      {
+        "run": "rl_sft_pilot_1",
+        "status": "completed",
+        "step": 100,
+        "counters": {
+          "sampled_tokens": 198280,
+          "prefill_tokens": 1955368,
+          "target_tokens": 17545,
+          "policy_processed_tokens": 198657,
+          "reference_processed_tokens": 198657
+        },
+        "optimizer_updates": 36
+      },
+      {
+        "run": "rl_sft_pilot_2",
+        "status": "completed",
+        "step": 100,
+        "counters": {
+          "sampled_tokens": 200995,
+          "prefill_tokens": 1973048,
+          "target_tokens": 15627,
+          "policy_processed_tokens": 177595,
+          "reference_processed_tokens": 177595
+        },
+        "optimizer_updates": 32
+      },
+      {
+        "run": "rl_sft_pilot_3",
+        "status": "completed",
+        "step": 100,
+        "counters": {
+          "sampled_tokens": 202406,
+          "prefill_tokens": 1969656,
+          "target_tokens": 18256,
+          "policy_processed_tokens": 199184,
+          "reference_processed_tokens": 199184
+        },
+        "optimizer_updates": 36
+      }
+    ],
+    "totals": {
+      "sampled_tokens": 800533,
+      "target_tokens": 72885,
+      "prefill_tokens": 7855368,
+      "optimizer_updates": 147,
+      "collection_attempts": 400
+    },
+    "interpretation": "Historical runs, not work performed by this investigation. Family-quota failure can reject attempts that include some informative groups."
+  },
+  "recommendations": [
+    {
+      "id": "choice_discrimination",
+      "priority": 1,
+      "status": "proposed_not_registered",
+      "parent": "checkpoints/best_sft",
+      "arms": 2,
+      "proposed_updates_per_arm": 32,
+      "nominal_response_targets_per_update": 8192,
+      "proposed_gpu_seconds_per_arm": 3600,
+      "proposed_training_processed_token_limit_per_arm": 10000000,
+      "mimo_basis": "Task/interface alignment; supervised choice loss is a project-specific inference, not a reported MiMo method."
+    },
+    {
+      "id": "curated_midtraining",
+      "priority": 2,
+      "status": "proposed_not_registered",
+      "parent": "checkpoints/competition_base",
+      "arms": 2,
+      "proposed_updates_per_arm": 977,
+      "raw_targets_per_update": 65536,
+      "raw_target_ceiling_per_arm": 64028672,
+      "proposed_gpu_seconds_per_arm": 7200,
+      "source_mixture": {
+        "edu": 0.6,
+        "dclm": 0.3,
+        "wiki": 0.1
+      },
+      "changed_hypothesis": "Within-source document quality and diversity, distinct from the withdrawn higher-Edu-share proposal."
+    },
+    {
+      "id": "rl_signal_audit",
+      "priority": 3,
+      "status": "proposed_not_registered",
+      "optimizer_updates": 0,
+      "prompts": 384,
+      "samples_per_prompt": 8,
+      "max_response_tokens": 64,
+      "generated_token_ceiling": 196608,
+      "proposed_gpu_seconds": 1800
+    },
+    {
+      "id": "revised_rl",
+      "priority": 3,
+      "status": "conditional_not_registered",
+      "parent": "checkpoints/best_sft",
+      "arms": 2,
+      "proposed_actual_updates_per_arm": 50,
+      "collection_attempt_ceiling_per_arm": 500,
+      "generated_token_ceiling_per_arm": 2000000,
+      "proposed_gpu_seconds_per_arm": 7200,
+      "initial_ablation": "Prompt-mean versus global-token-mean loss on an identical revised task/collection setup; graded reward is a later separate ablation."
+    },
+    {
+      "id": "correction_sft",
+      "status": "lower_priority_concept",
+      "changed_hypothesis": "Train independently verified corrections to own-model mistakes, rather than recycling the old preference winners."
+    },
+    {
+      "id": "muown",
+      "status": "lower_priority_proposed_not_registered",
+      "parent": "checkpoints/competition_base",
+      "arms": 2,
+      "proposed_updates_per_arm": 489,
+      "raw_target_ceiling_per_arm": 32047104,
+      "proposed_gpu_seconds_per_arm": 3600
+    },
+    {
+      "id": "mtp",
+      "status": "longer_term_concept",
+      "parameter_headroom": 3653248
+    },
+    {
+      "id": "external_teacher_mopd2",
+      "status": "outside_current_competition_plan",
+      "reason": "Larger-model distillation is not covered by the own-checkpoint clarification and is prohibited in the public Track 01 rules."
+    }
+  ],
+  "registration_gaps": [
+    "Final candidate dataset manifests and hashes",
+    "Fresh development and confirmation identities",
+    "Exact prospective selection/statistical convention",
+    "Implemented and tested isolated trainer/config",
+    "Exact launch and resume commands",
+    "Linked training-phase report and TRAINING_PHASES.md registration before launch"
+  ],
+  "evaluation_disclosure": {
+    "historical_development_and_confirmation_consumed": true,
+    "base_and_sft_benchmark_scores_previously_observed": true,
+    "public_dataset_card_examples_seen": true,
+    "exclude_browsed_examples_from_claimed_unseen_confirmation": true,
+    "new_dataset_files_downloaded": false,
+    "new_panel_freshness_established": false,
+    "new_method_effectiveness_established": false
+  },
+  "notes": [
+    "Proposed budgets are alternative research ceilings, not allocated compute or a queued pipeline.",
+    "No new training phase was launched; TRAINING_PHASES.md is unchanged.",
+    "All MiMo method summaries are grounded in the user-provided PDF; transfer claims are hypotheses."
+  ],
+  "verification": {
+    "local_report_links": "all_resolve",
+    "local_evidence_hashes": "all_match_at_completion",
+    "historical_rl_counts": "verified_from_original_status_and_ledger",
+    "proposed_budget_arithmetic": "checked",
+    "active_code_tests": "not_run_documentation_only"
+  }
+}

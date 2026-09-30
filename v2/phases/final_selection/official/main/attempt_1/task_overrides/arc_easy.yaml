@@ -1,0 +1,8 @@
+include: /data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness/lm_eval/tasks/arc/arc_easy.yaml
+task: arc_easy
+dataset_path: allenai/ai2_arc
+dataset_name: ARC-Easy
+dataset_kwargs:
+  revision: 210d026faf9955653af8916fad021475a3f00453
+num_fewshot: 0
+target_delimiter: ' '

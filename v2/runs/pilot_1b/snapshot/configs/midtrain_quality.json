@@ -1,0 +1,136 @@
+{
+  "schema": "scglm-midtrain-quality-v1",
+  "experiment_id": "midtrain_quality_20260929_v3",
+  "title": "Data-quality mid-training",
+  "script": "scripts/run_midtrain_pipeline.py",
+  "research_note": "reports/research/2026-09-29_mimo_v2_6_training_options.md",
+  "hypothesis": "At identical 60/30/10 source shares, tokens, schedule and inherited optimizer state, continuing the 13B base on documents chosen by documented deterministic quality rules improves natural science/commonsense continuation accuracy over an ordinary sample of the same unused span, without worse held-out language modeling.",
+  "revision_note": "v3: seed 20260923, the continuation lineage seed the retained trainer requires (v2 stopped before its first update with seed 20260929). v2 was a revision of midtrain_quality_20260929_v1, whose CPU preparation failed before any training: the per-host document cap also applied to Wikipedia, where every article shares one host. v2 applies the cap only to edu and dclm; nothing else changed.",
+  "status_note": "Designed and implemented; not launched. Phases are registered in TRAINING_PHASES.md by the runner before each executes.",
+  "parent": {
+    "path": "checkpoints/competition_base",
+    "weight_sha256": "ffa75b07ec377167ab2e4d4263f2fa8374549f8592f9ce2e8166875cab1f38e7",
+    "run": "runs/continuation_13b",
+    "checkpoint": "runs/continuation_13b/checkpoints/step_0015259_1790434118386390693.pt",
+    "checkpoint_sha256": "86ef06ba045ebfd613233e9e112817e5351e6e50db2e7a312718061662d1eef8",
+    "parameters": 46346752,
+    "cumulative_pretraining_tokens": 13000048640,
+    "optimizer_state": "inherited AdamW moments from the completed 13B run"
+  },
+  "corpus": {
+    "manifest": "data/processed/extension_12b/manifest.json",
+    "sha256": "70242a0a248787d31d56c73af3733ccafadaa9816b09ca0508ec487f1fd37c6d",
+    "consumed_by": ["runs/continuation_12b/status.json", "runs/continuation_13b/status.json"],
+    "unused_tokens_at_design": {"edu": 801431229, "dclm": 398595697, "wiki": 299876125}
+  },
+  "tokenizer": {
+    "path": "data/processed/extension_12b/tokenizer/tokenizer.json",
+    "sha256": "1d714be4561ca083ef3cb668be7cffa38caa158c0315c22907647cd4f0f9013b",
+    "eos_id": 2
+  },
+  "exclusions": {
+    "choice_data": "data/posttraining/choice_discrimination_20260929_v1",
+    "choice_manifest_sha256": "e8541be5ed135a35562eeaddc3e8d653d339dd712b7fbe0dec76d3b11861b621",
+    "choice_raw_panels": ["raw_development.jsonl", "raw_confirmation.jsonl"],
+    "replay_files": [
+      {"path": "data/posttraining/sota_v1/replay.jsonl", "sha256": "8c6cac8b2d1bb94c609700431536259ce1c118cd016698907533a3f3554b5f25"},
+      {"path": "data/posttraining/choice_discrimination_20260929_v1/replay.jsonl", "sha256": "8c6cac8b2d1bb94c609700431536259ce1c118cd016698907533a3f3554b5f25"}
+    ],
+    "evaluation_record_glob": "artifacts/*/evaluation/**/raw.jsonl"
+  },
+  "source_weights": {"edu": 0.6, "dclm": 0.3, "wiki": 0.1},
+  "selection": {
+    "rule_reference": "Gopher quality and repetition filters (Rae et al., 2021, Appendix A) plus the coherence score in src/scglm_midtrain/quality.py",
+    "model_scores_used": false,
+    "min_document_tokens": 32,
+    "pool_multiple": 2.5,
+    "train_token_margin": 1.15,
+    "heldout_documents_per_source": 256,
+    "heldout_min_scored_tokens_per_source": 131072,
+    "length_bin_edges": [128, 256, 512, 1024, 2048, 4096],
+    "max_host_document_fraction": 0.002,
+    "host_cap_sources": ["edu", "dclm"],
+    "hard_filters": {
+      "min_words": 50,
+      "max_words": 100000,
+      "min_mean_word_length": 3.0,
+      "max_mean_word_length": 10.0,
+      "max_symbol_ratio": 0.1,
+      "max_bullet_line_fraction": 0.9,
+      "max_ellipsis_line_fraction": 0.3,
+      "min_alphabetic_word_fraction": 0.8,
+      "min_stopword_types": 2,
+      "max_duplicate_line_fraction": 0.3,
+      "max_duplicate_line_char_fraction": 0.2,
+      "max_duplicate_paragraph_fraction": 0.3,
+      "max_duplicate_paragraph_char_fraction": 0.2,
+      "max_boilerplate_line_fraction": 0.2,
+      "max_top_ngram_char_fraction": {"2": 0.2, "3": 0.18, "4": 0.16},
+      "max_duplicate_ngram_char_fraction": {"5": 0.15, "10": 0.1}
+    },
+    "coherence_weights": {"terminal_lines": 0.35, "function_words": 0.25, "low_repetition": 0.2, "sentence_length": 0.2}
+  },
+  "training": {
+    "seed": 20260923,
+    "updates": 977,
+    "sequence_length": 1024,
+    "batch_sequences": 64,
+    "microbatch_sequences": 8,
+    "targets_per_arm": 64028672,
+    "initial_learning_rate": 3e-06,
+    "learning_rate": 1e-05,
+    "rewarm_steps": 32,
+    "min_lr_ratio": 0.3,
+    "warmup_fraction": 0.02,
+    "betas": [0.9, 0.95],
+    "adam_epsilon": 1e-08,
+    "weight_decay": 0.1,
+    "gradient_clip": 1.0,
+    "checkpoint_every": 100,
+    "log_every": 25,
+    "max_training_wall_hours": 1.5,
+    "schedule_note": "Linear rewarm 3e-6 to 1e-5 over 32 updates, cosine decay to 3e-6 (min_lr_ratio 0.3). A hypothesis, not a validated recipe."
+  },
+  "budget": {
+    "assigned_gpu_uuids": ["GPU-78815613-815b-f56b-27c0-6bc239e093fc"],
+    "cpu_threads": 4,
+    "gpu_seconds": {"shared": 3600, "random": 7200, "curated": 7200},
+    "overall_gpu_seconds": 18000,
+    "cpu_preparation_time": "recorded separately in the data-root events"
+  },
+  "evaluation": {
+    "presentations": ["{question}\nAnswer:", "Question: {question}\nThe answer is"],
+    "choice_panels": {
+      "data": "data/posttraining/choice_discrimination_20260929_v1",
+      "manifest_sha256": "e8541be5ed135a35562eeaddc3e8d653d339dd712b7fbe0dec76d3b11861b621",
+      "use": {
+        "primary": ["choice", "primary_development.jsonl"],
+        "raw": ["raw", "raw_development.jsonl"],
+        "transfer": ["transfer", "transfer_development.jsonl"]
+      }
+    },
+    "previously_observed": "Choice-study development panels were scored on the base, the selected SFT and one control endpoint. The held-out raw panel is new. Reserved confirmation panels are not used.",
+    "guards_vs_base": {"raw_panels": ["raw"], "raw_nll_delta": 0.02, "choice_panels": ["primary"], "accuracy_delta_min": -0.02},
+    "min_primary_gain_vs_random": 0.01,
+    "max_heldout_nll_regression_vs_random": 0.01,
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20260929,
+    "decision_rule": "curated_preferred only if curated-minus-random primary accuracy is at least +1 point with a one-sided 95% grouped-bootstrap lower bound above zero, every held-out source's curated-minus-random NLL upper bound is at most +0.01 nats, and the curated endpoint passes its point guards against the base. Otherwise not_established. Neither outcome replaces a checkpoint or launches SFT.",
+    "only_eligible_endpoint": "final update 977 of each arm"
+  },
+  "isolation": {
+    "data_root": "data/midtrain_quality_20260929_v3",
+    "output_root": "artifacts/midtrain_quality_20260929_v3",
+    "source_packages": ["scglm_midtrain", "scglm_study", "scglm_choice", "scglm"]
+  },
+  "preflight_tests": ["tests/test_study_common.py", "tests/test_midtrain_pipeline.py", "tests/test_train.py"],
+  "retained_files": {
+    "src/scglm/train.py": "3a6882fdf33d7ee21b1ffc75c9bb8dfb9ae7c512bbe2cde68449557719a19bf8",
+    "src/scglm/data.py": "ab1dbfa479e78fbfad46574b3948ffa099d05ae9e5379d0f1f5be5505769e63a",
+    "src/scglm/model.py": "99121e7eb5f6b53d2663341e8033ac283e149cdc4fcba36f5add46db973773ba",
+    "configs/model.json": "e60630227c69a4c826f5a3b7fa9875361316b2827b15721dfc9b4da5774725f1",
+    "src/scglm_choice/evaluate.py": "4ccf42db8c5f92654c9adf378a6b8003e9a57cd0846b98bdcb02bdc9163a74ae",
+    "src/scglm_choice/objective.py": "aad7e53591ef4ef2fbdb99b5a30ec20f1997628978003f9587b2d460fac1d447",
+    "src/scglm_choice/selection.py": "0f880d980de8c01542b4bbc2091bb85d5c145e0067f41afc7553ff9128063caf"
+  }
+}

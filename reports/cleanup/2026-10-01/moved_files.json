@@ -1,0 +1,1268 @@
+{
+  "date": "2026-10-01",
+  "moved_at_unix": 1790809709.1688256,
+  "pre_move_snapshot": "archive/pre_reorg_2026-10-01/code_docs_snapshot.tar.gz",
+  "pre_move_snapshot_sha256": "64d47b208a4829c782151fbf583a215baeca6028a16e71c5174425facd242f7d",
+  "moves": [
+    {
+      "from": "src/scglm_choice",
+      "to": "archive/v1_code/src/scglm_choice",
+      "category": "V1-only package"
+    },
+    {
+      "from": "src/scglm_midtrain",
+      "to": "archive/v1_code/src/scglm_midtrain",
+      "category": "V1-only package"
+    },
+    {
+      "from": "src/scglm_phase",
+      "to": "archive/v1_code/src/scglm_phase",
+      "category": "V1-only package"
+    },
+    {
+      "from": "src/scglm_pipeline",
+      "to": "archive/v1_code/src/scglm_pipeline",
+      "category": "V1-only package"
+    },
+    {
+      "from": "src/scglm_post",
+      "to": "archive/v1_code/src/scglm_post",
+      "category": "V1-only package"
+    },
+    {
+      "from": "src/scglm_rl",
+      "to": "archive/v1_code/src/scglm_rl",
+      "category": "V1-only package"
+    },
+    {
+      "from": "src/scglm_study",
+      "to": "archive/v1_code/src/scglm_study",
+      "category": "V1-only package"
+    },
+    {
+      "from": "src/scglm/status.py",
+      "to": "archive/v1_code/src/scglm/status.py",
+      "category": "unused module"
+    },
+    {
+      "from": "scripts/audit_corpus_samples.py",
+      "to": "archive/v1_code/scripts/audit_corpus_samples.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "scripts/check_gpu_recovery.py",
+      "to": "archive/v1_code/scripts/check_gpu_recovery.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "scripts/demo.py",
+      "to": "archive/v1_code/scripts/demo.py",
+      "category": "V1 demo (replaced by V2 demo)"
+    },
+    {
+      "from": "scripts/preflight_extension.py",
+      "to": "archive/v1_code/scripts/preflight_extension.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "scripts/preflight.py",
+      "to": "archive/v1_code/scripts/preflight.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "scripts/profile_gpu.py",
+      "to": "archive/v1_code/scripts/profile_gpu.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "scripts/release_tools.py",
+      "to": "archive/v1_code/scripts/release_tools.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "scripts/run_choice_pipeline.py",
+      "to": "archive/v1_code/scripts/run_choice_pipeline.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "scripts/run_extension.py",
+      "to": "archive/v1_code/scripts/run_extension.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "scripts/run_midtrain_pipeline.py",
+      "to": "archive/v1_code/scripts/run_midtrain_pipeline.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "scripts/run_phase_evaluation.py",
+      "to": "archive/v1_code/scripts/run_phase_evaluation.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "scripts/run_pipeline.py",
+      "to": "archive/v1_code/scripts/run_pipeline.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "scripts/run_pretraining_next.py",
+      "to": "archive/v1_code/scripts/run_pretraining_next.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "scripts/run_rl_pipeline.py",
+      "to": "archive/v1_code/scripts/run_rl_pipeline.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "scripts/select_endpoint.py",
+      "to": "archive/v1_code/scripts/select_endpoint.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "scripts/smoke_test_pretrained.py",
+      "to": "archive/v1_code/scripts/smoke_test_pretrained.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "scripts/validate.py",
+      "to": "archive/v1_code/scripts/validate.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "scripts/verify_sota_package.py",
+      "to": "archive/v1_code/scripts/verify_sota_package.py",
+      "category": "V1-only script"
+    },
+    {
+      "from": "configs/choice_discrimination.json",
+      "to": "archive/v1_code/configs/choice_discrimination.json",
+      "category": "V1-only config"
+    },
+    {
+      "from": "configs/continuation_13b_protocol.json",
+      "to": "archive/v1_code/configs/continuation_13b_protocol.json",
+      "category": "V1-only config"
+    },
+    {
+      "from": "configs/current_model.json",
+      "to": "archive/v1_code/configs/current_model.json",
+      "category": "V1-only config"
+    },
+    {
+      "from": "configs/instruction_data.json",
+      "to": "archive/v1_code/configs/instruction_data.json",
+      "category": "V1-only config"
+    },
+    {
+      "from": "configs/midtrain_quality.json",
+      "to": "archive/v1_code/configs/midtrain_quality.json",
+      "category": "V1-only config"
+    },
+    {
+      "from": "configs/phase_evaluation.json",
+      "to": "archive/v1_code/configs/phase_evaluation.json",
+      "category": "V1-only config"
+    },
+    {
+      "from": "configs/rl_revised.json",
+      "to": "archive/v1_code/configs/rl_revised.json",
+      "category": "V1-only config"
+    },
+    {
+      "from": "configs/train_baseline.json",
+      "to": "archive/v1_code/configs/train_baseline.json",
+      "category": "V1-only config"
+    },
+    {
+      "from": "configs/train_continuation_13b.json",
+      "to": "archive/v1_code/configs/train_continuation_13b.json",
+      "category": "V1-only config"
+    },
+    {
+      "from": "configs/train_extension.json",
+      "to": "archive/v1_code/configs/train_extension.json",
+      "category": "V1-only config"
+    },
+    {
+      "from": "configs/posttraining",
+      "to": "archive/v1_code/configs/posttraining",
+      "category": "V1-only config"
+    },
+    {
+      "from": "tests/test_choice_pipeline.py",
+      "to": "archive/v1_code/tests/test_choice_pipeline.py",
+      "category": "test of archived code"
+    },
+    {
+      "from": "tests/test_continuation_next.py",
+      "to": "archive/v1_code/tests/test_continuation_next.py",
+      "category": "test of archived code"
+    },
+    {
+      "from": "tests/test_current_pipeline.py",
+      "to": "archive/v1_code/tests/test_current_pipeline.py",
+      "category": "test of archived code"
+    },
+    {
+      "from": "tests/test_extension_preflight.py",
+      "to": "archive/v1_code/tests/test_extension_preflight.py",
+      "category": "test of archived code"
+    },
+    {
+      "from": "tests/test_instruction_evaluation.py",
+      "to": "archive/v1_code/tests/test_instruction_evaluation.py",
+      "category": "test of archived code"
+    },
+    {
+      "from": "tests/test_midtrain_pipeline.py",
+      "to": "archive/v1_code/tests/test_midtrain_pipeline.py",
+      "category": "test of archived code"
+    },
+    {
+      "from": "tests/test_phase_evaluation.py",
+      "to": "archive/v1_code/tests/test_phase_evaluation.py",
+      "category": "test of archived code"
+    },
+    {
+      "from": "tests/test_posttraining.py",
+      "to": "archive/v1_code/tests/test_posttraining.py",
+      "category": "test of archived code"
+    },
+    {
+      "from": "tests/test_rl_pipeline.py",
+      "to": "archive/v1_code/tests/test_rl_pipeline.py",
+      "category": "test of archived code"
+    },
+    {
+      "from": "tests/test_sota_posttraining.py",
+      "to": "archive/v1_code/tests/test_sota_posttraining.py",
+      "category": "test of archived code"
+    },
+    {
+      "from": "tests/test_study_common.py",
+      "to": "archive/v1_code/tests/test_study_common.py",
+      "category": "test of archived code"
+    },
+    {
+      "from": "v2/src/scglm_v2/pilot_gate.py",
+      "to": "archive/v2_experiments/src/scglm_v2/pilot_gate.py",
+      "category": "V2 experiment-only code"
+    },
+    {
+      "from": "v2/src/scglm_v2/branch.py",
+      "to": "archive/v2_experiments/src/scglm_v2/branch.py",
+      "category": "V2 experiment-only code"
+    },
+    {
+      "from": "v2/run_prep_to_gate.sh",
+      "to": "archive/v2_experiments/run_prep_to_gate.sh",
+      "category": "V2 experiment run-control"
+    },
+    {
+      "from": "v2/run_after_main.sh",
+      "to": "archive/v2_experiments/run_after_main.sh",
+      "category": "V2 experiment run-control"
+    },
+    {
+      "from": "v2/src/scglm_v2/__init__.py",
+      "to": "src/scglm_v2/__init__.py",
+      "category": "V2 pipeline (relocated)"
+    },
+    {
+      "from": "v2/src/scglm_v2/benchmarks.py",
+      "to": "src/scglm_v2/benchmarks.py",
+      "category": "V2 pipeline (relocated)"
+    },
+    {
+      "from": "v2/src/scglm_v2/build.py",
+      "to": "src/scglm_v2/build.py",
+      "category": "V2 pipeline (relocated)"
+    },
+    {
+      "from": "v2/src/scglm_v2/common.py",
+      "to": "src/scglm_v2/common.py",
+      "category": "V2 pipeline (relocated)"
+    },
+    {
+      "from": "v2/src/scglm_v2/devevaluate.py",
+      "to": "src/scglm_v2/devevaluate.py",
+      "category": "V2 pipeline (relocated)"
+    },
+    {
+      "from": "v2/src/scglm_v2/download.py",
+      "to": "src/scglm_v2/download.py",
+      "category": "V2 pipeline (relocated)"
+    },
+    {
+      "from": "v2/src/scglm_v2/figures.py",
+      "to": "src/scglm_v2/figures.py",
+      "category": "V2 pipeline (relocated)"
+    },
+    {
+      "from": "v2/src/scglm_v2/select_endpoint.py",
+      "to": "src/scglm_v2/select_endpoint.py",
+      "category": "V2 pipeline (relocated)"
+    },
+    {
+      "from": "v2/src/scglm_v2/sources.py",
+      "to": "src/scglm_v2/sources.py",
+      "category": "V2 pipeline (relocated)"
+    },
+    {
+      "from": "v2/src/scglm_v2/targeted.py",
+      "to": "src/scglm_v2/targeted.py",
+      "category": "V2 pipeline (relocated)"
+    },
+    {
+      "from": "v2/src/scglm_v2/tokenizer_study.py",
+      "to": "src/scglm_v2/tokenizer_study.py",
+      "category": "V2 pipeline (relocated)"
+    },
+    {
+      "from": "v2/src/scglm_v2/train.py",
+      "to": "src/scglm_v2/train.py",
+      "category": "V2 pipeline (relocated)"
+    },
+    {
+      "from": "v2/src/scglm_v2/v1_vs_v2.py",
+      "to": "src/scglm_v2/v1_vs_v2.py",
+      "category": "V2 pipeline (relocated)"
+    },
+    {
+      "from": "v2/tests/test_v2_prep.py",
+      "to": "tests/test_v2_prep.py",
+      "category": "V2 test (relocated)"
+    },
+    {
+      "from": "v2/tests/test_v2_select.py",
+      "to": "tests/test_v2_select.py",
+      "category": "V2 test (relocated)"
+    },
+    {
+      "from": "v2/tests/test_v2_train.py",
+      "to": "tests/test_v2_train.py",
+      "category": "V2 test (relocated)"
+    },
+    {
+      "from": "v2/supervise_main.sh",
+      "to": "scripts/supervise_main.sh",
+      "category": "V2 pipeline (relocated)"
+    },
+    {
+      "from": "v2/.pydeps",
+      "to": "vendor/pydeps",
+      "category": "V2 dependency (relocated)"
+    },
+    {
+      "from": "CHOICE_PIPELINE.md",
+      "to": "docs/history/CHOICE_PIPELINE.md",
+      "category": "V1-era document"
+    },
+    {
+      "from": "MIMO_PIPELINES.md",
+      "to": "docs/history/MIMO_PIPELINES.md",
+      "category": "V1-era document"
+    },
+    {
+      "from": "CONTINUATION_RUNBOOK.md",
+      "to": "docs/history/CONTINUATION_RUNBOOK.md",
+      "category": "V1-era document"
+    },
+    {
+      "from": "PRETRAINING_13B_PLAN.md",
+      "to": "docs/history/PRETRAINING_13B_PLAN.md",
+      "category": "V1-era document"
+    },
+    {
+      "from": "PHASE_EVALUATION.md",
+      "to": "docs/history/PHASE_EVALUATION.md",
+      "category": "V1-era document"
+    },
+    {
+      "from": "MODEL_TEST_REPORT.md",
+      "to": "docs/history/MODEL_TEST_REPORT.md",
+      "category": "V1-era document"
+    },
+    {
+      "from": "CORPUS_PLAN_10B_PLUS.md",
+      "to": "docs/history/CORPUS_PLAN_10B_PLUS.md",
+      "category": "V1-era document"
+    },
+    {
+      "from": "BEST_CHECKPOINT_TRAINING.md",
+      "to": "docs/history/V1_BEST_CHECKPOINT_TRAINING.md",
+      "category": "V1 training record (superseded by V2 record)"
+    },
+    {
+      "from": "CURRENT_PIPELINE.md",
+      "to": "docs/history/V1_CURRENT_PIPELINE.md",
+      "category": "V1 pipeline guide (superseded)"
+    },
+    {
+      "from": "MiMo_V2_6_technical_report.pdf",
+      "to": "docs/references/MiMo_V2_6_technical_report.pdf",
+      "category": "reference paper"
+    }
+  ],
+  "files": [
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_choice/__init__.py",
+      "to": "archive/v1_code/src/scglm_choice/__init__.py",
+      "sha256": "9586b861cb09fbee33f6c7fc6aba8038599823b1a11fa6c730dc7da830085d42"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_choice/budget.py",
+      "to": "archive/v1_code/src/scglm_choice/budget.py",
+      "sha256": "8c10e7e49506b230dfa7ca2a5faa9ece809e2c2abd90c96f4fff9ef15dc39b5d"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_choice/common.py",
+      "to": "archive/v1_code/src/scglm_choice/common.py",
+      "sha256": "70c760b4ac634d50a6cb75506bb8551597ef77707aa65b0e7b1145e75f467ac6"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_choice/data.py",
+      "to": "archive/v1_code/src/scglm_choice/data.py",
+      "sha256": "344b998adf3b08d1ed6dfa92bf2abce2f69de87ccf88724453b40a79052b9bb5"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_choice/evaluate.py",
+      "to": "archive/v1_code/src/scglm_choice/evaluate.py",
+      "sha256": "4ccf42db8c5f92654c9adf378a6b8003e9a57cd0846b98bdcb02bdc9163a74ae"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_choice/lineage.py",
+      "to": "archive/v1_code/src/scglm_choice/lineage.py",
+      "sha256": "0c50ae7d8ed07f5f319e655daf50dc3f0b4e4b86dc6c292ecc4fced48953ab40"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_choice/objective.py",
+      "to": "archive/v1_code/src/scglm_choice/objective.py",
+      "sha256": "aad7e53591ef4ef2fbdb99b5a30ec20f1997628978003f9587b2d460fac1d447"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_choice/plans.py",
+      "to": "archive/v1_code/src/scglm_choice/plans.py",
+      "sha256": "dba92b59421b4c668596f37e0744799bc48378a3294eb96000d09744ce19971b"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_choice/prepare.py",
+      "to": "archive/v1_code/src/scglm_choice/prepare.py",
+      "sha256": "ca559625f1c253cf5539332e329f44e8f79056eaae2650f1a400ef0f4d5ed406"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_choice/runner.py",
+      "to": "archive/v1_code/src/scglm_choice/runner.py",
+      "sha256": "bc26f3ef550fe1310d4795733ccd1249456954721af7d74cb1f1f3982d2f74b5"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_choice/selection.py",
+      "to": "archive/v1_code/src/scglm_choice/selection.py",
+      "sha256": "0f880d980de8c01542b4bbc2091bb85d5c145e0067f41afc7553ff9128063caf"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_choice/train.py",
+      "to": "archive/v1_code/src/scglm_choice/train.py",
+      "sha256": "8c79a374e8556edca2a756a06a61713b0535344525a83523251f4541313924b9"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_midtrain/__init__.py",
+      "to": "archive/v1_code/src/scglm_midtrain/__init__.py",
+      "sha256": "2d9428a511c4a5d5e63e731846991b71e447d6b2890677c9112d37752fd64a86"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_midtrain/prepare.py",
+      "to": "archive/v1_code/src/scglm_midtrain/prepare.py",
+      "sha256": "daee85ac734a26091737b24588912b80ef3acb737237e938722e608b394a0932"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_midtrain/quality.py",
+      "to": "archive/v1_code/src/scglm_midtrain/quality.py",
+      "sha256": "d04192a02d6a086d620dd25185b47fa72181d6a18b05b84c4d0cd6365cbe1732"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_midtrain/runner.py",
+      "to": "archive/v1_code/src/scglm_midtrain/runner.py",
+      "sha256": "f7a642fd76ff3ce1aec56f3404de9b951aef1df53cb32c04350801f9f0bd4dd6"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_phase/__init__.py",
+      "to": "archive/v1_code/src/scglm_phase/__init__.py",
+      "sha256": "a506e2b00f49f5095b5f92bcd234fdb8c89ded93a7f0fb2f79eddfb1f4222eb1"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_phase/common.py",
+      "to": "archive/v1_code/src/scglm_phase/common.py",
+      "sha256": "e154bdb4190f5336f4ed0daba1d3081cdd92040fe0f345fbe852170ce0e2a250"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_phase/evaluate.py",
+      "to": "archive/v1_code/src/scglm_phase/evaluate.py",
+      "sha256": "c83ea88b4b3c61348f887c47fc4892f290cd09cf2898b2f0db9d5af1001df3ea"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_phase/runner.py",
+      "to": "archive/v1_code/src/scglm_phase/runner.py",
+      "sha256": "09d2d69ef518350b5ec0f4fc716ff3a3c6c1b5b1e9786de8c832fb63b9e0f209"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_pipeline/__init__.py",
+      "to": "archive/v1_code/src/scglm_pipeline/__init__.py",
+      "sha256": "ba22a99fc9fb0303ddd06d8fda053fdb460f8ff5a0dc89e38b3234eaf6168036"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_pipeline/battery.py",
+      "to": "archive/v1_code/src/scglm_pipeline/battery.py",
+      "sha256": "54904fdd310304b285b5eea7cae83f2d7717859a690868121acca439a1113e42"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_pipeline/common.py",
+      "to": "archive/v1_code/src/scglm_pipeline/common.py",
+      "sha256": "5ed046810b9b0f0d21d7d66e59a8820804247bf9dff14894f2e7fcbf6a3ec31d"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_pipeline/evaluate.py",
+      "to": "archive/v1_code/src/scglm_pipeline/evaluate.py",
+      "sha256": "06131bf0a2a5a217ff560e5ebce5b04a421c9a96f746fb965f5516d68e40b594"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_pipeline/generation.py",
+      "to": "archive/v1_code/src/scglm_pipeline/generation.py",
+      "sha256": "18f9ea63e77634c41362be9cf422140e89996ede80ad6a14c42766bda3550a2f"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_pipeline/posttraining_lineage.py",
+      "to": "archive/v1_code/src/scglm_pipeline/posttraining_lineage.py",
+      "sha256": "9279b5003cdae4dfced0c3b97d5e2f045777ed33b977cd0a36b928655bba675c"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_pipeline/prepare.py",
+      "to": "archive/v1_code/src/scglm_pipeline/prepare.py",
+      "sha256": "764993fb83903cc88f6449db4a750f49a7ae0ecd101c12d299310d3bace2194d"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_pipeline/selection.py",
+      "to": "archive/v1_code/src/scglm_pipeline/selection.py",
+      "sha256": "4ef25ea737fff592c2a1b9ccb0a988f10023b844c60cdcd899ecec2541ad15e0"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_pipeline/selection_v2.py",
+      "to": "archive/v1_code/src/scglm_pipeline/selection_v2.py",
+      "sha256": "b7ee20204cd5dc1d6bb67bba7139b277de73a06f491030e1947368f59fba3916"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_pipeline/sota_data.py",
+      "to": "archive/v1_code/src/scglm_pipeline/sota_data.py",
+      "sha256": "c4dcf1b4734659206e2ff0f4ff57ef4b663a8a1697ceb8d4a556410456d9d69d"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_pipeline/sota_evaluate.py",
+      "to": "archive/v1_code/src/scglm_pipeline/sota_evaluate.py",
+      "sha256": "e5d45c55039dd20e5f1b091116ddcac35b23503cd06ec4860111b7d58454066a"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_pipeline/sota_train.py",
+      "to": "archive/v1_code/src/scglm_pipeline/sota_train.py",
+      "sha256": "7b1d99b9f32d14695b252c5029a4b1e4369a9ac685a212dd747ea73d294d0999"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_pipeline/task_registry.py",
+      "to": "archive/v1_code/src/scglm_pipeline/task_registry.py",
+      "sha256": "7a67fb9610da5aa4d95f716b3fe49467e74776bcf26a5d850239c9a0ab7ab86b"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_post/__init__.py",
+      "to": "archive/v1_code/src/scglm_post/__init__.py",
+      "sha256": "fc099ca74ab9101187ee2ec4c481bf52dcc45838c096063bf7ed0e98fba6da76"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_post/audit.py",
+      "to": "archive/v1_code/src/scglm_post/audit.py",
+      "sha256": "6a24652afa0aaae9d0d2bdccdec8cd900dba6e0791d68bc2cf45351a718badc0"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_post/common.py",
+      "to": "archive/v1_code/src/scglm_post/common.py",
+      "sha256": "3a108b7bf7654fe3bd60f0d37a069ea2fe831b20d48a208aba49fb64d5f18170"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_post/evaluate.py",
+      "to": "archive/v1_code/src/scglm_post/evaluate.py",
+      "sha256": "2a6270bfcdf9bf461fc1029e3feb9efffd1818a3c1463e9d8c70fc5f53a013eb"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_post/overlap.py",
+      "to": "archive/v1_code/src/scglm_post/overlap.py",
+      "sha256": "86f0febe1368a2fd94e3dc72609ede66815fe094de3426c1eab3722633caed2a"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_post/prepare.py",
+      "to": "archive/v1_code/src/scglm_post/prepare.py",
+      "sha256": "e971c3de226cd6faa042bb0a36181f70f6753c420992e2b39114bb82f7308a38"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_post/procedural.py",
+      "to": "archive/v1_code/src/scglm_post/procedural.py",
+      "sha256": "f45e8d67ffd9e2dd3ecd3b059e9b190923682ee9e88497f91a32755310bd7799"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_post/sft.py",
+      "to": "archive/v1_code/src/scglm_post/sft.py",
+      "sha256": "440acd563df0ba9d5d45e93b5fe9221bc367f2c391e41bca7bd15fb8a21d0024"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_post/system_data.py",
+      "to": "archive/v1_code/src/scglm_post/system_data.py",
+      "sha256": "2a70935bfaa5bacfc6b741ef752900d72c5bc2f3f1a9003056ffbd37f1e050d1"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_post/verifiers.py",
+      "to": "archive/v1_code/src/scglm_post/verifiers.py",
+      "sha256": "397a3857a60f35e7ab783048240432675f9646b1200401b36d7a03da10c5aaaa"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_rl/__init__.py",
+      "to": "archive/v1_code/src/scglm_rl/__init__.py",
+      "sha256": "2330ef13c7b7e143b0d71662282872da0943faf3aad839ac84557d2076a4fd3b"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_rl/audit.py",
+      "to": "archive/v1_code/src/scglm_rl/audit.py",
+      "sha256": "8ba1b7f3c7831a356301c8cd0d7d0806eed51b9aa43dc9f97e48d1f6dd15fbff"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_rl/collect.py",
+      "to": "archive/v1_code/src/scglm_rl/collect.py",
+      "sha256": "3daa045085e5b278b98648716a7a8ce62bf4258b737b990088fc3e6df1d3ae57"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_rl/loss.py",
+      "to": "archive/v1_code/src/scglm_rl/loss.py",
+      "sha256": "d5f7def4ae951dd63e507113e246d1e53dcc3baa30172844f281b385bdcf1fb5"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_rl/rollouts.py",
+      "to": "archive/v1_code/src/scglm_rl/rollouts.py",
+      "sha256": "59c3268b08b88dd3e1b4a9120be43a1cfafb721dd9686a544776485bf29e8607"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_rl/runner.py",
+      "to": "archive/v1_code/src/scglm_rl/runner.py",
+      "sha256": "4b34b83bd4a0a1e88616ce0c9ef98fa7c97b350b4ca85fce6d53f9db8cefcb02"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_rl/tasks.py",
+      "to": "archive/v1_code/src/scglm_rl/tasks.py",
+      "sha256": "83082fc5ae8384f3cf156b488298655c561612820f788ad110c774766f40810d"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_rl/train.py",
+      "to": "archive/v1_code/src/scglm_rl/train.py",
+      "sha256": "64b6da734c91d0fca9b2a0c8776f664d4ac404c6081e9dd1d4cf4c3c9478322e"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_study/__init__.py",
+      "to": "archive/v1_code/src/scglm_study/__init__.py",
+      "sha256": "73850aea392729e38b6617da4e014755b33e5d64712533a999f7de8f4ac2f301"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_study/budget.py",
+      "to": "archive/v1_code/src/scglm_study/budget.py",
+      "sha256": "bb129755bd4cb43071fb22c785d953454a27b0389fa47ded7c3f5f485af17874"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_study/common.py",
+      "to": "archive/v1_code/src/scglm_study/common.py",
+      "sha256": "dd3df6f44fa6dab6273108022d10edcde19aaab5606c0799e3dc3a8ffe6d2cb7"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_study/evaluate.py",
+      "to": "archive/v1_code/src/scglm_study/evaluate.py",
+      "sha256": "5635b194d6db12fce22b2f1d92c29fe8a4ec5e89f172514ec63159416dfeba9a"
+    },
+    {
+      "category": "V1-only package",
+      "from": "src/scglm_study/gpu.py",
+      "to": "archive/v1_code/src/scglm_study/gpu.py",
+      "sha256": "41cc8ac7565b7affb20e68c1ad2352c7eb8a3ebc9e1b0b3c12ae1e8b56d0cef3"
+    },
+    {
+      "category": "unused module",
+      "from": "src/scglm/status.py",
+      "to": "archive/v1_code/src/scglm/status.py",
+      "sha256": "96c2a4d6cc4e9665812766b899740e6730d37b029f951e278f6e1718a61cc3ee"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/audit_corpus_samples.py",
+      "to": "archive/v1_code/scripts/audit_corpus_samples.py",
+      "sha256": "6cc7509eb6202c6b3a3a95bd314d035b8f6c19713540bbe9307b454272a0bc04"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/check_gpu_recovery.py",
+      "to": "archive/v1_code/scripts/check_gpu_recovery.py",
+      "sha256": "ee1c63c27af0a61fbf1c159a27caba99abc3b99292326133b3de64b45224625c"
+    },
+    {
+      "category": "V1 demo (replaced by V2 demo)",
+      "from": "scripts/demo.py",
+      "to": "archive/v1_code/scripts/demo.py",
+      "sha256": "3e6a62aebe5f154da24507f94b49fa010372c1fb0560e070bb221062cea6e49b"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/preflight_extension.py",
+      "to": "archive/v1_code/scripts/preflight_extension.py",
+      "sha256": "68a4ddd82648d37e5f835ab4d757c4af7973e7ed1d68089fc0fa73cb41eed29e"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/preflight.py",
+      "to": "archive/v1_code/scripts/preflight.py",
+      "sha256": "b6f8ecced02e767363d64ce4910dc221217f13af7948f079d0231053207fc0da"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/profile_gpu.py",
+      "to": "archive/v1_code/scripts/profile_gpu.py",
+      "sha256": "bf9296198d2afa6a6edad9dddfd2d8a0c7cf70a49d9e55a708f042b5ad1039cf"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/release_tools.py",
+      "to": "archive/v1_code/scripts/release_tools.py",
+      "sha256": "abdc00ed48402a174a0442f960a4389921fef19b0f93956c2d313ab52b7f17c2"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/run_choice_pipeline.py",
+      "to": "archive/v1_code/scripts/run_choice_pipeline.py",
+      "sha256": "fd1cdbc8b319b385e8620d431079ff1567ebc2d88e80984c431dddf6d9a28697"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/run_extension.py",
+      "to": "archive/v1_code/scripts/run_extension.py",
+      "sha256": "5bf9092303885f8c96f9b6e20032b38a79169623da49b227e370c525834230be"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/run_midtrain_pipeline.py",
+      "to": "archive/v1_code/scripts/run_midtrain_pipeline.py",
+      "sha256": "3f274797556a44bb2ab455ce59ea010315db5827bbc4a1226215fd23e3828b07"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/run_phase_evaluation.py",
+      "to": "archive/v1_code/scripts/run_phase_evaluation.py",
+      "sha256": "3e11c5273c7875cc35e70a4f5865aed75624c4051b79b13df0c6f5b4c0e53834"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/run_pipeline.py",
+      "to": "archive/v1_code/scripts/run_pipeline.py",
+      "sha256": "2c5e0e0db8e71ca792d901a95217f8f629236987aa51af629549f29b73989246"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/run_pretraining_next.py",
+      "to": "archive/v1_code/scripts/run_pretraining_next.py",
+      "sha256": "46f5558745a4fb343e2c56b80de463839441455483c0c133b1afa625c14d9333"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/run_rl_pipeline.py",
+      "to": "archive/v1_code/scripts/run_rl_pipeline.py",
+      "sha256": "7a0eaebd84bd9bc1fe52cd6e17905d2b0700624138fcb25b9290af420908abf3"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/select_endpoint.py",
+      "to": "archive/v1_code/scripts/select_endpoint.py",
+      "sha256": "39e3ce504440393c52336dba5dda80587635f3849523e03d06799d4e6381e69a"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/smoke_test_pretrained.py",
+      "to": "archive/v1_code/scripts/smoke_test_pretrained.py",
+      "sha256": "93303f2c9bea6311040221a49bce4e449f316a475ae0c0fdcbbf7e0d5670e8d8"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/validate.py",
+      "to": "archive/v1_code/scripts/validate.py",
+      "sha256": "5dcb89774fb5ddd147db9de578706e0f07af9c9b23324d3e2428df5c77d39fa0"
+    },
+    {
+      "category": "V1-only script",
+      "from": "scripts/verify_sota_package.py",
+      "to": "archive/v1_code/scripts/verify_sota_package.py",
+      "sha256": "35c6b30d0e3b1bc3c992d38f54d889a56ab9e75004cfe79ad63134cefb52f0c0"
+    },
+    {
+      "category": "V1-only config",
+      "from": "configs/choice_discrimination.json",
+      "to": "archive/v1_code/configs/choice_discrimination.json",
+      "sha256": "ee6cb7170a1ff49739424c6ea2f4bfb1739fae24f67a4396dafb9e2e95593cef"
+    },
+    {
+      "category": "V1-only config",
+      "from": "configs/continuation_13b_protocol.json",
+      "to": "archive/v1_code/configs/continuation_13b_protocol.json",
+      "sha256": "b0e099b2925b5f3b13757cc9aa3dcce714117149208024515f2c9c3863808e43"
+    },
+    {
+      "category": "V1-only config",
+      "from": "configs/current_model.json",
+      "to": "archive/v1_code/configs/current_model.json",
+      "sha256": "d87375cdeae225056623812f18b18cc175e791446bb9ac0833ef3c5e0fd80c74"
+    },
+    {
+      "category": "V1-only config",
+      "from": "configs/instruction_data.json",
+      "to": "archive/v1_code/configs/instruction_data.json",
+      "sha256": "2160e19345db4ae5fd93d9841b9ac1fd99da85a72dc6bd34328c8786494099df"
+    },
+    {
+      "category": "V1-only config",
+      "from": "configs/midtrain_quality.json",
+      "to": "archive/v1_code/configs/midtrain_quality.json",
+      "sha256": "1de79a7ac5aebb3c750c085ab8994c625215cd4c124781d670c707b1b1a64513"
+    },
+    {
+      "category": "V1-only config",
+      "from": "configs/phase_evaluation.json",
+      "to": "archive/v1_code/configs/phase_evaluation.json",
+      "sha256": "a71ee112543f0d7e49b289d4377cc21b72da9492d593ddaa95f94c225d98bc20"
+    },
+    {
+      "category": "V1-only config",
+      "from": "configs/rl_revised.json",
+      "to": "archive/v1_code/configs/rl_revised.json",
+      "sha256": "064628522330e167e469dfff4a3764c935ae3e49fd0d4549c7132a17569eee71"
+    },
+    {
+      "category": "V1-only config",
+      "from": "configs/train_baseline.json",
+      "to": "archive/v1_code/configs/train_baseline.json",
+      "sha256": "c32b9f0166fa4d5cb9f15a98a228225ef637c9ac60ba3beb20fe510618e7798a"
+    },
+    {
+      "category": "V1-only config",
+      "from": "configs/train_continuation_13b.json",
+      "to": "archive/v1_code/configs/train_continuation_13b.json",
+      "sha256": "4427be25af1a67e2ce0b0f92df3ff53ae270c4845417c170e35cd99e0d0bf095"
+    },
+    {
+      "category": "V1-only config",
+      "from": "configs/train_extension.json",
+      "to": "archive/v1_code/configs/train_extension.json",
+      "sha256": "d9484bff187b8d29d9c839820f50cb74a96f580550ea389f80c62ffc61059aba"
+    },
+    {
+      "category": "V1-only config",
+      "from": "configs/posttraining/data.json",
+      "to": "archive/v1_code/configs/posttraining/data.json",
+      "sha256": "e0c36969b30c2b9dea6e5fffebe19c974e6e5c06964501fc7dd5305bc7faa8be"
+    },
+    {
+      "category": "test of archived code",
+      "from": "tests/test_choice_pipeline.py",
+      "to": "archive/v1_code/tests/test_choice_pipeline.py",
+      "sha256": "17be4c05e82ddbd50884fb4a76fe8095169af452349dd7945b5169df72015eca"
+    },
+    {
+      "category": "test of archived code",
+      "from": "tests/test_continuation_next.py",
+      "to": "archive/v1_code/tests/test_continuation_next.py",
+      "sha256": "09f4b40f052f3bf4d8655b09f39ea5067263ea83f7966702a8edd75d1c6dbf6b"
+    },
+    {
+      "category": "test of archived code",
+      "from": "tests/test_current_pipeline.py",
+      "to": "archive/v1_code/tests/test_current_pipeline.py",
+      "sha256": "781f741045b9bc6de7899f4ae81e07565de2c0e15416e9299cb002c9e9c1e8a1"
+    },
+    {
+      "category": "test of archived code",
+      "from": "tests/test_extension_preflight.py",
+      "to": "archive/v1_code/tests/test_extension_preflight.py",
+      "sha256": "13fba80b03ca07f35d41ddd103862774c1ae65da4784bfcced21009c122d0b67"
+    },
+    {
+      "category": "test of archived code",
+      "from": "tests/test_instruction_evaluation.py",
+      "to": "archive/v1_code/tests/test_instruction_evaluation.py",
+      "sha256": "d8c79b569687d7c97cc3a0269bee948c9dd52d891a2a6f3195adf0e9353e1f5d"
+    },
+    {
+      "category": "test of archived code",
+      "from": "tests/test_midtrain_pipeline.py",
+      "to": "archive/v1_code/tests/test_midtrain_pipeline.py",
+      "sha256": "d50cf4c8b94ac292755c9e324695188c81b4f483f20c07fc50ad4db828f1959b"
+    },
+    {
+      "category": "test of archived code",
+      "from": "tests/test_phase_evaluation.py",
+      "to": "archive/v1_code/tests/test_phase_evaluation.py",
+      "sha256": "0a4006915fd3dd85480b9821d8bba5399af7f8456bc7e9e567db30c506cf3914"
+    },
+    {
+      "category": "test of archived code",
+      "from": "tests/test_posttraining.py",
+      "to": "archive/v1_code/tests/test_posttraining.py",
+      "sha256": "08ac2a002373ad067b3a8eba8cad9b86eae84ed4134b7db1ea1d72b0def7b4ba"
+    },
+    {
+      "category": "test of archived code",
+      "from": "tests/test_rl_pipeline.py",
+      "to": "archive/v1_code/tests/test_rl_pipeline.py",
+      "sha256": "8e9b3408f58f1451d11a1a0cbf705e0c19e3748ec19841823c11406f758ab02f"
+    },
+    {
+      "category": "test of archived code",
+      "from": "tests/test_sota_posttraining.py",
+      "to": "archive/v1_code/tests/test_sota_posttraining.py",
+      "sha256": "d98f83c53ef3817b8aa0b569cf272302a71a591d2b9dbe98f1f8c78a041d73ea"
+    },
+    {
+      "category": "test of archived code",
+      "from": "tests/test_study_common.py",
+      "to": "archive/v1_code/tests/test_study_common.py",
+      "sha256": "8786fe52cc57ca5388397e03f68d46cb4f82081fbae28b0f1507f448e4a71a96"
+    },
+    {
+      "category": "V2 experiment-only code",
+      "from": "v2/src/scglm_v2/pilot_gate.py",
+      "to": "archive/v2_experiments/src/scglm_v2/pilot_gate.py",
+      "sha256": "b61ca34636d7984ef6d8e6f70b9f3dafa7b03db3a074805e7f6286dac5c8c3a8"
+    },
+    {
+      "category": "V2 experiment-only code",
+      "from": "v2/src/scglm_v2/branch.py",
+      "to": "archive/v2_experiments/src/scglm_v2/branch.py",
+      "sha256": "7d60ae75923088604a37bb9be34e7ed5f293f4020d3f6d498439547d3a383baf"
+    },
+    {
+      "category": "V2 experiment run-control",
+      "from": "v2/run_prep_to_gate.sh",
+      "to": "archive/v2_experiments/run_prep_to_gate.sh",
+      "sha256": "9fcab87d57dd9dd9a200715bba60df1a4c08a1d9b3be20f05d9b7d5e5459f4f9"
+    },
+    {
+      "category": "V2 experiment run-control",
+      "from": "v2/run_after_main.sh",
+      "to": "archive/v2_experiments/run_after_main.sh",
+      "sha256": "37ab2e72d69964712133f547392c79babf220a7bb55d888ae85a3dede3be3b20"
+    },
+    {
+      "category": "V2 pipeline (relocated)",
+      "from": "v2/src/scglm_v2/__init__.py",
+      "to": "src/scglm_v2/__init__.py",
+      "sha256": "1d70c5fe6b95cd0a8148c6a81aab98cd926d3bb9a63d8d496c35149c2e04f451"
+    },
+    {
+      "category": "V2 pipeline (relocated)",
+      "from": "v2/src/scglm_v2/benchmarks.py",
+      "to": "src/scglm_v2/benchmarks.py",
+      "sha256": "c396a58a00dede99f1268d14ef72d6bd9f8f35437d8fc241d1663a580a1b5c5e"
+    },
+    {
+      "category": "V2 pipeline (relocated)",
+      "from": "v2/src/scglm_v2/build.py",
+      "to": "src/scglm_v2/build.py",
+      "sha256": "5ed7a6ef1fa320104c90bae5f4c46f57a7449d7439e03820bf4111aebbf42bd7"
+    },
+    {
+      "category": "V2 pipeline (relocated)",
+      "from": "v2/src/scglm_v2/common.py",
+      "to": "src/scglm_v2/common.py",
+      "sha256": "02e179470bc45770db364c42b2191db49db2489502554a93007313726f78aeda"
+    },
+    {
+      "category": "V2 pipeline (relocated)",
+      "from": "v2/src/scglm_v2/devevaluate.py",
+      "to": "src/scglm_v2/devevaluate.py",
+      "sha256": "c102286a25591764669ea8bacc81bc440dea38443232010e38c3455c73ec64a4"
+    },
+    {
+      "category": "V2 pipeline (relocated)",
+      "from": "v2/src/scglm_v2/download.py",
+      "to": "src/scglm_v2/download.py",
+      "sha256": "8d6890a07efbae50184b0a24212d831a28b749c545fa46b2535ee2c237e56a0a"
+    },
+    {
+      "category": "V2 pipeline (relocated)",
+      "from": "v2/src/scglm_v2/figures.py",
+      "to": "src/scglm_v2/figures.py",
+      "sha256": "a6d797ac863bb784929fa3ebee5ce6bfea3312814845970177e277acd097973e"
+    },
+    {
+      "category": "V2 pipeline (relocated)",
+      "from": "v2/src/scglm_v2/select_endpoint.py",
+      "to": "src/scglm_v2/select_endpoint.py",
+      "sha256": "25c43d0df546e86c6c61695b9301a2dbc9c991561534779b621782cb8e28f5ca"
+    },
+    {
+      "category": "V2 pipeline (relocated)",
+      "from": "v2/src/scglm_v2/sources.py",
+      "to": "src/scglm_v2/sources.py",
+      "sha256": "ffb31a1068e1b0087f1a49a73c5477b234c52eda868328269684c00ead568425"
+    },
+    {
+      "category": "V2 pipeline (relocated)",
+      "from": "v2/src/scglm_v2/targeted.py",
+      "to": "src/scglm_v2/targeted.py",
+      "sha256": "4cdf490b7b8be758ecc529e8d20c25f6b34972deb932f03f2339b5dd129c0a1e"
+    },
+    {
+      "category": "V2 pipeline (relocated)",
+      "from": "v2/src/scglm_v2/tokenizer_study.py",
+      "to": "src/scglm_v2/tokenizer_study.py",
+      "sha256": "16cac8dad51c7608d78bd5883d2a6ba26b2e8c766dc69cdcad33ae37de4fcda8"
+    },
+    {
+      "category": "V2 pipeline (relocated)",
+      "from": "v2/src/scglm_v2/train.py",
+      "to": "src/scglm_v2/train.py",
+      "sha256": "4024a4be662c15d5f1b3a103cfb986410fc9a3c792673cad56ba904d673e364c"
+    },
+    {
+      "category": "V2 pipeline (relocated)",
+      "from": "v2/src/scglm_v2/v1_vs_v2.py",
+      "to": "src/scglm_v2/v1_vs_v2.py",
+      "sha256": "28fec30facf415ca88342dcb00e421b0bd6e2e4c056cf3841c04026bf6837112"
+    },
+    {
+      "category": "V2 test (relocated)",
+      "from": "v2/tests/test_v2_prep.py",
+      "to": "tests/test_v2_prep.py",
+      "sha256": "75648291c29fa1fd84b4bea51b71d9728705384bfaa38ab09c58e4a4ae24c1b4"
+    },
+    {
+      "category": "V2 test (relocated)",
+      "from": "v2/tests/test_v2_select.py",
+      "to": "tests/test_v2_select.py",
+      "sha256": "11dc9944271221826ae271477a7376f09d02917a491882fb0d7473072e49e761"
+    },
+    {
+      "category": "V2 test (relocated)",
+      "from": "v2/tests/test_v2_train.py",
+      "to": "tests/test_v2_train.py",
+      "sha256": "83d1e2ac669b817c2b9c8896a41bec2bba90ca97d5c0469499dde49c0f62b4de"
+    },
+    {
+      "category": "V2 pipeline (relocated)",
+      "from": "v2/supervise_main.sh",
+      "to": "scripts/supervise_main.sh",
+      "sha256": "f6574e4ed9a3bfe26e3f8e98c3858e96f3fe511cb7b336c8b2e684ae9b96596c"
+    },
+    {
+      "category": "V2 dependency (relocated)",
+      "from": "v2/.pydeps/fasttext/FastText.py",
+      "to": "vendor/pydeps/fasttext/FastText.py",
+      "sha256": "d34ffe62186ee0f5280f4bc776945ad34e32a6580c213c7a690b934fa008cfcc"
+    },
+    {
+      "category": "V2 dependency (relocated)",
+      "from": "v2/.pydeps/fasttext/__init__.py",
+      "to": "vendor/pydeps/fasttext/__init__.py",
+      "sha256": "9c5a3818939c8cc44afd5e02dbe8c1b23990ff073877a5de2dfad6bd43834e08"
+    },
+    {
+      "category": "V2 dependency (relocated)",
+      "from": "v2/.pydeps/fasttext/tests/__init__.py",
+      "to": "vendor/pydeps/fasttext/tests/__init__.py",
+      "sha256": "64f86f780942e434bcd939d2a22eed28da9b6a10db903d9317113b642a1fca31"
+    },
+    {
+      "category": "V2 dependency (relocated)",
+      "from": "v2/.pydeps/fasttext/tests/test_configurations.py",
+      "to": "vendor/pydeps/fasttext/tests/test_configurations.py",
+      "sha256": "1e862e3d69f2d3d83b32c4fd070b5d29fd91d0fd57f0ef4db7e011346cf71a38"
+    },
+    {
+      "category": "V2 dependency (relocated)",
+      "from": "v2/.pydeps/fasttext/tests/test_script.py",
+      "to": "vendor/pydeps/fasttext/tests/test_script.py",
+      "sha256": "8ca891ec72f0619568eb73d040edf5d9edf43ce48ebb26520fc8658a56b6e01b"
+    },
+    {
+      "category": "V2 dependency (relocated)",
+      "from": "v2/.pydeps/fasttext/util/__init__.py",
+      "to": "vendor/pydeps/fasttext/util/__init__.py",
+      "sha256": "53a5e235b82921f875a40344ba9e70e99f83faf41ee0fd9125ccdcdaa4ac9ba0"
+    },
+    {
+      "category": "V2 dependency (relocated)",
+      "from": "v2/.pydeps/fasttext/util/util.py",
+      "to": "vendor/pydeps/fasttext/util/util.py",
+      "sha256": "90493b0d02c8765290af9d7efc5b0c1fa59080507497d3154b4be8aac8facc37"
+    },
+    {
+      "category": "V2 dependency (relocated)",
+      "from": "v2/.pydeps/fasttext_numpy2_wheel-0.9.2.dist-info/INSTALLER",
+      "to": "vendor/pydeps/fasttext_numpy2_wheel-0.9.2.dist-info/INSTALLER",
+      "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508"
+    },
+    {
+      "category": "V2 dependency (relocated)",
+      "from": "v2/.pydeps/fasttext_numpy2_wheel-0.9.2.dist-info/LICENSE",
+      "to": "vendor/pydeps/fasttext_numpy2_wheel-0.9.2.dist-info/LICENSE",
+      "sha256": "d9cfdfdf548c48712f05c67eb76c79e7c9f45cba78db50794b780e3564b85ef7"
+    },
+    {
+      "category": "V2 dependency (relocated)",
+      "from": "v2/.pydeps/fasttext_numpy2_wheel-0.9.2.dist-info/METADATA",
+      "to": "vendor/pydeps/fasttext_numpy2_wheel-0.9.2.dist-info/METADATA",
+      "sha256": "5e1041c3a5b876e2e9114617466c06917b586915e196311849d9447a38897a4e"
+    },
+    {
+      "category": "V2 dependency (relocated)",
+      "from": "v2/.pydeps/fasttext_numpy2_wheel-0.9.2.dist-info/RECORD",
+      "to": "vendor/pydeps/fasttext_numpy2_wheel-0.9.2.dist-info/RECORD",
+      "sha256": "42818dd4c1124bdf9080438640bd666f23fea087ee2572fa048e3167cc72329c"
+    },
+    {
+      "category": "V2 dependency (relocated)",
+      "from": "v2/.pydeps/fasttext_numpy2_wheel-0.9.2.dist-info/REQUESTED",
+      "to": "vendor/pydeps/fasttext_numpy2_wheel-0.9.2.dist-info/REQUESTED",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "category": "V2 dependency (relocated)",
+      "from": "v2/.pydeps/fasttext_numpy2_wheel-0.9.2.dist-info/WHEEL",
+      "to": "vendor/pydeps/fasttext_numpy2_wheel-0.9.2.dist-info/WHEEL",
+      "sha256": "f9f7f0e04aceae57771f917219bd3ec9f29df750384b56da947cf92b24f3fb87"
+    },
+    {
+      "category": "V2 dependency (relocated)",
+      "from": "v2/.pydeps/fasttext_numpy2_wheel-0.9.2.dist-info/top_level.txt",
+      "to": "vendor/pydeps/fasttext_numpy2_wheel-0.9.2.dist-info/top_level.txt",
+      "sha256": "4b5721495d303913ac4d6cd054f5d95cca4b5c3fee352d68cfaed1fa55c8d32a"
+    },
+    {
+      "category": "V2 dependency (relocated)",
+      "from": "v2/.pydeps/fasttext_pybind.cpython-310-x86_64-linux-gnu.so",
+      "to": "vendor/pydeps/fasttext_pybind.cpython-310-x86_64-linux-gnu.so",
+      "sha256": "928b219f307efc9c9d807402eaab7be6d8eabe8d16cd7f89607c1bebbb82edde"
+    },
+    {
+      "category": "V1-era document",
+      "from": "CHOICE_PIPELINE.md",
+      "to": "docs/history/CHOICE_PIPELINE.md",
+      "sha256": "fab62301bcc80b409c8c1ae8c39d39e4948280511d948942fa180380a75be6cd"
+    },
+    {
+      "category": "V1-era document",
+      "from": "MIMO_PIPELINES.md",
+      "to": "docs/history/MIMO_PIPELINES.md",
+      "sha256": "fe4f7e5dcc1453d7dd22f5818cdeb67e1a6c0bc4f8c1e7d91079b9c2b5683abc"
+    },
+    {
+      "category": "V1-era document",
+      "from": "CONTINUATION_RUNBOOK.md",
+      "to": "docs/history/CONTINUATION_RUNBOOK.md",
+      "sha256": "d5bc397b1ea35813dbc96a7ac3537b98adb427be3d6b9acad065b4da00e5ea16"
+    },
+    {
+      "category": "V1-era document",
+      "from": "PRETRAINING_13B_PLAN.md",
+      "to": "docs/history/PRETRAINING_13B_PLAN.md",
+      "sha256": "ac5c0d83a07e9d593e8fa36a0906517a5066dfc76b0e9192d6ebbcb86082dddf"
+    },
+    {
+      "category": "V1-era document",
+      "from": "PHASE_EVALUATION.md",
+      "to": "docs/history/PHASE_EVALUATION.md",
+      "sha256": "9a06ab7559832fc453c633929a1fd28e9fe36e4fa308d8f43c6f679bac12cec6"
+    },
+    {
+      "category": "V1-era document",
+      "from": "MODEL_TEST_REPORT.md",
+      "to": "docs/history/MODEL_TEST_REPORT.md",
+      "sha256": "c9e27bcc13982df0f3a419fd03f3975ca53ab2b7662bbdce6d5a94d71b8f029b"
+    },
+    {
+      "category": "V1-era document",
+      "from": "CORPUS_PLAN_10B_PLUS.md",
+      "to": "docs/history/CORPUS_PLAN_10B_PLUS.md",
+      "sha256": "db2ec9dc2cb267fc984b50ca15672d80bfa4ee48343a7a6247903225c168565a"
+    },
+    {
+      "category": "V1 training record (superseded by V2 record)",
+      "from": "BEST_CHECKPOINT_TRAINING.md",
+      "to": "docs/history/V1_BEST_CHECKPOINT_TRAINING.md",
+      "sha256": "57eeb3689e1989fceb2b83a3e3a23c86f148898351cccf39acb82033eb82e887"
+    },
+    {
+      "category": "V1 pipeline guide (superseded)",
+      "from": "CURRENT_PIPELINE.md",
+      "to": "docs/history/V1_CURRENT_PIPELINE.md",
+      "sha256": "4021012b123625d1a55e9128ee47c5fd7c74499a8a849c9fac00cd7d5070cf5c"
+    },
+    {
+      "category": "reference paper",
+      "from": "MiMo_V2_6_technical_report.pdf",
+      "to": "docs/references/MiMo_V2_6_technical_report.pdf",
+      "sha256": "fb81e6e083801b3358f084ed6be953dc23b0d2e434690f4541d5eae03e01e7af"
+    }
+  ]
+}

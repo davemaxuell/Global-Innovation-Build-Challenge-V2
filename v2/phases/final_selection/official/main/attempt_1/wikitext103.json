@@ -1,0 +1,396 @@
+{
+  "schema_version": 1,
+  "metadata": {
+    "kind": "final",
+    "dataset": "Salesforce/wikitext",
+    "configuration": "wikitext-103-raw-v1",
+    "revision": "b08601e04326c79dfdd32d625aee71d232d685c3",
+    "split": "validation",
+    "article_boundary": "level-one heading",
+    "special_tokens": "none added",
+    "first_document_token": "unscored",
+    "model": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/main/export",
+    "context_length": 1024,
+    "stride": 512,
+    "max_predictable_tokens": null,
+    "scoring": "token NLL; exact-once targets"
+  },
+  "metrics": {
+    "fixed_q_nll": 3.1717491889170195,
+    "fixed_q_perplexity": 23.84916458687835,
+    "weights": {
+      "wikitext103": 1.0
+    },
+    "sources": {
+      "wikitext103": {
+        "nll_sum": 855005.257107172,
+        "token_count": 269569,
+        "documents": 60,
+        "nll": 3.1717491889170195,
+        "perplexity": 23.84916458687835
+      }
+    }
+  },
+  "documents": [
+    {
+      "id": "edfdb4087539c8e82ceb2e812321371a8cbe7c8e915f32a7a3c817cc660732c6",
+      "source": "wikitext103",
+      "nll_sum": 6214.3169602548805,
+      "token_count": 2248
+    },
+    {
+      "id": "1290064fc6afbabeb7b2eefa2316750d940e88a9afb4194f4284958587bfbb79",
+      "source": "wikitext103",
+      "nll_sum": 10225.867031512258,
+      "token_count": 3338
+    },
+    {
+      "id": "49987e9c6274b21ff7b175d0c1f6fe9a4b40478b3b6d5e84599e86f3bc093fc1",
+      "source": "wikitext103",
+      "nll_sum": 3436.480354526735,
+      "token_count": 1217
+    },
+    {
+      "id": "409ec58e4301fdef85c33b085cd9bb03da290d5354cc010e2638ef9241d52f50",
+      "source": "wikitext103",
+      "nll_sum": 7017.437327401654,
+      "token_count": 2314
+    },
+    {
+      "id": "acb6225cfbc08cb59e294aa9428c5ab9531718e403cfda9d8707fbfcb3f3920a",
+      "source": "wikitext103",
+      "nll_sum": 40969.52269462458,
+      "token_count": 13773
+    },
+    {
+      "id": "e5a89bd704dd071954c45f9a76fe72b7433987d9a17b270746dd274a10944c35",
+      "source": "wikitext103",
+      "nll_sum": 16169.88768546113,
+      "token_count": 4601
+    },
+    {
+      "id": "1beaa9502c829b3acc4d7ec79336a5da88be8aaf71dbfaa9403dad062d7e67c2",
+      "source": "wikitext103",
+      "nll_sum": 7890.5501228832145,
+      "token_count": 2328
+    },
+    {
+      "id": "df547a0ada41e3ab53d4695424c69161357e17b7c32dc8e6ab082a53839fc3ba",
+      "source": "wikitext103",
+      "nll_sum": 9113.09952871468,
+      "token_count": 3351
+    },
+    {
+      "id": "ee58f6292d020fb03703b9861bf057af3ae39312962baa2e4fa0cb119b7e5984",
+      "source": "wikitext103",
+      "nll_sum": 4812.755679932961,
+      "token_count": 1641
+    },
+    {
+      "id": "af14b82195d2f2c3ae87f29cee57cb09da02db8e54d80e876ed7344233107e8b",
+      "source": "wikitext103",
+      "nll_sum": 5489.57233788701,
+      "token_count": 1802
+    },
+    {
+      "id": "1875ae05bee21c714375ae17fb60f75b8df3a9223c9226a1427f08800ab06d63",
+      "source": "wikitext103",
+      "nll_sum": 10625.54037327187,
+      "token_count": 3273
+    },
+    {
+      "id": "c55b530258033198e52d0014804b172b73cd95fa3a807b1443cd3ed7bd82cc46",
+      "source": "wikitext103",
+      "nll_sum": 5448.752830978774,
+      "token_count": 1737
+    },
+    {
+      "id": "79eeff1a2e5632c42e0701f30c079fb31f0732a9847adecae20b84ed578a1d67",
+      "source": "wikitext103",
+      "nll_sum": 15343.506768729552,
+      "token_count": 4449
+    },
+    {
+      "id": "9ece1ce51384e4a92fbe5fc6b349781e5732311ff9310805ca145b0205f9e0ba",
+      "source": "wikitext103",
+      "nll_sum": 12473.622446783535,
+      "token_count": 4459
+    },
+    {
+      "id": "0575f0ec84e6c256d9e25484eb91e76f7fc227e636196be16be219cfbfaa2258",
+      "source": "wikitext103",
+      "nll_sum": 5686.66704563018,
+      "token_count": 2025
+    },
+    {
+      "id": "e028803a35d8bb7245c07c339d0155833ca81e50add3aad6742054de75f92265",
+      "source": "wikitext103",
+      "nll_sum": 4804.024083131051,
+      "token_count": 1601
+    },
+    {
+      "id": "c2630a36344091e209f96fbf328d38fb18c876bdb259811e2a34efb12625b4ae",
+      "source": "wikitext103",
+      "nll_sum": 9235.445199262802,
+      "token_count": 2796
+    },
+    {
+      "id": "6d0e2b405c4a2b28179b44f7dd6b653ab425e2b71b0e3e9ddefc011395da3c33",
+      "source": "wikitext103",
+      "nll_sum": 3455.4738674807595,
+      "token_count": 1195
+    },
+    {
+      "id": "b8bdd9c3b837b299adc27ff76a1d77eb38968ae6d08b43e882848954292dab02",
+      "source": "wikitext103",
+      "nll_sum": 14893.828247903279,
+      "token_count": 4702
+    },
+    {
+      "id": "b8d1207ca04e593a108cf2311565b5b3d01ba0fd706536967e7d7ba90ed5288f",
+      "source": "wikitext103",
+      "nll_sum": 5365.283531785681,
+      "token_count": 1610
+    },
+    {
+      "id": "3adf4e74ae9dfeba4ae3efea35bf28fa197a1379c9350b1c9846103fea8de124",
+      "source": "wikitext103",
+      "nll_sum": 8741.774240147468,
+      "token_count": 3064
+    },
+    {
+      "id": "8223ccbbdbacf1c23c86684ac0a275bed202c8c18fef091ac697819750352aac",
+      "source": "wikitext103",
+      "nll_sum": 21942.808391109058,
+      "token_count": 6978
+    },
+    {
+      "id": "8bf3645c0054c9bcf279cd1c6d0ed364863d2e6ea63aa8fd2b0066be58f68c37",
+      "source": "wikitext103",
+      "nll_sum": 25443.8209609622,
+      "token_count": 8573
+    },
+    {
+      "id": "f3791699c1dec50cda94eacb9ea118ad9753eb834e2320d3e7eaa0084af6a58d",
+      "source": "wikitext103",
+      "nll_sum": 4815.3307962498475,
+      "token_count": 1614
+    },
+    {
+      "id": "f1b6d203faeb8a97b8af9d91aebc358d5b06010156478bbf34a2706cafa87491",
+      "source": "wikitext103",
+      "nll_sum": 23823.465582118908,
+      "token_count": 7045
+    },
+    {
+      "id": "90b21b730a30bf0190223c5e3b475fd0ba874788dc2ce0a7737f687177ba1d40",
+      "source": "wikitext103",
+      "nll_sum": 42218.79858521359,
+      "token_count": 13795
+    },
+    {
+      "id": "f9eb2696ca3edf69f3e1f4422b6500c1f27e34e47296182ea2d79366ba8b32c8",
+      "source": "wikitext103",
+      "nll_sum": 4238.044806516162,
+      "token_count": 1540
+    },
+    {
+      "id": "fdd9723fa56ff21692190ad8b98fd99057ba36baab099a7ae170a8a7b9c20346",
+      "source": "wikitext103",
+      "nll_sum": 6486.462545542177,
+      "token_count": 2093
+    },
+    {
+      "id": "fd63787c2fc961ea8fa56c0d356cce66911487bc41e7a3943a3869fc42accb69",
+      "source": "wikitext103",
+      "nll_sum": 29319.79113034281,
+      "token_count": 9208
+    },
+    {
+      "id": "41f2139d4917184fa32a76f86f5a2417764a51f9f3c5c9d5dcea746a704f7382",
+      "source": "wikitext103",
+      "nll_sum": 13580.51140282904,
+      "token_count": 4531
+    },
+    {
+      "id": "7a674ec458c053f7a23c7ec8ff1b4d123b9754fd765c473b9a92348861bea108",
+      "source": "wikitext103",
+      "nll_sum": 6768.792039110122,
+      "token_count": 2044
+    },
+    {
+      "id": "78f329b5dc26b5916a61c0a5482df1687c08eb89e5cf6170889f6a33914bfa77",
+      "source": "wikitext103",
+      "nll_sum": 11813.679172327713,
+      "token_count": 4021
+    },
+    {
+      "id": "605172ed0f00bb44fb1931a1c04440fcc7c00a2c37f91c63bc781c6c37331627",
+      "source": "wikitext103",
+      "nll_sum": 26420.35277400374,
+      "token_count": 7873
+    },
+    {
+      "id": "68c2068c0ddc5c6e29b36e3ee31efc4365dc8f9c6b104d0cffc7224912481087",
+      "source": "wikitext103",
+      "nll_sum": 8174.5907891902025,
+      "token_count": 2451
+    },
+    {
+      "id": "ae864451d7f8521b81ec84a3a0c52d85ae6e84feb49d2a9ee68abea5f2d4ed9f",
+      "source": "wikitext103",
+      "nll_sum": 15057.19359538364,
+      "token_count": 4671
+    },
+    {
+      "id": "5e5e2f23bd84921c8d19c07ea08c040654231b43e6c2357b7e92f0c680c60bd2",
+      "source": "wikitext103",
+      "nll_sum": 12618.54130506274,
+      "token_count": 3955
+    },
+    {
+      "id": "3958f04399b9583401d53986e5e10ecf0ded0b7f6294f83f802601db3343fedb",
+      "source": "wikitext103",
+      "nll_sum": 13099.51874494784,
+      "token_count": 3885
+    },
+    {
+      "id": "bd960e24756de41556b807f287a174f9280ea34f205190269db76a5516d99235",
+      "source": "wikitext103",
+      "nll_sum": 5673.513966832688,
+      "token_count": 1749
+    },
+    {
+      "id": "9ac1b9a3b1c817aee8768db95eb8e94d933c5e1c86db4855162c728738478d1d",
+      "source": "wikitext103",
+      "nll_sum": 16147.223719775742,
+      "token_count": 5155
+    },
+    {
+      "id": "f01db52af3ca470b49b459e7eb84c0555f7feba4be5923b4878f56b958f512fc",
+      "source": "wikitext103",
+      "nll_sum": 18230.570305392648,
+      "token_count": 5518
+    },
+    {
+      "id": "f7b1d4d8814a2b612a7646b2469fabfa6d72cc7bab75b4557b6695e05a0ff8b7",
+      "source": "wikitext103",
+      "nll_sum": 8966.924129619896,
+      "token_count": 2531
+    },
+    {
+      "id": "635869121d04fb7427a1c40e1a5551c29fa03dc12efda3877c7bc3a55b1fa18d",
+      "source": "wikitext103",
+      "nll_sum": 19485.47288003652,
+      "token_count": 6451
+    },
+    {
+      "id": "c8610129302b663058eee7aec8625a19ac93280a40b181eaf2595de5b5309a38",
+      "source": "wikitext103",
+      "nll_sum": 23672.83977134156,
+      "token_count": 7233
+    },
+    {
+      "id": "8774c52338dc6a205ffea720d92e71d294e065c422031c750ebf9b6c84d2def3",
+      "source": "wikitext103",
+      "nll_sum": 8367.04348563624,
+      "token_count": 2542
+    },
+    {
+      "id": "2cda75165a1637ae925b596024cc4e0e2ea90af50ffe58fc62fdc2be3b5170b8",
+      "source": "wikitext103",
+      "nll_sum": 19583.21349155088,
+      "token_count": 5884
+    },
+    {
+      "id": "88a9489672a37e9aff9d417afb2a9ac3dfe120e253986cc866c6d32bacf6408a",
+      "source": "wikitext103",
+      "nll_sum": 6074.734706210365,
+      "token_count": 2124
+    },
+    {
+      "id": "98ac054fdd11301c7de0551957d182931b2f0bcdbcfc78fcfb1044975c333cce",
+      "source": "wikitext103",
+      "nll_sum": 73888.363408873,
+      "token_count": 23036
+    },
+    {
+      "id": "bee455564ff53ebf1f2d23aaebd936e696a4f71a9a446234da5aafab4975aad8",
+      "source": "wikitext103",
+      "nll_sum": 27906.715846923034,
+      "token_count": 9227
+    },
+    {
+      "id": "d15e523860f3e83781e0fbedbb291c0d50b36745e014330e9b3d2e2d2617be11",
+      "source": "wikitext103",
+      "nll_sum": 7388.874056665678,
+      "token_count": 2352
+    },
+    {
+      "id": "37e0dbfd7fdc464d6e467a917979c830e810a4a076a3f16f252a89f91bee914f",
+      "source": "wikitext103",
+      "nll_sum": 3308.0975546047557,
+      "token_count": 954
+    },
+    {
+      "id": "2353f1aaf094e7744826b255d6ff162e9fb8aa30eeb435e2430b6b774253c659",
+      "source": "wikitext103",
+      "nll_sum": 7154.05639861885,
+      "token_count": 2162
+    },
+    {
+      "id": "4e1bd5548d92e2f8c78bdfdcb6ed1dc847091f92fb28bd53c7c86eac21e8edfd",
+      "source": "wikitext103",
+      "nll_sum": 17369.53323516957,
+      "token_count": 5333
+    },
+    {
+      "id": "9698aa74c61d6cc9fd9794a0b1d325e091ee350a21e88b37fbe3a3d8d22a63cc",
+      "source": "wikitext103",
+      "nll_sum": 5676.3362661830615,
+      "token_count": 1565
+    },
+    {
+      "id": "efb6b3e4cb9b49e169ebf46bfc3e0c5dd7bf1b3c418564650399f8bdaf77ca78",
+      "source": "wikitext103",
+      "nll_sum": 13142.57080735414,
+      "token_count": 3804
+    },
+    {
+      "id": "f940165a2a8ec89d50ef5aa5ce3ea72c4b02f00bcbd1c61c54e348effa251a7a",
+      "source": "wikitext103",
+      "nll_sum": 20763.837858709943,
+      "token_count": 6247
+    },
+    {
+      "id": "0917a62950882aea92a4e2dd78b151bd83a44f14cef40401df0f471fa91b7fe4",
+      "source": "wikitext103",
+      "nll_sum": 10913.898000986206,
+      "token_count": 3371
+    },
+    {
+      "id": "9f149ca1bcb243bd8fe43cf4745b8506085f053b435d315c4725f0d9ff948424",
+      "source": "wikitext103",
+      "nll_sum": 24176.229597615275,
+      "token_count": 7243
+    },
+    {
+      "id": "5373efc0f7410c0d93e43372b8bc29587ebb7feb3844b6a477e7ed80fd3cfb62",
+      "source": "wikitext103",
+      "nll_sum": 17143.889343959483,
+      "token_count": 5477
+    },
+    {
+      "id": "f94e521f76fc46a83e3f5ce3ef674e0ef54eded80614b8ad59bea382e960b1d8",
+      "source": "wikitext103",
+      "nll_sum": 15725.313701485124,
+      "token_count": 4459
+    },
+    {
+      "id": "8577ad2fe841888a1412f3e5ce3be5d96fee734e86c3ce152d43fd20cee0c89f",
+      "source": "wikitext103",
+      "nll_sum": 11010.893594413297,
+      "token_count": 3351
+    }
+  ]
+}

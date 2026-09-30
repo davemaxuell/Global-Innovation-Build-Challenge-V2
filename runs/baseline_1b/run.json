@@ -1,0 +1,120 @@
+{
+  "config": {
+    "seed": 20260923,
+    "model_config": "configs/model.json",
+    "data_manifest": "data/processed/main/manifest.json",
+    "run_dir": "runs/baseline_1b",
+    "arm": "B0",
+    "target_tokens": 1000000000,
+    "sequence_length": 1024,
+    "batch_sequences": 64,
+    "microbatch_sequences": 8,
+    "web_share": 0.8,
+    "learning_rate": 0.0006,
+    "min_lr_ratio": 0.1,
+    "warmup_fraction": 0.02,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "adam_epsilon": 1e-08,
+    "weight_decay": 0.1,
+    "gradient_clip": 1.0,
+    "checkpoint_every": 250,
+    "log_every": 10,
+    "validation_every": 500,
+    "validation_documents_per_source": 32,
+    "max_wall_hours": 30,
+    "compile": false,
+    "deterministic": true,
+    "controller": false,
+    "max_source_epochs": 1.0
+  },
+  "model_config": {
+    "vocab_size": 16384,
+    "hidden_size": 512,
+    "intermediate_size": 1376,
+    "num_hidden_layers": 12,
+    "num_attention_heads": 8,
+    "num_key_value_heads": 8,
+    "max_position_embeddings": 1024,
+    "rms_norm_eps": 1e-05,
+    "rope_theta": 10000.0,
+    "tie_word_embeddings": true,
+    "attention_bias": false,
+    "mlp_bias": false,
+    "attention_dropout": 0.0,
+    "initializer_range": 0.02,
+    "attn_implementation": "sdpa",
+    "max_parameters": 50000000,
+    "seed": 20260923,
+    "pad_token_id": 0,
+    "bos_token_id": 1,
+    "eos_token_id": 2
+  },
+  "parameter_count": 46346752,
+  "initialization": "new random model weights; no external pretrained checkpoint",
+  "exact_target_tokens": 999948288,
+  "token_unit": "loss-bearing next-token targets; separators included; no padding in packed training",
+  "manifest_sha256": "180e9ff1acb02c12aa677dee84f92f443aa6fb0ed8d304875677ab9266d5f9e1",
+  "tokenizer_sha256": "1d714be4561ca083ef3cb668be7cffa38caa158c0315c22907647cd4f0f9013b",
+  "train_shard_sha256": {
+    "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/data/processed/main/web/train.bin": "e7fc0b2ebf31fbb7db470fc48ece002938fa20c485078a012adb23bed4e45844",
+    "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/data/processed/main/wiki/train.bin": "d6742d7e0ddd90f88ec4fbac88151087c5d4db645cfc2e4c49619d5515f74df3"
+  },
+  "science_digest": "8dff7302abc68a01539ddc3f6e0f67cfa7f4900f4d6ee070381e13e7f222eb97",
+  "source_sha256": {
+    "src/scglm/__init__.py": "a622b5331ef5679a3b4ca7c35885f6845be0aee6709318a604c093789156c425",
+    "src/scglm/controller.py": "0ef5b192925ee7bc4b5ed31f4601dd1fa4bee9f22093e64f29a8dfac3e06c8d3",
+    "src/scglm/data.py": "ab1dbfa479e78fbfad46574b3948ffa099d05ae9e5379d0f1f5be5505769e63a",
+    "src/scglm/evaluate.py": "2f9082f1954a41eb569ff86a8080aa670109c0d0a1824a030de77477b6e13dc8",
+    "src/scglm/model.py": "99121e7eb5f6b53d2663341e8033ac283e149cdc4fcba36f5add46db973773ba",
+    "src/scglm/prepare_data.py": "6988dc3f7c982a8808d561afb5cfde1063a8acbf833dc1a246231d1eb8e76d60",
+    "src/scglm/status.py": "df4c4e53dac83bd0031cd4598cd14440a32463250c0b60a347a9e204d88df48f",
+    "src/scglm/train.py": "7f45a45d2d3aeef9e8b8f2e8d53c8e4c43902741bf12bcb24964d44553d4d541"
+  },
+  "versions": {
+    "torch": "2.10.0",
+    "transformers": "5.5.4",
+    "datasets": "4.8.4",
+    "tokenizers": "0.22.2",
+    "numpy": "2.2.6",
+    "safetensors": "0.8.0",
+    "lm_eval": "0.4.12"
+  },
+  "runtime_fingerprint": {
+    "versions": {
+      "torch": "2.10.0",
+      "transformers": "5.5.4",
+      "datasets": "4.8.4",
+      "tokenizers": "0.22.2",
+      "numpy": "2.2.6",
+      "safetensors": "0.8.0"
+    },
+    "numerics": {
+      "deterministic_algorithms": true,
+      "cublas_workspace_config": ":4096:8",
+      "cuda_matmul_allow_tf32": true,
+      "cudnn_deterministic": true,
+      "cudnn_benchmark": false,
+      "torch_runtime": "2.10.0+cu128",
+      "cuda_runtime": "12.8"
+    },
+    "source_sha256": {
+      "__init__.py": "a622b5331ef5679a3b4ca7c35885f6845be0aee6709318a604c093789156c425",
+      "controller.py": "0ef5b192925ee7bc4b5ed31f4601dd1fa4bee9f22093e64f29a8dfac3e06c8d3",
+      "data.py": "ab1dbfa479e78fbfad46574b3948ffa099d05ae9e5379d0f1f5be5505769e63a",
+      "evaluate.py": "2f9082f1954a41eb569ff86a8080aa670109c0d0a1824a030de77477b6e13dc8",
+      "model.py": "99121e7eb5f6b53d2663341e8033ac283e149cdc4fcba36f5add46db973773ba",
+      "prepare_data.py": "6988dc3f7c982a8808d561afb5cfde1063a8acbf833dc1a246231d1eb8e76d60",
+      "status.py": "df4c4e53dac83bd0031cd4598cd14440a32463250c0b60a347a9e204d88df48f",
+      "train.py": "7f45a45d2d3aeef9e8b8f2e8d53c8e4c43902741bf12bcb24964d44553d4d541"
+    }
+  },
+  "torch_runtime": "2.10.0+cu128",
+  "cuda_runtime": "12.8",
+  "cuda_visible_devices": "0",
+  "gpu": "NVIDIA H100 NVL",
+  "created_at_unix": 1790098011.5277047,
+  "ai_assistance": "Codex/ChatGPT assisted research, implementation, tests, and documentation."
+}

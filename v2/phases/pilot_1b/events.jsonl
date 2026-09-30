@@ -1,0 +1,2 @@
+{"time": "2026-09-29T08:41:52.366399+00:00", "event": "pilot_restarted", "reason": "manifest panel fix before first optimizer update"}
+{"time": "2026-09-29T09:31:44.998188+00:00", "event": "pilot_gate", "decision": "GO", "proxy_mean_acc": {"v1_1b": 0.4291372017353579, "v2_pilot": 0.4331447939262473, "difference": 0.004007592190889364}}

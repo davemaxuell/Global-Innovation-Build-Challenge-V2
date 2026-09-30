@@ -1,0 +1,19 @@
+torch==2.10.0
+transformers==5.5.4
+datasets==4.8.4
+tokenizers==0.22.2
+safetensors==0.8.0
+huggingface-hub==1.29.0
+numpy==2.2.6
+pyarrow==23.0.0
+pytest==9.0.3
+lm_eval==0.4.12
+scipy==1.15.3
+PyYAML==6.0.2
+accelerate==1.13.0
+lmdb==2.1.1
+xxhash==3.6.0
+zstandard==0.25.0
+matplotlib==3.10.8
+# Direct dependency pins for this workspace. Full installed versions are in
+# artifacts/environment_versions.json; the measured torch runtime uses CUDA 12.8.

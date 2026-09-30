@@ -1,0 +1,8 @@
+[2026-09-29 23:37:29] waiting for v2/runs/main to complete
+[2026-10-01 04:11:41] main run complete
+{"out": "v2/phases/anneal_quality/config.json", "parent_checkpoint": "v2/runs/main/milestones/milestone_decay_start_617981.pt", "parent_checkpoint_sha256": "175d1e297a97569c0546ae491c4a0498890cd9bb303a22b52d4edab06b4bb0c6"}
+[2026-10-01 04:11:45] anneal branch attempt 1
+[2026-10-01 07:23:15] selection
+[2026-10-01 07:41:20] official evaluation: main (attempt 1)
+[2026-10-01 07:47:41] official evaluation: anneal_quality (attempt 1)
+[2026-10-01 07:54:17] CHAIN_DONE

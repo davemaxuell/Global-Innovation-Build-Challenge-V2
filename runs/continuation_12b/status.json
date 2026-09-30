@@ -1,0 +1,32 @@
+{
+  "status": "completed",
+  "pid": 2400579,
+  "step": 167848,
+  "main_tokens": 11000086528,
+  "target_tokens": 11000086528,
+  "probe_tokens": 0,
+  "total_training_tokens": 11000086528,
+  "training_tokens_spent": 11000086528,
+  "controller_seconds": 0.0,
+  "probe_seconds": 0.0,
+  "controller_windows_done": [],
+  "source_tokens": {
+    "edu": 6599310336,
+    "dclm": 3301002240,
+    "wiki": 1099773952
+  },
+  "web_share": null,
+  "source_weights": {
+    "edu": 0.6,
+    "dclm": 0.3,
+    "wiki": 0.1
+  },
+  "parent_tokens": 999948288,
+  "cumulative_tokens": 12000034816,
+  "cumulative_target_tokens": 12000034816,
+  "elapsed_seconds": 80348.64583805576,
+  "updated_unix": 1790219212.2184663,
+  "parameter_count": 46346752,
+  "peak_cuda_memory_bytes": 5373310464,
+  "loss": 3.175988644361496
+}

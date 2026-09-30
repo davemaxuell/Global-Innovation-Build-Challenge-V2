@@ -1,0 +1,43 @@
+{
+  "phase_id": "v2_main_20260929",
+  "state": "launched",
+  "objective": "V2 base model for competition benchmarks: scratch pretraining on the V2 rich corpus with a WSD schedule.",
+  "parent_checkpoint": null,
+  "data": {
+    "manifest": "v2/data/rich_v1/manifest.json",
+    "sha256": "6749a2f1e2c3fe574febf0c1d08fb99d87d6e226c995aedd0d4ae71921496a68",
+    "unique_tokens": 22454098645
+  },
+  "recipe": "v2/configs/main.json (12x512, AdamW, peak LR 6e-4, 500 warmup steps, constant, linear decay to 0 over ~10% of steps when v2/runs/main/decay.json is written)",
+  "compute_limits": {
+    "gpu": "GPU-78815613-815b-f56b-27c0-6bc239e093fc",
+    "max_wall_hours": 44,
+    "token_ceiling": 45000000000,
+    "max_source_epochs": 4.0
+  },
+  "decay_options": {
+    "internal_target_sep30_2000_kst": "start decay ~Sep 30 13:30 KST, ~17B tokens",
+    "devpost_cutoff_oct2_0045_kst": "start decay ~Oct 1 09:00 KST, ~38-40B tokens"
+  },
+  "selection": "Development only: V2 development panels (bits/byte) and held-out benchmark TRAIN items (scglm_v2.devevaluate). Candidates: final export and any stable-phase decay branch. Frozen before official evaluation.",
+  "official_reporting": "configs/evaluation.json protocol after the frozen choice; reported next to V1 13B base. V1 official scores were observed previously (disclosed).",
+  "output_dir": "v2/runs/main",
+  "launch": "CUDA_VISIBLE_DEVICES=GPU-78815613-815b-f56b-27c0-6bc239e093fc PYTHONPATH=src:v2/src python -m scglm_v2.train --config v2/configs/main.json",
+  "resume": "same command with --resume v2/runs/main/checkpoint_latest.json",
+  "launched_kst": "2026-09-29T20:13:09+09:00",
+  "user_decisions": {
+    "launch": "approved 2026-09-29 ~20:13 KST",
+    "wikipedia_share": "0.10 as registered",
+    "decay_deadline": "User 2026-09-29 ~20:55 KST: 'just run the training, don't worry about the deadline' -> run to the 45B ceiling"
+  },
+  "decay_plan": {
+    "file": "v2/runs/main/decay.json",
+    "decay_start_step": 617981,
+    "decay_start_tokens": 40500002816,
+    "decay_steps": 68664,
+    "end_step": 686645,
+    "end_tokens": 44999966720,
+    "shape": "linear to 0 (registered 10%)"
+  },
+  "supervision": "v2/supervise_main.sh in tmux gibc-v2-supervisor: auto-resume on failure or killed process, max 3; never resumes a deliberate pause"
+}

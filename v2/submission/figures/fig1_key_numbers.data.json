@@ -1,0 +1,29 @@
+{
+  "tiles": [
+    {
+      "label": "Parameters (cap 50M)",
+      "value": "46.3M",
+      "detail": "tied embeddings, 12 layers x 512"
+    },
+    {
+      "label": "Pretraining tokens",
+      "value": "45.0B",
+      "detail": "V1: 13.0B"
+    },
+    {
+      "label": "Training throughput",
+      "value": "395k tok/s",
+      "detail": "2.9x V1 (137k) \u00b7 one H100"
+    },
+    {
+      "label": "Unique corpus tokens",
+      "value": "22.5B",
+      "detail": "6 human-written sources"
+    }
+  ],
+  "sources": [
+    "v2/runs/main/status.json",
+    "runs/continuation_12b/status.json",
+    "v2/data/rich_v1/manifest.json"
+  ]
+}

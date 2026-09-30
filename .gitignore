@@ -1,0 +1,53 @@
+# Python / tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.venv/
+.env
+
+# Weights and binary checkpoints (GitHub rejects files > 100 MB; publish weights separately)
+*.safetensors
+*.pt
+*.bin
+
+# Large prepared data and historical evidence kept locally
+data/
+artifacts/
+v2/data/*
+!v2/data/rich_v1/
+v2/data/rich_v1/*
+!v2/data/rich_v1/manifest.json
+!v2/data/rich_v1/diversity_report.json
+!v2/data/rich_v1/targeted/
+v2/data/rich_v1/targeted/*
+!v2/data/rich_v1/targeted/classifier.json
+!v2/data/rich_v1/targeted/selected_examples.json
+!v2/data/rich_v1/tokenizer_study/
+v2/data/rich_v1/tokenizer_study/*
+!v2/data/rich_v1/tokenizer_study/decision.json
+!v2/data/rich_v1/benchmarks/
+v2/data/rich_v1/benchmarks/*
+!v2/data/rich_v1/benchmarks/report.json
+!v2/data/rich_v1/downloads/
+v2/data/rich_v1/downloads/*
+!v2/data/rich_v1/downloads/plan.json
+
+# V1 runs: keep only the small run records
+runs/*
+!runs/*/
+runs/*/*
+!runs/*/run.json
+!runs/*/status.json
+
+# V2 runs: full per-step logs are too large; events_summary.jsonl is committed instead
+v2/runs/*/events.jsonl
+v2/runs/*/checkpoints/
+
+# Per-sample harness logs (tens of MB each); results and summaries are committed
+**/harness/**/samples_*.jsonl
+
+# Vendored dependencies (see "Setup" in CURRENT_PIPELINE.md) and local-only files
+vendor/
+archive/pre_reorg_2026-10-01/
+docs/references/*.pdf

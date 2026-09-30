@@ -1,0 +1,41 @@
+{
+  "rows": [
+    {
+      "bucket": "dclm",
+      "label": "DCLM (web)",
+      "unique_tokens": 8286499743,
+      "training_share": 0.35
+    },
+    {
+      "bucket": "edu",
+      "label": "FineWeb-Edu",
+      "unique_tokens": 6023274513,
+      "training_share": 0.3
+    },
+    {
+      "bucket": "targeted",
+      "label": "Benchmark-targeted",
+      "unique_tokens": 3521067924,
+      "training_share": 0.15
+    },
+    {
+      "bucket": "wiki",
+      "label": "Wikipedia",
+      "unique_tokens": 2020057734,
+      "training_share": 0.1
+    },
+    {
+      "bucket": "stackexchange",
+      "label": "StackExchange",
+      "unique_tokens": 1613083489,
+      "training_share": 0.05
+    },
+    {
+      "bucket": "books",
+      "label": "Gutenberg books",
+      "unique_tokens": 990115242,
+      "training_share": 0.05
+    }
+  ],
+  "source": "v2/data/rich_v1/manifest.json"
+}

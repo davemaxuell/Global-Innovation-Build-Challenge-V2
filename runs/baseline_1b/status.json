@@ -1,0 +1,23 @@
+{
+  "status": "completed",
+  "pid": 2124348,
+  "step": 15258,
+  "main_tokens": 999948288,
+  "target_tokens": 999948288,
+  "probe_tokens": 0,
+  "total_training_tokens": 999948288,
+  "training_tokens_spent": 999948288,
+  "controller_seconds": 0.0,
+  "probe_seconds": 0.0,
+  "controller_windows_done": [],
+  "source_tokens": {
+    "web": 799876096,
+    "wiki": 200072192
+  },
+  "web_share": 0.8,
+  "elapsed_seconds": 7521.651500744745,
+  "updated_unix": 1790105560.710969,
+  "parameter_count": 46346752,
+  "peak_cuda_memory_bytes": 5376620032,
+  "loss": 3.361769139766693
+}

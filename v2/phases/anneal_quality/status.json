@@ -1,0 +1,1 @@
+{"phase_id": "v2_anneal_quality_20260929", "state": "completed", "outcome": "not selected (development gain +0.07 pt < required +0.5 pt)", "steps": 68664, "branch_tokens": 4499963904, "cumulative_tokens": 44999966720, "hours": 3.19, "export_model_sha256": "cbb7d03cf06f0c2a4d15a9da6ca4fc93d684113d30ed8ff165d95760f6183cc9"}

@@ -1,0 +1,169 @@
+{
+  "phase_id": "v2_rich_prep_20260929",
+  "seed": 20260923,
+  "output_dir": "v2/data/rich_v1",
+  "download_workers": 8,
+  "reuse": {
+    "extension_manifest": "data/processed/extension_12b/manifest.json",
+    "extension_manifest_sha256": "70242a0a248787d31d56c73af3733ccafadaa9816b09ca0508ec487f1fd37c6d",
+    "extension_dedup_lmdb": "data/processed/extension_12b/dedup.lmdb",
+    "exclusion_index": "data/processed/main/exclusion_index.pkl",
+    "exclusion_index_sha256": "9d3a5a05cb2fc62c599f8f7ab09aa44d48836a0f975bead90412efe491420306",
+    "note": "Reused raw text already passed exact/URL/MinHash dedup and 13-word benchmark exclusion in the V1 extension; original files are read-only inputs."
+  },
+  "domain_blocklist": [
+    "wikihow.com",
+    "instructables.com"
+  ],
+  "domain_blocklist_reason": "HellaSwag contexts derive from WikiHow; PIQA derives from instructables.com. Blocked in every source, including reused text.",
+  "sources": {
+    "edu": {
+      "repo": "HuggingFaceFW/fineweb-edu",
+      "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+      "metadata_file": "artifacts/corpus_research/HuggingFaceFW--fineweb-edu.json",
+      "file_prefix": "sample/100BT/",
+      "reuse_extension_source": "edu",
+      "extension_files_consumed": 12,
+      "new_files": 0,
+      "license_notice": "ODC-By 1.0; Common Crawl terms apply",
+      "new_files_note": "Reduced from 6 to 0 on 2026-09-29: measured download ~6 MB/s authenticated; reused 8.0B FineWeb-Edu tokens already exceed the 6B unique-token goal."
+    },
+    "dclm": {
+      "repo": "mlfoundations/dclm-baseline-1.0",
+      "revision": "a3b142c183aebe5af344955ae20836eb34dcf69b",
+      "metadata_file": "artifacts/corpus_research/mlfoundations--dclm-baseline-1.0.json",
+      "file_prefix": "global-shard_",
+      "reuse_extension_source": "dclm",
+      "extension_files_consumed": 29,
+      "new_files": 43,
+      "license_notice": "CC-BY-4.0; underlying web content rights apply"
+    },
+    "wiki": {
+      "repo": "wikimedia/wikipedia",
+      "revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+      "reuse_extension_source": "wiki",
+      "reuse_main_raw": "data/processed/main/raw/wiki.train.jsonl",
+      "new_files": 0,
+      "license_notice": "CC-BY-SA 3.0/GFDL; preserve article URLs"
+    },
+    "stackexchange": {
+      "repo": "HuggingFaceTB/stackexchange_2025_md",
+      "revision": "fe382c48856f4eae5d8402cd4aa9be55ee1e1ee0",
+      "site_allowlist": [
+        "english",
+        "ell",
+        "diy",
+        "cooking",
+        "gardening",
+        "bicycles",
+        "outdoors",
+        "travel",
+        "parenting",
+        "pets",
+        "lifehacks",
+        "physics",
+        "biology",
+        "chemistry",
+        "earthscience",
+        "astronomy",
+        "space",
+        "history",
+        "hsm",
+        "skeptics",
+        "worldbuilding",
+        "scifi",
+        "movies",
+        "music",
+        "photo",
+        "fitness",
+        "health",
+        "medicalsciences",
+        "law",
+        "money",
+        "workplace",
+        "interpersonal",
+        "academia",
+        "philosophy",
+        "linguistics",
+        "writing",
+        "literature",
+        "boardgames",
+        "sustainability",
+        "woodworking",
+        "mechanics",
+        "electronics",
+        "cogsci",
+        "psychology",
+        "politics",
+        "economics",
+        "expatriates",
+        "aviation",
+        "sports",
+        "homebrew",
+        "crafts",
+        "gaming",
+        "puzzling",
+        "genealogy",
+        "anthropology",
+        "coffee",
+        "tea",
+        "martialarts",
+        "chess"
+      ],
+      "site_policy": "English, mostly non-code everyday/science/language communities; Stack Overflow, non-English and programming/admin sites excluded.",
+      "license_notice": "Stack Exchange user content CC-BY-SA 4.0 (attribution required)"
+    },
+    "books": {
+      "repo": "manu/project_gutenberg",
+      "revision": "164853d214065df26a630ee1ab91a0c39e461caf",
+      "file_prefix": "data/en-",
+      "new_files": 12,
+      "chunk_chars": 20000,
+      "license_notice": "Project Gutenberg public-domain texts; Gutenberg header/footer boilerplate removed"
+    }
+  },
+  "targeted": {
+    "pool_sources": [
+      "edu",
+      "dclm"
+    ],
+    "top_fraction": 0.2,
+    "classifier": "fastText bigram linear classifier; positives = benchmark TRAIN-split texts (80% of each), negatives = random pool passages of matched length",
+    "positive_sets": [
+      "ARC-Easy train",
+      "ARC-Challenge train",
+      "PIQA train",
+      "HellaSwag train",
+      "WinoGrande train",
+      "OpenBookQA train",
+      "SciQ train",
+      "CommonsenseQA train",
+      "SocialIQA train"
+    ],
+    "development_holdout_fraction": 0.2,
+    "note": "Held-out 20% of each benchmark train split forms the V2 development proxy panel and is never used by the classifier. Official evaluation splits are never used."
+  },
+  "planned_training_shares": {
+    "dclm": 0.35,
+    "edu": 0.3,
+    "targeted": 0.15,
+    "wiki": 0.1,
+    "stackexchange": 0.05,
+    "books": 0.05
+  },
+  "tokenizer_study": {
+    "vocab_candidates": [
+      16384,
+      20480
+    ],
+    "training_chars": 2000000000,
+    "adopt_if_bytes_per_token_gain_at_least": 0.02,
+    "baseline_tokenizer": "data/processed/main/tokenizer/tokenizer.json"
+  },
+  "panels_per_source": {
+    "monitor": 128,
+    "development": 512,
+    "selection": 512,
+    "final": 512
+  }
+}

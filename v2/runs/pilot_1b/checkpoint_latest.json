@@ -1,0 +1,7 @@
+{
+  "path": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/pilot_1b/checkpoints/step_0015258_1790673948303384541.pt",
+  "sha256": "0747ed7578cdfd8ff9876753592f50bc80dd5d13cbc8144d9d324c7c00d0705a",
+  "step": 15258,
+  "main_tokens": 999948288,
+  "reason": "complete"
+}

@@ -1,0 +1,20 @@
+{
+  "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/main",
+  "step": 686645,
+  "main_tokens": 44999966720,
+  "probe_tokens": 0,
+  "training_tokens_spent": 45131038720,
+  "science_digest": "b5bc1cea97a7d17db94e00f48efc7343543f3c322ce3ea85a38451ed1b340da4",
+  "tokenizer_sha256": "1d714be4561ca083ef3cb668be7cffa38caa158c0315c22907647cd4f0f9013b",
+  "initialization": "scratch",
+  "source_token_counts": {
+    "dclm": 15747631104,
+    "edu": 13499219968,
+    "targeted": 6753447936,
+    "wiki": 4502865920,
+    "stackexchange": 2245974016,
+    "books": 2250827776
+  },
+  "parent": null,
+  "cumulative_tokens": 44999966720
+}

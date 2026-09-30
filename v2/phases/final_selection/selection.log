@@ -1,0 +1,5 @@
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 10194.07it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9387.24it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"selected": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/main", "reason": "baseline: proxy gain +0.0007 (needs >= 0.005), wiki bpb change -0.0046 (limit 0.01)", "proxy": {"/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/main": 0.4592, "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/anneal_quality": 0.4599}}

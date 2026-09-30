@@ -1,0 +1,37 @@
+{
+  "status": "running",
+  "pid": 2385261,
+  "step": 0,
+  "main_tokens": 0,
+  "target_tokens": 999948288,
+  "probe_tokens": 0,
+  "total_training_tokens": 0,
+  "training_tokens_spent": 0,
+  "controller_seconds": 0.0,
+  "probe_seconds": 0.0,
+  "controller_windows_done": [],
+  "source_tokens": {
+    "dclm": 0,
+    "edu": 0,
+    "targeted": 0,
+    "wiki": 0,
+    "stackexchange": 0,
+    "books": 0
+  },
+  "web_share": null,
+  "source_weights": {
+    "dclm": 0.35,
+    "edu": 0.3,
+    "targeted": 0.15,
+    "wiki": 0.1,
+    "stackexchange": 0.05,
+    "books": 0.05
+  },
+  "parent_tokens": 0,
+  "cumulative_tokens": 0,
+  "cumulative_target_tokens": 999948288,
+  "elapsed_seconds": 38.95190082676709,
+  "updated_unix": 1790671224.051868,
+  "parameter_count": 46346752,
+  "peak_cuda_memory_bytes": 185388032
+}

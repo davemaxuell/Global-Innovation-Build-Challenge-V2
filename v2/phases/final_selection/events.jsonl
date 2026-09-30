@@ -1,0 +1,6 @@
+{"time": "2026-09-29T14:37:29.282074+00:00", "event": "rules_confirmed", "by": "user", "note": "endpoint rule and V1-vs-V2 rule confirmed before any V2 final result"}
+{"time": "2026-09-29T14:37:29.282221+00:00", "event": "chain_armed", "session": "gibc-v2-after-main", "script": "v2/run_after_main.sh"}
+{"time": "2026-09-30T22:41:19.988841+00:00", "event": "selection_frozen", "detail": "{\"selected\": \"/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/main\", \"reason\": \"baseline: proxy gain +0.0007 (needs >= 0.005), wiki bpb change -0.0046 (limit 0.01)\", \"proxy\": {\"/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/main\": 0.4592, \"/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/anneal_quality\": 0.4599}}"}
+{"time": "2026-09-30T22:47:41.439568+00:00", "event": "official_completed", "detail": "main attempt 1"}
+{"time": "2026-09-30T22:54:12.525537+00:00", "event": "official_completed", "detail": "anneal_quality attempt 1"}
+{"time": "2026-09-30T22:54:12.730340+00:00", "event": "v1_vs_v2", "detail": "V2"}

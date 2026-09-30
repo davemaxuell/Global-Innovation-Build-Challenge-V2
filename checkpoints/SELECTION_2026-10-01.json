@@ -1,0 +1,33 @@
+{
+  "schema": "working-checkpoint-handoff-v1",
+  "created_at": "2026-10-01T08:10:11.157215+09:00",
+  "authorization": "User 2026-10-01: V2 is the best checkpoint; reorganize the code around the V2 pipeline ('proceed to implementation')",
+  "checkpoints": [
+    {
+      "name": "v2_best",
+      "purpose": "selected V2 scratch-pretrained base model (competition benchmarks)",
+      "path": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/checkpoints/v2_best",
+      "preserved_source": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/main/export",
+      "weights_sha256": "9aac2111b9ca6b06f4a12278f5213c17621ded643b7b54137987ce25028011bd",
+      "files": {
+        "config.json": "40829ea36a2cabf18165acc07bec807f418dceba7cc9d2f8d2520a8a89c02538",
+        "generation_config.json": "065c32ced79f04ad5ab5db4530779cf2bbc74a4023f634dd87844e4d7d98d98d",
+        "model.safetensors": "9aac2111b9ca6b06f4a12278f5213c17621ded643b7b54137987ce25028011bd",
+        "tokenizer.json": "f8de5462e2967f502b8a25f2a90a87fee12ecad1f50d980a54552805ed0ea196",
+        "tokenizer_config.json": "58d2cd28caac9ff4fbc9527959cea2b8f85bd67dfb2d5955f6943085e96c5ef6",
+        "training_provenance.json": "c76cceacbc719cd5ebcfd5d00e693a9dc14788c978e67d9147c36e97f10a64ae"
+      },
+      "parameter_audit": {
+        "trainable_parameters": 46346752,
+        "total_unique_parameters": 46346752,
+        "analytic_parameters": 46346752,
+        "parameter_cap": 50000000,
+        "headroom": 3653248,
+        "tied_embeddings": true
+      },
+      "offline_load_and_finite_forward": true,
+      "selection_record": "v2/phases/final_selection/selection.json",
+      "official_results": "v2/phases/final_selection/official/main/attempt_1/summary.json"
+    }
+  ]
+}

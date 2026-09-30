@@ -1,0 +1,26 @@
+{
+  "phase_id": "v2_final_selection_20260929",
+  "state": "registered_rules_confirmed",
+  "registered": "2026-09-29 (KST), before any V2 final-model result exists",
+  "rules_status": "Confirmed by the user 2026-09-29 ~23:37 KST ('yes, confirm the rules and arm the chain'), before any V2 final-model result existed",
+  "step_1_endpoint_choice": {
+    "candidates": {
+      "baseline": "v2/runs/main/export (standard decay)",
+      "challenger": "v2/runs/anneal_quality/export (quality-weighted decay)"
+    },
+    "data": "Development only: manifest 'selection' panels (bits/byte, not used before) and all held-out benchmark TRAIN items (v2/data/rich_v1/benchmarks/development.jsonl)",
+    "rule": "Choose the challenger only if its ARC-E/PIQA/HellaSwag/WinoGrande proxy mean accuracy is >= baseline + 0.005 AND its Wikipedia bits/byte is <= baseline + 0.01; otherwise the baseline. If the challenger did not complete, the baseline.",
+    "tool": "PYTHONPATH=src:v2/src python -m scglm_v2.select_endpoint --baseline v2/runs/main --challenger v2/runs/anneal_quality --out v2/phases/final_selection/selection.json",
+    "frozen": "selection.json is written once, before any official V2 score"
+  },
+  "step_2_official_reporting": "scripts/run_final_evaluation.py with configs/evaluation.json (pinned protocol) for the selected export, then the other arm (the runner permits reporting all listed arms; official scores cannot change selection.json).",
+  "step_3_v1_vs_v2": {
+    "reference": {
+      "source": "artifacts/phase_evaluation_v1/attempts/official_13b/01/output/summary.json (SHA256 3ffb02e65eb50201964353d4869c7c15c82411e7074624f9d12591fb1811b9be)",
+      "v1_13b_base_four_task_mean_acc": 0.4695512839959672,
+      "v1_13b_base_wikitext103_perplexity": 25.519837291770507
+    },
+    "rule": "The selected V2 export replaces V1 as the submission base if its official four-task mean accuracy (HellaSwag, ARC-Easy, PIQA, WinoGrande; raw acc) is > 0.4695512839959672 AND its WikiText-103 perplexity is <= 25.519837291770507. If the two conditions disagree, both are reported to the user for a decision. Otherwise V1 remains.",
+    "disclosure": "V1's official scores were observed previously. No official score has been computed for any V2 model before this registration. The evaluation rehearsal uses V1's 1B model only."
+  }
+}

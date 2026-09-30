@@ -1,0 +1,14 @@
+{
+  "phase_id": "v2_pilot_1b_20260929",
+  "objective": "Go/no-go gate: does the V2 rich corpus beat V1's data at a matched 1B-token scratch budget?",
+  "parent_checkpoint": null,
+  "comparison_model": {"path": "runs/baseline_1b/export", "description": "V1 1B scratch run: same architecture, seed, batch 64x1024, peak LR 6e-4, 2% warmup, cosine to 6e-5"},
+  "data": "v2/data/rich_v1/manifest.json (hash recorded at launch)",
+  "recipe": "v2/configs/pilot_1b.json",
+  "compute_limits": {"gpu": "GPU-78815613-815b-f56b-27c0-6bc239e093fc", "max_wall_hours": 3, "expected_minutes": 45},
+  "evaluation": "scglm_v2.devevaluate on both models: held-out 20% of benchmark TRAIN splits (1000 items per set) and bits/byte on V2 development panels. Official eval splits are not used.",
+  "gate": "GO if V2 pilot's mean accuracy over the ARC-Easy/PIQA/HellaSwag/WinoGrande proxies is >= V1 1B's; also report bits/byte. NO-GO stops before the main run and is reported to the user.",
+  "output_dir": "v2/runs/pilot_1b",
+  "launch": "CUDA_VISIBLE_DEVICES=GPU-78815613-815b-f56b-27c0-6bc239e093fc PYTHONPATH=src:v2/src python -m scglm_v2.train --config v2/configs/pilot_1b.json",
+  "resume": "same command with --resume v2/runs/pilot_1b/checkpoint_latest.json"
+}

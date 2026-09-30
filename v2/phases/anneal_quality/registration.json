@@ -1,0 +1,38 @@
+{
+  "phase_id": "v2_anneal_quality_20260929",
+  "state": "armed: launches automatically when the main run completes (v2/run_after_main.sh, tmux gibc-v2-after-main)",
+  "objective": "A/B on the main run's final decay: re-run the last 10% (68,664 steps, about 4.5B tokens) from the decay-start milestone with a quality-weighted mix; everything else is inherited.",
+  "parent_checkpoint": "v2/runs/main/milestones/milestone_decay_start_617981.pt (SHA256 filled from its milestone record at launch; see config)",
+  "hypothesis": "Upweighting higher-quality data during the final LR decay (as in OLMo 2 / MiniCPM / Llama 3 annealing) improves benchmark proxies without hurting Wikipedia fit.",
+  "data": "v2/data/rich_v1/manifest.json, SHA256 6749a2f1e2c3fe574febf0c1d08fb99d87d6e226c995aedd0d4ae71921496a68 (same as main)",
+  "mix": {
+    "main_decay": {
+      "dclm": 0.35,
+      "edu": 0.3,
+      "targeted": 0.15,
+      "wiki": 0.1,
+      "stackexchange": 0.05,
+      "books": 0.05
+    },
+    "this_branch": {
+      "dclm": 0.25,
+      "edu": 0.28,
+      "targeted": 0.25,
+      "wiki": 0.12,
+      "stackexchange": 0.05,
+      "books": 0.05
+    }
+  },
+  "recipe": "v2/configs/anneal_quality.json (inherits v2/configs/main.json); materialized to v2/phases/anneal_quality/config.json by scglm_v2.branch",
+  "verification": "CPU test: a branch with the parent's own mix reproduces the parent's final weights bit-exactly (v2/tests/test_v2_train.py).",
+  "compute_limits": {
+    "gpu": "GPU-78815613-815b-f56b-27c0-6bc239e093fc",
+    "max_wall_hours": 6,
+    "expected_hours": 3.2,
+    "starts_after": "main run completes"
+  },
+  "selection": "See v2/phases/final_selection/registration.json",
+  "output_dir": "v2/runs/anneal_quality",
+  "launch": "PYTHONPATH=src:v2/src python -m scglm_v2.branch --template v2/configs/anneal_quality.json --out v2/phases/anneal_quality/config.json && CUDA_VISIBLE_DEVICES=GPU-78815613-815b-f56b-27c0-6bc239e093fc PYTHONPATH=src:v2/src python -m scglm_v2.train --config v2/phases/anneal_quality/config.json",
+  "resume": "same train command with --resume v2/runs/anneal_quality/checkpoint_latest.json"
+}

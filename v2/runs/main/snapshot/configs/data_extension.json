@@ -1,0 +1,33 @@
+{
+  "output_dir": "data/processed/extension_12b",
+  "parent_manifest": "data/processed/main/manifest.json",
+  "seed": 20260923,
+  "workers": 8,
+  "panels": {"monitor": 128, "development": 512, "selection": 512, "final": 512},
+  "sources": {
+    "wiki": {
+      "repo": "wikimedia/wikipedia",
+      "revision": "b04c8d1ceb2f5cd4588862100d08de323dccfbaa",
+      "file_prefix": "20231101.en/",
+      "metadata_file": "artifacts/corpus_research/wikimedia--wikipedia.json",
+      "target_train_tokens": 1500000000,
+      "license_notice": "Preserve Wikipedia article URLs and snapshot CC-BY-SA/GFDL notices; see CORPUS_PLAN_10B_PLUS.md"
+    },
+    "edu": {
+      "repo": "HuggingFaceFW/fineweb-edu",
+      "revision": "87f09149ef4734204d70ed1d046ddc9ca3f2b8f9",
+      "file_prefix": "sample/100BT/",
+      "metadata_file": "artifacts/corpus_research/HuggingFaceFW--fineweb-edu.json",
+      "target_train_tokens": 8000000000,
+      "license_notice": "ODC-By 1.0 database license; Common Crawl terms and underlying content rights apply; LLM-assisted selection metadata excluded from training text"
+    },
+    "dclm": {
+      "repo": "mlfoundations/dclm-baseline-1.0",
+      "revision": "a3b142c183aebe5af344955ae20836eb34dcf69b",
+      "file_prefix": "global-shard_",
+      "metadata_file": "artifacts/corpus_research/mlfoundations--dclm-baseline-1.0.json",
+      "target_train_tokens": 4000000000,
+      "license_notice": "CC-BY-4.0 dataset notice and attribution; underlying web content rights apply; classifier metadata excluded from training text"
+    }
+  }
+}

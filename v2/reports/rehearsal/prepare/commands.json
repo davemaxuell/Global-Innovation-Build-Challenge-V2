@@ -1,0 +1,59 @@
+[
+  {
+    "cwd": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness",
+    "command": [
+      "/home/bufsgpu/yes/envs/sw/bin/python",
+      "-m",
+      "lm_eval",
+      "run",
+      "--model",
+      "hf",
+      "--model_args",
+      "pretrained=/data/team_a/dave-workspace/Global Innovation Build Challenge V2/MODEL_EXPORT_NOT_SELECTED,trust_remote_code=False,dtype=float32,max_length=1024,add_bos_token=False,prefix_token_id=2",
+      "--tasks",
+      "hellaswag",
+      "arc_easy",
+      "piqa",
+      "winogrande",
+      "--include_path",
+      "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/reports/rehearsal/prepare/task_overrides",
+      "--num_fewshot",
+      "0",
+      "--batch_size",
+      "1",
+      "--device",
+      "cpu",
+      "--seed",
+      "0,1234,1234,1234",
+      "--output_path",
+      "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/reports/rehearsal/prepare/harness",
+      "--log_samples"
+    ]
+  },
+  {
+    "cwd": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2",
+    "command": [
+      "/home/bufsgpu/yes/envs/sw/bin/python",
+      "-m",
+      "scglm.evaluate",
+      "wikitext103",
+      "--model",
+      "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/MODEL_EXPORT_NOT_SELECTED",
+      "--tokenizer",
+      "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/MODEL_EXPORT_NOT_SELECTED",
+      "--dataset-revision",
+      "b08601e04326c79dfdd32d625aee71d232d685c3",
+      "--split",
+      "validation",
+      "--context-length",
+      "1024",
+      "--stride",
+      "512",
+      "--device",
+      "cpu",
+      "--output",
+      "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/reports/rehearsal/prepare/wikitext103.json",
+      "--final-evaluation"
+    ]
+  }
+]

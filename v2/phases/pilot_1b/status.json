@@ -1,0 +1,1 @@
+{"phase_id": "v2_pilot_1b_20260929", "state": "completed", "decision": "GO", "proxy_mean_acc": {"v1_1b": 0.4291, "v2_pilot": 0.4331}, "note": "margin within noise; see REPORT.md"}

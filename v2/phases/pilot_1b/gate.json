@@ -1,0 +1,152 @@
+{
+  "rule": "GO if V2 pilot proxy mean acc >= V1 1B proxy mean acc",
+  "v1_1b": {
+    "model": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/runs/baseline_1b/export",
+    "bits_per_byte": {
+      "edu": 1.1459856587550847,
+      "dclm": 1.2765897528423633,
+      "targeted": 1.2346601929562349,
+      "wiki": 1.0766141343748457,
+      "stackexchange": 1.439980644164902,
+      "books": 1.494638536263751
+    },
+    "multiple_choice": {
+      "arc_easy": {
+        "acc": 0.3275488069414317,
+        "acc_norm": 0.34490238611713664,
+        "n": 461
+      },
+      "arc_challenge": {
+        "acc": 0.17479674796747968,
+        "acc_norm": 0.17886178861788618,
+        "n": 246
+      },
+      "piqa": {
+        "acc": 0.601,
+        "acc_norm": 0.581,
+        "n": 1000
+      },
+      "hellaswag": {
+        "acc": 0.282,
+        "acc_norm": 0.343,
+        "n": 1000
+      },
+      "winogrande": {
+        "acc": 0.506,
+        "acc_norm": 0.506,
+        "n": 1000
+      },
+      "openbookqa": {
+        "acc": 0.15815815815815815,
+        "acc_norm": 0.2932932932932933,
+        "n": 999
+      },
+      "sciq": {
+        "acc": 0.678,
+        "acc_norm": 0.597,
+        "n": 1000
+      },
+      "commonsense_qa": {
+        "acc": 0.22,
+        "acc_norm": 0.27,
+        "n": 1000
+      },
+      "_official_proxy_mean_acc": 0.4291372017353579
+    }
+  },
+  "v2_pilot": {
+    "model": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/pilot_1b/export",
+    "bits_per_byte": {
+      "edu": 1.11935143378503,
+      "dclm": 1.236505085321874,
+      "targeted": 1.1939341868481346,
+      "wiki": 1.144568247014554,
+      "stackexchange": 1.2357219058954252,
+      "books": 1.358739484713521
+    },
+    "multiple_choice": {
+      "arc_easy": {
+        "acc": 0.35357917570498915,
+        "acc_norm": 0.38177874186550975,
+        "n": 461
+      },
+      "arc_challenge": {
+        "acc": 0.17073170731707318,
+        "acc_norm": 0.21138211382113822,
+        "n": 246
+      },
+      "piqa": {
+        "acc": 0.574,
+        "acc_norm": 0.576,
+        "n": 1000
+      },
+      "hellaswag": {
+        "acc": 0.287,
+        "acc_norm": 0.335,
+        "n": 1000
+      },
+      "winogrande": {
+        "acc": 0.518,
+        "acc_norm": 0.518,
+        "n": 1000
+      },
+      "openbookqa": {
+        "acc": 0.16116116116116116,
+        "acc_norm": 0.2932932932932933,
+        "n": 999
+      },
+      "sciq": {
+        "acc": 0.707,
+        "acc_norm": 0.608,
+        "n": 1000
+      },
+      "commonsense_qa": {
+        "acc": 0.226,
+        "acc_norm": 0.263,
+        "n": 1000
+      },
+      "_official_proxy_mean_acc": 0.4331447939262473
+    }
+  },
+  "proxy_mean_acc": {
+    "v1_1b": 0.4291372017353579,
+    "v2_pilot": 0.4331447939262473,
+    "difference": 0.004007592190889364
+  },
+  "per_task_acc": {
+    "arc_easy": {
+      "v1_1b": 0.3275488069414317,
+      "v2_pilot": 0.35357917570498915
+    },
+    "arc_challenge": {
+      "v1_1b": 0.17479674796747968,
+      "v2_pilot": 0.17073170731707318
+    },
+    "piqa": {
+      "v1_1b": 0.601,
+      "v2_pilot": 0.574
+    },
+    "hellaswag": {
+      "v1_1b": 0.282,
+      "v2_pilot": 0.287
+    },
+    "winogrande": {
+      "v1_1b": 0.506,
+      "v2_pilot": 0.518
+    },
+    "openbookqa": {
+      "v1_1b": 0.15815815815815815,
+      "v2_pilot": 0.16116116116116116
+    },
+    "sciq": {
+      "v1_1b": 0.678,
+      "v2_pilot": 0.707
+    },
+    "commonsense_qa": {
+      "v1_1b": 0.22,
+      "v2_pilot": 0.226
+    }
+  },
+  "decision": "GO",
+  "note": "Development data only; official evaluation splits untouched."
+}

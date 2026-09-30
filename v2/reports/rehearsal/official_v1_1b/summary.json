@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "run_id": "20260929T134709.901388Z-f5dc2b18f363",
+  "model": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/runs/baseline_1b/export",
+  "protocol": "gibc-track01-eval-v1",
+  "protocol_sha256": "fa029d2a7368af109e77158da4f65ab1ec0f4550b8ca3edfd35a9a2010ff351c",
+  "artifact_sha256": {
+    "config.json": "40829ea36a2cabf18165acc07bec807f418dceba7cc9d2f8d2520a8a89c02538",
+    "generation_config.json": "065c32ced79f04ad5ab5db4530779cf2bbc74a4023f634dd87844e4d7d98d98d",
+    "model.safetensors": "cebb78d26fecab752009d8499d6a7c46e80d3712a78a517e09f5f8b536f17899",
+    "tokenizer.json": "f8de5462e2967f502b8a25f2a90a87fee12ecad1f50d980a54552805ed0ea196",
+    "tokenizer_config.json": "58d2cd28caac9ff4fbc9527959cea2b8f85bd67dfb2d5955f6943085e96c5ef6",
+    "training_provenance.json": "6f8eda019a44447c2ff55811f57cf75e16f477d28150056931df02a3a07a6df7"
+  },
+  "metrics": {
+    "benchmarks": {
+      "hellaswag": {
+        "split": "validation",
+        "examples": 10042,
+        "acc": 0.2704640509858594,
+        "acc_stderr": 0.00443291740375507,
+        "acc_norm": 0.2801234813782115,
+        "acc_norm_stderr": 0.004481416180499575
+      },
+      "arc_easy": {
+        "split": "test",
+        "examples": 2376,
+        "acc": 0.3404882154882155,
+        "acc_stderr": 0.009723676813825865,
+        "acc_norm": 0.32112794612794615,
+        "acc_norm_stderr": 0.009580787536986797
+      },
+      "piqa": {
+        "split": "validation",
+        "examples": 1838,
+        "acc": 0.5979325353645266,
+        "acc_stderr": 0.011439867127267531,
+        "acc_norm": 0.5756256800870512,
+        "acc_norm_stderr": 0.011531612758871053
+      },
+      "winogrande": {
+        "split": "validation",
+        "examples": 1267,
+        "acc": 0.5090765588003157,
+        "acc_stderr": 0.014050170094497704
+      }
+    },
+    "harness_results": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/reports/rehearsal/official_v1_1b/harness/__data__team_a__dave-workspace__Global Innovation Build Challenge V2__runs__baseline_1b__export/results_2026-09-29T23-03-19.396671.json",
+    "harness_results_sha256": "b817627c610eb856b7795698366cd6b2c0fb17c9e4333d63def68c60c5d9d7f8",
+    "wikitext103": {
+      "nll_sum": 974534.5331330406,
+      "token_count": 269569,
+      "documents": 60,
+      "nll": 3.6151580231148266,
+      "perplexity": 37.15721716093292,
+      "split": "validation",
+      "context_length": 1024,
+      "stride": 512
+    },
+    "wikitext103_results": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/reports/rehearsal/official_v1_1b/wikitext103.json",
+    "wikitext103_results_sha256": "94ae428e10e8ce8e5e468e51b2b051d46e83cf78a7ae8b1d4bddda3ddd988b1b"
+  }
+}

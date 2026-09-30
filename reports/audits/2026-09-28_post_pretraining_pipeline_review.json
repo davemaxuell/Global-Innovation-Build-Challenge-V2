@@ -1,0 +1,305 @@
+{
+  "checked_at": "2026-09-27T23:39:18.660183+00:00",
+  "fresh_test_result": {
+    "command": "CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 OPENBLAS_NUM_THREADS=2 /home/bufsgpu/yes/envs/sw/bin/python -m pytest -q tests experiments/posttraining_dpo_13b/test_followup.py",
+    "passed": 173,
+    "seconds": 17.11
+  },
+  "workflows": {
+    "artifacts/posttraining_13b_v1": {
+      "status": "completed",
+      "completed_stages": 15,
+      "artifact_checks": 27,
+      "source_contract_unchanged": true,
+      "selection_reproduced": true,
+      "selected_base": true,
+      "confirmation_scoring_used": false
+    },
+    "artifacts/posttraining_dpo_13b_v1": {
+      "status": "completed",
+      "completed_stages": 16,
+      "artifact_checks": 27,
+      "source_contract_unchanged": true,
+      "selection_reproduced": true,
+      "selected_base": true,
+      "confirmation_scoring_used": false
+    }
+  },
+  "training": {
+    "artifacts/posttraining_13b_v1/training/sft_human": {
+      "status": "completed",
+      "updates": 131,
+      "target_tokens": 1077789,
+      "processed_tokens": 2801905,
+      "checkpoint_hash_verified": true,
+      "export_exactly_matches_checkpoint": true,
+      "export_tensors": 110,
+      "optimizer_and_weights_finite": true,
+      "per_update_plan_reproduced": true
+    },
+    "artifacts/posttraining_13b_v1/training/sft_mixed": {
+      "status": "completed",
+      "updates": 131,
+      "target_tokens": 1077749,
+      "processed_tokens": 3246128,
+      "checkpoint_hash_verified": true,
+      "export_exactly_matches_checkpoint": true,
+      "export_tensors": 110,
+      "optimizer_and_weights_finite": true,
+      "per_update_plan_reproduced": true
+    },
+    "artifacts/posttraining_dpo_13b_v1/training/dpo": {
+      "status": "completed",
+      "updates": 85,
+      "target_tokens": 12648,
+      "processed_tokens": 116040,
+      "checkpoint_hash_verified": true,
+      "export_exactly_matches_checkpoint": true,
+      "export_tensors": 110,
+      "optimizer_and_weights_finite": true,
+      "per_update_plan_reproduced": true
+    }
+  },
+  "data": {
+    "status": "passed",
+    "splits": {
+      "development": {
+        "examples": 2887,
+        "target_tokens": 82385,
+        "processed_tokens": 302649,
+        "sources": {
+          "dolly": 666,
+          "oasst1": 221,
+          "procedural": 2000
+        },
+        "system_cases": {
+          "generic": 457,
+          "none": 1430,
+          "aligned": 340,
+          "persistence": 330,
+          "conflict": 330
+        },
+        "system_policy_pairs": 500
+      },
+      "train": {
+        "examples": 29828,
+        "target_tokens": 1170296,
+        "processed_tokens": 3524316,
+        "sources": {
+          "dolly": 12581,
+          "oasst1": 2247,
+          "procedural": 15000
+        },
+        "system_cases": {
+          "generic": 7404,
+          "none": 17424,
+          "aligned": 1670,
+          "conflict": 1670,
+          "persistence": 1660
+        },
+        "system_policy_pairs": 2500
+      },
+      "confirmation": {
+        "examples": 2858,
+        "target_tokens": 84378,
+        "processed_tokens": 306920,
+        "sources": {
+          "dolly": 672,
+          "oasst1": 186,
+          "procedural": 2000
+        },
+        "system_cases": {
+          "none": 1432,
+          "generic": 426,
+          "persistence": 330,
+          "conflict": 330,
+          "aligned": 340
+        },
+        "system_policy_pairs": 500
+      },
+      "train_human": {
+        "examples": 14828,
+        "target_tokens": 1077789,
+        "processed_tokens": 2801905,
+        "sources": {
+          "dolly": 12581,
+          "oasst1": 2247
+        },
+        "system_cases": {
+          "generic": 7404,
+          "none": 7424
+        },
+        "system_policy_pairs": 0
+      }
+    },
+    "procedural_target_share": 0.07904581405046245,
+    "manifest_sha256": "e680c55662bad5400b815aedc6b2d38ec00163e5269be4051d752f8efa01171a",
+    "all_examples_reencoded": true,
+    "chat_template_equivalence": true,
+    "group_and_prompt_disjoint": true,
+    "semantic_decontamination_certified": false,
+    "completed_pretraining_document_screened": true
+  },
+  "preference_rollouts_hashed": 469,
+  "unique_files_hashed": 552,
+  "verifier_impact": {
+    "predictions": {
+      "artifacts/posttraining_13b_v1/evaluations/sft_mixed_development/result.json": {
+        "rows": 2000,
+        "saved_score_mismatches": 0,
+        "json_false_positives": 0,
+        "sorting_format_false_negatives": 0,
+        "sorting_examples": []
+      },
+      "artifacts/posttraining_13b_v1/evaluations/sft_human_development/result.json": {
+        "rows": 2000,
+        "saved_score_mismatches": 0,
+        "json_false_positives": 0,
+        "sorting_format_false_negatives": 0,
+        "sorting_examples": []
+      },
+      "artifacts/posttraining_13b_v1/evaluations/base_development/result.json": {
+        "rows": 2000,
+        "saved_score_mismatches": 0,
+        "json_false_positives": 0,
+        "sorting_format_false_negatives": 0,
+        "sorting_examples": []
+      },
+      "artifacts/posttraining_dpo_13b_v1/evaluations/dpo_development/result.json": {
+        "rows": 2000,
+        "saved_score_mismatches": 0,
+        "json_false_positives": 0,
+        "sorting_format_false_negatives": 0,
+        "sorting_examples": []
+      }
+    },
+    "pairs": {
+      "count": 1359,
+      "families": {
+        "classification": 600,
+        "sorting": 600,
+        "arithmetic": 126,
+        "extraction": 11,
+        "json": 22
+      },
+      "issue_counts": {},
+      "examples": []
+    }
+  },
+  "completed_at": "2026-09-27T23:42:59.534670+00:00",
+  "verdict": "Sound core and intact completed artifacts; two reproducible defects must be addressed before an unconditional correctness sign-off.",
+  "recovery_reproduction": {
+    "status_after_failure": "failed",
+    "checkpoint_exists": false,
+    "automatic_retry_error": "Training output exists without a recoverable checkpoint"
+  },
+  "release_and_benchmarks": {
+    "base_release": {
+      "files_verified": 233,
+      "model_sha256": "ffa75b07ec377167ab2e4d4263f2fa8374549f8592f9ce2e8166875cab1f38e7"
+    },
+    "benchmark_reports": [
+      {
+        "pipeline": "posttraining_13b_v1",
+        "summary": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/artifacts/phase_evaluation_v1/attempts/official_13b/01/output/summary.json",
+        "same_protocol_and_endpoint": true,
+        "result_hashes_verified": true
+      },
+      {
+        "pipeline": "posttraining_13b_v1",
+        "summary": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/artifacts/posttraining_13b_v1/official/endpoint_1-1790526623043404986/summary.json",
+        "same_protocol_and_endpoint": true,
+        "result_hashes_verified": true
+      },
+      {
+        "pipeline": "posttraining_13b_v1",
+        "summary": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/artifacts/posttraining_13b_v1/official/endpoint_2-1790527021514198849/summary.json",
+        "same_protocol_and_endpoint": true,
+        "result_hashes_verified": true
+      },
+      {
+        "pipeline": "posttraining_dpo_13b_v1",
+        "summary": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/artifacts/phase_evaluation_v1/attempts/official_13b/01/output/summary.json",
+        "same_protocol_and_endpoint": true,
+        "result_hashes_verified": true
+      },
+      {
+        "pipeline": "posttraining_dpo_13b_v1",
+        "summary": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/artifacts/posttraining_13b_v1/official/endpoint_2-1790527021514198849/summary.json",
+        "same_protocol_and_endpoint": true,
+        "result_hashes_verified": true
+      },
+      {
+        "pipeline": "posttraining_dpo_13b_v1",
+        "summary": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/artifacts/posttraining_dpo_13b_v1/official/endpoint_2-1790549633481212279/summary.json",
+        "same_protocol_and_endpoint": true,
+        "result_hashes_verified": true
+      }
+    ]
+  },
+  "json_verifier_reproductions": [
+    {
+      "family": "json",
+      "system_variant": null,
+      "response": "[[\"number\", 95405]]",
+      "actual_accepted": true,
+      "expected_accepted": false
+    },
+    {
+      "family": "arithmetic",
+      "system_variant": 1,
+      "response": "[[\"sum\", 1000042]]",
+      "actual_accepted": true,
+      "expected_accepted": false
+    },
+    {
+      "family": "json",
+      "system_variant": 0,
+      "response": "[[\"number\", 1000001]]",
+      "actual_accepted": true,
+      "expected_accepted": false
+    },
+    {
+      "family": "json",
+      "system_variant": 1,
+      "response": "[[\"value\", 1000001]]",
+      "actual_accepted": true,
+      "expected_accepted": false
+    }
+  ],
+  "preferences_reverified": {
+    "pairs": 1359,
+    "encoding_prompt_masks_labels_and_length_reverified": true,
+    "all_selected_answers_present_in_eos_ended_rollouts": true,
+    "rollout_prompts": 7500
+  },
+  "sampling_observation": {
+    "explicit_top_k": null,
+    "effective_top_k": 50,
+    "library_version": "5.5.4"
+  },
+  "review_changes": "Only new review reports; registered source, recipes, weights, selections and release files preserved.",
+  "findings": [
+    {
+      "priority": "P2",
+      "title": "JSON object verifiers also accept arrays of pairs",
+      "locations": [
+        "src/scglm_post/procedural.py:82",
+        "src/scglm_post/system_data.py:134"
+      ],
+      "reproduced": true,
+      "observed_impact_on_saved_development_and_chosen_pairs": 0
+    },
+    {
+      "priority": "P2",
+      "title": "Automatic recovery fails before the first checkpoint",
+      "locations": [
+        "src/scglm_pipeline/workflow.py:255",
+        "src/scglm_post/train.py:118",
+        "src/scglm_pipeline/dpo.py:153"
+      ],
+      "reproduced_with_tiny_cpu_sft": true,
+      "completed_production_runs_affected": false
+    }
+  ]
+}

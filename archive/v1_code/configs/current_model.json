@@ -1,0 +1,139 @@
+{
+  "seed": 20260928,
+  "seeds": [
+    20260928,
+    20260929,
+    20260930
+  ],
+  "deployment_seed": 20260928,
+  "parent": "runs/continuation_13b/export",
+  "parent_sha256": "ffa75b07ec377167ab2e4d4263f2fa8374549f8592f9ce2e8166875cab1f38e7",
+  "expected_parameters": 46346752,
+  "expected_pretraining_tokens": 13000048640,
+  "allowed_gpu_uuids": [
+    "GPU-78815613-815b-f56b-27c0-6bc239e093fc"
+  ],
+  "device": "cuda:0",
+  "cpu_threads": 4,
+  "legacy_manifest": "data/posttraining/pipeline_v2/manifest.json",
+  "legacy_manifest_sha256": "e680c55662bad5400b815aedc6b2d38ec00163e5269be4051d752f8efa01171a",
+  "benchmark_index": "data/processed/main/exclusion_index.pkl",
+  "benchmark_index_sha256": "9d3a5a05cb2fc62c599f8f7ab09aa44d48836a0f975bead90412efe491420306",
+  "corpora": {
+    "legacy": {
+      "manifest": "data/processed/main/manifest.json",
+      "sha256": "180e9ff1acb02c12aa677dee84f92f443aa6fb0ed8d304875677ab9266d5f9e1",
+      "weights": {
+        "web": 0.8,
+        "wiki": 0.2
+      }
+    },
+    "continuation": {
+      "manifest": "data/processed/extension_12b/manifest.json",
+      "sha256": "70242a0a248787d31d56c73af3733ccafadaa9816b09ca0508ec487f1fd37c6d",
+      "weights": {
+        "edu": 0.6,
+        "dclm": 0.3,
+        "wiki": 0.1
+      }
+    }
+  },
+  "public_sources": [
+    {
+      "repository": "tau/commonsense_qa",
+      "revision": "94630fe30dad47192a8546eb75f094926d47e155",
+      "file": "data/train-00000-of-00001.parquet",
+      "license": "MIT",
+      "domain": "commonsense"
+    },
+    {
+      "repository": "allenai/qasc",
+      "revision": "a34ba204eb9a33b919c10cc08f4f1c8dae5ec070",
+      "file": "data/train-00000-of-00001.parquet",
+      "license": "CC-BY-4.0",
+      "domain": "science"
+    }
+  ],
+  "data_output": "data/posttraining/sota_v1",
+  "max_length": 1024,
+  "max_response_tokens": 128,
+  "generated_per_family": {
+    "train": 12000,
+    "development": 600,
+    "confirmation": 600
+  },
+  "min_panel_items": 500,
+  "min_panel_groups": 50,
+  "replay_targets_per_source": 500000,
+  "mixture": {
+    "general": 0.3,
+    "knowledge": 0.35,
+    "grounded": 0.2,
+    "procedural": 0.15
+  },
+  "max_format_share": 0.05,
+  "selection": {
+    "min_gain": 0.01,
+    "max_raw_nll_regression": 0.02,
+    "max_accuracy_regression": 0.02,
+    "max_repetition_increase": 0.02,
+    "bootstrap_replicates": 2000
+  },
+  "evaluation": {
+    "max_new_tokens": 128,
+    "batch_size": 16,
+    "legacy_per_family": 100,
+    "max_raw_tokens_per_document": 1024
+  },
+  "official_config": "configs/evaluation.json",
+  "base_official_summary": "artifacts/phase_evaluation_v1/attempts/official_13b/01/output/summary.json",
+  "base_official_summary_sha256": "3ffb02e65eb50201964353d4869c7c15c82411e7074624f9d12591fb1811b9be",
+  "prior_evidence_disclosure": {
+    "base_official_scores_previously_observed": true,
+    "prior_12b_instruction_development_observed": true,
+    "raw_panels_previously_used_for_base_assessment": true,
+    "posttraining_confirmation_claims_before_registration": 0,
+    "interpretation": "Historical disclosure from the original registered experiment; the before-registration counts above are historical. Its selected full-SFT result and confirmation evidence have now been observed. This configuration reproduces the selected recipe without reopening confirmation or claiming a new blind evaluation; official scores do not change the frozen selection.",
+    "official_scores_may_change_selection": false
+  },
+  "automatic_release_replacement": false,
+  "schema": "selected-model-v1",
+  "output": "artifacts/current_model_reproductions/sft",
+  "manifest": "data/posttraining/sota_v1/manifest.json",
+  "manifest_sha256": "7bc4e6c72b6dc76819f1aa1e41611c9eeec94cf29cec76bd0a30f64ccbd666ee",
+  "sft_recipe": {
+    "max_targets": 4000000,
+    "epochs": 2,
+    "target_tokens_per_update": 8192,
+    "microbatch_examples": 8,
+    "warmup_fraction": 0.03,
+    "weight_decay": 0.1,
+    "gradient_clip": 1.0,
+    "checkpoint_every": 25,
+    "max_seconds": 21600,
+    "endpoint_fractions": [
+      0.25,
+      0.5,
+      1.0
+    ],
+    "seed": 20260928,
+    "learning_rate": 1e-05,
+    "replay_lambda": 0.3,
+    "max_format_share": 0.05,
+    "legacy_control": false,
+    "stop_after_updates": 105
+  },
+  "expected_plan_sha256": "57949da72d8fbc05ff893e6aded334144142d429147d4bc822bf1b9b935a88c7",
+  "expected_planned_updates": 209,
+  "expected_planned_response_targets": 1715410,
+  "expected_selected_counters": {
+    "response_targets": 862660,
+    "response_processed_tokens": 4670374,
+    "replay_targets": 419498,
+    "replay_processed_tokens": 420106
+  },
+  "selected_model": "checkpoints/best_sft",
+  "selected_model_sha256": "defd0d91948ba8501a33b0c4996bf3bf37ebdf6e90338a05bab3a1773a2d7f72",
+  "historical_run": "artifacts/posttraining_sota_v1/runs/sft_full_5_seed20260928/run.json",
+  "training_scope": "Fixed selected SFT recipe from the completed 13B scratch base. No search, preference training, or online policy optimization."
+}

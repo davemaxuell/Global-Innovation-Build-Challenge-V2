@@ -1,0 +1,19 @@
+{
+  "phase_id": "v2_main_20260929",
+  "state": "completed",
+  "completed_kst": "2026-10-01T04:11+09:00",
+  "steps": 686645,
+  "tokens": 44999966720,
+  "elapsed_hours": 31.92,
+  "source_tokens": {
+    "dclm": 15747631104,
+    "edu": 13499219968,
+    "targeted": 6753447936,
+    "wiki": 4502865920,
+    "stackexchange": 2245974016,
+    "books": 2250827776
+  },
+  "export": "v2/runs/main/export",
+  "export_model_sha256": "9aac2111b9ca6b06f4a12278f5213c17621ded643b7b54137987ce25028011bd",
+  "decay_start_milestone_sha256": "175d1e297a97569c0546ae491c4a0498890cd9bb303a22b52d4edab06b4bb0c6"
+}

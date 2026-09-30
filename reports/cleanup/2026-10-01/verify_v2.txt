@@ -1,0 +1,10 @@
+PASS  core modules match the V2 run record                    
+PASS  evaluate.py matches the pinned protocol                 
+PASS  checkpoint files match inventory                        
+PASS  checkpoint is the frozen selection                      
+PASS  checkpoint equals original export                       
+PASS  data manifest matches run record                        
+PASS  tokenizer matches run record                            
+PASS  pre-registered rule outcome is V2                       
+PASS  run completed with 44,999,966,720 targets               
+PASS  offline load, 46,346,752 tied parameters, finite forward

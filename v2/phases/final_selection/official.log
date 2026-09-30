@@ -1,0 +1,29 @@
+/home/bufsgpu/yes/envs/sw/lib/python3.10/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+Task 'arc_easy' from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/final_selection/official/main/attempt_1/task_overrides/arc_easy.yaml overrides existing task from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness/lm_eval/tasks/arc/arc_easy.yaml
+Task 'ai2_arc' from None overrides existing task from None
+Task 'hellaswag' from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/final_selection/official/main/attempt_1/task_overrides/hellaswag.yaml overrides existing task from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness/lm_eval/tasks/hellaswag/hellaswag.yaml
+Task 'multiple_choice' from None overrides existing task from None
+Task 'piqa' from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/final_selection/official/main/attempt_1/task_overrides/piqa.yaml overrides existing task from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness/lm_eval/tasks/piqa/piqa.yaml
+Task 'winogrande' from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/final_selection/official/main/attempt_1/task_overrides/winogrande.yaml overrides existing task from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness/lm_eval/tasks/winogrande/default.yaml
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[20260930T224120.076903Z-53412b2584ef] harness: /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/reports/validation_history/runs/20260930T224120.076903Z-53412b2584ef/harness.log
+[20260930T224120.076903Z-53412b2584ef] wikitext103: /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/reports/validation_history/runs/20260930T224120.076903Z-53412b2584ef/wikitext103.log
+Validation completed: /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/reports/validation_history/runs/20260930T224120.076903Z-53412b2584ef/run.json
+/home/bufsgpu/yes/envs/sw/lib/python3.10/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+Task 'arc_easy' from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/final_selection/official/anneal_quality/attempt_1/task_overrides/arc_easy.yaml overrides existing task from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness/lm_eval/tasks/arc/arc_easy.yaml
+Task 'ai2_arc' from None overrides existing task from None
+Task 'hellaswag' from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/final_selection/official/anneal_quality/attempt_1/task_overrides/hellaswag.yaml overrides existing task from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness/lm_eval/tasks/hellaswag/hellaswag.yaml
+Task 'multiple_choice' from None overrides existing task from None
+Task 'piqa' from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/final_selection/official/anneal_quality/attempt_1/task_overrides/piqa.yaml overrides existing task from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness/lm_eval/tasks/piqa/piqa.yaml
+Task 'winogrande' from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/final_selection/official/anneal_quality/attempt_1/task_overrides/winogrande.yaml overrides existing task from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness/lm_eval/tasks/winogrande/default.yaml
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[20260930T224741.509071Z-d1d43088674e] harness: /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/reports/validation_history/runs/20260930T224741.509071Z-d1d43088674e/harness.log
+[20260930T224741.509071Z-d1d43088674e] wikitext103: /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/reports/validation_history/runs/20260930T224741.509071Z-d1d43088674e/wikitext103.log
+Validation completed: /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/reports/validation_history/runs/20260930T224741.509071Z-d1d43088674e/run.json
+{"outcome": "V2", "v1": 0.4695512839959672, "v2": 0.47118032060498677, "v1_ppl": 25.519837291770507, "v2_ppl": 23.84916458687835}
+/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/submission/figures/fig1_key_numbers.png
+/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/submission/figures/fig2_corpus.png
+/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/submission/figures/fig3_pilot.png
+/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/submission/figures/fig4_training_curve.png

@@ -1,0 +1,51 @@
+{
+  "schema_version": 2,
+  "seed": 20260923,
+  "tokenizer": "data/processed/main/tokenizer",
+  "tokenizer_sha256": "1d714be4561ca083ef3cb668be7cffa38caa158c0315c22907647cd4f0f9013b",
+  "max_length": 1024,
+  "max_response_tokens": 256,
+  "benchmark_index": "data/processed/main/exclusion_index.pkl",
+  "benchmark_index_sha256": "9d3a5a05cb2fc62c599f8f7ab09aa44d48836a0f975bead90412efe491420306",
+  "pretraining_manifest": "data/processed/main/manifest.json",
+  "pretraining_manifest_sha256": "180e9ff1acb02c12aa677dee84f92f443aa6fb0ed8d304875677ab9266d5f9e1",
+  "procedural_per_family": {
+    "train": 2000,
+    "development": 200,
+    "confirmation": 200
+  },
+  "procedural_target_share": 0.2,
+  "minimum_examples": {
+    "train": 5000,
+    "development": 500,
+    "confirmation": 500
+  },
+  "sources": {
+    "dolly": {
+      "repository": "databricks/databricks-dolly-15k",
+      "revision": "bdd27f4d94b9c1f951818a7da7fd7aeea5dbff1a",
+      "license": "CC-BY-SA-3.0; retain Databricks attribution and underlying Wikipedia notices",
+      "files": {
+        "train": "databricks-dolly-15k.jsonl"
+      }
+    },
+    "oasst1": {
+      "repository": "OpenAssistant/oasst1",
+      "revision": "fdf72ae0827c1cda404aff25b6603abec9e3399b",
+      "license": "Apache-2.0; OpenAssistant contributors",
+      "files": {
+        "train": "data/train-00000-of-00001-b42a775f407cee45.parquet",
+        "validation": "data/validation-00000-of-00001-134b8fd0c89408b6.parquet"
+      }
+    }
+  },
+  "excluded_ids": {
+    "oasst1:80f942c5-bdcd-40a6-8e27-7538913b3161": "Sample review: unverified laser-eye-safety thresholds and categorical assurance; unsuitable training target."
+  },
+  "system_training": true,
+  "system_per_family": {
+    "train": 1000,
+    "development": 200,
+    "confirmation": 200
+  }
+}

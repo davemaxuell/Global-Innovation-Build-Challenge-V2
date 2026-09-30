@@ -1,0 +1,28 @@
+{
+  "outcome": "V1",
+  "v1_13b_base": {
+    "four_task_mean_acc": 0.4695512839959672,
+    "per_task_acc": {
+      "hellaswag": 0.2848038239394543,
+      "arc_easy": 0.4659090909090909,
+      "piqa": 0.6207834602829162,
+      "winogrande": 0.5067087608524072
+    },
+    "wikitext103_perplexity": 25.519837291770507
+  },
+  "v2_selected": {
+    "four_task_mean_acc": 0.4294903401597293,
+    "per_task_acc": {
+      "hellaswag": 0.2704640509858594,
+      "arc_easy": 0.3404882154882155,
+      "piqa": 0.5979325353645266,
+      "winogrande": 0.5090765588003157
+    },
+    "wikitext103_perplexity": 37.15721716093292
+  },
+  "v1_summary": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/artifacts/phase_evaluation_v1/attempts/official_13b/01/output/summary.json",
+  "v1_summary_sha256": "3ffb02e65eb50201964353d4869c7c15c82411e7074624f9d12591fb1811b9be",
+  "v2_summary": "v2/reports/rehearsal/official_v1_1b/summary.json",
+  "v2_summary_sha256": "ed81558ad7bb90e8cf391a18d1d097d5d706487e73dd96f1702fcf583cde1570",
+  "rule": "V2 if four-task mean acc > V1 AND WikiText-103 perplexity <= V1; V1 if neither; otherwise user decides"
+}

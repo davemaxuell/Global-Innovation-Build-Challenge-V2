@@ -1,0 +1,56 @@
+{
+  "checked_utc": "2026-09-29T01:14:54.696258+00:00",
+  "status": "passed",
+  "scope": "Active implementation of selected scratch-pretraining and full-SFT/raw-replay lineage; historical evidence preserved.",
+  "tests": {
+    "passed": 150,
+    "skipped": 1,
+    "skip_reason": "Optional GPU recovery test",
+    "exit_code": 0
+  },
+  "source_audit": {
+    "active_files": 78,
+    "removed_paths_absent": 71,
+    "missing_project_imports": [],
+    "missing_literal_code_paths": [],
+    "controller_and_probe_implementation_absent": true,
+    "pretraining_targets": 13000048640
+  },
+  "checkpoint_verification": {
+    "verified": true,
+    "training_started": false,
+    "selected_checkpoint": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/checkpoints/best_sft",
+    "weights_sha256": "defd0d91948ba8501a33b0c4996bf3bf37ebdf6e90338a05bab3a1773a2d7f72",
+    "schedule_updates": 209,
+    "selected_updates": 105,
+    "plan_sha256": "57949da72d8fbc05ff893e6aded334144142d429147d4bc822bf1b9b935a88c7",
+    "counters": {
+      "response_targets": 862660,
+      "response_processed_tokens": 4670374,
+      "replay_targets": 419498,
+      "replay_processed_tokens": 420106
+    },
+    "offline_reload": true,
+    "parameter_audit": {
+      "trainable_parameters": 46346752,
+      "total_unique_parameters": 46346752,
+      "analytic_parameters": 46346752,
+      "parameter_cap": 50000000,
+      "headroom": 3653248,
+      "tied_embeddings": true
+    }
+  },
+  "active_project_training_processes_at_check": [],
+  "production_training_started": false,
+  "gpu_retraining_claimed": false,
+  "evidence": {
+    "FINAL_CHECK.md": "07c5610a56afddae501b3c2889b9bebb5e236ee56e5783a93fb0da617c3a011e",
+    "final_check_sources.json": "fe240fddd4e4a3f4b2c112bf7d98e963165664c96981653738a10280071c8596",
+    "final_check_tests.log": "9738791fef819410b3a96baad9f34041de9b7758ebccc06d535e6e818babc14b",
+    "final_check_checkpoint.json": "c33c3611d43be3f30e9722e27f1b5cd6248a0509f7b4a7ca68a6c0ae886850b9"
+  },
+  "commands": [
+    "PYTHONPATH=src:. PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=4 /home/bufsgpu/yes/envs/sw/bin/python -m pytest -q",
+    "PYTHONPATH=src:. PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=4 /home/bufsgpu/yes/envs/sw/bin/python scripts/run_pipeline.py verify --load"
+  ]
+}

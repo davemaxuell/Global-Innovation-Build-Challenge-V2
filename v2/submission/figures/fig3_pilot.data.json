@@ -1,0 +1,61 @@
+{
+  "per_task_accuracy": {
+    "arc_easy": {
+      "v1_1b": 0.3275488069414317,
+      "v2_pilot": 0.35357917570498915
+    },
+    "arc_challenge": {
+      "v1_1b": 0.17479674796747968,
+      "v2_pilot": 0.17073170731707318
+    },
+    "piqa": {
+      "v1_1b": 0.601,
+      "v2_pilot": 0.574
+    },
+    "hellaswag": {
+      "v1_1b": 0.282,
+      "v2_pilot": 0.287
+    },
+    "winogrande": {
+      "v1_1b": 0.506,
+      "v2_pilot": 0.518
+    },
+    "openbookqa": {
+      "v1_1b": 0.15815815815815815,
+      "v2_pilot": 0.16116116116116116
+    },
+    "sciq": {
+      "v1_1b": 0.678,
+      "v2_pilot": 0.707
+    },
+    "commonsense_qa": {
+      "v1_1b": 0.22,
+      "v2_pilot": 0.226
+    }
+  },
+  "bits_per_byte": {
+    "v1_1b": {
+      "edu": 1.1459856587550847,
+      "dclm": 1.2765897528423633,
+      "targeted": 1.2346601929562349,
+      "wiki": 1.0766141343748457,
+      "stackexchange": 1.439980644164902,
+      "books": 1.494638536263751
+    },
+    "v2_pilot": {
+      "edu": 1.11935143378503,
+      "dclm": 1.236505085321874,
+      "targeted": 1.1939341868481346,
+      "wiki": 1.144568247014554,
+      "stackexchange": 1.2357219058954252,
+      "books": 1.358739484713521
+    }
+  },
+  "proxy_mean_acc": {
+    "v1_1b": 0.4291372017353579,
+    "v2_pilot": 0.4331447939262473,
+    "difference": 0.004007592190889364
+  },
+  "source": "v2/phases/pilot_1b/gate.json",
+  "note": "Development data only; official evaluation splits not used."
+}

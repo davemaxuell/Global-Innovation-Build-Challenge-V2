@@ -1,0 +1,22 @@
+{
+  "phase_id": "v2_rich_prep_20260929",
+  "registered_at_kst": "2026-09-29",
+  "objective": "Build the V2 rich pretraining corpus, choose the V2 tokenizer, and freeze a development proxy panel. No model training.",
+  "parent_checkpoint": null,
+  "parent_note": "V2 trains from random initialization; no parent weights.",
+  "inputs": {
+    "config": "v2/configs/prep.json",
+    "reused_extension_manifest": "data/processed/extension_12b/manifest.json",
+    "reused_extension_manifest_sha256": "70242a0a248787d31d56c73af3733ccafadaa9816b09ca0508ec487f1fd37c6d",
+    "exclusion_index_sha256": "9d3a5a05cb2fc62c599f8f7ab09aa44d48836a0f975bead90412efe491420306"
+  },
+  "steps": ["download", "tokenizer_study", "targeted_classifier", "build_corpus", "manifest_and_audit"],
+  "compute_limits": {"gpu": "none", "cpu_workers": 48, "wall_hours_max": 10, "disk_gb_max": 400},
+  "selection_rules": {
+    "tokenizer": "Adopt the best candidate only if its bytes/token on held-out mixture text and benchmark-train text is >= 2% higher than the V1 tokenizer; otherwise keep V1's tokenizer. Among passing candidates prefer the smaller vocabulary unless the larger is a further >= 2% better on mixture text (rule added before the study ran).",
+    "targeted": "Top 20% of Edu+DCLM documents by classifier score; evaluation splits never used."
+  },
+  "output_dir": "v2/data/rich_v1",
+  "launch": "PYTHONPATH=src:v2/src /home/bufsgpu/yes/envs/sw/bin/python -m scglm_v2.<step> --config v2/configs/prep.json",
+  "resume": "Rerun the same command; completed files and stage markers are skipped."
+}
