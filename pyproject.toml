@@ -7,6 +7,7 @@ name = "scglm"
 version = "0.1.0"
 description = "SCG-LM V2: a 46M-parameter language model pretrained from scratch (data, training and evaluation pipeline)"
 requires-python = ">=3.10"
+license = { text = "MIT" }
 
 [tool.setuptools.packages.find]
 where = ["src"]

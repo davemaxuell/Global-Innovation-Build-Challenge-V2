@@ -60,4 +60,8 @@ In a fresh clone, first follow **Setup** in [CURRENT_PIPELINE.md](CURRENT_PIPELI
 
 Track 01 (TECH): trained from scratch with no pretrained weights, no fine-tuning of an existing model and no distillation. The parameter count, 46,346,752 with tied embeddings, is audited on every load. Hardware: one NVIDIA H100 NVL. V1 used 26.5 GPU-hours for 13B tokens; V2 used 31.9 GPU-hours for 45B tokens. Dataset licenses are listed in [v2/submission/BUILT_WITH.md](v2/submission/BUILT_WITH.md).
 
+## License
+
+Code and documentation are released under the [MIT License](LICENSE). Dataset-derived records in this repository keep their original terms, for example the web-text excerpts in `v2/data/rich_v1/targeted/selected_examples.json`; see [v2/submission/BUILT_WITH.md](v2/submission/BUILT_WITH.md) for each source's license. The pinned lm-evaluation-harness is not included and keeps its own license. The model weights are distributed separately under the license stated in their [model card](release/hf_v2/README.md).
+
 AI assistance: Claude (Anthropic) assisted V2's research, implementation, tests and documentation; Codex/ChatGPT assisted V1. All code is in this repository.
