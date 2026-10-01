@@ -87,3 +87,4 @@ docs/references/*.pdf
 /checkpoints/SELECTION_2026-09-29.json
 /v2/runs/pilot_1b_aborted_manifest_fix/
 /v2/phases/main/train_resume1.log
+/v2/submission/video/
