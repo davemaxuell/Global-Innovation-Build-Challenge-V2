@@ -1,0 +1,20 @@
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 10300.12it/s]
+/home/bufsgpu/yes/envs/sw/lib/python3.10/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+{
+  "fixed_q_nll": 3.1816832061730294,
+  "fixed_q_perplexity": 24.08726327963211,
+  "weights": {
+    "wikitext103": 1.0
+  },
+  "sources": {
+    "wikitext103": {
+      "nll_sum": 857683.1602048574,
+      "token_count": 269569,
+      "documents": 60,
+      "nll": 3.1816832061730294,
+      "perplexity": 24.08726327963211
+    }
+  }
+}

@@ -1,0 +1,28 @@
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 10672.28it/s]
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9607.34it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 12.57it/s]
+{"time": "2026-10-01T02:21:11.579157+00:00", "event": "interpolated", "alpha": 0.1, "path": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.10/export", "model_sha256": "2b98c20ed1245a00c1e09643fbb5df48289ae66d64cadc876125c65555849966"}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9272.16it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 13.11it/s]
+{"time": "2026-10-01T02:21:12.206657+00:00", "event": "interpolated", "alpha": 0.2, "path": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.20/export", "model_sha256": "c16fe1777342af7da85c83957de6e42dc2049a4dd27669aa05f8b261df20d63c"}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 8588.17it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 11.83it/s]
+{"time": "2026-10-01T02:21:12.866406+00:00", "event": "interpolated", "alpha": 0.3, "path": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.30/export", "model_sha256": "175e11db394421f9d50aac7dfc57e74946f84330af5c4e74d8a67f21c7b32f3f"}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 6883.40it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 11.85it/s]
+{"time": "2026-10-01T02:21:13.462020+00:00", "event": "interpolated", "alpha": 0.4, "path": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.40/export", "model_sha256": "1e4fd4a10762babc8449ebed561f2f650dcd568de6b38a8d25cf05bd23eba4b0"}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9654.59it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 13.08it/s]
+{"time": "2026-10-01T02:21:14.049022+00:00", "event": "interpolated", "alpha": 0.5, "path": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.50/export", "model_sha256": "7e4567ec380e3e32328b5966459bc64427256b19deca8bcbc33a10cc0bab5041"}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9064.67it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 13.38it/s]
+{"time": "2026-10-01T02:21:14.668412+00:00", "event": "interpolated", "alpha": 0.6, "path": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.60/export", "model_sha256": "f04aa2ce5a20366953517a6b3624cc1e5a2d59bf68b887a9b86b7415add18265"}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9307.33it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 12.88it/s]
+{"time": "2026-10-01T02:21:15.298896+00:00", "event": "interpolated", "alpha": 0.7, "path": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.70/export", "model_sha256": "97594b9fdbc6931aed66c195bcc7433488efde8789102254a01a2c86c1039f55"}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9936.54it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 12.70it/s]
+{"time": "2026-10-01T02:21:15.933520+00:00", "event": "interpolated", "alpha": 0.8, "path": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.80/export", "model_sha256": "b5e836b1d935a27d39ed19a634bbf49aed6d00dc1d817e1c3acaf8cff1f7b0a1"}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9461.35it/s]
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00, 12.64it/s]
+{"time": "2026-10-01T02:21:16.574003+00:00", "event": "interpolated", "alpha": 0.9, "path": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.90/export", "model_sha256": "072e83d1385acc8ed1b480c58f72c75adcaaee423351ba70e686dad29fec791a"}

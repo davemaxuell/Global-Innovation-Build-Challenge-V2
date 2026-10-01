@@ -308,3 +308,9 @@ Registered 2026-10-01 ~11:35 KST on branch `task-tuning-20261001`, after the use
 - **Disclosure:** both endpoints' official scores were seen before this phase.
 
 [Report](v2/phases/wiseft/REPORT.md) · [Registration](v2/phases/wiseft/registration.json) · [Config](v2/phases/wiseft/config.json)
+
+**WiSE-FT outcome, 2026-10-01 11:37 KST: α = 0.5 selected.**
+- **Development:** +2.17 points, Wikipedia bits/byte +0.0081. α = 0.6 exceeded the guard.
+- **Official:** HellaSwag 30.47, ARC-Easy 51.73, PIQA 63.38, WinoGrande 52.80, for a mean of **49.60 vs 47.12**. WikiText-103 perplexity was **24.09 vs 23.85**.
+- **Model:** export `v2/runs/wiseft/alpha_0.50/export`.
+- **Not yet adopted:** half of its weight comes from fine-tuning on the benchmarks' training splits, which must be disclosed. The user decides whether it becomes the submission; `checkpoints/v2_best` is unchanged. [Report](v2/phases/wiseft/REPORT.md)

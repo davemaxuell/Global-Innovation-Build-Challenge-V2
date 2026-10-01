@@ -1,0 +1,12 @@
+/home/bufsgpu/yes/envs/sw/lib/python3.10/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+Task 'arc_easy' from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/wiseft/official/alpha_0.50/attempt_1/task_overrides/arc_easy.yaml overrides existing task from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness/lm_eval/tasks/arc/arc_easy.yaml
+Task 'ai2_arc' from None overrides existing task from None
+Task 'hellaswag' from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/wiseft/official/alpha_0.50/attempt_1/task_overrides/hellaswag.yaml overrides existing task from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness/lm_eval/tasks/hellaswag/hellaswag.yaml
+Task 'multiple_choice' from None overrides existing task from None
+Task 'piqa' from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/wiseft/official/alpha_0.50/attempt_1/task_overrides/piqa.yaml overrides existing task from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness/lm_eval/tasks/piqa/piqa.yaml
+Task 'winogrande' from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/wiseft/official/alpha_0.50/attempt_1/task_overrides/winogrande.yaml overrides existing task from /data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness/lm_eval/tasks/winogrande/default.yaml
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[20261001T023026.722210Z-4306a9f66eae] harness: /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/reports/validation_history/runs/20261001T023026.722210Z-4306a9f66eae/harness.log
+[20261001T023026.722210Z-4306a9f66eae] wikitext103: /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/reports/validation_history/runs/20261001T023026.722210Z-4306a9f66eae/wikitext103.log
+Validation completed: /data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/reports/validation_history/runs/20261001T023026.722210Z-4306a9f66eae/run.json

@@ -1,0 +1,59 @@
+[
+  {
+    "cwd": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness",
+    "command": [
+      "/home/bufsgpu/yes/envs/sw/bin/python",
+      "-m",
+      "lm_eval",
+      "run",
+      "--model",
+      "hf",
+      "--model_args",
+      "pretrained=/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.50/export,trust_remote_code=False,dtype=float32,max_length=1024,add_bos_token=False,prefix_token_id=2",
+      "--tasks",
+      "hellaswag",
+      "arc_easy",
+      "piqa",
+      "winogrande",
+      "--include_path",
+      "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/wiseft/official/alpha_0.50/attempt_1/task_overrides",
+      "--num_fewshot",
+      "0",
+      "--batch_size",
+      "1",
+      "--device",
+      "cuda:0",
+      "--seed",
+      "0,1234,1234,1234",
+      "--output_path",
+      "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/wiseft/official/alpha_0.50/attempt_1/harness",
+      "--log_samples"
+    ]
+  },
+  {
+    "cwd": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2",
+    "command": [
+      "/home/bufsgpu/yes/envs/sw/bin/python",
+      "-m",
+      "scglm.evaluate",
+      "wikitext103",
+      "--model",
+      "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.50/export",
+      "--tokenizer",
+      "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.50/export",
+      "--dataset-revision",
+      "b08601e04326c79dfdd32d625aee71d232d685c3",
+      "--split",
+      "validation",
+      "--context-length",
+      "1024",
+      "--stride",
+      "512",
+      "--device",
+      "cuda:0",
+      "--output",
+      "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/wiseft/official/alpha_0.50/attempt_1/wikitext103.json",
+      "--final-evaluation"
+    ]
+  }
+]

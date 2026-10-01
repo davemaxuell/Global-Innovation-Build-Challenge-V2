@@ -1,0 +1,31 @@
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9319.36it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/main/export", "proxy": 0.4663665643846493}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9089.31it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.10/export", "proxy": 0.46735700387988977, "wiki_bpb": 0.9838772128661711}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9011.55it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.20/export", "proxy": 0.46933236363295117, "wiki_bpb": 0.9850221154821104}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 8635.26it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.30/export", "proxy": 0.47844021906685086, "wiki_bpb": 0.9866335974691969}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9019.30it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.40/export", "proxy": 0.48465483005724963, "wiki_bpb": 0.988723142713523}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 8659.57it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.50/export", "proxy": 0.48805767143745105, "wiki_bpb": 0.99131246974105}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 8744.26it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.60/export", "proxy": 0.49288151315336115, "wiki_bpb": 0.9943332547604354}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9037.15it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.70/export", "proxy": 0.5022382604145298, "wiki_bpb": 0.997891926081331}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9393.93it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.80/export", "proxy": 0.5127653797056209, "wiki_bpb": 1.0019144479340423}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9065.20it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.90/export", "proxy": 0.5221089662960251, "wiki_bpb": 1.0065464725997728}
+{"selected": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.50/export", "reason": "candidate: proxy gain +0.0217 >= 0.01, wiki bpb change +0.0081"}

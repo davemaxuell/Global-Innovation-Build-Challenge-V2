@@ -1,0 +1,93 @@
+{
+  "protocol": "gibc-track01-eval-v1",
+  "protocol_sha256": "fa029d2a7368af109e77158da4f65ab1ec0f4550b8ca3edfd35a9a2010ff351c",
+  "harness_commit": "6d642546f4688648fced259eb3302efd36ece5af",
+  "task_overrides": {
+    "hellaswag": {
+      "path": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/wiseft/official/alpha_0.50/attempt_1/task_overrides/hellaswag.yaml",
+      "sha256": "a5417f71afeeccdee438a43a073973e60da6101d2931a83c75111ba6d154026f"
+    },
+    "arc_easy": {
+      "path": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/wiseft/official/alpha_0.50/attempt_1/task_overrides/arc_easy.yaml",
+      "sha256": "4f4182fce484c0587cc453b9112696d1b28cda5a397b5de7d97d3c2da2564f93"
+    },
+    "piqa": {
+      "path": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/wiseft/official/alpha_0.50/attempt_1/task_overrides/piqa.yaml",
+      "sha256": "deae1d51459b36c8988b0adfd1e9332e13800ec2c60e5f0323e0c4f5305a50c7"
+    },
+    "winogrande": {
+      "path": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/wiseft/official/alpha_0.50/attempt_1/task_overrides/winogrande.yaml",
+      "sha256": "12eef3109023ab19e6604498c66a69f36aee9bfd2953addc1a9fbe1677d6ec98"
+    }
+  },
+  "task_validation": {
+    "hellaswag": {
+      "split": "validation",
+      "examples": 10042,
+      "metrics": [
+        "acc",
+        "acc_norm"
+      ]
+    },
+    "arc_easy": {
+      "split": "test",
+      "examples": 2376,
+      "metrics": [
+        "acc",
+        "acc_norm"
+      ]
+    },
+    "piqa": {
+      "split": "validation",
+      "examples": 1838,
+      "metrics": [
+        "acc",
+        "acc_norm"
+      ]
+    },
+    "winogrande": {
+      "split": "validation",
+      "examples": 1267,
+      "metrics": [
+        "acc"
+      ]
+    },
+    "wikitext103": {
+      "split": "validation",
+      "raw_rows": 3760,
+      "revision": "b08601e04326c79dfdd32d625aee71d232d685c3"
+    }
+  },
+  "runtime_versions": {
+    "torch": "2.10.0",
+    "transformers": "5.5.4",
+    "datasets": "4.8.4",
+    "tokenizers": "0.22.2",
+    "lm_eval": "0.4.12",
+    "safetensors": "0.8.0",
+    "numpy": "2.2.6",
+    "pyarrow": "23.0.0"
+  },
+  "runner_sha256": "09683cb0703e1569e581fe4665b0acdfe1bd1e5e6844e0e702dc1d923722c41b",
+  "model_loaded": true,
+  "scores_calculated": true,
+  "model": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.50/export",
+  "artifact_sha256": {
+    "config.json": "40829ea36a2cabf18165acc07bec807f418dceba7cc9d2f8d2520a8a89c02538",
+    "generation_config.json": "065c32ced79f04ad5ab5db4530779cf2bbc74a4023f634dd87844e4d7d98d98d",
+    "model.safetensors": "7e4567ec380e3e32328b5966459bc64427256b19deca8bcbc33a10cc0bab5041",
+    "tokenizer.json": "f8de5462e2967f502b8a25f2a90a87fee12ecad1f50d980a54552805ed0ea196",
+    "tokenizer_config.json": "58d2cd28caac9ff4fbc9527959cea2b8f85bd67dfb2d5955f6943085e96c5ef6",
+    "training_provenance.json": "16dd5e189983ebb02046b7632aadec6981a67bad9f27695ee8bb83f00a568d33"
+  },
+  "selection_frozen_attested": true,
+  "selection_record": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/phases/wiseft/selection.json",
+  "selection_record_sha256": "30ae96243e914fa9c66f969c53329e104900d38234ed8293c3df522e7efe7e03",
+  "selected_model": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.50/export",
+  "is_selected_endpoint": true,
+  "started_unix": 1790821846.992454,
+  "device": "cuda:0",
+  "validation_run_id": "20261001T023026.722210Z-4306a9f66eae",
+  "finished_unix": 1790822216.4838767,
+  "elapsed_seconds": 369.4914228916168
+}

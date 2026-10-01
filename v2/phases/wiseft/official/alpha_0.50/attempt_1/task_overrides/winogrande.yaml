@@ -1,0 +1,8 @@
+include: /data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness/lm_eval/tasks/winogrande/default.yaml
+task: winogrande
+dataset_path: allenai/winogrande
+dataset_name: winogrande_xl
+dataset_kwargs:
+  revision: 01e74176c63542e6b0bcb004dcdea22d94fb67b5
+num_fewshot: 0
+target_delimiter: ' '

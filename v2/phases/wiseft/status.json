@@ -1,5 +1,16 @@
 {
   "phase_id": "v2_wiseft_20261001",
-  "state": "preparation",
-  "detail": "registered; launching"
+  "state": "completed",
+  "outcome": "alpha 0.5 selected under the registered development-only rule",
+  "selected_export": "v2/runs/wiseft/alpha_0.50/export",
+  "selected_sha256": "7e4567ec380e3e32328b5966459bc64427256b19deca8bcbc33a10cc0bab5041",
+  "official": {
+    "hellaswag": 0.3047,
+    "arc_easy": 0.5173,
+    "piqa": 0.6338,
+    "winogrande": 0.528,
+    "four_task_mean": 0.496,
+    "wikitext103_perplexity": 24.09
+  },
+  "adopted_as_submission": false
 }
