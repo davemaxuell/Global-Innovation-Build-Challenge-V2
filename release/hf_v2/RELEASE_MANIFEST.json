@@ -2,7 +2,7 @@
   "created_at": "2026-10-01T08:34:57.761629+09:00",
   "source": "checkpoints/v2_best (= v2/runs/main/export)",
   "files_sha256": {
-    "README.md": "1c24e040718ade275e21689a55492d0a7545ec90245319593e5efd5e25a36f63",
+    "README.md": "2bffd16f12501a11044e697c0310f29ec062fa0e30645352204f4512baae3226",
     "config.json": "40829ea36a2cabf18165acc07bec807f418dceba7cc9d2f8d2520a8a89c02538",
     "eval_results.json": "464aa52618dd4c5a37ae233347ca405c5539a2800590859cc8ce7c845e642b25",
     "figures/fig1_key_numbers.png": "d283248cae1f9a880483b8df6c66546e6ec7fa11ee8c73e46b6e2ed6c0708410",
@@ -10,6 +10,7 @@
     "figures/fig3_pilot.png": "fe42b0ddf42e59074ed1db2054ee67929d54ac7cab465a367afa36dd5f487713",
     "figures/fig4_training_curve.png": "e9416464eecf8f9f09d104df67db29d0735f11edfdf6338624bdd31e2bd6cc2a",
     "figures/fig5_results.png": "5c0489395899315a24900ba0ecaebf64a80c03f864b6249863a045ab86c34822",
+    "figures/fig8_architecture.png": "cb9d24fe0baf6e71fa4b0b3fc09eb466b928d21ab27558de6da861393411a51a",
     "generation_config.json": "065c32ced79f04ad5ab5db4530779cf2bbc74a4023f634dd87844e4d7d98d98d",
     "model.safetensors": "9aac2111b9ca6b06f4a12278f5213c17621ded643b7b54137987ce25028011bd",
     "tokenizer.json": "f8de5462e2967f502b8a25f2a90a87fee12ecad1f50d980a54552805ed0ea196",

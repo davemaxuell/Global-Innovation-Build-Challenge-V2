@@ -3,7 +3,7 @@
   "model": "SCG-LM V2.1 (46M)",
   "source": "checkpoints/v2_1 (= v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export)",
   "files_sha256": {
-    "README.md": "800f2b8a4fe3d561e515d764809e1b0453e3863c53c4f83b66c37dd752e7eab4",
+    "README.md": "f21f8896ae64fa01daf0397558f69737a688c3c8436dee3e9eff6d6be66aea6b",
     "config.json": "40829ea36a2cabf18165acc07bec807f418dceba7cc9d2f8d2520a8a89c02538",
     "eval_results.json": "c693922426a0ae35a19af73fc65a5988e2f0da18abcdf9a5c4611d052139c21b",
     "figures/fig0_pipeline.png": "62e3452f15c191e2778b31b339219c136cac033c7b11230370a8dcfab1b36410",
@@ -12,6 +12,7 @@
     "figures/fig5_results.png": "5c0489395899315a24900ba0ecaebf64a80c03f864b6249863a045ab86c34822",
     "figures/fig6_tradeoff.png": "f663e291a4e6733da7e0364da52dbf0602971e6f2c0b043f79a5f306fac75b50",
     "figures/fig7_demo_scoring.png": "3ffd27f8ad3603bd66afbd3cd8e3e067e9d194ae49388e4fe88dd834c98f9e2e",
+    "figures/fig8_architecture.png": "cb9d24fe0baf6e71fa4b0b3fc09eb466b928d21ab27558de6da861393411a51a",
     "generation_config.json": "065c32ced79f04ad5ab5db4530779cf2bbc74a4023f634dd87844e4d7d98d98d",
     "model.safetensors": "aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897",
     "tokenizer.json": "f8de5462e2967f502b8a25f2a90a87fee12ecad1f50d980a54552805ed0ea196",

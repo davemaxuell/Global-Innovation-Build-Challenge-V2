@@ -408,8 +408,86 @@ def demo_scoring():
     _save(fig, "fig7_demo_scoring", {"source": "v2/submission/demo_choices.txt (scripts/demo_choices.py)", "lines": text})
 
 
+# ------------------------------------------------------------------ figure 8
+def parameter_breakdown(cfg: dict) -> dict:
+    """Analytic parameter count by component for a tied-embedding Llama config."""
+    d, L, ff, V = cfg["hidden_size"], cfg["num_hidden_layers"], cfg["intermediate_size"], cfg["vocab_size"]
+    hd = cfg.get("head_dim") or d // cfg["num_attention_heads"]
+    attn = L * (2 * d * cfg["num_attention_heads"] * hd + 2 * d * cfg["num_key_value_heads"] * hd)
+    return {"Embedding (tied)": V * d, "Attention": attn, "MLP (SwiGLU)": L * 3 * d * ff, "RMSNorm": (2 * L + 1) * d}
+
+
+def architecture():
+    cfg = _load("v2/runs/main/export/config.json")
+    parts = parameter_breakdown(cfg)
+    total = sum(parts.values())
+    assert total == _load("v2/runs/main/status.json")["parameter_count"], "breakdown must match the audited count"
+    d, L, ff, V = cfg["hidden_size"], cfg["num_hidden_layers"], cfg["intermediate_size"], cfg["vocab_size"]
+    H, hd, theta = cfg["num_attention_heads"], cfg["head_dim"], cfg["rope_parameters"]["rope_theta"]
+    fig = plt.figure(figsize=(11.6, 6.6), dpi=DPI)
+    ax = fig.add_axes([0.0, 0.0, 0.52, 0.88]); ax.set_xlim(0, 100); ax.set_ylim(0, 100); ax.axis("off")
+
+    def box(y, h, text, sub=None, fill=SURFACE, edge=AXIS, x=8, w=84, bold=False):
+        ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle="round,pad=0,rounding_size=1.5", facecolor=fill,
+                                    edgecolor=edge, linewidth=1.2, zorder=3))
+        ax.text(x + w / 2, y + h / 2 + (1.6 if sub else 0), text, ha="center", va="center", fontsize=10.5,
+                color=INK, fontweight="bold" if bold else "normal", zorder=4)
+        if sub:
+            ax.text(x + w / 2, y + h / 2 - 2.2, sub, ha="center", va="center", fontsize=9, color=INK2, zorder=4)
+
+    def arrow(y0, y1, x=50):
+        ax.annotate("", xy=(x, y1), xytext=(x, y0), arrowprops=dict(arrowstyle="-|>", color=MUTED, linewidth=1.3), zorder=2)
+
+    box(93, 6, f"Input tokens (up to {cfg['max_position_embeddings']:,})")
+    arrow(93, 89.5)
+    box(82, 7.5, "Token embedding", f"{V:,} × {d}, shared with the LM head")
+    arrow(82, 77.5)
+    ax.add_patch(FancyBboxPatch((3, 19.5), 94, 58, boxstyle="round,pad=0,rounding_size=2", facecolor="#f4f3ef",
+                                edgecolor=V2, linewidth=1.6, zorder=1))
+    ax.text(6, 74.6, f"Decoder block × {L}", fontsize=11, fontweight="bold", color=V2, va="center", zorder=4)
+    box(67.5, 4.5, "RMSNorm", x=14, w=72)
+    arrow(67.5, 64.5)
+    box(56, 8.5, "Causal multi-head self-attention", f"{H} heads × {hd} dims · RoPE θ = {theta:,.0f}", x=14, w=72)
+    arrow(56, 53)
+    box(48.5, 4.5, "+ residual (block input)", x=14, w=72)
+    arrow(48.5, 45.5)
+    box(41, 4.5, "RMSNorm", x=14, w=72)
+    arrow(41, 38)
+    box(29.5, 8.5, "SwiGLU feed-forward", f"{d} → 2 × {ff:,} → {d} · SiLU", x=14, w=72)
+    arrow(29.5, 26.5)
+    box(22, 4.5, "+ residual", x=14, w=72)
+    arrow(22, 17.5)
+    box(12, 5.5, "Final RMSNorm")
+    arrow(12, 8.5)
+    box(1, 7.5, "LM head (tied weights)", f"{V:,} next-token logits")
+
+    bx = fig.add_axes([0.62, 0.30, 0.34, 0.46])
+    order = sorted(parts.items(), key=lambda kv: kv[1])
+    bx.set_xlim(0, max(parts.values()) / 1e6 * 1.55); bx.set_ylim(-0.6, len(order) - 0.4)
+    _style(bx)
+    for i, (name, n) in enumerate(order):
+        _hbar(bx, i, n / 1e6, V2, height_px=26)
+        label = f"{n / 1e6:.2f}M · {n / total:.1%}" if n > 1e5 else f"{n:,} · {n / total:.2%}"
+        bx.text(n / 1e6 + bx.get_xlim()[1] * 0.02, i, label, va="center", fontsize=10, color=INK2)
+    bx.set_yticks(range(len(order)), [k for k, _ in order], fontsize=10)
+    bx.set_xlabel("Parameters (millions)")
+    fig.text(0.62, 0.84, f"Where the {total:,} parameters are", fontsize=11.5, fontweight="bold", color=INK)
+    fig.text(0.62, 0.80, f"Non-embedding: {total - parts['Embedding (tied)']:,} · cap: 50,000,000", fontsize=9.5, color=INK2)
+    spec = [("Layers", L), ("Hidden size", d), ("Heads (KV)", f"{H} ({cfg['num_key_value_heads']})"), ("Head dim", hd),
+            ("FFN size", f"{ff:,}"), ("Context", f"{cfg['max_position_embeddings']:,}"), ("Vocabulary", f"{V:,}"),
+            ("RMSNorm ε", f"{cfg['rms_norm_eps']:g}"), ("Bias, dropout", "none")]
+    for i, (k, v) in enumerate(spec):
+        col, row = divmod(i, 5)
+        fig.text(0.62 + col * 0.18, 0.20 - row * 0.04, k, fontsize=9.5, color=INK2)
+        fig.text(0.62 + col * 0.18 + 0.095, 0.20 - row * 0.04, str(v), fontsize=9.5, color=INK, fontweight="bold")
+    fig.text(0.02, 0.94, f"SCG-LM architecture: Llama-style decoder, {total / 1e6:.1f}M parameters (same for V2 and V2.1)",
+             fontsize=12.5, fontweight="bold", color=INK)
+    _save(fig, "fig8_architecture", {"config": cfg, "parameters_by_component": parts, "total": total,
+                                     "source": "v2/runs/main/export/config.json (V2.1 has the identical config)"})
+
+
 def main():
-    pipeline(); key_numbers(); corpus(); pilot(); training_curve(); results(); tradeoff(); demo_scoring()
+    pipeline(); key_numbers(); corpus(); pilot(); training_curve(); results(); tradeoff(); demo_scoring(); architecture()
     print("\n".join(str(p) for p in sorted(OUT.glob("*.png"))))
 
 

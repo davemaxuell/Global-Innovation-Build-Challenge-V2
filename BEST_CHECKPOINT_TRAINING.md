@@ -45,6 +45,18 @@ Sections 1–8 document the V2 base model.
 
 Hugging Face `LlamaForCausalLM`, random initialization (seed 20260923): 12 blocks, width 512, 8 heads (head dimension 64, full multi-head attention), SwiGLU 1,376, RMSNorm ε 1e-5, RoPE θ 10,000, context 1,024, vocabulary 16,384, tied input/output embeddings, no biases, no dropout. The parameter count is 46,346,752, under the 50,000,000 cap. Deep-thin (24×384, grouped-query) and Muon were considered and rejected on evidence ([v2/PLAN.md](v2/PLAN.md)).
 
+![SCG-LM architecture: decoder block diagram and parameter breakdown](v2/submission/figures/fig8_architecture.png)
+
+**Parameters by component**
+
+| Component | Shape | Parameters | Share |
+| --- | --- | ---: | ---: |
+| Token embedding = LM head (tied) | 16,384 × 512 | 8,388,608 | 18.1% |
+| Attention: q, k, v, o projections | 12 × 4 × 512 × 512 | 12,582,912 | 27.1% |
+| Feed-forward: gate, up, down | 12 × 3 × 512 × 1,376 | 25,362,432 | 54.7% |
+| RMSNorm weights | (24 + 1) × 512 | 12,800 | 0.03% |
+| **Total** | | **46,346,752** | 3,653,248 under the 50,000,000 cap |
+
 ## 3. Tokenizer
 
 A byte-level BPE with 16,384 entries, trained from scratch in V1 on 50M FineWeb and 50M Wikipedia training characters (special tokens pad 0, bos 1, eos 2, unk 3). V2's pre-registered study trained 16k and 20k candidates on the V2 mixture and would adopt one only if it compressed at least 2% better on both mixture and benchmark text. Neither did (16k: −0.6% / +3.4%; 20k: +1.6% / +6.0%), and both compressed Wikipedia worse (3.50 and 3.60 vs 3.85 bytes/token), so the V1 tokenizer was kept. [Study](v2/phases/preparation/REPORT.md).

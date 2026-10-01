@@ -57,6 +57,47 @@ These three questions were written for the demo and are not from any evaluation 
 
 In a fresh clone, first follow **Setup** in [CURRENT_PIPELINE.md](CURRENT_PIPELINE.md). The model weights, prepared data and the pinned evaluation harness are not stored in the repository.
 
+## Model architecture
+
+![SCG-LM architecture: decoder block diagram and parameter breakdown](v2/submission/figures/fig8_architecture.png)
+
+| Specification | Value |
+| --- | --- |
+| Type | Decoder-only causal transformer (`LlamaForCausalLM`), pre-norm |
+| Parameters | 46,346,752 total; 37,958,144 non-embedding |
+| Layers | 12 |
+| Hidden size | 512 |
+| Attention | Causal multi-head self-attention: 8 query heads and 8 key/value heads (no grouped-query sharing), head dimension 64, PyTorch SDPA |
+| Feed-forward | SwiGLU: gate and up projections 512 → 1,376, down projection 1,376 → 512, SiLU activation |
+| Normalization | RMSNorm (ε = 1e-5) before attention and before the feed-forward, plus a final RMSNorm |
+| Position encoding | Rotary position embeddings (RoPE), θ = 10,000 |
+| Context length | 1,024 tokens |
+| Vocabulary | 16,384 tokens, byte-level BPE trained from scratch; pad 0, bos 1, eos 2, unk 3 |
+| Embeddings | The input embedding and the output head share one 16,384 × 512 matrix |
+| Bias, dropout | None: no bias in any projection, dropout 0 |
+| Initialization | Random normal (std 0.02), seed 20260923; no pretrained weights |
+| Weights | FP32 safetensors, 185 MB |
+
+**Parameters by component**
+
+| Component | Shape | Parameters | Share |
+| --- | --- | ---: | ---: |
+| Token embedding = LM head (tied) | 16,384 × 512 | 8,388,608 | 18.1% |
+| Attention: q, k, v, o projections | 12 × 4 × 512 × 512 | 12,582,912 | 27.1% |
+| Feed-forward: gate, up, down | 12 × 3 × 512 × 1,376 | 25,362,432 | 54.7% |
+| RMSNorm weights | (24 + 1) × 512 | 12,800 | 0.03% |
+| **Total** | | **46,346,752** | 3,653,248 under the 50,000,000 cap |
+
+**Compute**
+
+| | |
+| --- | --- |
+| Pretraining tokens | 44,999,966,720 (about 971 per parameter) |
+| Pretraining compute | About 1.25 × 10<sup>19</sup> FLOPs (6·N·D with N = all parameters; attention FLOPs not included) |
+| Fine-tuning (V2.1) | 41.2M task tokens + 61.0M replay tokens, about 0.2% of the pretraining compute |
+| Inference | About 93 MFLOPs per generated token (2·N); KV cache 48 KiB per token in FP32 (2 × 12 layers × 512 × 4 bytes) |
+| Hardware, software | One NVIDIA H100 NVL; PyTorch 2.10 (CUDA 12.8), Transformers 5.5.4; BF16 autocast with FP32 master weights |
+
 ## What changed from V1
 
 1. **2.9× throughput** (137k → about 395k tokens/s) from `torch.compile` and a single 64-sequence microbatch. On identical data and seed, the loss matched the V1 trainer over the steps compared.
