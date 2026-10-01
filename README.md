@@ -2,6 +2,8 @@
 
 SCG-LM is a 46,346,752-parameter Llama-style decoder trained from **random initialization** on one H100: 45.0B tokens of human-written English in 31.9 hours. The pretraining-only model is [checkpoints/v2_best](checkpoints/v2_best/). **The submitted model is SCG-LM V2.1, in [checkpoints/v2_1](checkpoints/v2_1/):** that same model, fine-tuned for 20 minutes on the training splits of the four benchmarks. See the disclosure below the table.
 
+**Model weights on Hugging Face:** [SCG-LM V2.1](https://huggingface.co/davemaxuellkr/Global-Innovation-Build-Challenge-V2) (submitted) · [SCG-LM V2](https://huggingface.co/davemaxuellkr/scglm-v2-46m) (pretraining only). Both are MIT-licensed, with model cards and evaluation records.
+
 | Model | HellaSwag | ARC-Easy | PIQA | WinoGrande | Mean | WikiText-103 ppl ↓ |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | V1 baseline (13B tokens) | 28.48 | 46.59 | **62.08** | 50.67 | 46.96 | 25.52 |
@@ -34,8 +36,9 @@ python -m pytest                                                                
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
-tok = AutoTokenizer.from_pretrained("checkpoints/v2_1", local_files_only=True)   # or checkpoints/v2_best
-model = AutoModelForCausalLM.from_pretrained("checkpoints/v2_1", local_files_only=True)
+repo = "davemaxuellkr/Global-Innovation-Build-Challenge-V2"   # V2.1; V2 base: "davemaxuellkr/scglm-v2-46m"
+tok = AutoTokenizer.from_pretrained(repo)                       # or a local copy, e.g. "checkpoints/v2_1"
+model = AutoModelForCausalLM.from_pretrained(repo)
 ```
 
 Both models continue text; neither is instruction-tuned or a chat model. The submitted model was additionally trained to score multiple-choice answers.
