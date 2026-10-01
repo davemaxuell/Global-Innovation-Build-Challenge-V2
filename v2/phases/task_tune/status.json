@@ -15,5 +15,7 @@
   "official_v2": {
     "four_task_mean": 0.4712,
     "wikitext103_perplexity": 23.85
-  }
+  },
+  "adopted_as_submission": true,
+  "adoption": "v2/phases/task_tune/ADOPTION.json"
 }

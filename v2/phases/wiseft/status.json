@@ -12,5 +12,6 @@
     "four_task_mean": 0.496,
     "wikitext103_perplexity": 24.09
   },
-  "adopted_as_submission": false
+  "adopted_as_submission": false,
+  "note": "Selected by its rule; the user adopted the fully task-tuned model instead (v2/phases/task_tune/ADOPTION.json)."
 }

@@ -314,3 +314,10 @@ Registered 2026-10-01 ~11:35 KST on branch `task-tuning-20261001`, after the use
 - **Official:** HellaSwag 30.47, ARC-Easy 51.73, PIQA 63.38, WinoGrande 52.80, for a mean of **49.60 vs 47.12**. WikiText-103 perplexity was **24.09 vs 23.85**.
 - **Model:** export `v2/runs/wiseft/alpha_0.50/export`.
 - **Not yet adopted:** half of its weight comes from fine-tuning on the benchmarks' training splits, which must be disclosed. The user decides whether it becomes the submission; `checkpoints/v2_best` is unchanged. [Report](v2/phases/wiseft/REPORT.md)
+
+**Submission decision, 2026-10-01 ~11:50 KST: the user adopted the fully task-tuned model.**
+- **Model:** `checkpoints/v2_task_tuned`, `aaf13826…`. Official mean 52.76; WikiText-103 perplexity 25.46.
+- **Relation to the rules:** the registered task-tune rule had kept V2, and the WiSE-FT rule had selected α = 0.5. The adoption was made after all official scores were observed and overrides the project's own Wikipedia guard. It is disclosed with every reported result.
+- **Preserved:** V2 base (`checkpoints/v2_best`) and the α = 0.5 export.
+
+[Adoption record](v2/phases/task_tune/ADOPTION.json) · [checkpoint inventory](checkpoints/ADOPTION_2026-10-01.json)

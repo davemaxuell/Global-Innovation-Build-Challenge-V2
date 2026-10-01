@@ -12,3 +12,4 @@
 {"time": "2026-10-01T02:30:26.497706+00:00", "event": "selection_frozen", "detail": "{\"selected\": \"/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/wiseft/alpha_0.50/export\", \"reason\": \"candidate: proxy gain +0.0217 >= 0.01, wiki bpb change +0.0081\"}"}
 {"time": "2026-10-01T02:36:57.289459+00:00", "event": "official_completed", "detail": "alpha_0.50 (selected) attempt 1"}
 {"time": "2026-10-01T02:37:42.674294+00:00", "event": "phase_completed", "outcome": "alpha 0.5 selected", "official_four_task_mean": 0.496, "wikitext103_perplexity": 24.09, "model_sha256": "7e4567ec380e3e32328b5966459bc64427256b19deca8bcbc33a10cc0bab5041"}
+{"time": "2026-10-01T03:22:31.266257+00:00", "event": "not_adopted", "note": "user adopted the fully task-tuned model instead"}

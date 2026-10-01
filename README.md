@@ -1,17 +1,27 @@
 # SCG-LM V2: a 46M-parameter language model trained from scratch
 
-SCG-LM is a 46,346,752-parameter Llama-style decoder trained from **random initialization** on one H100: 45.0B tokens of human-written English in 31.9 hours. The selected checkpoint is [checkpoints/v2_best](checkpoints/v2_best/).
+SCG-LM is a 46,346,752-parameter Llama-style decoder trained from **random initialization** on one H100: 45.0B tokens of human-written English in 31.9 hours. The pretraining-only model is [checkpoints/v2_best](checkpoints/v2_best/). **The submitted model is [checkpoints/v2_task_tuned](checkpoints/v2_task_tuned/):** that same model, fine-tuned for 20 minutes on the training splits of the four benchmarks. See the disclosure below the table.
 
 | Model | HellaSwag | ARC-Easy | PIQA | WinoGrande | Mean | WikiText-103 ppl ↓ |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | V1 baseline (13B tokens) | 28.48 | 46.59 | **62.08** | 50.67 | 46.96 | 25.52 |
-| **V2 (45B tokens)** | **28.85** | **47.39** | 60.77 | **51.46** | **47.12** | **23.85** |
+| V2 base (45B tokens, pretraining only) | 28.85 | 47.39 | 60.77 | 51.46 | 47.12 | **23.85** |
+| **V2 task-tuned (submitted)** | **39.15** | **54.12** | **65.34** | **52.41** | **52.76** | 25.46 |
 
-Zero-shot raw accuracy (%) with lm-evaluation-harness v0.4.12; held-out WikiText-103 validation perplexity (context 1,024, stride 512). The protocol is pinned in [configs/evaluation.json](configs/evaluation.json), with details in [EVALUATION_PROTOCOL.md](EVALUATION_PROTOCOL.md). The checkpoint was chosen on development data before any official V2 score was computed. The perplexity gain is clear; the mean-accuracy gain is within per-task standard errors (0.45–1.4 points).
+Zero-shot raw accuracy (%) with lm-evaluation-harness v0.4.12; held-out WikiText-103 validation perplexity (context 1,024, stride 512). The protocol is pinned in [configs/evaluation.json](configs/evaluation.json), with details in [EVALUATION_PROTOCOL.md](EVALUATION_PROTOCOL.md).
+
+**Disclosure for the submitted model:**
+- **Training data:** it was fine-tuned on the *training* splits of HellaSwag, ARC-Easy/Challenge, PIQA and WinoGrande, written in the scoring format of the evaluation harness. Items overlapping official evaluation items were removed, and the official evaluation splits were never trained on.
+- **Comparability:** its scores are task-tuned. They are not comparable at face value with pretraining-only models, which is why V2 base is reported alongside.
+- **Selection:** our own pre-registered rule did not select it, because it worsened held-out Wikipedia bits/byte by 0.028 against a 0.01 guard. We adopted it after its official scores were observed.
+- **Perplexity:** WikiText-103 perplexity is 6.8% worse than V2 base.
+- **Alternative:** a 50/50 weight interpolation with V2 base passed that rule (mean 49.60, perplexity 24.09) and is preserved.
+
+Details: [v2/phases/task_tune/REPORT.md](v2/phases/task_tune/REPORT.md) and the [adoption record](v2/phases/task_tune/ADOPTION.json). V2 base was chosen on development data before any official V2 score was computed; against V1 its perplexity gain is clear, and its mean-accuracy gain is within per-task standard errors (0.45–1.4 points).
 
 - **[BEST_CHECKPOINT_TRAINING.md](BEST_CHECKPOINT_TRAINING.md):** how the model was built: architecture, tokenizer, corpus, schedule, compute, provenance and results.
 - **[CURRENT_PIPELINE.md](CURRENT_PIPELINE.md):** code map, verification and reproduction commands.
-- **[FAILED_APPROACHES.md](FAILED_APPROACHES.md):** what did not work (V1 post-training, V2 decay-mix A/B) and why it is not repeated.
+- **[FAILED_APPROACHES.md](FAILED_APPROACHES.md):** what did not work (V1 post-training, V2 decay-mix A/B, the guard-failing task tuning) and why it is not repeated.
 - **[TRAINING_PHASES.md](TRAINING_PHASES.md):** dated journal of every training phase; per-phase records in [v2/phases/](v2/phases/).
 
 ## Quick start
@@ -24,11 +34,11 @@ python -m pytest                                                                
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
-tok = AutoTokenizer.from_pretrained("checkpoints/v2_best", local_files_only=True)
-model = AutoModelForCausalLM.from_pretrained("checkpoints/v2_best", local_files_only=True)
+tok = AutoTokenizer.from_pretrained("checkpoints/v2_task_tuned", local_files_only=True)   # or checkpoints/v2_best
+model = AutoModelForCausalLM.from_pretrained("checkpoints/v2_task_tuned", local_files_only=True)
 ```
 
-V2 is a base model. It continues text; it has not been instruction-tuned.
+Both models continue text; neither is instruction-tuned or a chat model. The submitted model was additionally trained to score multiple-choice answers.
 
 In a fresh clone, first follow **Setup** in [CURRENT_PIPELINE.md](CURRENT_PIPELINE.md). The model weights, prepared data and the pinned evaluation harness are not stored in the repository.
 
@@ -50,7 +60,7 @@ In a fresh clone, first follow **Setup** in [CURRENT_PIPELINE.md](CURRENT_PIPELI
 | `configs/` | Pinned evaluation protocol, model, V1-lineage data configs |
 | `tests/` | CPU tests for everything above |
 | `v2/` | V2 run configs, corpus, runs, phase records and submission drafts |
-| `checkpoints/` | `v2_best` (selected); V1 `competition_base` and `best_sft` (baselines) |
+| `checkpoints/` | `v2_task_tuned` (submitted), `v2_best` (V2 base); V1 `competition_base` and `best_sft` (baselines) |
 | `release/hf_v2/` | Hugging Face release: model card, configs, tokenizer, `eval_results.json` (weights not in git) |
 | `runs/`, `artifacts/`, `data/` | Historical runs, measured results and prepared data (evidence; unchanged) |
 | `docs/history/`, `archive/` | V1-era documents and retired code (inventory in `reports/cleanup/2026-10-01/`) |
@@ -58,7 +68,7 @@ In a fresh clone, first follow **Setup** in [CURRENT_PIPELINE.md](CURRENT_PIPELI
 
 ## Competition notes
 
-Track 01 (TECH): trained from scratch with no pretrained weights, no fine-tuning of an existing model and no distillation. The parameter count, 46,346,752 with tied embeddings, is audited on every load. Hardware: one NVIDIA H100 NVL. V1 used 26.5 GPU-hours for 13B tokens; V2 used 31.9 GPU-hours for 45B tokens. Dataset licenses are listed in [v2/submission/BUILT_WITH.md](v2/submission/BUILT_WITH.md).
+Track 01 (TECH): trained from scratch with no pretrained weights, no fine-tuning of an existing model and no distillation. The only fine-tuning was of our own scratch-trained model, which the user confirmed is allowed. The parameter count, 46,346,752 with tied embeddings, is audited on every load. Hardware: one NVIDIA H100 NVL. V1 used 26.5 GPU-hours for 13B tokens; V2 used 31.9 GPU-hours for 45B tokens. Task tuning took 20.5 minutes for the submitted arm, and under 1.5 GPU-hours for the whole phase. Dataset licenses are listed in [v2/submission/BUILT_WITH.md](v2/submission/BUILT_WITH.md).
 
 ## License
 

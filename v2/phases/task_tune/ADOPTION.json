@@ -1,0 +1,37 @@
+{
+  "decision": "adopt as the submission model",
+  "decided_by": "user",
+  "time_kst": "2026-10-01T11:50+09:00",
+  "user_words": "I think we should just choose that model instead",
+  "model": {
+    "checkpoint": "checkpoints/v2_task_tuned",
+    "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export",
+    "weights_sha256": "aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897"
+  },
+  "official": {
+    "hellaswag": 0.3915,
+    "arc_easy": 0.5412,
+    "piqa": 0.6534,
+    "winogrande": 0.5241,
+    "four_task_mean": 0.5276,
+    "wikitext103_perplexity": 25.462,
+    "summary": "v2/phases/task_tune/official/task_tune_lr2e-5_r0.5_epoch_3/attempt_3/summary.json"
+  },
+  "relation_to_registered_rules": [
+    "The registered development-only rule of v2_task_tune_20261001 kept V2: this candidate's Wikipedia selection bits/byte was +0.0284 against a +0.01 guard (selection.json). It was evaluated officially only as the registered 'highest proxy, guard failed' report.",
+    "The registered rule of v2_wiseft_20261001 selected the alpha = 0.5 interpolation (official mean 49.60, WikiText-103 24.09); it is not adopted.",
+    "This adoption is a user decision made after the official scores of V2, this model and the alpha = 0.5 interpolation were all observed. It overrides the project's own Wikipedia guard; the competition sets no perplexity threshold."
+  ],
+  "disclosure_required": [
+    "The model was fine-tuned on the training splits of HellaSwag, ARC-Easy/Challenge, PIQA and WinoGrande (80% portion, items overlapping official evaluation items removed). Official evaluation splits were never trained on.",
+    "Its zero-shot scores are task-tuned and are not comparable at face value with pretraining-only models; report V2 base (47.12 / 23.85) alongside.",
+    "WikiText-103 perplexity is 6.8% worse than V2 base (25.46 vs 23.85).",
+    "Chosen after official scores were observed, overriding the registered guard."
+  ],
+  "preserved": [
+    "checkpoints/v2_best (V2 base)",
+    "checkpoints/competition_base",
+    "checkpoints/best_sft",
+    "v2/runs/wiseft/alpha_0.50/export"
+  ]
+}

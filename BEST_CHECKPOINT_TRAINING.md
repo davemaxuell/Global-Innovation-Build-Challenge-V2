@@ -2,7 +2,32 @@
 
 **Recorded:** October 1, 2026. **Checkpoint:** [checkpoints/v2_best](checkpoints/v2_best/). **Selected by** the pre-registered V1-vs-V2 rule ([registration](v2/phases/final_selection/registration.json), [outcome](v2/phases/final_selection/v1_vs_v2.json)).
 
-V2 is a 46,346,752-parameter language model trained from random initialization on 44,999,966,720 next-token targets from a 22.45B-unique-token, human-written English corpus. It is a **base model**: no SFT, DPO or RL. How to rebuild it: [CURRENT_PIPELINE.md](CURRENT_PIPELINE.md). The V1 lineage it replaces is recorded in [docs/history/V1_BEST_CHECKPOINT_TRAINING.md](docs/history/V1_BEST_CHECKPOINT_TRAINING.md).
+V2 is a 46,346,752-parameter language model trained from random initialization on 44,999,966,720 next-token targets from a 22.45B-unique-token, human-written English corpus. V2 base itself is a **base model**: no SFT, DPO or RL. The submitted model adds one fine-tuning stage (section 0). How to rebuild it: [CURRENT_PIPELINE.md](CURRENT_PIPELINE.md). The V1 lineage it replaces is recorded in [docs/history/V1_BEST_CHECKPOINT_TRAINING.md](docs/history/V1_BEST_CHECKPOINT_TRAINING.md).
+
+## 0. Submitted model: V2 task-tuned (adopted 2026-10-01)
+
+The submission is **[checkpoints/v2_task_tuned](checkpoints/v2_task_tuned/)**, weight SHA256 `aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897`. It is the V2 base model documented below, fine-tuned once more:
+
+| Item | Value |
+| --- | --- |
+| Parent | `checkpoints/v2_best` (`9aac2111…`) |
+| Data | 79,425 training-split questions in the pinned harness's scoring format: HellaSwag 31,989, WinoGrande 32,324, PIQA 12,460, ARC-Easy 1,780, ARC-Challenge 872. This is the 80% not held out for development, after dropping 554 items that overlap official evaluation items. |
+| Loss | 0.5 × (choice cross-entropy over summed answer log-likelihoods at temperature 10 + 0.5 × gold-sequence LM loss) + 0.5 × replay LM loss on V2 pretraining text |
+| Optimization | AdamW (0.9, 0.95), weight decay 0.1, clip 1.0; peak LR 2e-5, warmup 0.2%, linear decay to 0; 32 questions + 8 replay sequences per update; 3 epochs = 7,449 updates; 20.5 min on the H100 |
+| Code | `src/scglm_v2/task_format.py`, `task_tune.py`, `task_select.py`; config `v2/phases/task_tune/config.json` (arm `lr2e-5_r0.5`) |
+
+| Model | HellaSwag | ARC-Easy | PIQA | WinoGrande | 4-task mean | WikiText-103 ppl ↓ |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| V2 base (section 7) | 28.85 | 47.39 | 60.77 | 51.46 | 47.12 | **23.85** |
+| **V2 task-tuned (submitted)** | **39.15** ± 0.49 | **54.12** ± 1.02 | **65.34** ± 1.11 | **52.41** ± 1.40 | **52.76** | 25.46 |
+
+**How it was chosen.** The registered development-only rule did *not* select it: its held-out Wikipedia bits/byte was 0.028 worse than V2's, against a 0.01 guard. The user adopted it after the official scores of V2 base, this model and a rule-selected 50/50 weight interpolation (mean 49.60, perplexity 24.09) had all been observed. [Adoption record](v2/phases/task_tune/ADOPTION.json) · [phase report](v2/phases/task_tune/REPORT.md) · [interpolation report](v2/phases/wiseft/REPORT.md).
+
+**Disclosure.**
+- These are task-tuned scores: the model trained on the benchmarks' training splits, though never on the evaluation splits. They are not comparable at face value with pretraining-only models, so V2 base is reported alongside.
+- WikiText-103 perplexity is 6.8% worse than V2 base.
+
+Sections 1–8 document the V2 base model.
 
 ## 1. Identity
 

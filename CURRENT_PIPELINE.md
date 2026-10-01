@@ -1,6 +1,6 @@
 # V2 pipeline: code map and reproduction
 
-**Scope since 2026-10-01:** the active code builds, trains, selects and evaluates the V2 model, and nothing else. What it produced: [BEST_CHECKPOINT_TRAINING.md](BEST_CHECKPOINT_TRAINING.md). Retired code is under `archive/` ([inventory](reports/cleanup/2026-10-01/moved_files.json)); V1's pipeline guide is in [docs/history/V1_CURRENT_PIPELINE.md](docs/history/V1_CURRENT_PIPELINE.md).
+**Scope since 2026-10-01:** the active code builds, trains, selects and evaluates the V2 model, including its task-tuning stage, and nothing else. What it produced: [BEST_CHECKPOINT_TRAINING.md](BEST_CHECKPOINT_TRAINING.md). Retired code is under `archive/` ([inventory](reports/cleanup/2026-10-01/moved_files.json)); V1's pipeline guide is in [docs/history/V1_CURRENT_PIPELINE.md](docs/history/V1_CURRENT_PIPELINE.md).
 
 Run everything from the project root with the recorded environment `/home/bufsgpu/yes/envs/sw/bin/python` ([requirements.lock.txt](requirements.lock.txt)). `PYTHONPATH=src` is enough for training and evaluation; data preparation also needs `vendor/pydeps` (fastText). `pytest` sets both.
 
@@ -33,6 +33,8 @@ The weights (`checkpoints/v2_best/model.safetensors`, SHA256 `9aac2111…28011bd
 | 5b. Official evaluation (pinned protocol) | [scripts/run_final_evaluation.py](scripts/run_final_evaluation.py), `scripts/validation_history.py`, `src/scglm/evaluate.py`, `vendor/lm-evaluation-harness` | [configs/evaluation.json](configs/evaluation.json) |
 | 5c. Comparison with the V1 baseline | `src/scglm_v2/v1_vs_v2.py` | same registration |
 | 6. Demo, figures, verification | [scripts/demo.py](scripts/demo.py), `src/scglm_v2/figures.py`, [scripts/verify_v2.py](scripts/verify_v2.py) | — |
+| 7a. Task tuning on the benchmarks' train splits (harness format) | `src/scglm_v2/task_format.py`, `task_tune.py`, [scripts/run_task_tune.sh](scripts/run_task_tune.sh) | [v2/phases/task_tune/config.json](v2/phases/task_tune/config.json) |
+| 7b. Development-only selection of tuned candidates; WiSE-FT interpolation | `src/scglm_v2/task_select.py`, `wiseft.py`, [scripts/run_wiseft.sh](scripts/run_wiseft.sh) | [v2/phases/wiseft/config.json](v2/phases/wiseft/config.json) |
 
 **Frozen files:**
 - **The six `src/scglm` modules** are kept byte-identical to the hashes in `v2/runs/main/run.json`. The official protocol also pins `src/scglm/evaluate.py`.
@@ -72,6 +74,11 @@ python -m scglm_v2.select_endpoint --baseline <run_dir> --out <new>/selection.js
 python scripts/run_final_evaluation.py --final-evaluation --model <run_dir>/export \
     --selection-record <new>/selection.json --device cuda:0 --output <fresh dir> --history-dir <history dir>
 python -m scglm_v2.v1_vs_v2 --v2-summary <fresh dir>/summary.json --out <new>/v1_vs_v2.json
+# Stage 7: task tuning of the V2 export (submitted model = arm lr2e-5_r0.5, epoch 3); copy the config and set new data_dir/run_dir values
+python -m scglm_v2.task_tune prepare --config <copy of v2/phases/task_tune/config.json>
+CUDA_VISIBLE_DEVICES=<gpu> python -m scglm_v2.task_tune train --config <copy> --arm lr2e-5_r0.5
+python -m scglm_v2.task_select --config <copy> --out <new>/selection.json --device cuda
+#   the official runner resolves dataset revisions online: do not set HF_HUB_OFFLINE for it
 # Stage 6
 python -m scglm_v2.figures
 python scripts/demo.py --prompt "The water cycle begins when"
