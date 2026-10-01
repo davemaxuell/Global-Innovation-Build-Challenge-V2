@@ -1,0 +1,22 @@
+{
+  "status": "completed",
+  "arm": "lr1e-5_r0.5",
+  "step": 7449,
+  "total_updates": 7449,
+  "elapsed_seconds": 575.3957343082875,
+  "counters": {
+    "questions": 238275,
+    "candidate_sequences": 684387,
+    "task_input_tokens": 41183073,
+    "replay_targets": 61022208
+  },
+  "replay_source_tokens": {
+    "dclm": 21307392,
+    "edu": 18168832,
+    "targeted": 9189376,
+    "wiki": 6160384,
+    "stackexchange": 3088384,
+    "books": 3107840
+  },
+  "updated": "2026-10-01T01:53:46.424281+00:00"
+}

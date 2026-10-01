@@ -1,0 +1,19 @@
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9598.75it/s]
+/home/bufsgpu/yes/envs/sw/lib/python3.10/site-packages/requests/__init__.py:113: RequestsDependencyWarning: urllib3 (2.6.3) or chardet (6.0.0.post1)/charset_normalizer (3.4.4) doesn't match a supported version!
+  warnings.warn(
+{
+  "fixed_q_nll": 3.237192519108721,
+  "fixed_q_perplexity": 25.462136845104226,
+  "weights": {
+    "wikitext103": 1.0
+  },
+  "sources": {
+    "wikitext103": {
+      "nll_sum": 872646.7501836189,
+      "token_count": 269569,
+      "documents": 60,
+      "nll": 3.237192519108721,
+      "perplexity": 25.462136845104226
+    }
+  }
+}

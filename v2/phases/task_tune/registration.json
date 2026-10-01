@@ -38,7 +38,7 @@
       "lr1e-5_r0.5": {
         "learning_rate": 1e-05,
         "replay_loss_weight": 0.5,
-        "run_dir": "v2/runs/task_tune_lr1e-5_r0.5"
+        "run_dir": "v2/runs/task_tune_lr1e-5_r0.5_rerun"
       }
     },
     "candidates": "exports at the end of each epoch of each arm (6); epoch 1-2 exports are prefixes of the 3-epoch schedule",
@@ -88,5 +88,12 @@
     "loss": "(1 - r) * (CE(scores / 10) + 0.5 * gold_sequence_lm) + r * replay_lm",
     "compute_limits": "max_gpu_hours_total stays 4; the three arms run concurrently on GPU 0",
     "official_evaluation": "If V2 is kept and no candidate passes the Wikipedia guard, the highest-proxy candidate is evaluated once and reported as guard-failed, not selected."
-  }
+  },
+  "execution_notes": [
+    {
+      "time_kst": "2026-10-01T10:45+09:00",
+      "event": "arm lr1e-5_r0.5 failed with CUDA out-of-memory at update 882 of 7,449 (three arms shared GPU 0); no export was written. Its directory v2/runs/task_tune_lr1e-5_r0.5 is kept as the failure record.",
+      "action": "Per the registration, the same arm reruns unchanged into v2/runs/task_tune_lr1e-5_r0.5_rerun. The launcher now skips completed arms, runs at most 2 arms at a time and sets PYTORCH_ALLOC_CONF=expandable_segments:True. The recipe, data and selection rule are unchanged; no candidate had been scored."
+    }
+  ]
 }

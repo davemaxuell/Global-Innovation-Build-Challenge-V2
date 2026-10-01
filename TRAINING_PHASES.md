@@ -290,3 +290,11 @@ Registered 2026-10-01 ~10:20 KST on branch `task-tuning-20261001`, after the use
 - **Amendment before launch:** smoke runs showed the registered loss damaged raw-language fit. The launch recipe uses temperature 10 in the choice softmax, learning rate 1e-5 or 2e-5, and replay weight 0.5 or 0.7.
 
 [Report](v2/phases/task_tune/REPORT.md) · [Registration](v2/phases/task_tune/registration.json) · [Config](v2/phases/task_tune/config.json) · [Pre-launch smoke evidence](v2/phases/task_tune/prelaunch_smoke.json) · [Status](v2/phases/task_tune/status.json)
+
+**Task-tuning outcome, 2026-10-01 11:20 KST: not selected; V2 stays.**
+- **Training:** all three arms completed 7,449 updates each. The first lr1e-5 run ran out of GPU memory at update 882 and was rerun unchanged.
+- **Development selection:** every candidate beat V2 by 2.6–6.2 points, but every one worsened Wikipedia bits/byte by 0.012–0.028, beyond the +0.01 guard.
+- **Official (reported, not selected):** the best candidate (lr2e-5_r0.5, epoch 3, SHA256 `aaf13826…`) scored HellaSwag 39.15, ARC-Easy 54.12, PIQA 65.34 and WinoGrande 52.41, for a mean of **52.76 vs 47.12**. Its WikiText-103 perplexity was **25.46 vs 23.85**.
+- **Incidents:** two official attempts failed before scoring, from launcher offline mode and a missing selection-record field. Both are recorded.
+
+[Report](v2/phases/task_tune/REPORT.md) · FAILED_APPROACHES A14

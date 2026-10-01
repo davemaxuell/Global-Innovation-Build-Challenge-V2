@@ -1,0 +1,16 @@
+{"time": "2026-10-01T00:59:26.937880+00:00", "event": "registered", "registration": "v2/phases/task_tune/registration.json", "branch": "task-tuning-20261001"}
+{"time": "2026-10-01T01:21:36.919183+00:00", "event": "prepared", "data_report": "v2/data/task_tune_v1/report.json", "train_sha256": "461765c88f87fa1927755cc0e7941b3a1441f8efd1b653357983dbda37e8fc6e"}
+{"time": "2026-10-01T01:21:36.919285+00:00", "event": "registration_amended_before_launch", "evidence": "v2/phases/task_tune/prelaunch_smoke.json"}
+{"time": "2026-10-01T01:23:06.219776+00:00", "event": "training_started", "detail": "lr2e-5_r0.5 lr2e-5_r0.7 lr1e-5_r0.5"}
+{"time": "2026-10-01T01:43:42.721693+00:00", "event": "arm_completed", "detail": "lr2e-5_r0.5"}
+{"time": "2026-10-01T01:43:42.825218+00:00", "event": "arm_completed", "detail": "lr2e-5_r0.7"}
+{"time": "2026-10-01T01:43:42.928120+00:00", "event": "arm_failed", "detail": "lr1e-5_r0.5"}
+{"time": "2026-10-01T01:44:04.147607+00:00", "event": "arm_rerun_scheduled", "arm": "lr1e-5_r0.5", "reason": "CUDA OOM at update 882 with three concurrent arms", "new_run_dir": "v2/runs/task_tune_lr1e-5_r0.5_rerun"}
+{"time": "2026-10-01T01:44:04.385485+00:00", "event": "training_started", "detail": "lr1e-5_r0.5"}
+{"time": "2026-10-01T01:53:47.590805+00:00", "event": "arm_completed", "detail": "lr1e-5_r0.5"}
+{"time": "2026-10-01T02:03:01.152945+00:00", "event": "selection_frozen", "detail": "{\"selected\": \"/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/main/export\", \"reason\": \"parent: no candidate passed the Wikipedia bits/byte guard\"}"}
+{"time": "2026-10-01T02:03:10.021171+00:00", "event": "official_failed", "detail": "task_tune_lr2e-5_r0.5_epoch_3 attempt 1"}
+{"time": "2026-10-01T02:04:02.205074+00:00", "event": "official_attempt_failed_infrastructure", "attempt": 1, "model": "task_tune_lr2e-5_r0.5/epoch_3", "cause": "HF_HUB_OFFLINE=1 set by the launcher blocked the runner resolving the pinned ybisk/piqa revision; no model was scored", "action": "rerun as attempt_2 with offline mode unset"}
+{"time": "2026-10-01T02:05:23.676723+00:00", "event": "official_attempt_failed_infrastructure", "attempt": 2, "cause": "selection.json results lacked the 'run' field the frozen runner uses to match non-selected endpoints; no model was scored", "action": "selection_runner.json = selection.json + results[].run (verified identical otherwise); rerun as attempt_3"}
+{"time": "2026-10-01T02:13:45.527766+00:00", "event": "official_completed", "attempt": 3, "model": "v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export", "role": "highest_proxy_guard_failed", "four_task_mean": 0.5276, "wikitext103_perplexity": 25.462}
+{"time": "2026-10-01T02:13:45.527937+00:00", "event": "phase_completed", "outcome": "not selected under the registered rule (Wikipedia bits/byte guard); V2 retained"}

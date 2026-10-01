@@ -49,7 +49,8 @@ def score(export: Path, items: list[dict], texts: dict, device: str) -> dict:
     del model
     if device.startswith("cuda"):
         torch.cuda.empty_cache()
-    return {"export": str(export), "export_model_sha256": sha256_file(export / "model.safetensors"),
+    # "run" is the directory whose export/ this is; scripts/run_final_evaluation.py matches on it.
+    return {"run": str(export.parent), "export": str(export), "export_model_sha256": sha256_file(export / "model.safetensors"),
             "multiple_choice": mc, "proxy_mean_acc": mc["_proxy_mean_acc"],
             "bits_per_byte_selection_panels": bpb, "seconds": time.time() - started}
 

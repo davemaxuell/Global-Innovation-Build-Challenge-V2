@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/scripts/run_final_evaluation.py", line 154, in main
+    execute(args, run)
+  File "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/scripts/run_final_evaluation.py", line 186, in execute
+    matches = [result for result in selection["results"]
+  File "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/scripts/run_final_evaluation.py", line 187, in <listcomp>
+    if (Path(result["run"]) / "export").resolve() == model]
+KeyError: 'run'

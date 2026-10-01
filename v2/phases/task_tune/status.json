@@ -1,0 +1,19 @@
+{
+  "phase_id": "v2_task_tune_20261001",
+  "state": "completed",
+  "outcome": "not selected: no candidate passed the Wikipedia bits/byte guard; V2 retained",
+  "best_candidate": "v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export",
+  "best_candidate_sha256": "aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897",
+  "official_best_candidate": {
+    "hellaswag": 0.3915,
+    "arc_easy": 0.5412,
+    "piqa": 0.6534,
+    "winogrande": 0.5241,
+    "four_task_mean": 0.5276,
+    "wikitext103_perplexity": 25.462
+  },
+  "official_v2": {
+    "four_task_mean": 0.4712,
+    "wikitext103_perplexity": 23.85
+  }
+}

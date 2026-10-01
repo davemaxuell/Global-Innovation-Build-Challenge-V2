@@ -162,3 +162,19 @@ Outcome: **failed before its first optimizer update**. The retained trainer reje
 **Decision:** not selected; the standard-decay model stands. Do not repeat this mix shift expecting benchmark gains at this scale.
 
 **Interpretation:** a controlled A/B with no established effect. It does not rule out other annealing data (for example, sources absent from the corpus) or larger models. Evidence: [report](v2/phases/anneal_quality/REPORT.md), [selection record](v2/phases/final_selection/selection.json).
+
+## A14: Fine-tuning V2 on the benchmarks' train splits (v2_task_tune_20261001)
+
+**Executed:** 2026-10-01, on branch `task-tuning-20261001`.
+- **Data:** V2 was fine-tuned on 79,425 training-split questions from HellaSwag, ARC-Easy/Challenge, PIQA and WinoGrande. These are the 80% not held out by V2's existing hash split, after dropping 554 that overlap official evaluation items. Each question was in the exact pinned-harness scoring format.
+- **Loss:** multiple-choice cross-entropy over summed continuation log-likelihoods with temperature 10, plus 0.5 × gold-sequence LM loss, plus replay of V2 pretraining text.
+- **Arms:** LR 2e-5 with replay 0.5 or 0.7, and LR 1e-5 with replay 0.5. Each ran 3 epochs (7,449 updates).
+- **Before launch:** the registered recipe was amended after smoke runs showed it hurt raw-language fit (no temperature, LR 6.25e-5, replay 0.3: Wikipedia bits/byte +0.081).
+
+**Observed:**
+- **Development panel:** every one of the 9 candidates gained 2.6–6.2 points on the held-out 20% of the training splits. Every one also worsened Wikipedia selection bits/byte by 0.012–0.028, beyond the registered +0.01 guard.
+- **Official (reported after the frozen choice):** the best candidate scored HellaSwag 39.15 (+10.30), ARC-Easy 54.12 (+6.73), PIQA 65.34 (+4.57) and WinoGrande 52.41 (+0.95), for a mean of **52.76 vs 47.12**. WikiText-103 perplexity was **25.46 vs 23.85**.
+
+**Decision:** not selected under the registered rule; V2 stays. Do not rerun these recipes expecting them to pass the same perplexity guard. More replay (0.7) and a lower LR (1e-5) reduced the bits/byte cost but did not bring it within the guard.
+
+**Interpretation:** this is not a failure to improve the benchmarks; the accuracy gains are large and well outside the standard errors. The approach failed the registered combined objective because it costs raw-language fit. A materially different follow-up would need a new registration and the user's decision. One example is interpolating between V2 and the fine-tuned weights (WiSE-FT), with the mixing weight chosen on development data. Scores from this model are not comparable with pretraining-only models at face value and must be labelled as fine-tuned on the benchmarks' training splits. Evidence: [report](v2/phases/task_tune/REPORT.md), [selection](v2/phases/task_tune/selection.json), [official summary](v2/phases/task_tune/official/task_tune_lr2e-5_r0.5_epoch_3/attempt_3/summary.json).

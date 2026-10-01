@@ -14,18 +14,27 @@ say() { echo "[$(TZ=Asia/Seoul date '+%F %T KST')] $*" | tee -a $PHASE/chain.log
 ev() { $PY -c "import sys; from pathlib import Path; from scglm_v2.common import event; event(Path('$PHASE/events.jsonl'), sys.argv[1], detail=sys.argv[2])" "$1" "$2" > /dev/null; }
 state() { $PY -c "import sys, json; from pathlib import Path; from scglm_v2.common import write_json; write_json(Path('$PHASE/status.json'), {'phase_id': 'v2_task_tune_20261001', 'state': sys.argv[1], 'detail': sys.argv[2]})" "$1" "$2"; }
 
-# 1. Training arms, concurrently.
-mapfile -t ARMS < <($PY -c "import json; print('\n'.join(json.load(open('$CFG'))['arms']))")
+# 1. Training arms, concurrently (MAX_PARALLEL at a time). Arms whose run directory already
+#    reports "completed" are skipped, so the chain can be rerun after a failed arm is given a new run_dir.
+export PYTORCH_ALLOC_CONF=expandable_segments:True
+mapfile -t ARMS < <($PY -c "import json, pathlib
+c = json.load(open('$CFG'))
+for name, arm in c['arms'].items():
+    s = pathlib.Path(arm['run_dir'], 'status.json')
+    if not (s.exists() and json.load(open(s))['status'] == 'completed'): print(name)")
 state running "training arms: ${ARMS[*]}"; ev training_started "${ARMS[*]}"; say "training: ${ARMS[*]}"
-pids=()
-for arm in "${ARMS[@]}"; do
-  CUDA_VISIBLE_DEVICES=$GPU $PY -m scglm_v2.task_tune train --config $CFG --arm "$arm" > "$PHASE/train_$arm.log" 2>&1 &
-  pids+=($!)
-done
+MAX_PARALLEL=${MAX_PARALLEL:-2}
 failed=0
-for i in "${!pids[@]}"; do
-  if wait "${pids[$i]}"; then ev arm_completed "${ARMS[$i]}"; say "arm completed: ${ARMS[$i]}"
-  else failed=1; ev arm_failed "${ARMS[$i]}"; say "arm FAILED: ${ARMS[$i]}"; fi
+for ((start = 0; start < ${#ARMS[@]}; start += MAX_PARALLEL)); do
+  group=("${ARMS[@]:start:MAX_PARALLEL}"); pids=()
+  for arm in "${group[@]}"; do
+    CUDA_VISIBLE_DEVICES=$GPU $PY -m scglm_v2.task_tune train --config $CFG --arm "$arm" >> "$PHASE/train_$arm.log" 2>&1 &
+    pids+=($!)
+  done
+  for i in "${!pids[@]}"; do
+    if wait "${pids[$i]}"; then ev arm_completed "${group[$i]}"; say "arm completed: ${group[$i]}"
+    else failed=1; ev arm_failed "${group[$i]}"; say "arm FAILED: ${group[$i]}"; fi
+  done
 done
 [ $failed -eq 0 ] || { state failed "a training arm failed; see train_*.log"; exit 1; }
 
@@ -55,7 +64,8 @@ EOF
 MODEL=${PICK[0]}; NAME=${PICK[1]}; ROLE=${PICK[2]}
 base=$PHASE/official/$NAME; n=1; while [ -e $base/attempt_$n ]; do n=$((n + 1)); done
 state running "official evaluation: $NAME ($ROLE)"; say "official evaluation: $NAME ($ROLE), attempt $n"
-CUDA_VISIBLE_DEVICES=$GPU $PY scripts/run_final_evaluation.py --final-evaluation --model "$MODEL" \
+# The official runner resolves pinned dataset revisions online, so offline mode is unset here.
+env -u HF_HUB_OFFLINE -u HF_DATASETS_OFFLINE HF_HUB_DISABLE_XET=1 CUDA_VISIBLE_DEVICES=$GPU $PY scripts/run_final_evaluation.py --final-evaluation --model "$MODEL" \
     --selection-record $PHASE/selection.json --device cuda:0 --output $base/attempt_$n \
     --history-dir v2/reports/validation_history --label "V2 task-tune official: $NAME ($ROLE)" >> $PHASE/official.log 2>&1 \
   || { ev official_failed "$NAME attempt $n"; state failed "official evaluation failed; see official.log"; exit 1; }

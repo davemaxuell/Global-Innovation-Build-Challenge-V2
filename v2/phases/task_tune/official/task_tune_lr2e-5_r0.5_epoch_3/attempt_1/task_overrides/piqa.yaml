@@ -1,0 +1,10 @@
+include: /data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness/lm_eval/tasks/piqa/piqa.yaml
+task: piqa
+dataset_path: parquet
+dataset_name: null
+dataset_kwargs:
+  data_files:
+    train: https://huggingface.co/datasets/ybisk/piqa/resolve/ba2f7a4920f4968f04c174c53cc157c899e93501/plain_text/train-00000-of-00001.parquet
+    validation: https://huggingface.co/datasets/ybisk/piqa/resolve/ba2f7a4920f4968f04c174c53cc157c899e93501/plain_text/validation-00000-of-00001.parquet
+num_fewshot: 0
+target_delimiter: ' '
