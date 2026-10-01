@@ -6,6 +6,8 @@ V2 is a 46,346,752-parameter language model trained from random initialization o
 
 ## 0. Submitted model: V2.1 (adopted 2026-10-01)
 
+![SCG-LM pipeline: corpus, V2 pretraining, development-only selection, V2.1 fine-tuning, official evaluation](v2/submission/figures/fig0_pipeline.png)
+
 The submission is **SCG-LM V2.1**, in **[checkpoints/v2_1](checkpoints/v2_1/)**, weight SHA256 `aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897`. It is the V2 base model documented below, fine-tuned once more:
 
 | Item | Value |
@@ -22,6 +24,10 @@ The submission is **SCG-LM V2.1**, in **[checkpoints/v2_1](checkpoints/v2_1/)**,
 | **V2.1 (submitted)** | **39.15** ± 0.49 | **54.12** ± 1.02 | **65.34** ± 1.11 | **52.41** ± 1.40 | **52.76** | 25.46 |
 
 **How it was chosen.** The registered development-only rule did *not* select it: its held-out Wikipedia bits/byte was 0.028 worse than V2's, against a 0.01 guard. The user adopted it after the official scores of V2 base, this model and a rule-selected 50/50 weight interpolation (mean 49.60, perplexity 24.09) had all been observed. [Adoption record](v2/phases/task_tune/ADOPTION.json) · [phase report](v2/phases/task_tune/REPORT.md) · [interpolation report](v2/phases/wiseft/REPORT.md).
+
+![Official results for V1, V2 and V2.1: accuracy on four benchmarks and WikiText-103 perplexity](v2/submission/figures/fig5_results.png)
+
+![Development accuracy against the Wikipedia cost: fine-tuned candidates and the V2-to-V2.1 weight-interpolation path, with the guard](v2/submission/figures/fig6_tradeoff.png)
 
 **Disclosure.**
 - These are task-tuned scores: the model trained on the benchmarks' training splits, though never on the evaluation splits. They are not comparable at face value with pretraining-only models, so V2 base is reported alongside.
@@ -81,6 +87,8 @@ A byte-level BPE with 16,384 entries, trained from scratch in V1 on 50M FineWeb 
 - **Targeted classifier:** fastText, trained on 80% of benchmark **train** splits (ARC-E/C, PIQA, HellaSwag, WinoGrande, OpenBookQA, SciQ, CommonsenseQA) against length-matched pool passages; validation AUC 0.994. The other 20% of those train splits forms the development proxy panel. Official evaluation splits were never used.
 - **Details:** [preparation report](v2/phases/preparation/REPORT.md).
 
+![V2 corpus: unique tokens and training share per source](v2/submission/figures/fig2_corpus.png)
+
 ## 5. Pretraining
 
 | Setting | Value |
@@ -95,11 +103,17 @@ A byte-level BPE with 16,384 entries, trained from scratch in V1 on 50M FineWeb 
 
 **Held-out monitor NLL:** 3.457 at update 10k → about 3.17 across the constant phase (a slow plateau) → **2.971** at update 680k. The decay alone took it from 3.168 to 2.971, and every source improved by 0.17–0.24 nats.
 
+![V2 key numbers: parameters, pretraining tokens, throughput, corpus size](v2/submission/figures/fig1_key_numbers.png)
+
+![V2 pretraining: training loss and held-out NLL over 45B tokens](v2/submission/figures/fig4_training_curve.png)
+
 **Code provenance:** the core modules `src/scglm/{model,data,train,evaluate,prepare_data,prepare_extension}.py` are byte-identical to the hashes recorded in `v2/runs/main/run.json`. `src/scglm_v2/train.py` was used in two versions. Updates 0–8,000 ran the launch version, snapshotted in `v2/runs/main/snapshot_v2/`. Updates 8,000–686,645 ran the resumed version, which is the retained file. It differs from the launch snapshot by exactly two fixes (validation labels by bucket, and the resume guard reading `compile` from the V2 record block); this was verified by diff. That version's bytes were not separately snapshotted when it ran.
 
 ## 6. Evidence before and after the main run
 
 - **1B pilot** (V2 data vs V1 data, same model, seed and schedule): benchmark-proxy mean 43.31% vs 42.91% (within noise); bits/byte better on 5 of 6 sources, worse on Wikipedia. [Pilot report](v2/phases/pilot_1b/REPORT.md).
+
+![1B-token pilot: V2 data against V1 data at the same model, seed and schedule](v2/submission/figures/fig3_pilot.png)
 - **Decay A/B:** re-running the final 10% with a quality-weighted mix gave development proxy +0.07 points against a required +0.5, so it was not selected. [Report](v2/phases/anneal_quality/REPORT.md) · FAILED_APPROACHES A13.
 
 ## 7. Selection and measured performance
