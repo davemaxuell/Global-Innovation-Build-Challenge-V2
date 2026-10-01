@@ -298,3 +298,13 @@ Registered 2026-10-01 ~10:20 KST on branch `task-tuning-20261001`, after the use
 - **Incidents:** two official attempts failed before scoring, from launcher offline mode and a missing selection-record field. Both are recorded.
 
 [Report](v2/phases/task_tune/REPORT.md) · FAILED_APPROACHES A14
+
+## V2 phase: v2_wiseft_20261001 (weight interpolation), registered
+
+Registered 2026-10-01 ~11:35 KST on branch `task-tuning-20261001`, after the user chose to try weight interpolation following A14. WiSE-FT (Wortsman et al., 2022): θ(α) = (1−α)·V2 + α·θ1, with no training.
+- **Endpoints:** V2 (`9aac2111…`) and θ1, the task-tune candidate ranked best on development data (lr2e-5_r0.5, epoch 3, `aaf13826…`).
+- **Grid:** α = 0.1…0.9.
+- **Selection:** the same development-only rule as the task-tune phase: at least +1.0 point, Wikipedia bits/byte no more than 0.01 worse, else keep V2. One official evaluation follows.
+- **Disclosure:** both endpoints' official scores were seen before this phase.
+
+[Report](v2/phases/wiseft/REPORT.md) · [Registration](v2/phases/wiseft/registration.json) · [Config](v2/phases/wiseft/config.json)

@@ -32,6 +32,8 @@ TOLERANCE = 1e-12
 
 
 def candidates(cfg: dict) -> list[Path]:
+    if "candidate_exports" in cfg:  # e.g. the WiSE-FT grid; listed explicitly in the phase config
+        return [ROOT / e for e in cfg["candidate_exports"] if (ROOT / e / "model.safetensors").exists()]
     found = []
     for arm in cfg["arms"].values():
         for epoch in range(1, cfg["epochs"] + 1):
@@ -96,7 +98,7 @@ def main():
                           "wiki_bpb": scored[-1]["bits_per_byte_selection_panels"]["wiki"]}), flush=True)
     chosen, reason, best = decide(parent, scored, rule)
     record = {
-        "schema": "v2-task-tune-selection-1", "label": "task_tune", "panel": "selection", "official_scores_used": False,
+        "schema": "v2-task-tune-selection-1", "label": cfg.get("selection_label", "task_tune"), "panel": "selection", "official_scores_used": False,
         "selected_model": chosen["export"], "selected_model_sha256": chosen["export_model_sha256"],
         "decision_reason": reason, "best_eligible_candidate": best["export"] if best else None,
         "rule": rule, "parent": parent["export"], "results": [parent] + scored,

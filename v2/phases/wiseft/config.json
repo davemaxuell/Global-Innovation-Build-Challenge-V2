@@ -1,0 +1,41 @@
+{
+  "phase_id": "v2_wiseft_20261001",
+  "phase_dir": "v2/phases/wiseft",
+  "selection_label": "wiseft",
+  "theta0_export": "v2/runs/main/export",
+  "theta0_sha256": "9aac2111b9ca6b06f4a12278f5213c17621ded643b7b54137987ce25028011bd",
+  "theta1_export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export",
+  "theta1_sha256": "aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897",
+  "alphas": [
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "output_dir": "v2/runs/wiseft",
+  "candidate_exports": [
+    "v2/runs/wiseft/alpha_0.10/export",
+    "v2/runs/wiseft/alpha_0.20/export",
+    "v2/runs/wiseft/alpha_0.30/export",
+    "v2/runs/wiseft/alpha_0.40/export",
+    "v2/runs/wiseft/alpha_0.50/export",
+    "v2/runs/wiseft/alpha_0.60/export",
+    "v2/runs/wiseft/alpha_0.70/export",
+    "v2/runs/wiseft/alpha_0.80/export",
+    "v2/runs/wiseft/alpha_0.90/export"
+  ],
+  "parent_export": "v2/runs/main/export",
+  "data_dir": "v2/data/task_tune_v1",
+  "replay_manifest": "v2/data/rich_v1/manifest.json",
+  "selection_rule": {
+    "proxy": "mean acc over ARC-Easy/PIQA/HellaSwag/WinoGrande held-out 20% TRAIN items, scored in the exact pinned-harness format (scglm_v2.task_format)",
+    "min_proxy_gain": 0.01,
+    "max_wiki_bpb_regression": 0.01,
+    "panel_docs": 512
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "phase_id": "v2_wiseft_20261001",
+  "registered_kst": "2026-10-01T11:35+09:00",
+  "branch": "task-tuning-20261001",
+  "approved_by_user": "2026-10-01 ~11:30 KST: user chose 'try the weight interpolation first' after the task-tune phase (A14) failed its Wikipedia guard.",
+  "objective": "Competition benchmark performance: recover most of the task-tuned accuracy gain while keeping WikiText-quality within the registered Wikipedia bits/byte guard.",
+  "method": "WiSE-FT (Wortsman et al., CVPR 2022): theta(alpha) = (1 - alpha) * theta0 + alpha * theta1, all parameters, no training.",
+  "hypothesis": "Interpolating between V2 and its benchmark-tuned descendant gives a better accuracy/perplexity trade-off than either endpoint; some alpha gains >= 1.0 development point with Wikipedia bits/byte <= +0.01.",
+  "endpoints": {
+    "theta0": "V2, v2/runs/main/export, SHA256 9aac2111...28011bd (official: mean 47.12, WikiText 23.85)",
+    "theta1": "task-tune best-proxy candidate, v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export, SHA256 aaf13826...99ef1897 (official: mean 52.76, WikiText 25.46)",
+    "why_theta1": "Fixed in advance as the candidate the frozen task-tune selection ranked highest on development data; not chosen from official scores."
+  },
+  "grid": "alpha in {0.1, 0.2, ..., 0.9}: 9 candidates",
+  "data": "No training data. Selection uses v2/data/task_tune_v1/development.jsonl (SHA256 31ae3b16..., held-out 20% of benchmark train items, never trained on) and the corpus selection panels (512 docs/source).",
+  "compute_limits": {
+    "gpu": "GPU 0 only",
+    "max_gpu_hours_total": 1.5
+  },
+  "selection_rule": "Same as v2_task_tune_20261001: among alphas whose Wikipedia selection bits/byte is at most +0.01 worse than V2's, take the highest four-task proxy mean; select it only if it is >= +1.0 point above V2's; otherwise keep V2.",
+  "official_evaluation": "Pinned runner once on the selected alpha. If V2 is kept and some alpha passed the guard, that best eligible alpha is evaluated once and reported as not selected. If none passed, no new official evaluation (alpha = 1 is already evaluated).",
+  "disclosure": "Both endpoints' official scores were observed before this phase. The grid, endpoints and rule are fixed here before any interpolated model exists. Any reported result is labelled as derived from a model fine-tuned on the benchmarks' training splits.",
+  "outputs": [
+    "v2/runs/wiseft",
+    "v2/phases/wiseft"
+  ],
+  "commands": {
+    "chain": "GPU=0 bash scripts/run_wiseft.sh (tmux gibc-v2-wiseft): build -> select -> one official evaluation",
+    "build": "PYTHONPATH=src python -m scglm_v2.wiseft --config v2/phases/wiseft/config.json",
+    "select": "CUDA_VISIBLE_DEVICES=0 PYTHONPATH=src python -m scglm_v2.task_select --config v2/phases/wiseft/config.json --out v2/phases/wiseft/selection.json",
+    "official": "scripts/run_final_evaluation.py --final-evaluation --model <export> --selection-record v2/phases/wiseft/selection.json --device cuda:0 --output v2/phases/wiseft/official/<alpha>/attempt_<n> --history-dir v2/reports/validation_history (online; no HF offline mode)",
+    "resume": "Not needed (minutes). A failed step is recorded and rerun into a new output directory."
+  }
+}
