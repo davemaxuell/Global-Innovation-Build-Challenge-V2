@@ -92,6 +92,8 @@ model-index:
 
 SCG-LM V2 is a **46,346,752-parameter** Llama-style language model trained **from random initialization** on **45.0 billion tokens** of human-written English. Training took 31.9 hours on a single H100. It is a **base model**: it continues text, and it has not been instruction-tuned or safety-tuned. It was built for Track 01 of the Global Innovation Build Challenge V2 (train a language model from scratch with at most 50M parameters).
 
+> **Successor:** [SCG-LM V2.1](https://huggingface.co/davemaxuell/scglm-v2.1-46m) is this model with one short fine-tuning stage on the four benchmarks' *training* splits. It scores higher on them (four-task mean 52.76 vs 47.12), but its scores are task-tuned and its WikiText-103 perplexity is worse (25.46 vs 23.85). This repository is the pretraining-only model.
+
 | | |
 | --- | --- |
 | **Architecture** | `LlamaForCausalLM`: 12 layers, width 512, 8 heads (full multi-head attention), SwiGLU 1,376, RMSNorm, RoPE θ = 10,000, tied input/output embeddings, no biases |
@@ -101,7 +103,7 @@ SCG-LM V2 is a **46,346,752-parameter** Llama-style language model trained **fro
 | **Initialization** | Random (seed 20260923); no pretrained weights, no distillation |
 | **Language** | English |
 | **Weights** | FP32 `model.safetensors`, SHA256 `9aac2111b9ca6b06f4a12278f5213c17621ded643b7b54137987ce25028011bd` |
-| **Code and records** | `<github-repo-url>` |
+| **Code and records** | https://github.com/davemaxuell/Global-Innovation-Build-Challenge-V2 |
 
 ## How to use
 
@@ -109,7 +111,7 @@ SCG-LM V2 is a **46,346,752-parameter** Llama-style language model trained **fro
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-repo = "<hf-username>/scglm-v2-46m"
+repo = "davemaxuell/scglm-v2-46m"
 tok = AutoTokenizer.from_pretrained(repo)
 model = AutoModelForCausalLM.from_pretrained(repo).eval()
 
@@ -215,16 +217,16 @@ We thank the maintainers of these datasets and of lm-evaluation-harness.
 - `tokenizer_config.json`: identical except `tokenizer_class`, which is set to `PreTrainedTokenizerFast` so that Transformers 4.x can load the tokenizer. Token IDs are unchanged.
 - `training_provenance.json`: the trainer's record of steps, token counts and data identity.
 - `eval_results.json`: the official metrics above, with the SHA256 of the original evaluation record.
-- **Full records** (code, configurations, per-phase registrations, the frozen development-only selection, and the evaluation outputs): `<github-repo-url>`.
+- **Full records** (code, configurations, per-phase registrations, the frozen development-only selection, and the evaluation outputs): https://github.com/davemaxuell/Global-Innovation-Build-Challenge-V2.
 
 ## Citation
 
 ```bibtex
 @misc{scglm_v2_2026,
   title  = {SCG-LM V2: a 46M-parameter language model trained from scratch},
-  author = {<authors>},
+  author = {davemaxuell},
   year   = {2026},
-  url    = {https://huggingface.co/<hf-username>/scglm-v2-46m}
+  url    = {https://huggingface.co/davemaxuell/scglm-v2-46m}
 }
 ```
 

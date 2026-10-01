@@ -2,7 +2,7 @@
   "created_at": "2026-10-01T08:34:57.761629+09:00",
   "source": "checkpoints/v2_best (= v2/runs/main/export)",
   "files_sha256": {
-    "README.md": "4e067498b6d5502d15292d916af3a2acc2cbe52cc2cde314c118c07919390784",
+    "README.md": "afce40c1672d47322d1fbef30ab16f0159d28bc5eb7dfe49757f6de93aa2177d",
     "config.json": "40829ea36a2cabf18165acc07bec807f418dceba7cc9d2f8d2520a8a89c02538",
     "eval_results.json": "464aa52618dd4c5a37ae233347ca405c5539a2800590859cc8ce7c845e642b25",
     "generation_config.json": "065c32ced79f04ad5ab5db4530779cf2bbc74a4023f634dd87844e4d7d98d98d",
@@ -26,5 +26,11 @@
     "README.md (model card)",
     "eval_results.json (derived from the official summary; source hash recorded)"
   ],
-  "not_uploaded": "Prepared locally; publishing to the Hugging Face Hub is the user's decision."
+  "not_uploaded": "Prepared locally; publishing to the Hugging Face Hub is the user's decision.",
+  "placeholders_filled": {
+    "hf_namespace": "davemaxuell",
+    "authors": "davemaxuell",
+    "github": "https://github.com/davemaxuell/Global-Innovation-Build-Challenge-V2",
+    "decided_by_user": "2026-10-01: publish publicly under davemaxuell, both V2 and V2.1"
+  }
 }

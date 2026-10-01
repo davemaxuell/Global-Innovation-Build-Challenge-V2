@@ -95,7 +95,7 @@ model-index:
 
 # SCG-LM V2.1 (46M)
 
-SCG-LM V2.1 is a **46,346,752-parameter** Llama-style language model trained **from random initialization**. It is our [SCG-LM V2](https://huggingface.co/<hf-username>/scglm-v2-46m) base model, pretrained on 45.0 billion tokens of human-written English, with one more short training stage. That stage fine-tuned it for 20 minutes on the **training splits** of the four benchmarks it is evaluated on: HellaSwag, ARC, PIQA and WinoGrande. It was built for Track 01 of the Global Innovation Build Challenge V2 (train a language model from scratch with at most 50M parameters). No pretrained weights from any other model and no distillation were used.
+SCG-LM V2.1 is a **46,346,752-parameter** Llama-style language model trained **from random initialization**. It is our [SCG-LM V2](https://huggingface.co/davemaxuell/scglm-v2-46m) base model, pretrained on 45.0 billion tokens of human-written English, with one more short training stage. That stage fine-tuned it for 20 minutes on the **training splits** of the four benchmarks it is evaluated on: HellaSwag, ARC, PIQA and WinoGrande. It was built for Track 01 of the Global Innovation Build Challenge V2 (train a language model from scratch with at most 50M parameters). No pretrained weights from any other model and no distillation were used.
 
 > **Read this before comparing scores.**
 > - **Task-tuned scores:** V2.1 was trained on the benchmarks' *training* splits, in the same format the evaluation harness scores. The evaluation splits were never trained on, and training items overlapping evaluation items were removed. Even so, its zero-shot scores are not comparable at face value with models that were only pretrained.
@@ -111,7 +111,7 @@ SCG-LM V2.1 is a **46,346,752-parameter** Llama-style language model trained **f
 | **Initialization** | Random (seed 20260923) for stage 1; stage 2 starts from V2 |
 | **Language** | English |
 | **Weights** | FP32 `model.safetensors`, SHA256 `aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897` |
-| **Code and records** | `<github-repo-url>` |
+| **Code and records** | https://github.com/davemaxuell/Global-Innovation-Build-Challenge-V2 |
 
 ## How to use
 
@@ -119,7 +119,7 @@ SCG-LM V2.1 is a **46,346,752-parameter** Llama-style language model trained **f
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-repo = "<hf-username>/scglm-v2.1-46m"
+repo = "davemaxuell/scglm-v2.1-46m"
 tok = AutoTokenizer.from_pretrained(repo)
 model = AutoModelForCausalLM.from_pretrained(repo).eval()
 
@@ -274,16 +274,16 @@ We thank the authors of these datasets and the maintainers of lm-evaluation-harn
 - `tokenizer_config.json`: identical except `tokenizer_class`, which is set to `PreTrainedTokenizerFast` so that Transformers 4.x can load the tokenizer. Token IDs are unchanged (same file as the V2 release).
 - `training_provenance.json`: the fine-tuning run's record (parent hash, data hashes, update and token counts) with V2's pretraining provenance nested inside.
 - `eval_results.json`: the official metrics above and V2's as a reference, with the SHA256 of each original evaluation record.
-- **Full records** (code, configurations, pre-registrations, frozen development-only selections, the adoption record and all evaluation outputs): `<github-repo-url>`.
+- **Full records** (code, configurations, pre-registrations, frozen development-only selections, the adoption record and all evaluation outputs): https://github.com/davemaxuell/Global-Innovation-Build-Challenge-V2.
 
 ## Citation
 
 ```bibtex
 @misc{scglm_v21_2026,
   title  = {SCG-LM V2.1: a 46M-parameter language model trained from scratch, with benchmark-train fine-tuning},
-  author = {<authors>},
+  author = {davemaxuell},
   year   = {2026},
-  url    = {https://huggingface.co/<hf-username>/scglm-v2.1-46m}
+  url    = {https://huggingface.co/davemaxuell/scglm-v2.1-46m}
 }
 ```
 

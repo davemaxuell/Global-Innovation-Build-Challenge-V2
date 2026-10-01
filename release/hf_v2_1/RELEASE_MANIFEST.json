@@ -3,7 +3,7 @@
   "model": "SCG-LM V2.1 (46M)",
   "source": "checkpoints/v2_1 (= v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export)",
   "files_sha256": {
-    "README.md": "87b51edec319810502934dcd171cc25e18d2f315b4788a70ae4aea3dd8cc6aa0",
+    "README.md": "f0a4dcf5dac3cd81dc42e19bc316166bc51cd09ed248d54ba83d19bd50c83e3f",
     "config.json": "40829ea36a2cabf18165acc07bec807f418dceba7cc9d2f8d2520a8a89c02538",
     "eval_results.json": "c693922426a0ae35a19af73fc65a5988e2f0da18abcdf9a5c4611d052139c21b",
     "generation_config.json": "065c32ced79f04ad5ab5db4530779cf2bbc74a4023f634dd87844e4d7d98d98d",
@@ -28,5 +28,11 @@
     "README.md (model card, with the task-tuning disclosure)",
     "eval_results.json (derived from the official summary; source hashes recorded, V2 base included as reference)"
   ],
-  "not_uploaded": "Prepared locally; publishing to the Hugging Face Hub is the user's decision. release/hf_v2 (V2 base) is kept unchanged."
+  "not_uploaded": "Prepared locally; publishing to the Hugging Face Hub is the user's decision. release/hf_v2 (V2 base) is kept unchanged.",
+  "placeholders_filled": {
+    "hf_namespace": "davemaxuell",
+    "authors": "davemaxuell",
+    "github": "https://github.com/davemaxuell/Global-Innovation-Build-Challenge-V2",
+    "decided_by_user": "2026-10-01: publish publicly under davemaxuell, both V2 and V2.1"
+  }
 }
