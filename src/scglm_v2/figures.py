@@ -329,8 +329,87 @@ def tradeoff():
                                          "selection panels; official evaluation splits not used."})
 
 
+# ------------------------------------------------------------------ figure 0
+def pipeline():
+    manifest = _load("v2/data/rich_v1/manifest.json")
+    main_run = _load("v2/runs/main/status.json")
+    tune_run = _load("v2/runs/task_tune_lr2e-5_r0.5/status.json")
+    tune_data = _load("v2/data/task_tune_v1/report.json")
+    official = {name: _load(path)["metrics"] for name, _, path in OFFICIAL}
+    mean = lambda m: sum(m["benchmarks"][t]["acc"] for t in TASKS) / len(TASKS) * 100  # noqa: E731
+    v2, v21 = official[OFFICIAL[1][0]], official[OFFICIAL[2][0]]
+    stages = [
+        (None, "1  Corpus", [f"{manifest['total_train_tokens'] / 1e9:.2f}B unique tokens", f"{len(manifest['sources'])} human-written sources",
+                             "eval overlap removed"]),
+        (V2, "2  Pretrain: V2", [f"{main_run['cumulative_tokens'] / 1e9:.1f}B tokens, random init",
+                                 f"{main_run['elapsed_seconds'] / 3600:.1f} h on one H100", f"{main_run['parameter_count'] / 1e6:.1f}M parameters"]),
+        (None, "3  Dev selection", ["held-out train items", "rules fixed in advance", "test sets never used"]),
+        (V21, "4  Fine-tune: V2.1", [f"{sum(v['train'] for v in tune_data['tasks'].values()):,} train questions",
+                                     "harness scoring format", f"{tune_run['elapsed_seconds'] / 60:.0f} min, 50% replay"]),
+        (None, "5  Official eval", ["lm-eval v0.4.12", f"mean {mean(v2):.2f} → {mean(v21):.2f}",
+                                   f"WikiText {v2['wikitext103']['perplexity']:.2f} → {v21['wikitext103']['perplexity']:.2f}"]),
+    ]
+    fig = plt.figure(figsize=(11.6, 2.8), dpi=DPI)
+    ax = fig.add_axes([0, 0, 1, 1]); ax.set_xlim(0, 100); ax.set_ylim(0, 25); ax.axis("off")
+    w, gap, x0, y0, h = 17.2, 2.9, 1.4, 1.5, 17.5
+    for i, (accent, title, lines) in enumerate(stages):
+        x = x0 + i * (w + gap)
+        ax.add_patch(FancyBboxPatch((x, y0), w, h, boxstyle="round,pad=0,rounding_size=1.2", facecolor=SURFACE,
+                                    edgecolor=AXIS, linewidth=1.2, zorder=2))
+        if accent:
+            ax.add_patch(FancyBboxPatch((x, y0 + h - 1.6), w, 1.6, boxstyle="round,pad=0,rounding_size=0.8",
+                                        facecolor=accent, edgecolor="none", zorder=3))
+        ax.text(x + 1.0, y0 + h - 4.2, title, fontsize=11, fontweight="bold", color=INK, va="center", zorder=4)
+        for j, line in enumerate(lines):
+            ax.text(x + 1.0, y0 + h - 8.2 - j * 3.3, line, fontsize=9.4, color=INK2, va="center", zorder=4)
+        if i < len(stages) - 1:
+            ax.annotate("", xy=(x + w + gap - 0.4, y0 + h / 2), xytext=(x + w + 0.4, y0 + h / 2),
+                        arrowprops=dict(arrowstyle="-|>", color=MUTED, linewidth=1.5), zorder=1)
+    ax.text(x0, 22.4, "SCG-LM pipeline: from random weights to V2.1", fontsize=12.5, fontweight="bold", color=INK, va="center")
+    _save(fig, "fig0_pipeline", {"stages": [{"title": t, "details": l} for _, t, l in stages],
+                                 "sources": ["v2/data/rich_v1/manifest.json", "v2/runs/main/status.json",
+                                             "v2/runs/task_tune_lr2e-5_r0.5/status.json", "v2/data/task_tune_v1/report.json"]
+                                            + [p for _, _, p in OFFICIAL]})
+
+
+# ------------------------------------------------------------------ figure 7
+def demo_scoring():
+    text = (ROOT / "v2/submission/demo_choices.txt").read_text().rstrip("\n").split("\n")
+    split = next(i for i, l in enumerate(text) if i > 0 and l.startswith("== "))
+    panels = [(V2, text[:split]), (V21, text[split:])]
+    fig, axes = plt.subplots(1, 2, figsize=(11.6, 4.5), dpi=DPI)
+    fig.subplots_adjust(left=0.01, right=0.99, top=0.83, bottom=0.02, wspace=0.03)
+    for ax, (color, lines) in zip(axes, panels):
+        ax.axis("off"); ax.set_xlim(0, 1); ax.set_ylim(0, 1)
+        ax.add_patch(FancyBboxPatch((0.005, 0.005), 0.99, 0.99, boxstyle="round,pad=0,rounding_size=0.02",
+                                    facecolor="#f4f3ef", edgecolor=AXIS, linewidth=1, transform=ax.transAxes))
+        ax.add_patch(Rectangle((0.005, 0.955), 0.99, 0.04, facecolor=color, edgecolor="none", transform=ax.transAxes))
+        y = 0.90
+        for line in lines:
+            chosen = "<- chosen" in line
+            body = line.replace("  <- chosen", "").rstrip()
+            if line.startswith("== "):
+                ax.text(0.03, y, body[3:], fontsize=11, fontweight="bold", color=INK, family="DejaVu Sans", va="center")
+            elif line.strip().startswith("sensible answer chosen"):
+                ax.text(0.03, y, line.strip(), fontsize=10, fontweight="bold", color=INK, family="DejaVu Sans", va="center")
+            elif line.startswith("    "):
+                score, _, answer = body.strip().partition("  ")
+                ax.text(0.04, y, f"{float(score):7.2f}", fontsize=8.0, color=INK if chosen else MUTED, family="DejaVu Sans Mono",
+                        va="center", fontweight="bold" if chosen else "normal")
+                ax.text(0.145, y, answer.strip() + ("  ◀" if chosen else ""), fontsize=8.0,
+                        color=INK if chosen else INK2, family="DejaVu Sans Mono", va="center", fontweight="bold" if chosen else "normal")
+            else:
+                ax.text(0.03, y, body.strip(), fontsize=8.6, color=INK2, family="DejaVu Sans", va="center", style="italic")
+            y -= 0.058
+    fig.text(0.01, 0.93, "Scoring demo: each answer scored by log-likelihood, as the benchmarks do",
+             fontsize=12.5, fontweight="bold", color=INK)
+    fig.text(0.01, 0.885, "Three questions written for this demo (not from any evaluation set); illustrative only. ◀ = chosen. "
+             "Reproduce: PYTHONPATH=src python scripts/demo_choices.py", fontsize=9.5, color=INK2)
+    _save(fig, "fig7_demo_scoring", {"source": "v2/submission/demo_choices.txt (scripts/demo_choices.py)", "lines": text})
+
+
 def main():
-    key_numbers(); corpus(); pilot(); training_curve(); results(); tradeoff()
+    pipeline(); key_numbers(); corpus(); pilot(); training_curve(); results(); tradeoff(); demo_scoring()
     print("\n".join(str(p) for p in sorted(OUT.glob("*.png"))))
 
 

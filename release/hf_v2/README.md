@@ -94,6 +94,9 @@ SCG-LM V2 is a **46,346,752-parameter** Llama-style language model trained **fro
 
 > **Successor:** [SCG-LM V2.1](https://huggingface.co/davemaxuellkr/Global-Innovation-Build-Challenge-V2) is this model with one short fine-tuning stage on the four benchmarks' *training* splits. It scores higher on them (four-task mean 52.76 vs 47.12), but its scores are task-tuned and its WikiText-103 perplexity is worse (25.46 vs 23.85). This repository is the pretraining-only model.
 
+![SCG-LM V2 key numbers: parameters, pretraining tokens, throughput, corpus size](https://huggingface.co/davemaxuellkr/scglm-v2-46m/resolve/main/figures/fig1_key_numbers.png)
+
+
 | | |
 | --- | --- |
 | **Architecture** | `LlamaForCausalLM`: 12 layers, width 512, 8 heads (full multi-head attention), SwiGLU 1,376, RMSNorm, RoPE θ = 10,000, tied input/output embeddings, no biases |
@@ -137,6 +140,9 @@ Zero-shot, raw accuracy (%) ± standard error, from EleutherAI lm-evaluation-har
 
 Normalized accuracy (V2): HellaSwag 30.95, ARC-Easy 42.09, PIQA 60.66.
 
+![Official results for V1, V2 and its fine-tuned successor V2.1: accuracy and WikiText-103 perplexity](https://huggingface.co/davemaxuellkr/scglm-v2-46m/resolve/main/figures/fig5_results.png)
+
+
 **How to read these numbers:**
 - **Perplexity:** the WikiText-103 improvement over V1 is clear, about 6.5%.
 - **Accuracy:** the 0.17-point gain in the four-task mean is within per-task standard errors, and PIQA is 1.3 points lower than V1.
@@ -161,6 +167,11 @@ Human-written English only; no model-generated corpora.
 | [Project Gutenberg](https://huggingface.co/datasets/manu/project_gutenberg) (English; license boilerplate removed; 20k-character chunks) | 0.99B | 5% | 2.27 |
 | **Total** | **22.45B** | | |
 
+![V2 corpus: unique tokens and training share per source](https://huggingface.co/davemaxuellkr/scglm-v2-46m/resolve/main/figures/fig2_corpus.png)
+
+![1B-token pilot: V2 data against V1 data at the same model, seed and schedule](https://huggingface.co/davemaxuellkr/scglm-v2-46m/resolve/main/figures/fig3_pilot.png)
+
+
 **Contamination controls.**
 - **N-gram exclusion:** any document sharing a 13-word n-gram with the train or evaluation splits of HellaSwag, ARC-Easy, PIQA or WinoGrande, or with the WikiText-103 validation and test splits, was removed.
 - **Domain blocks:** all of `wikihow.com` and `instructables.com` (the sources of HellaSwag and PIQA) were blocked, removing 12,708 documents.
@@ -184,6 +195,9 @@ Human-written English only; no model-generated corpora.
 | Time | 31.9 hours of training. One crash at update 10,000 was resumed from update 8,000, so 2,000 updates were computed twice |
 
 Held-out loss plateaued near 3.17 nats during the constant phase, then fell to 2.97 during the final decay.
+
+![V2 pretraining curve: training loss and held-out NLL over 45B tokens](https://huggingface.co/davemaxuellkr/scglm-v2-46m/resolve/main/figures/fig4_training_curve.png)
+
 
 ## Limitations and risks
 
@@ -215,6 +229,7 @@ We thank the maintainers of these datasets and of lm-evaluation-harness.
 
 - `model.safetensors`, `config.json`, `generation_config.json`, `tokenizer.json`: identical to the selected training export.
 - `tokenizer_config.json`: identical except `tokenizer_class`, which is set to `PreTrainedTokenizerFast` so that Transformers 4.x can load the tokenizer. Token IDs are unchanged.
+- `figures/`: the figures shown on this card, generated from the recorded results by `src/scglm_v2/figures.py` in the GitHub repository.
 - `training_provenance.json`: the trainer's record of steps, token counts and data identity.
 - `eval_results.json`: the official metrics above, with the SHA256 of the original evaluation record.
 - **Full records** (code, configurations, per-phase registrations, the frozen development-only selection, and the evaluation outputs): https://github.com/davemaxuell/Global-Innovation-Build-Challenge-V2.

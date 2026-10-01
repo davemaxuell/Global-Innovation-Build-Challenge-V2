@@ -102,6 +102,9 @@ SCG-LM V2.1 is a **46,346,752-parameter** Llama-style language model trained **f
 > - **Pretraining-only result:** that is V2 (four-task mean 47.12).
 > - **Selection:** our pre-registered rule did **not** select V2.1. It made held-out Wikipedia modelling worse than our own limit allowed (bits/byte +0.028 against +0.01). We adopted it after its official scores were observed, for the larger benchmark gain, and we disclose that here.
 
+![SCG-LM pipeline: corpus, pretraining (V2), development-only selection, fine-tuning (V2.1), official evaluation](https://huggingface.co/davemaxuellkr/Global-Innovation-Build-Challenge-V2/resolve/main/figures/fig0_pipeline.png)
+
+
 | | |
 | --- | --- |
 | **Architecture** | `LlamaForCausalLM`: 12 layers, width 512, 8 heads (full multi-head attention), SwiGLU 1,376, RMSNorm, RoPE θ = 10,000, tied input/output embeddings, no biases |
@@ -146,6 +149,9 @@ Zero-shot, raw accuracy (%) ± standard error, from EleutherAI lm-evaluation-har
 
 Normalized accuracy (V2.1): HellaSwag 36.14, ARC-Easy 51.81, PIQA 66.00.
 
+![Official results for V1, V2 and V2.1: accuracy on four benchmarks and WikiText-103 perplexity](https://huggingface.co/davemaxuellkr/Global-Innovation-Build-Challenge-V2/resolve/main/figures/fig5_results.png)
+
+
 **How to read these numbers:**
 - **Gains from fine-tuning:** compared with V2, the gains on HellaSwag (+10.3), ARC-Easy (+6.7) and PIQA (+4.6) are far outside the standard errors. The WinoGrande change (+1.0) is within noise.
 - **What they mean:** they show what training on each benchmark's own training split adds at this scale, not a general improvement in knowledge or reasoning.
@@ -158,6 +164,13 @@ Normalized accuracy (V2.1): HellaSwag 36.14, ARC-Easy 51.81, PIQA 66.00.
 3. The rule's highest-scoring candidate, this model, was evaluated once officially, as registered.
 4. A weight-interpolation phase was registered and run; its rule selected α = 0.5.
 5. After seeing all of these official scores, we chose V2.1 as our submission.
+
+![Development accuracy against the Wikipedia cost: fine-tuned candidates and the V2-to-V2.1 weight-interpolation path, with our guard](https://huggingface.co/davemaxuellkr/Global-Innovation-Build-Challenge-V2/resolve/main/figures/fig6_tradeoff.png)
+
+**What the scoring looks like.** Three questions written for this demo, not taken from any evaluation set. Each answer is scored by its log-likelihood, as the benchmarks do. They illustrate the scoring; they are not evidence of accuracy.
+
+![Scoring demo for V2 and V2.1 on three invented questions](https://huggingface.co/davemaxuellkr/Global-Innovation-Build-Challenge-V2/resolve/main/figures/fig7_demo_scoring.png)
+
 
 ## Training data
 
@@ -174,6 +187,9 @@ Human-written English only; no model-generated corpora.
 | [StackExchange](https://huggingface.co/datasets/HuggingFaceTB/stackexchange_2025_md) (54 English, mostly non-code sites; answered questions with score ≥ 1) | 1.61B | 5% | 1.39 |
 | [Project Gutenberg](https://huggingface.co/datasets/manu/project_gutenberg) (English; license boilerplate removed; 20k-character chunks) | 0.99B | 5% | 2.27 |
 | **Total** | **22.45B** | | |
+
+![V2 corpus: unique tokens and training share per source](https://huggingface.co/davemaxuellkr/Global-Innovation-Build-Challenge-V2/resolve/main/figures/fig2_corpus.png)
+
 
 **Contamination controls.**
 - **N-gram exclusion:** any document sharing a 13-word n-gram with the train or evaluation splits of HellaSwag, ARC-Easy, PIQA or WinoGrande, or with the WikiText-103 validation and test splits, was removed.
@@ -215,6 +231,9 @@ Human-written English only; no model-generated corpora.
 | Time | 31.9 hours of training. One crash at update 10,000 was resumed from update 8,000, so 2,000 updates were computed twice |
 
 Held-out loss plateaued near 3.17 nats during the constant phase, then fell to 2.97 during the final decay.
+
+![V2 pretraining curve: training loss and held-out NLL over 45B tokens](https://huggingface.co/davemaxuellkr/Global-Innovation-Build-Challenge-V2/resolve/main/figures/fig4_training_curve.png)
+
 
 ### Stage 2: benchmark-train fine-tuning (new in V2.1)
 
@@ -272,6 +291,7 @@ We thank the authors of these datasets and the maintainers of lm-evaluation-harn
 
 - `model.safetensors`, `config.json`, `generation_config.json`, `tokenizer.json`: identical to the selected fine-tuning export (`checkpoints/v2_1` in the repository).
 - `tokenizer_config.json`: identical except `tokenizer_class`, which is set to `PreTrainedTokenizerFast` so that Transformers 4.x can load the tokenizer. Token IDs are unchanged (same file as the V2 release).
+- `figures/`: the figures shown on this card, generated from the recorded results by `src/scglm_v2/figures.py` in the GitHub repository.
 - `training_provenance.json`: the fine-tuning run's record (parent hash, data hashes, update and token counts) with V2's pretraining provenance nested inside.
 - `eval_results.json`: the official metrics above and V2's as a reference, with the SHA256 of each original evaluation record.
 - **Full records** (code, configurations, pre-registrations, frozen development-only selections, the adoption record and all evaluation outputs): https://github.com/davemaxuell/Global-Innovation-Build-Challenge-V2.

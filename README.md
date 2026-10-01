@@ -4,6 +4,8 @@ SCG-LM is a 46,346,752-parameter Llama-style decoder trained from **random initi
 
 **Model weights on Hugging Face:** [SCG-LM V2.1](https://huggingface.co/davemaxuellkr/Global-Innovation-Build-Challenge-V2) (submitted) · [SCG-LM V2](https://huggingface.co/davemaxuellkr/scglm-v2-46m) (pretraining only). Both are MIT-licensed, with model cards and evaluation records.
 
+![SCG-LM pipeline: corpus, pretraining (V2), development-only selection, fine-tuning (V2.1), official evaluation](v2/submission/figures/fig0_pipeline.png)
+
 | Model | HellaSwag | ARC-Easy | PIQA | WinoGrande | Mean | WikiText-103 ppl ↓ |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | V1 baseline (13B tokens) | 28.48 | 46.59 | **62.08** | 50.67 | 46.96 | 25.52 |
@@ -12,12 +14,18 @@ SCG-LM is a 46,346,752-parameter Llama-style decoder trained from **random initi
 
 Zero-shot raw accuracy (%) with lm-evaluation-harness v0.4.12; held-out WikiText-103 validation perplexity (context 1,024, stride 512). The protocol is pinned in [configs/evaluation.json](configs/evaluation.json), with details in [EVALUATION_PROTOCOL.md](EVALUATION_PROTOCOL.md).
 
+![Official results: per-benchmark accuracy for V1, V2 and V2.1, and WikiText-103 perplexity](v2/submission/figures/fig5_results.png)
+
 **Disclosure for the submitted model:**
 - **Training data:** it was fine-tuned on the *training* splits of HellaSwag, ARC-Easy/Challenge, PIQA and WinoGrande, written in the scoring format of the evaluation harness. Items overlapping official evaluation items were removed, and the official evaluation splits were never trained on.
 - **Comparability:** its scores are task-tuned. They are not comparable at face value with pretraining-only models, which is why V2 base is reported alongside.
 - **Selection:** our own pre-registered rule did not select it, because it worsened held-out Wikipedia bits/byte by 0.028 against a 0.01 guard. We adopted it after its official scores were observed.
 - **Perplexity:** WikiText-103 perplexity is 6.8% worse than V2 base.
 - **Alternative:** a 50/50 weight interpolation with V2 base passed that rule (mean 49.60, perplexity 24.09) and is preserved.
+
+![Development accuracy against the Wikipedia cost for every fine-tuned candidate and the weight-interpolation path, with our guard](v2/submission/figures/fig6_tradeoff.png)
+
+More accuracy cost more Wikipedia modelling at every setting we tried. The blue line blends V2 into V2.1; the green points are the fine-tuned candidates, scored on held-out training-split items.
 
 Details: [v2/phases/task_tune/REPORT.md](v2/phases/task_tune/REPORT.md) and the [adoption record](v2/phases/task_tune/ADOPTION.json). V2 base was chosen on development data before any official V2 score was computed; against V1 its perplexity gain is clear, and its mean-accuracy gain is within per-task standard errors (0.45–1.4 points).
 
@@ -41,7 +49,11 @@ tok = AutoTokenizer.from_pretrained(repo)                       # or a local cop
 model = AutoModelForCausalLM.from_pretrained(repo)
 ```
 
-Both models continue text; neither is instruction-tuned or a chat model. The submitted model was additionally trained to score multiple-choice answers.
+Both models continue text; neither is instruction-tuned or a chat model. The submitted model was additionally trained to score multiple-choice answers. To see how the benchmarks score a model, run `PYTHONPATH=src python scripts/demo_choices.py`:
+
+![Scoring demo: three invented questions, answers scored by log-likelihood for V2 and V2.1](v2/submission/figures/fig7_demo_scoring.png)
+
+These three questions were written for the demo and are not from any evaluation set. They illustrate the scoring; they are not evidence of accuracy.
 
 In a fresh clone, first follow **Setup** in [CURRENT_PIPELINE.md](CURRENT_PIPELINE.md). The model weights, prepared data and the pinned evaluation harness are not stored in the repository.
 
@@ -52,6 +64,10 @@ In a fresh clone, first follow **Setup** in [CURRENT_PIPELINE.md](CURRENT_PIPELI
    - **Contamination controls:** 13-word n-gram exclusion over benchmark train and eval splits and WikiText-103; whole-domain blocks on wikiHow and Instructables (the sources of HellaSwag and PIQA); exact, URL and MinHash deduplication.
 3. **Schedule:** warmup, constant learning rate, and a final 10% linear decay (WSD) over 45B tokens, 3.5× V1.
 4. **Kept on purpose:** the architecture, AdamW and the V1 tokenizer, each after a registered check ([v2/PLAN.md](v2/PLAN.md)).
+
+![V2 corpus: unique tokens and training share per source](v2/submission/figures/fig2_corpus.png)
+
+![V2 pretraining: training loss and held-out NLL over 45B tokens; the final decay cut held-out loss from 3.17 to 2.97 nats](v2/submission/figures/fig4_training_curve.png)
 
 ## Repository map
 

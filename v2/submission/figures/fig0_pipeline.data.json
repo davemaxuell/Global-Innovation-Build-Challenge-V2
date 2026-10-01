@@ -1,0 +1,53 @@
+{
+  "stages": [
+    {
+      "title": "1  Corpus",
+      "details": [
+        "22.45B unique tokens",
+        "6 human-written sources",
+        "eval overlap removed"
+      ]
+    },
+    {
+      "title": "2  Pretrain: V2",
+      "details": [
+        "45.0B tokens, random init",
+        "31.9 h on one H100",
+        "46.3M parameters"
+      ]
+    },
+    {
+      "title": "3  Dev selection",
+      "details": [
+        "held-out train items",
+        "rules fixed in advance",
+        "test sets never used"
+      ]
+    },
+    {
+      "title": "4  Fine-tune: V2.1",
+      "details": [
+        "79,425 train questions",
+        "harness scoring format",
+        "20 min, 50% replay"
+      ]
+    },
+    {
+      "title": "5  Official eval",
+      "details": [
+        "lm-eval v0.4.12",
+        "mean 47.12 \u2192 52.76",
+        "WikiText 23.85 \u2192 25.46"
+      ]
+    }
+  ],
+  "sources": [
+    "v2/data/rich_v1/manifest.json",
+    "v2/runs/main/status.json",
+    "v2/runs/task_tune_lr2e-5_r0.5/status.json",
+    "v2/data/task_tune_v1/report.json",
+    "artifacts/phase_evaluation_v1/attempts/official_13b/01/output/summary.json",
+    "v2/phases/final_selection/official/main/attempt_1/summary.json",
+    "v2/phases/task_tune/official/task_tune_lr2e-5_r0.5_epoch_3/attempt_3/summary.json"
+  ]
+}

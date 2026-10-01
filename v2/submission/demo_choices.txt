@@ -1,0 +1,30 @@
+== V2 (pretraining only)
+  How do you keep ice cream from melting on a hot day?
+      -27.00  Put it in a cooler packed with ice.                       
+      -19.32  Put it in a sunny window.                                   <- chosen
+  Which gas do plants take in from the air to make their food?
+       -9.17  carbon dioxide                                              <- chosen
+       -9.65  oxygen                                                    
+      -13.95  helium                                                    
+      -15.06  neon                                                      
+  Making tea: A woman fills a kettle with water and puts it on the stove. She
+      -32.66  waits for the water to boil and pours it over a tea bag.  
+      -32.33  throws the kettle into the garden and starts painting.    
+      -38.98  reads a newspaper about football in the snow.             
+      -27.62  takes the stove apart with a hammer.                        <- chosen
+  sensible answer chosen: 1 of 3
+== V2.1 (submitted)
+  How do you keep ice cream from melting on a hot day?
+      -28.31  Put it in a cooler packed with ice.                       
+      -25.96  Put it in a sunny window.                                   <- chosen
+  Which gas do plants take in from the air to make their food?
+       -4.65  carbon dioxide                                              <- chosen
+       -5.29  oxygen                                                    
+      -14.14  helium                                                    
+      -14.89  neon                                                      
+  Making tea: A woman fills a kettle with water and puts it on the stove. She
+      -31.34  waits for the water to boil and pours it over a tea bag.    <- chosen
+      -71.53  throws the kettle into the garden and starts painting.    
+      -90.37  reads a newspaper about football in the snow.             
+      -67.71  takes the stove apart with a hammer.                      
+  sensible answer chosen: 2 of 3

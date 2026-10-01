@@ -3,9 +3,15 @@
   "model": "SCG-LM V2.1 (46M)",
   "source": "checkpoints/v2_1 (= v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export)",
   "files_sha256": {
-    "README.md": "ad51b92d10b2d2915b343a6c23258eebbc7f83735b9ad6c7ed6686f3912e2c64",
+    "README.md": "800f2b8a4fe3d561e515d764809e1b0453e3863c53c4f83b66c37dd752e7eab4",
     "config.json": "40829ea36a2cabf18165acc07bec807f418dceba7cc9d2f8d2520a8a89c02538",
     "eval_results.json": "c693922426a0ae35a19af73fc65a5988e2f0da18abcdf9a5c4611d052139c21b",
+    "figures/fig0_pipeline.png": "62e3452f15c191e2778b31b339219c136cac033c7b11230370a8dcfab1b36410",
+    "figures/fig2_corpus.png": "45ca40c9106b784420d808a159d75d031fcbaa82af5d136319113d2cfee75787",
+    "figures/fig4_training_curve.png": "e9416464eecf8f9f09d104df67db29d0735f11edfdf6338624bdd31e2bd6cc2a",
+    "figures/fig5_results.png": "5c0489395899315a24900ba0ecaebf64a80c03f864b6249863a045ab86c34822",
+    "figures/fig6_tradeoff.png": "f663e291a4e6733da7e0364da52dbf0602971e6f2c0b043f79a5f306fac75b50",
+    "figures/fig7_demo_scoring.png": "3ffd27f8ad3603bd66afbd3cd8e3e067e9d194ae49388e4fe88dd834c98f9e2e",
     "generation_config.json": "065c32ced79f04ad5ab5db4530779cf2bbc74a4023f634dd87844e4d7d98d98d",
     "model.safetensors": "aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897",
     "tokenizer.json": "f8de5462e2967f502b8a25f2a90a87fee12ecad1f50d980a54552805ed0ea196",
@@ -26,7 +32,8 @@
   "verified": "Loaded and generated with Transformers 5.5.4 (2026-10-01); token IDs identical to checkpoints/v2_1; 46,346,752 parameters.",
   "added": [
     "README.md (model card, with the task-tuning disclosure)",
-    "eval_results.json (derived from the official summary; source hashes recorded, V2 base included as reference)"
+    "eval_results.json (derived from the official summary; source hashes recorded, V2 base included as reference)",
+    "figures/*.png (card figures, copied from v2/submission/figures)"
   ],
   "not_uploaded": "Prepared locally; publishing to the Hugging Face Hub is the user's decision. release/hf_v2 (V2 base) is kept unchanged.",
   "placeholders_filled": {

@@ -41,7 +41,8 @@ def main():
 
     from huggingface_hub import HfApi
     manifest = json.loads((args.folder / "RELEASE_MANIFEST.json").read_text())["files_sha256"]
-    local = {f.name for f in args.folder.iterdir() if f.is_file() and f.name != "RELEASE_MANIFEST.json"}
+    local = {f.relative_to(args.folder).as_posix() for f in args.folder.rglob("*")
+             if f.is_file() and f.name != "RELEASE_MANIFEST.json"}
     if local != set(manifest):
         raise SystemExit(f"Folder files differ from the manifest: {sorted(local ^ set(manifest))}")
     bad = [n for n, h in manifest.items() if sha256(args.folder / n) != h]
