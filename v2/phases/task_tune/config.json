@@ -1,0 +1,68 @@
+{
+  "phase_id": "v2_task_tune_20261001",
+  "parent_export": "v2/runs/main/export",
+  "parent_sha256": "9aac2111b9ca6b06f4a12278f5213c17621ded643b7b54137987ce25028011bd",
+  "benchmark_split_report": "v2/data/rich_v1/benchmarks/report.json",
+  "development_fraction": 0.2,
+  "data_dir": "v2/data/task_tune_v1",
+  "piqa_files": {
+    "train": {
+      "path": "/data/shared/hf_cache/hub/datasets--ybisk--piqa/snapshots/ba2f7a4920f4968f04c174c53cc157c899e93501/plain_text/train-00000-of-00001.parquet",
+      "sha256": "3f6dbfa8ebdcc90386e27f3bd1ecda32a5c3b584db98b00d19d4afc624f33692"
+    },
+    "validation": {
+      "path": "/data/shared/hf_cache/hub/datasets--ybisk--piqa/snapshots/ba2f7a4920f4968f04c174c53cc157c899e93501/plain_text/validation-00000-of-00001.parquet",
+      "sha256": "37a3e882cdba9918d98f755b7261458a77f339c6914838d95bf45b9272813d72"
+    }
+  },
+  "replay_manifest": "v2/data/rich_v1/manifest.json",
+  "replay_weights": {
+    "dclm": 0.35,
+    "edu": 0.3,
+    "targeted": 0.15,
+    "wiki": 0.1,
+    "stackexchange": 0.05,
+    "books": 0.05
+  },
+  "seed": 20261001,
+  "epochs": 3,
+  "questions_per_update": 32,
+  "replay_sequences": 8,
+  "replay_loss_weight": 0.3,
+  "gold_lm_weight": 0.5,
+  "warmup_fraction": 0.002,
+  "betas": [
+    0.9,
+    0.95
+  ],
+  "adam_epsilon": 1e-08,
+  "weight_decay": 0.1,
+  "gradient_clip": 1.0,
+  "log_every": 50,
+  "arms": {
+    "lr2e-5_r0.5": {
+      "learning_rate": 2e-05,
+      "replay_loss_weight": 0.5,
+      "run_dir": "v2/runs/task_tune_lr2e-5_r0.5"
+    },
+    "lr2e-5_r0.7": {
+      "learning_rate": 2e-05,
+      "replay_loss_weight": 0.7,
+      "run_dir": "v2/runs/task_tune_lr2e-5_r0.7"
+    },
+    "lr1e-5_r0.5": {
+      "learning_rate": 1e-05,
+      "replay_loss_weight": 0.5,
+      "run_dir": "v2/runs/task_tune_lr1e-5_r0.5"
+    }
+  },
+  "selection_rule": {
+    "proxy": "mean acc over ARC-Easy/PIQA/HellaSwag/WinoGrande held-out 20% TRAIN items, scored in the exact pinned-harness format (scglm_v2.task_format)",
+    "min_proxy_gain": 0.01,
+    "max_wiki_bpb_regression": 0.01,
+    "panel_docs": 512
+  },
+  "choice_temperature": 10.0,
+  "gold_lm_scope": "sequence",
+  "choice_weight": 1.0
+}

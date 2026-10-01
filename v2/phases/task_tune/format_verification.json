@@ -1,0 +1,26 @@
+{
+  "arc_easy": {
+    "requests": 2376,
+    "format_mismatches": 0,
+    "loglik_items_checked": 50,
+    "max_abs_loglik_difference": 1.71661376953125e-05
+  },
+  "piqa": {
+    "requests": 1838,
+    "format_mismatches": 0,
+    "loglik_items_checked": 50,
+    "max_abs_loglik_difference": 9.1552734375e-05
+  },
+  "hellaswag": {
+    "requests": 10042,
+    "format_mismatches": 0,
+    "loglik_items_checked": 50,
+    "max_abs_loglik_difference": 3.0517578125e-05
+  },
+  "winogrande": {
+    "requests": 1267,
+    "format_mismatches": 0,
+    "loglik_items_checked": 50,
+    "max_abs_loglik_difference": 1.52587890625e-05
+  }
+}

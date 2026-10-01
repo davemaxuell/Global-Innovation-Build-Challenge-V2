@@ -279,3 +279,14 @@ Registered 2026-09-29 (KST) before execution.
 **V2 outcome, 2026-10-01 07:54 KST:** the decay A/B branch completed (3.19 h) and was not selected (development proxy +0.07 pt < +0.5). The official pinned-protocol results for the selected V2 (`v2/runs/main/export`, SHA256 `9aac2111…`) were HellaSwag 28.85, ARC-Easy 47.39, PIQA 60.77, WinoGrande 51.46 (mean 47.12 vs V1 46.96) and WikiText-103 perplexity 23.85 vs 25.52. **The pre-registered rule selects V2 as the submission base.** The accuracy gain is within per-task standard errors; the perplexity gain is clear. [Final selection report](v2/phases/final_selection/REPORT.md) · [Decay A/B report](v2/phases/anneal_quality/REPORT.md) · FAILED_APPROACHES A13
 
 **Code reorganization, 2026-10-01 (not a training phase):** at the user's request the active code now contains only the V2 pipeline. V1-only and V2 experiment-only code moved to `archive/` with a per-file hash inventory. The core modules are unchanged and still match V2's run record. `checkpoints/v2_best` was added and `AGENTS.md` updated to the V2 scope. Verification: 77 tests passed, `verify_v2.py` 10/10, the official-protocol preflight passed, and the GPU trainer smoke test succeeded. [Report](reports/cleanup/2026-10-01/REPORT.md)
+
+## V2 phase: v2_task_tune_20261001 (fine-tuning on the benchmarks' train splits), registered
+
+Registered 2026-10-01 ~10:20 KST on branch `task-tuning-20261001`, after the user confirmed that fine-tuning our own scratch-trained model is allowed (the Track 01 ban covers fine-tuning previously existing models) and approved the phase.
+- **Parent:** V2 (`v2/runs/main/export`, SHA256 `9aac2111…`).
+- **Data:** the 80% of the HellaSwag, ARC-Easy, ARC-Challenge, PIQA and WinoGrande train splits not held out by V2's existing hash split. That is 79,425 questions after dropping 554 that overlap official evaluation items. The data is formatted exactly as the pinned harness scores it: the formatter matches all 15,523 recorded official requests.
+- **Recipe:** a GPT-1-style multiple-choice loss on the summed continuation log-likelihoods (no added parameters), plus a gold-sequence language-modelling loss and replay of V2 pretraining text. Three epochs; three arms run concurrently on GPU 0.
+- **Selection:** development data only. Highest four-task mean on the held-out 20%, scored in the harness format, if it is at least +1.0 point over V2 and Wikipedia bits/byte is no more than 0.01 worse. Otherwise V2 is kept.
+- **Amendment before launch:** smoke runs showed the registered loss damaged raw-language fit. The launch recipe uses temperature 10 in the choice softmax, learning rate 1e-5 or 2e-5, and replay weight 0.5 or 0.7.
+
+[Report](v2/phases/task_tune/REPORT.md) · [Registration](v2/phases/task_tune/registration.json) · [Config](v2/phases/task_tune/config.json) · [Pre-launch smoke evidence](v2/phases/task_tune/prelaunch_smoke.json) · [Status](v2/phases/task_tune/status.json)

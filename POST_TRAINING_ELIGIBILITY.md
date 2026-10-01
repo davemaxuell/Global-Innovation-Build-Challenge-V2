@@ -1,5 +1,7 @@
 # Track 01 post-training eligibility review
 
+> **Update (2026-10-01, user confirmation):** the user confirmed that Track 01 allows fine-tuning our own scratch-trained models. The ban covers fine-tuning a *previously existing* model (pretrained initialization). This supersedes the 2026-09-26 operational conclusion below, which treated all SFT/DPO as disallowed. The confirmation is the user's; no organizer document is recorded here. The first phase under it is [v2_task_tune_20261001](v2/phases/task_tune/REPORT.md).
+
 > **Current (2026-10-01):** V2 is the selected model and the only active pipeline; see [README.md](README.md), [CURRENT_PIPELINE.md](CURRENT_PIPELINE.md) and [BEST_CHECKPOINT_TRAINING.md](BEST_CHECKPOINT_TRAINING.md). The rest of this document is a dated record; V1-era material is in [docs/history/](docs/history/).
 
 **Checked:** 2026-09-26.  

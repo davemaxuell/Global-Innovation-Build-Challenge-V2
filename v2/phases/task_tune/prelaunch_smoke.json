@@ -1,0 +1,123 @@
+{
+  "note": "Pre-launch smoke comparison. 600 updates per variant (19,200 questions) at the arm's peak LR, no decay. Diagnostic items: the 59,425 training items at epoch-1 order positions >= 20,000, never seen by these runs. Bits/byte: 64 monitor-panel documents per source. The selection panel and official data were not used. Script kept in the phase directory.",
+  "variants": {
+    "A_choice_t1": "registered recipe, LR 6.25e-5",
+    "B_choice_t10": "temperature 10, LR 6.25e-5",
+    "C_gold_only": "no choice loss; gold continuation LM weight 1.0, LR 6.25e-5",
+    "D_choice_t10_goldcont": "temperature 10 + gold continuation LM 1.0, LR 6.25e-5",
+    "E_lr2e-5_r0.3": "temperature 10, LR 2e-5, replay 0.3",
+    "F_lr2e-5_r0.5": "temperature 10, LR 2e-5, replay 0.5",
+    "G_lr1e-5_r0.3": "temperature 10, LR 1e-5, replay 0.3",
+    "H_lr1e-5_r0.5": "temperature 10, LR 1e-5, replay 0.5"
+  },
+  "results": {
+    "base": {
+      "acc": {
+        "hellaswag": 0.2841,
+        "piqa": 0.6132,
+        "winogrande": 0.5172,
+        "arc_easy": 0.4524,
+        "arc_challenge": 0.229
+      },
+      "mean4": 0.4667,
+      "bpb_wiki": 1.0374,
+      "bpb_mean": 1.1081
+    },
+    "A_choice_t1": {
+      "acc": {
+        "hellaswag": 0.3283,
+        "piqa": 0.6138,
+        "winogrande": 0.5113,
+        "arc_easy": 0.4486,
+        "arc_challenge": 0.2515
+      },
+      "mean4": 0.4755,
+      "bpb_wiki": 1.1185,
+      "bpb_mean": 1.2033
+    },
+    "B_choice_t10": {
+      "acc": {
+        "hellaswag": 0.3352,
+        "piqa": 0.6203,
+        "winogrande": 0.5315,
+        "arc_easy": 0.4962,
+        "arc_challenge": 0.253
+      },
+      "mean4": 0.4958,
+      "bpb_wiki": 1.0815,
+      "bpb_mean": 1.1561
+    },
+    "C_gold_only": {
+      "acc": {
+        "hellaswag": 0.2921,
+        "piqa": 0.6235,
+        "winogrande": 0.5271,
+        "arc_easy": 0.4804,
+        "arc_challenge": 0.2335
+      },
+      "mean4": 0.4808,
+      "bpb_wiki": 1.0729,
+      "bpb_mean": 1.1442
+    },
+    "D_choice_t10_goldcont": {
+      "acc": {
+        "hellaswag": 0.3065,
+        "piqa": 0.6246,
+        "winogrande": 0.5288,
+        "arc_easy": 0.4977,
+        "arc_challenge": 0.253
+      },
+      "mean4": 0.4894,
+      "bpb_wiki": 1.0793,
+      "bpb_mean": 1.1546
+    },
+    "E_lr2e-5_r0.3": {
+      "acc": {
+        "hellaswag": 0.3201,
+        "piqa": 0.624,
+        "winogrande": 0.5255,
+        "arc_easy": 0.4819,
+        "arc_challenge": 0.238
+      },
+      "mean4": 0.4879,
+      "bpb_wiki": 1.0528,
+      "bpb_mean": 1.1253
+    },
+    "F_lr2e-5_r0.5": {
+      "acc": {
+        "hellaswag": 0.3178,
+        "piqa": 0.6249,
+        "winogrande": 0.5234,
+        "arc_easy": 0.4804,
+        "arc_challenge": 0.2425
+      },
+      "mean4": 0.4866,
+      "bpb_wiki": 1.0489,
+      "bpb_mean": 1.1205
+    },
+    "G_lr1e-5_r0.3": {
+      "acc": {
+        "hellaswag": 0.3038,
+        "piqa": 0.6238,
+        "winogrande": 0.5238,
+        "arc_easy": 0.4766,
+        "arc_challenge": 0.2395
+      },
+      "mean4": 0.482,
+      "bpb_wiki": 1.0464,
+      "bpb_mean": 1.1192
+    },
+    "H_lr1e-5_r0.5": {
+      "acc": {
+        "hellaswag": 0.3017,
+        "piqa": 0.6246,
+        "winogrande": 0.5243,
+        "arc_easy": 0.4781,
+        "arc_challenge": 0.2425
+      },
+      "mean4": 0.4822,
+      "bpb_wiki": 1.0438,
+      "bpb_mean": 1.1158
+    }
+  }
+}

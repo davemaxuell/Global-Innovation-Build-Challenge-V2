@@ -1,0 +1,92 @@
+{
+  "phase_id": "v2_task_tune_20261001",
+  "registered_kst": "2026-10-01T10:20+09:00",
+  "branch": "task-tuning-20261001",
+  "approved_by_user": "2026-10-01: user approved running this phase on a new branch, after confirming that fine-tuning our own scratch-trained model is allowed (the Track 01 ban is on fine-tuning previously existing models).",
+  "objective": "Competition benchmark performance (HellaSwag, ARC-Easy, PIQA, WinoGrande acc; WikiText-103 perplexity) by fine-tuning V2 on the four benchmarks' TRAIN splits in the exact pinned-harness scoring format.",
+  "hypothesis": "Supervised multiple-choice training on each benchmark's own training split raises held-out accuracy (fine-tuned GPT-1-size models: HellaSwag 41.7, PIQA 69.2), while 30% replay of V2 pretraining text holds raw-language quality.",
+  "not_a_repeat": "V1 post-training (A01-A08) excluded all benchmark text from SFT data and used instruction formats; A09's choice-loss arm never trained. This phase trains on the benchmarks' own train splits in the harness's raw scoring format, starting from V2, with a choice-level loss.",
+  "parent": {
+    "export": "v2/runs/main/export",
+    "weight_sha256": "9aac2111b9ca6b06f4a12278f5213c17621ded643b7b54137987ce25028011bd",
+    "copy": "checkpoints/v2_best"
+  },
+  "data": {
+    "sources": "Train splits at pinned revisions: Rowan/hellaswag 218ec52e, allenai/ai2_arc ARC-Easy and ARC-Challenge 210d026f, ybisk/piqa ba2f7a49 (hash-checked parquet), allenai/winogrande winogrande_xl 01e74176.",
+    "split": "V2's existing hash split (scglm_v2.benchmarks.is_development, 20%). The held-out 20% is the selection panel and is never trained on. Counts must equal v2/data/rich_v1/benchmarks/report.json or preparation fails.",
+    "decontamination": "Training items whose context matches an official evaluation item (normalized exact match or any shared 13-word sequence) are dropped. Official splits are read as text only for this check.",
+    "format": "scglm_v2.task_format: verified identical to all 15,523 recorded official harness requests, and scorer log-likelihoods within 1e-4 of the recorded V2 values (50 items per task).",
+    "output": "v2/data/task_tune_v1 (train.jsonl, development.jsonl, report.json with SHA256s)"
+  },
+  "recipe": {
+    "code": "src/scglm_v2/task_tune.py (train), src/scglm_v2/task_format.py, src/scglm_v2/task_select.py",
+    "config": "v2/phases/task_tune/config.json",
+    "loss": "0.7 * (choice_ce + 0.5 * gold_lm) + 0.3 * replay_lm; candidate score = summed continuation log-likelihood (no added parameters)",
+    "optimizer": "AdamW betas (0.9, 0.95), eps 1e-8, weight decay 0.1 on matrices, clip 1.0, fresh state",
+    "schedule": "32 questions + 8 replay sequences (1,024 tokens) per update; 3 epochs; warmup 0.2% of updates; linear decay to 0 at the end of epoch 3 (GPT-1 fine-tuning settings)",
+    "arms": {
+      "lr2e-5_r0.5": {
+        "learning_rate": 2e-05,
+        "replay_loss_weight": 0.5,
+        "run_dir": "v2/runs/task_tune_lr2e-5_r0.5"
+      },
+      "lr2e-5_r0.7": {
+        "learning_rate": 2e-05,
+        "replay_loss_weight": 0.7,
+        "run_dir": "v2/runs/task_tune_lr2e-5_r0.7"
+      },
+      "lr1e-5_r0.5": {
+        "learning_rate": 1e-05,
+        "replay_loss_weight": 0.5,
+        "run_dir": "v2/runs/task_tune_lr1e-5_r0.5"
+      }
+    },
+    "candidates": "exports at the end of each epoch of each arm (6); epoch 1-2 exports are prefixes of the 3-epoch schedule",
+    "precision": "BF16 autocast, FP32 weights; seed 20261001"
+  },
+  "compute_limits": {
+    "gpu": "GPU 0 (GPU-78815613-815b-f56b-27c0-6bc239e093fc) only; GPU 1 belongs to another team",
+    "max_gpu_hours_total": 4
+  },
+  "selection_rule": {
+    "data": "development only: held-out 20% of benchmark train items (harness format) and the corpus selection panels",
+    "rule": "Among candidates whose Wikipedia selection bits/byte is at most +0.01 worse than V2's, take the highest four-task proxy mean acc. Select it only if that mean is at least +1.0 point above V2's on the same scorer; otherwise keep V2.",
+    "why_1_point": "The held-out items come from the same pool as the training items, so development gains will overstate official gains.",
+    "record": "v2/phases/task_tune/selection.json, frozen before any official score of a task-tuned model"
+  },
+  "official_evaluation": "Pinned runner (scripts/run_final_evaluation.py, configs/evaluation.json) once on the selected candidate. If V2 is retained, the best eligible candidate is still evaluated once and reported as not selected.",
+  "reporting": "Report V2 base and the task-tuned model side by side, labelled 'fine-tuned on the benchmarks' training splits'. V2's official scores were observed before this phase.",
+  "outputs": [
+    "v2/data/task_tune_v1",
+    "v2/runs/task_tune_lr6e-5",
+    "v2/runs/task_tune_lr2e-5",
+    "v2/phases/task_tune"
+  ],
+  "commands": {
+    "prepare": "PYTHONPATH=src python -m scglm_v2.task_tune prepare --config v2/phases/task_tune/config.json",
+    "train": "CUDA_VISIBLE_DEVICES=0 PYTHONPATH=src python -m scglm_v2.task_tune train --config v2/phases/task_tune/config.json --arm <lr2e-5_r0.5|lr2e-5_r0.7|lr1e-5_r0.5>",
+    "select": "CUDA_VISIBLE_DEVICES=0 PYTHONPATH=src python -m scglm_v2.task_select --config v2/phases/task_tune/config.json --out v2/phases/task_tune/selection.json",
+    "official": "scripts/run_final_evaluation.py --final-evaluation --model <export> --selection-record v2/phases/task_tune/selection.json --device cuda:0 --output v2/phases/task_tune/official/<arm>_<epoch>/attempt_<n> --history-dir v2/reports/validation_history",
+    "resume": "No resume: each arm runs in about 20 minutes. A failed arm is recorded and rerun into a new run_dir.",
+    "chain": "GPU=0 bash scripts/run_task_tune.sh   (tmux gibc-v2-task-tune): 3 arms concurrently -> task_select -> one official evaluation"
+  },
+  "amendment_1_before_launch": {
+    "time_kst": "2026-10-01T10:45+09:00",
+    "evidence": "v2/phases/task_tune/prelaunch_smoke.json",
+    "finding": "The registered recipe (raw summed-log-likelihood choice loss, LR 6.25e-5, replay 0.3) damaged raw-language fit in 600-update smoke runs (Wikipedia bits/byte +0.081, gold-sequence loss 3.18 -> ~3.7-4.0) for +0.9 points on unseen training items. Temperature 10 in the choice softmax (argmax unchanged) gave +2.9 points but still +0.044 bits/byte at LR 6.25e-5. LR 1e-5 to 2e-5 with replay 0.5 gave +1.6 to +2.0 points at +0.006 to +0.012 bits/byte (peak LR, before decay).",
+    "changes": {
+      "choice_temperature": 10.0,
+      "replay_loss_weight": "per arm (0.5 or 0.7)",
+      "arms": {
+        "lr2e-5_r0.5": "LR 2e-5, replay 0.5",
+        "lr2e-5_r0.7": "LR 2e-5, replay 0.7",
+        "lr1e-5_r0.5": "LR 1e-5, replay 0.5"
+      },
+      "candidates": "9 exports (3 arms x 3 epochs)"
+    },
+    "unchanged": "Data, split, decontamination, parent, the selection rule (+1.0 point proxy gain, Wikipedia bits/byte <= +0.01) and the official-evaluation plan. No training run had started; the selection panel and official data were not used.",
+    "loss": "(1 - r) * (CE(scores / 10) + 0.5 * gold_sequence_lm) + r * replay_lm",
+    "compute_limits": "max_gpu_hours_total stays 4; the three arms run concurrently on GPU 0",
+    "official_evaluation": "If V2 is kept and no candidate passes the Wikipedia guard, the highest-proxy candidate is evaluated once and reported as guard-failed, not selected."
+  }
+}
