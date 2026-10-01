@@ -1,0 +1,66 @@
+{
+  "rows": [
+    {
+      "model": "V1 (13B tokens)",
+      "source": "artifacts/phase_evaluation_v1/attempts/official_13b/01/output/summary.json",
+      "acc": {
+        "hellaswag": 28.48038239394543,
+        "arc_easy": 46.590909090909086,
+        "piqa": 62.07834602829162,
+        "winogrande": 50.67087608524072
+      },
+      "acc_stderr": {
+        "hellaswag": 0.45039858390419385,
+        "arc_easy": 1.023590810343869,
+        "piqa": 1.1320331012905072,
+        "winogrande": 1.4051220692330348
+      },
+      "mean": 46.95512839959672,
+      "wikitext103_perplexity": 25.519837291770507
+    },
+    {
+      "model": "V2 (45B tokens, pretraining only)",
+      "source": "v2/phases/final_selection/official/main/attempt_1/summary.json",
+      "acc": {
+        "hellaswag": 28.848834893447524,
+        "arc_easy": 47.39057239057239,
+        "piqa": 60.772578890097925,
+        "winogrande": 51.46014206787688
+      },
+      "acc_stderr": {
+        "hellaswag": 0.4521334761709171,
+        "arc_easy": 1.024580199024005,
+        "piqa": 1.139184674407223,
+        "winogrande": 1.404649238327584
+      },
+      "mean": 47.11803206049868,
+      "wikitext103_perplexity": 23.84916458687835
+    },
+    {
+      "model": "V2.1 (V2 + benchmark-train fine-tuning)",
+      "source": "v2/phases/task_tune/official/task_tune_lr2e-5_r0.5_epoch_3/attempt_3/summary.json",
+      "acc": {
+        "hellaswag": 39.145588528181634,
+        "arc_easy": 54.12457912457912,
+        "piqa": 65.34276387377585,
+        "winogrande": 52.407261247040246
+      },
+      "acc_stderr": {
+        "hellaswag": 0.48707850367083116,
+        "arc_easy": 1.0224815730255818,
+        "piqa": 1.1103020320872181,
+        "winogrande": 1.403618966539513
+      },
+      "mean": 52.7550481933942,
+      "wikitext103_perplexity": 25.462136845104226
+    }
+  ],
+  "chance": {
+    "hellaswag": 25.0,
+    "arc_easy": 25.0,
+    "piqa": 50.0,
+    "winogrande": 50.0
+  },
+  "protocol": "lm-evaluation-harness v0.4.12, zero-shot, raw acc; WikiText-103 validation, context 1024, stride 512",
+  "note": "V2.1 was fine-tuned on the benchmarks' training splits (evaluation splits never trained on); its scores are task-tuned. It was adopted after its official scores were observed; the registered development rule did not select it."
+}

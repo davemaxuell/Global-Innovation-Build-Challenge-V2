@@ -4,9 +4,10 @@
   "time_kst": "2026-10-01T11:50+09:00",
   "user_words": "I think we should just choose that model instead",
   "model": {
-    "checkpoint": "checkpoints/v2_task_tuned",
+    "checkpoint": "checkpoints/v2_1",
     "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export",
-    "weights_sha256": "aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897"
+    "weights_sha256": "aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897",
+    "display_name": "SCG-LM V2.1"
   },
   "official": {
     "hellaswag": 0.3915,
@@ -33,5 +34,6 @@
     "checkpoints/competition_base",
     "checkpoints/best_sft",
     "v2/runs/wiseft/alpha_0.50/export"
-  ]
+  ],
+  "rename_note": "Renamed on the user's request (2026-10-01 ~12:35 KST): the model is called SCG-LM V2.1 and the folder checkpoints/v2_task_tuned is now checkpoints/v2_1. Weights unchanged."
 }

@@ -1,12 +1,12 @@
-# SCG-LM V2: a 46M-parameter language model trained from scratch
+# SCG-LM V2 and V2.1: a 46M-parameter language model trained from scratch
 
-SCG-LM is a 46,346,752-parameter Llama-style decoder trained from **random initialization** on one H100: 45.0B tokens of human-written English in 31.9 hours. The pretraining-only model is [checkpoints/v2_best](checkpoints/v2_best/). **The submitted model is [checkpoints/v2_task_tuned](checkpoints/v2_task_tuned/):** that same model, fine-tuned for 20 minutes on the training splits of the four benchmarks. See the disclosure below the table.
+SCG-LM is a 46,346,752-parameter Llama-style decoder trained from **random initialization** on one H100: 45.0B tokens of human-written English in 31.9 hours. The pretraining-only model is [checkpoints/v2_best](checkpoints/v2_best/). **The submitted model is SCG-LM V2.1, in [checkpoints/v2_1](checkpoints/v2_1/):** that same model, fine-tuned for 20 minutes on the training splits of the four benchmarks. See the disclosure below the table.
 
 | Model | HellaSwag | ARC-Easy | PIQA | WinoGrande | Mean | WikiText-103 ppl ↓ |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | V1 baseline (13B tokens) | 28.48 | 46.59 | **62.08** | 50.67 | 46.96 | 25.52 |
 | V2 base (45B tokens, pretraining only) | 28.85 | 47.39 | 60.77 | 51.46 | 47.12 | **23.85** |
-| **V2 task-tuned (submitted)** | **39.15** | **54.12** | **65.34** | **52.41** | **52.76** | 25.46 |
+| **V2.1 (submitted)** | **39.15** | **54.12** | **65.34** | **52.41** | **52.76** | 25.46 |
 
 Zero-shot raw accuracy (%) with lm-evaluation-harness v0.4.12; held-out WikiText-103 validation perplexity (context 1,024, stride 512). The protocol is pinned in [configs/evaluation.json](configs/evaluation.json), with details in [EVALUATION_PROTOCOL.md](EVALUATION_PROTOCOL.md).
 
@@ -34,8 +34,8 @@ python -m pytest                                                                
 
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
-tok = AutoTokenizer.from_pretrained("checkpoints/v2_task_tuned", local_files_only=True)   # or checkpoints/v2_best
-model = AutoModelForCausalLM.from_pretrained("checkpoints/v2_task_tuned", local_files_only=True)
+tok = AutoTokenizer.from_pretrained("checkpoints/v2_1", local_files_only=True)   # or checkpoints/v2_best
+model = AutoModelForCausalLM.from_pretrained("checkpoints/v2_1", local_files_only=True)
 ```
 
 Both models continue text; neither is instruction-tuned or a chat model. The submitted model was additionally trained to score multiple-choice answers.
@@ -60,8 +60,8 @@ In a fresh clone, first follow **Setup** in [CURRENT_PIPELINE.md](CURRENT_PIPELI
 | `configs/` | Pinned evaluation protocol, model, V1-lineage data configs |
 | `tests/` | CPU tests for everything above |
 | `v2/` | V2 run configs, corpus, runs, phase records and submission drafts |
-| `checkpoints/` | `v2_task_tuned` (submitted), `v2_best` (V2 base); V1 `competition_base` and `best_sft` (baselines) |
-| `release/hf_v2/` | Hugging Face release: model card, configs, tokenizer, `eval_results.json` (weights not in git) |
+| `checkpoints/` | `v2_1` (submitted), `v2_best` (V2 base); V1 `competition_base` and `best_sft` (baselines) |
+| `release/hf_v2_1/`, `release/hf_v2/` | Hugging Face releases of V2.1 (submitted) and V2 base: model card, configs, tokenizer, `eval_results.json` (weights not in git) |
 | `runs/`, `artifacts/`, `data/` | Historical runs, measured results and prepared data (evidence; unchanged) |
 | `docs/history/`, `archive/` | V1-era documents and retired code (inventory in `reports/cleanup/2026-10-01/`) |
 | `vendor/` | Pinned lm-evaluation-harness checkout; fastText for data preparation |
@@ -72,6 +72,6 @@ Track 01 (TECH): trained from scratch with no pretrained weights, no fine-tuning
 
 ## License
 
-Code and documentation are released under the [MIT License](LICENSE). Dataset-derived records in this repository keep their original terms, for example the web-text excerpts in `v2/data/rich_v1/targeted/selected_examples.json`; see [v2/submission/BUILT_WITH.md](v2/submission/BUILT_WITH.md) for each source's license. The pinned lm-evaluation-harness is not included and keeps its own license. The model weights are distributed separately under the license stated in their [model card](release/hf_v2/README.md).
+Code and documentation are released under the [MIT License](LICENSE). Dataset-derived records in this repository keep their original terms, for example the web-text excerpts in `v2/data/rich_v1/targeted/selected_examples.json`; see [v2/submission/BUILT_WITH.md](v2/submission/BUILT_WITH.md) for each source's license. The pinned lm-evaluation-harness is not included and keeps its own license. The model weights are distributed separately under the license stated in their model cards ([V2.1](release/hf_v2_1/README.md), [V2](release/hf_v2/README.md)).
 
 AI assistance: Claude (Anthropic) assisted V2's research, implementation, tests and documentation; Codex/ChatGPT assisted V1. All code is in this repository.

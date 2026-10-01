@@ -17,7 +17,11 @@
 | manu/project_gutenberg (English) | `164853d2` | Public domain; Gutenberg boilerplate removed |
 | HuggingFaceFW/fineweb (sample-10BT; V1 only) | `9bb295dd` | ODC-By 1.0 |
 
-**Benchmark train splits used only for data selection and development evaluation, never as training text:** ARC-Easy/Challenge, PIQA, HellaSwag, WinoGrande, OpenBookQA, SciQ, CommonsenseQA (train splits; 80% for the classifier, 20% held out). Official evaluation splits were never used for training, selection or tuning.
+**Benchmark train splits:**
+- **V2 pretraining:** used only for data selection and development evaluation, never as training text. Covers ARC-Easy/Challenge, PIQA, HellaSwag, WinoGrande, OpenBookQA, SciQ and CommonsenseQA (80% of each train split for the classifier, 20% held out).
+- **V2.1 fine-tuning (the submitted model):** the same 80% of the HellaSwag, ARC-Easy/Challenge, PIQA and WinoGrande train splits *was* used as training text, after removing items that overlap official evaluation items. The 20% held out stayed held out for selection.
+- **Licenses:** ARC is CC-BY-SA 4.0 (dataset card). WinoGrande's repository declares Apache-2.0. PIQA's dataset card says "Unknown", and HellaSwag's dataset card declares no license.
+- **Official evaluation splits:** never used for training, selection or tuning.
 
 **Not used:** no pretrained weights, no distillation from larger models, no hosted-API substitutes, no model-generated pretraining corpora.
 

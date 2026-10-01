@@ -1,0 +1,97 @@
+{
+  "model": "SCG-LM V2.1 (46M)",
+  "weights_sha256": "aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897",
+  "protocol": "lm-evaluation-harness v0.4.12 (commit 6d642546f4688648fced259eb3302efd36ece5af), zero-shot; WikiText-103 validation, context 1024, stride 512",
+  "benchmarks": {
+    "hellaswag": {
+      "split": "validation",
+      "examples": 10042,
+      "acc": 0.39145588528181635,
+      "acc_stderr": 0.004870785036708312,
+      "acc_norm": 0.36138219478191597,
+      "acc_norm_stderr": 0.004794191785967934
+    },
+    "arc_easy": {
+      "split": "test",
+      "examples": 2376,
+      "acc": 0.5412457912457912,
+      "acc_stderr": 0.010224815730255818,
+      "acc_norm": 0.5180976430976431,
+      "acc_norm_stderr": 0.010253060653479171
+    },
+    "piqa": {
+      "split": "validation",
+      "examples": 1838,
+      "acc": 0.6534276387377584,
+      "acc_stderr": 0.011103020320872181,
+      "acc_norm": 0.6599564744287268,
+      "acc_norm_stderr": 0.011052749414423548
+    },
+    "winogrande": {
+      "split": "validation",
+      "examples": 1267,
+      "acc": 0.5240726124704025,
+      "acc_stderr": 0.014036189665395129
+    }
+  },
+  "wikitext103": {
+    "nll_sum": 872646.7501836189,
+    "token_count": 269569,
+    "documents": 60,
+    "nll": 3.237192519108721,
+    "perplexity": 25.462136845104226,
+    "split": "validation",
+    "context_length": 1024,
+    "stride": 512
+  },
+  "disclosure": "Fine-tuned on the training splits of HellaSwag, ARC-Easy/Challenge, PIQA and WinoGrande (evaluation splits never trained on); task-tuned scores. Adopted after its official scores were observed; the project's pre-registered development rule did not select it (Wikipedia bits/byte guard).",
+  "source_summary": "v2/phases/task_tune/official/task_tune_lr2e-5_r0.5_epoch_3/attempt_3/summary.json",
+  "source_summary_sha256": "d5f2465c024e2b08ba59c8314628e5a704db2c1a5bfaff071691d968bf8deb1a",
+  "reference_v2_base": {
+    "weights_sha256": "9aac2111b9ca6b06f4a12278f5213c17621ded643b7b54137987ce25028011bd",
+    "benchmarks": {
+      "hellaswag": {
+        "split": "validation",
+        "examples": 10042,
+        "acc": 0.2884883489344752,
+        "acc_stderr": 0.004521334761709171,
+        "acc_norm": 0.3095000995817566,
+        "acc_norm_stderr": 0.004613427745209521
+      },
+      "arc_easy": {
+        "split": "test",
+        "examples": 2376,
+        "acc": 0.4739057239057239,
+        "acc_stderr": 0.01024580199024005,
+        "acc_norm": 0.4208754208754209,
+        "acc_norm_stderr": 0.010130502164066335
+      },
+      "piqa": {
+        "split": "validation",
+        "examples": 1838,
+        "acc": 0.6077257889009793,
+        "acc_stderr": 0.01139184674407223,
+        "acc_norm": 0.6066376496191512,
+        "acc_norm_stderr": 0.01139741854668913
+      },
+      "winogrande": {
+        "split": "validation",
+        "examples": 1267,
+        "acc": 0.5146014206787688,
+        "acc_stderr": 0.014046492383275839
+      }
+    },
+    "wikitext103": {
+      "nll_sum": 855005.257107172,
+      "token_count": 269569,
+      "documents": 60,
+      "nll": 3.1717491889170195,
+      "perplexity": 23.84916458687835,
+      "split": "validation",
+      "context_length": 1024,
+      "stride": 512
+    },
+    "source_summary": "v2/phases/final_selection/official/main/attempt_1/summary.json",
+    "source_summary_sha256": "413350ca52f2287f940f1d8454cd729a9f6fb55cb77b7577af4739228e1c9653"
+  }
+}

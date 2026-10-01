@@ -2,8 +2,9 @@
 
 Writes PNGs plus a JSON data table per figure to v2/submission/figures/. Static
 light-mode images for the Devpost gallery. Colours follow the entity in every
-figure (V2 = categorical slot 1 blue, V1 = slot 2 orange; pair validated with the
-dataviz validator). Rerun after the main run finishes to refresh figure 4.
+figure (V2 = categorical slot 1 blue, V1 = slot 2 orange, V2.1 = slot 3 aqua; the
+three validated all-pairs with the dataviz validator; aqua is below 3:1 on the light
+surface, so its marks carry direct labels and every figure has a .data.json table).
 
 Run: PYTHONPATH=src python -m scglm_v2.figures
 """
@@ -21,7 +22,7 @@ from .common import ROOT  # noqa: E402
 
 OUT = ROOT / "v2/submission/figures"
 SURFACE, INK, INK2, MUTED, GRID, AXIS = "#fcfcfb", "#0b0b0b", "#52514e", "#898781", "#e1e0d9", "#c3c2b7"
-V2, V1 = "#2a78d6", "#eb6834"
+V2, V1, V21 = "#2a78d6", "#eb6834", "#1baf7a"
 DPI, SCALE = 100, 2  # sizes are in CSS-like px at 100 dpi, saved at 2x
 BAR_PX = 22
 
@@ -212,8 +213,124 @@ def training_curve():
                                        "source": "v2/runs/main/events.jsonl"})
 
 
+# ------------------------------------------------------------------ figure 5
+TASKS = ("hellaswag", "arc_easy", "piqa", "winogrande")
+TASK_NAMES = {"hellaswag": "HellaSwag", "arc_easy": "ARC-Easy", "piqa": "PIQA", "winogrande": "WinoGrande"}
+CHANCE = {"hellaswag": 25.0, "arc_easy": 25.0, "piqa": 50.0, "winogrande": 50.0}
+OFFICIAL = (("V1 (13B tokens)", V1, "artifacts/phase_evaluation_v1/attempts/official_13b/01/output/summary.json"),
+            ("V2 (45B tokens, pretraining only)", V2, "v2/phases/final_selection/official/main/attempt_1/summary.json"),
+            ("V2.1 (V2 + benchmark-train fine-tuning)", V21,
+             "v2/phases/task_tune/official/task_tune_lr2e-5_r0.5_epoch_3/attempt_3/summary.json"))
+
+
+def _legend(fig, items, y=0.855, x0=0.02, gap=0.30, xs=None):
+    """Swatch legend; an item whose color is None draws a dashed reference-line glyph."""
+    for i, (color, label) in enumerate(items):
+        x = xs[i] if xs else x0 + i * gap
+        if color is None:
+            fig.lines.append(plt.Line2D([x, x + 0.022], [y + 0.015] * 2, transform=fig.transFigure, color=MUTED,
+                                        linewidth=1, linestyle=(0, (3, 3))))
+            fig.text(x + 0.03, y + 0.003, label, fontsize=10, color=INK2)
+            continue
+        fig.patches.append(Rectangle((x, y), 0.012, 0.03, transform=fig.transFigure, facecolor=color, edgecolor="none"))
+        fig.text(x + 0.018, y + 0.003, label, fontsize=10, color=INK2)
+
+
+def results():
+    rows = []
+    for name, color, path in OFFICIAL:
+        m = _load(path)["metrics"]
+        rows.append({"model": name, "color": color, "source": path,
+                     "acc": {t: m["benchmarks"][t]["acc"] * 100 for t in TASKS},
+                     "acc_stderr": {t: m["benchmarks"][t]["acc_stderr"] * 100 for t in TASKS},
+                     "mean": sum(m["benchmarks"][t]["acc"] for t in TASKS) / len(TASKS) * 100,
+                     "wikitext103_perplexity": m["wikitext103"]["perplexity"]})
+    fig, (a1, a2) = plt.subplots(1, 2, figsize=(11.6, 4.6), dpi=DPI, gridspec_kw={"width_ratios": [2.6, 1]})
+    fig.subplots_adjust(left=0.06, right=0.99, top=0.76, bottom=0.12, wspace=0.22)
+    a1.set_xlim(-0.6, len(TASKS) - 0.4); a1.set_ylim(0, 75)
+    _style(a1, grid_axis="y")
+    offsets = (-0.27, 0.0, 0.27)
+    for i, t in enumerate(TASKS):
+        a1.plot([i - 0.45, i + 0.45], [CHANCE[t]] * 2, color=MUTED, linewidth=1, linestyle=(0, (3, 3)), zorder=4)
+        for off, r in zip(offsets, rows):
+            _vbar(a1, i + off, r["acc"][t], r["color"], width_px=24)
+        last = rows[-1]  # direct value labels on the submitted model (aqua needs them; see module note)
+        a1.text(i + offsets[-1], last["acc"][t] + 1.2, f"{last['acc'][t]:.1f}", ha="center", fontsize=9.5, color=INK)
+    a1.set_xticks(range(len(TASKS)), [TASK_NAMES[t] for t in TASKS])
+    a1.set_ylabel("Zero-shot accuracy (%)")
+    a1.set_title("Benchmark accuracy (higher is better)", fontsize=11, color=INK2, loc="left", pad=8)
+    ppl = [r["wikitext103_perplexity"] for r in rows]
+    a2.set_xlim(-0.6, len(rows) - 0.4); a2.set_ylim(0, max(ppl) * 1.18)
+    _style(a2, grid_axis="y")
+    for i, r in enumerate(rows):
+        _vbar(a2, i, r["wikitext103_perplexity"], r["color"], width_px=30)
+        a2.text(i, r["wikitext103_perplexity"] + max(ppl) * 0.02, f"{r['wikitext103_perplexity']:.2f}", ha="center",
+                fontsize=9.5, color=INK)
+    a2.set_xticks(range(len(rows)), ["V1", "V2", "V2.1"])
+    a2.set_ylabel("Perplexity (lower = better)")
+    a2.set_title("WikiText-103 perplexity", fontsize=11, color=INK2, loc="left", pad=8)
+    fig.text(0.02, 0.93, f"Official results: 4-task mean V1 {rows[0]['mean']:.2f} · V2 {rows[1]['mean']:.2f} · "
+             f"V2.1 {rows[2]['mean']:.2f}", fontsize=12.5, color=INK, fontweight="bold")
+    _legend(fig, [(r["color"], r["model"]) for r in rows] + [(None, "chance")], xs=[0.02, 0.17, 0.42, 0.78])
+    _save(fig, "fig5_results", {"rows": [{k: v for k, v in r.items() if k != "color"} for r in rows],
+                                "chance": CHANCE, "protocol": "lm-evaluation-harness v0.4.12, zero-shot, raw acc; "
+                                "WikiText-103 validation, context 1024, stride 512",
+                                "note": "V2.1 was fine-tuned on the benchmarks' training splits (evaluation splits never "
+                                        "trained on); its scores are task-tuned. It was adopted after its official scores "
+                                        "were observed; the registered development rule did not select it."})
+
+
+# ------------------------------------------------------------------ figure 6
+def tradeoff():
+    tune, wise = _load("v2/phases/task_tune/selection.json"), _load("v2/phases/wiseft/selection.json")
+    tune_rule = _load("v2/phases/task_tune/config.json")["selection_rule"]
+
+    def point(rec, r):
+        wiki = rec["results"][0]["bits_per_byte_selection_panels"]["wiki"]
+        return r["bits_per_byte_selection_panels"]["wiki"] - wiki, r["proxy_mean_acc"] * 100
+
+    submitted = _load("v2/phases/task_tune/ADOPTION.json")["model"]["export"]
+    v21 = next(r for r in tune["results"] if r["export"].endswith(submitted))
+    path = [(0.0, *point(wise, wise["results"][0]))]
+    path += [(float(r["export"].split("alpha_")[1].split("/")[0]), *point(wise, r)) for r in wise["results"][1:]]
+    path += [(1.0, *point(tune, v21))]
+    cands = [(r["export"].split("/")[-3].replace("task_tune_", "") + "/" + r["export"].split("/")[-2], *point(tune, r))
+             for r in tune["results"][1:]]
+    guard = tune_rule["max_wiki_bpb_regression"]
+    fig, ax = plt.subplots(figsize=(9.6, 5.0), dpi=DPI)
+    fig.subplots_adjust(left=0.09, right=0.97, top=0.80, bottom=0.13)
+    _style(ax, grid_axis="y")
+    ax.set_xlim(-0.002, 0.031); ax.set_ylim(45.5, 54.5)
+    ax.axvline(guard, color=INK2, linewidth=1, zorder=2)
+    ax.text(guard + 0.0003, 54.3, f"our guard: +{guard} bits/byte\n(rule selects only to the left)", va="top",
+            fontsize=9, color=INK2)
+    ax.plot([x for _, x, _ in path], [y for _, _, y in path], color=V2, linewidth=2, zorder=3)
+    ax.plot([x for _, x, _ in path], [y for _, _, y in path], linestyle="none", marker="o", markersize=8,
+            markerfacecolor=V2, markeredgecolor=SURFACE, markeredgewidth=2, zorder=4)
+    ax.plot([x for _, x, _ in cands], [y for _, _, y in cands], linestyle="none", marker="o", markersize=9,
+            markerfacecolor=V21, markeredgecolor=SURFACE, markeredgewidth=2, zorder=5)
+    by_alpha = {a: (x, y) for a, x, y in path}
+    for (x, y), text, dx, dy, ha in ((by_alpha[0.0], "V2 (pretraining only)", 0.0006, -0.55, "left"),
+                                     (by_alpha[0.5], "α = 0.5: selected by the rule\n(official mean 49.60)", -0.0006, 0.55, "right"),
+                                     (by_alpha[1.0], "V2.1: submitted\n(official mean 52.76)", -0.0008, 0.35, "right")):
+        ax.text(x + dx, y + dy, text, ha=ha, va="center", fontsize=9.5, color=INK)
+    ax.set_xlabel("Change in held-out Wikipedia bits/byte vs V2 (lower is better)")
+    ax.set_ylabel("Development 4-task accuracy (%)")
+    fig.text(0.02, 0.93, "Fine-tuning on benchmark training splits: accuracy gained vs text modelling lost",
+             fontsize=12.5, color=INK, fontweight="bold")
+    _legend(fig, [(V2, "Weight interpolation (1−α)·V2 + α·V2.1, α = 0, 0.1, …, 1"),
+                  (V21, "Fine-tuned candidates (3 settings × 3 epochs)")], y=0.85, gap=0.50)
+    _save(fig, "fig6_tradeoff", {"interpolation": [{"alpha": a, "wiki_bpb_change": x, "dev_mean_acc": y} for a, x, y in path],
+                                 "fine_tuned_candidates": [{"candidate": n, "wiki_bpb_change": x, "dev_mean_acc": y}
+                                                           for n, x, y in cands],
+                                 "guard_wiki_bpb_change": guard,
+                                 "sources": ["v2/phases/task_tune/selection.json", "v2/phases/wiseft/selection.json"],
+                                 "note": "Development data only: held-out 20% of benchmark training splits and corpus "
+                                         "selection panels; official evaluation splits not used."})
+
+
 def main():
-    key_numbers(); corpus(); pilot(); training_curve()
+    key_numbers(); corpus(); pilot(); training_curve(); results(); tradeoff()
     print("\n".join(str(p) for p in sorted(OUT.glob("*.png"))))
 
 

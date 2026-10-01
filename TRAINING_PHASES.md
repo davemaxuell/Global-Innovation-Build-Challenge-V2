@@ -316,7 +316,7 @@ Registered 2026-10-01 ~11:35 KST on branch `task-tuning-20261001`, after the use
 - **Not yet adopted:** half of its weight comes from fine-tuning on the benchmarks' training splits, which must be disclosed. The user decides whether it becomes the submission; `checkpoints/v2_best` is unchanged. [Report](v2/phases/wiseft/REPORT.md)
 
 **Submission decision, 2026-10-01 ~11:50 KST: the user adopted the fully task-tuned model.**
-- **Model:** `checkpoints/v2_task_tuned`, `aaf13826…`. Official mean 52.76; WikiText-103 perplexity 25.46.
+- **Model:** `checkpoints/v2_1`, `aaf13826…`. Official mean 52.76; WikiText-103 perplexity 25.46.
 - **Relation to the rules:** the registered task-tune rule had kept V2, and the WiSE-FT rule had selected α = 0.5. The adoption was made after all official scores were observed and overrides the project's own Wikipedia guard. It is disclosed with every reported result.
 - **Preserved:** V2 base (`checkpoints/v2_best`) and the α = 0.5 export.
 

@@ -36,7 +36,7 @@ Tests: `python -m pytest` (CPU).
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | V1 13B base | 28.48 | 46.59 | **62.08** | 50.67 | 46.96 | 25.52 |
 | V2 base (45B tokens, pretraining only) | 28.85 ± 0.45 | 47.39 ± 1.02 | 60.77 ± 1.14 | 51.46 ± 1.40 | 47.12 | **23.85** |
-| **V2 task-tuned (submitted)** | **39.15** ± 0.49 | **54.12** ± 1.02 | **65.34** ± 1.11 | **52.41** ± 1.40 | **52.76** | 25.46 |
+| **V2.1 (submitted)** | **39.15** ± 0.49 | **54.12** ± 1.02 | **65.34** ± 1.11 | **52.41** ± 1.40 | **52.76** | 25.46 |
 
 Zero-shot raw accuracy (%) ± standard error, lm-evaluation-harness v0.4.12 under the pinned protocol; WikiText-103 validation perplexity at context 1,024, stride 512.
 
@@ -52,4 +52,4 @@ V2 base vs V1: V2 base was chosen on development data before any official V2 sco
 Records: [task-tuning report](../phases/task_tune/REPORT.md) · [adoption](../phases/task_tune/ADOPTION.json) · [WiSE-FT report](../phases/wiseft/REPORT.md) · [frozen V2 selection](../phases/final_selection/selection.json) · [official summary](../phases/final_selection/official/main/attempt_1/summary.json) · [rule outcome](../phases/final_selection/v1_vs_v2.json) · [full report](../phases/final_selection/REPORT.md)
 
 ### Figures
-`v2/submission/figures/` holds the key numbers, corpus composition, 1B pilot comparison and training curve. Each figure has a `.data.json` table and is regenerated with `python -m scglm_v2.figures`.
+`v2/submission/figures/` holds the key numbers, corpus composition, 1B pilot comparison and training curve. It also has the official results of V1, V2 and V2.1 (`fig5_results`), and the accuracy-vs-perplexity trade-off of the fine-tuned candidates and weight interpolations (`fig6_tradeoff`). Each figure has a `.data.json` table and is regenerated with `python -m scglm_v2.figures`.

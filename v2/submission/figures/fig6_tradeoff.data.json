@@ -1,0 +1,112 @@
+{
+  "interpolation": [
+    {
+      "alpha": 0.0,
+      "wiki_bpb_change": 0.0,
+      "dev_mean_acc": 46.63665643846493
+    },
+    {
+      "alpha": 0.1,
+      "wiki_bpb_change": 0.000689324174921957,
+      "dev_mean_acc": 46.73570038798898
+    },
+    {
+      "alpha": 0.2,
+      "wiki_bpb_change": 0.0018342267908612042,
+      "dev_mean_acc": 46.933236363295116
+    },
+    {
+      "alpha": 0.3,
+      "wiki_bpb_change": 0.003445708777947698,
+      "dev_mean_acc": 47.844021906685086
+    },
+    {
+      "alpha": 0.4,
+      "wiki_bpb_change": 0.005535254022273839,
+      "dev_mean_acc": 48.46548300572496
+    },
+    {
+      "alpha": 0.5,
+      "wiki_bpb_change": 0.00812458104980085,
+      "dev_mean_acc": 48.80576714374511
+    },
+    {
+      "alpha": 0.6,
+      "wiki_bpb_change": 0.011145366069186258,
+      "dev_mean_acc": 49.288151315336115
+    },
+    {
+      "alpha": 0.7,
+      "wiki_bpb_change": 0.014704037390081859,
+      "dev_mean_acc": 50.22382604145298
+    },
+    {
+      "alpha": 0.8,
+      "wiki_bpb_change": 0.018726559242793095,
+      "dev_mean_acc": 51.27653797056209
+    },
+    {
+      "alpha": 0.9,
+      "wiki_bpb_change": 0.023358583908523634,
+      "dev_mean_acc": 52.21089662960251
+    },
+    {
+      "alpha": 1.0,
+      "wiki_bpb_change": 0.028440246056487095,
+      "dev_mean_acc": 52.877783344037695
+    }
+  ],
+  "fine_tuned_candidates": [
+    {
+      "candidate": "lr2e-5_r0.5/epoch_1",
+      "wiki_bpb_change": 0.021324180872664855,
+      "dev_mean_acc": 50.937333152658404
+    },
+    {
+      "candidate": "lr2e-5_r0.5/epoch_2",
+      "wiki_bpb_change": 0.02656941524614098,
+      "dev_mean_acc": 52.112825388157404
+    },
+    {
+      "candidate": "lr2e-5_r0.5/epoch_3",
+      "wiki_bpb_change": 0.028440246056487095,
+      "dev_mean_acc": 52.877783344037695
+    },
+    {
+      "candidate": "lr2e-5_r0.7/epoch_1",
+      "wiki_bpb_change": 0.017982248280838387,
+      "dev_mean_acc": 50.24135615972026
+    },
+    {
+      "candidate": "lr2e-5_r0.7/epoch_2",
+      "wiki_bpb_change": 0.023117004081522174,
+      "dev_mean_acc": 51.83980885533093
+    },
+    {
+      "candidate": "lr2e-5_r0.7/epoch_3",
+      "wiki_bpb_change": 0.024207974302608126,
+      "dev_mean_acc": 52.45971307086528
+    },
+    {
+      "candidate": "lr1e-5_r0.5_rerun/epoch_1",
+      "wiki_bpb_change": 0.01243691249174772,
+      "dev_mean_acc": 49.64671625104366
+    },
+    {
+      "candidate": "lr1e-5_r0.5_rerun/epoch_2",
+      "wiki_bpb_change": 0.015777516932234503,
+      "dev_mean_acc": 50.829642873702
+    },
+    {
+      "candidate": "lr1e-5_r0.5_rerun/epoch_3",
+      "wiki_bpb_change": 0.01693785932744618,
+      "dev_mean_acc": 51.49185811746742
+    }
+  ],
+  "guard_wiki_bpb_change": 0.01,
+  "sources": [
+    "v2/phases/task_tune/selection.json",
+    "v2/phases/wiseft/selection.json"
+  ],
+  "note": "Development data only: held-out 20% of benchmark training splits and corpus selection panels; official evaluation splits not used."
+}

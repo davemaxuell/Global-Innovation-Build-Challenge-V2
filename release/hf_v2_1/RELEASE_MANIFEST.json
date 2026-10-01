@@ -1,0 +1,32 @@
+{
+  "created_at": "2026-10-01T12:34:38.444910+09:00",
+  "model": "SCG-LM V2.1 (46M)",
+  "source": "checkpoints/v2_1 (= v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export)",
+  "files_sha256": {
+    "README.md": "87b51edec319810502934dcd171cc25e18d2f315b4788a70ae4aea3dd8cc6aa0",
+    "config.json": "40829ea36a2cabf18165acc07bec807f418dceba7cc9d2f8d2520a8a89c02538",
+    "eval_results.json": "c693922426a0ae35a19af73fc65a5988e2f0da18abcdf9a5c4611d052139c21b",
+    "generation_config.json": "065c32ced79f04ad5ab5db4530779cf2bbc74a4023f634dd87844e4d7d98d98d",
+    "model.safetensors": "aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897",
+    "tokenizer.json": "f8de5462e2967f502b8a25f2a90a87fee12ecad1f50d980a54552805ed0ea196",
+    "tokenizer_config.json": "c0087298a0d966afc4dc403944b6a54e88e5924bf17a65fcfa2b999e92e8adde",
+    "training_provenance.json": "1f6c30fdbe555b85704ee1f37d6a8eb4c71d2529e48a65a2814a51cd97060a2f"
+  },
+  "identical_to_source": {
+    "config.json": true,
+    "generation_config.json": true,
+    "model.safetensors": true,
+    "tokenizer.json": true,
+    "tokenizer_config.json": false,
+    "training_provenance.json": true
+  },
+  "changes": [
+    "tokenizer_config.json: same compatibility edit as release/hf_v2 (tokenizer_class TokenizersBackend -> PreTrainedTokenizerFast, 'backend' key removed); byte-identical to release/hf_v2/tokenizer_config.json, whose token IDs were verified on Transformers 4.46.3 and 5.5.4. config.json and tokenizer.json are also byte-identical to the V2 release."
+  ],
+  "verified": "Loaded and generated with Transformers 5.5.4 (2026-10-01); token IDs identical to checkpoints/v2_1; 46,346,752 parameters.",
+  "added": [
+    "README.md (model card, with the task-tuning disclosure)",
+    "eval_results.json (derived from the official summary; source hashes recorded, V2 base included as reference)"
+  ],
+  "not_uploaded": "Prepared locally; publishing to the Hugging Face Hub is the user's decision. release/hf_v2 (V2 base) is kept unchanged."
+}

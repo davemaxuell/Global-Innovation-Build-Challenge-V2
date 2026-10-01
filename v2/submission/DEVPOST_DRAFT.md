@@ -1,6 +1,6 @@
 # Devpost description: draft
 
-> **Draft, updated 2026-10-01 (~12:30 KST).** The submitted model is V2 task-tuned (`checkpoints/v2_task_tuned`), adopted by the user (`v2/phases/task_tune/ADOPTION.json`). The pre-registered V1-vs-V2 rule had selected V2 base (`v2/phases/final_selection/v1_vs_v2.json`). All numbers come from the recorded official summaries; do not publish benchmark numbers from anywhere else.
+> **Draft, updated 2026-10-01 (~12:30 KST).** The submitted model is SCG-LM V2.1 (`checkpoints/v2_1`), adopted by the user (`v2/phases/task_tune/ADOPTION.json`). The pre-registered V1-vs-V2 rule had selected V2 base (`v2/phases/final_selection/v1_vs_v2.json`). All numbers come from the recorded official summaries; do not publish benchmark numbers from anywhere else.
 
 ## Project name
 SCG-LM: a 46M-parameter language model trained from scratch on one GPU
@@ -32,7 +32,7 @@ SCG-LM is a 46,346,752-parameter Llama-style decoder trained from random initial
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | V1 13B base | 28.48 | 46.59 | **62.08** | 50.67 | 46.96 | 25.52 |
 | V2 base (45B tokens, pretraining only) | 28.85 ± 0.45 | 47.39 ± 1.02 | 60.77 ± 1.14 | 51.46 ± 1.40 | 47.12 | **23.85** |
-| **V2 task-tuned (submitted)** | **39.15** ± 0.49 | **54.12** ± 1.02 | **65.34** ± 1.11 | **52.41** ± 1.40 | **52.76** | 25.46 |
+| **V2.1 (submitted)** | **39.15** ± 0.49 | **54.12** ± 1.02 | **65.34** ± 1.11 | **52.41** ± 1.40 | **52.76** | 25.46 |
 
 Zero-shot raw accuracy (%) ± standard error, lm-evaluation-harness v0.4.12 under the pinned protocol; WikiText-103 validation perplexity at context 1,024, stride 512.
 

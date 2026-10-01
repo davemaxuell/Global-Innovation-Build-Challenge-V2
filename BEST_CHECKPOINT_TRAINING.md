@@ -4,9 +4,9 @@
 
 V2 is a 46,346,752-parameter language model trained from random initialization on 44,999,966,720 next-token targets from a 22.45B-unique-token, human-written English corpus. V2 base itself is a **base model**: no SFT, DPO or RL. The submitted model adds one fine-tuning stage (section 0). How to rebuild it: [CURRENT_PIPELINE.md](CURRENT_PIPELINE.md). The V1 lineage it replaces is recorded in [docs/history/V1_BEST_CHECKPOINT_TRAINING.md](docs/history/V1_BEST_CHECKPOINT_TRAINING.md).
 
-## 0. Submitted model: V2 task-tuned (adopted 2026-10-01)
+## 0. Submitted model: V2.1 (adopted 2026-10-01)
 
-The submission is **[checkpoints/v2_task_tuned](checkpoints/v2_task_tuned/)**, weight SHA256 `aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897`. It is the V2 base model documented below, fine-tuned once more:
+The submission is **SCG-LM V2.1**, in **[checkpoints/v2_1](checkpoints/v2_1/)**, weight SHA256 `aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897`. It is the V2 base model documented below, fine-tuned once more:
 
 | Item | Value |
 | --- | --- |
@@ -19,7 +19,7 @@ The submission is **[checkpoints/v2_task_tuned](checkpoints/v2_task_tuned/)**, w
 | Model | HellaSwag | ARC-Easy | PIQA | WinoGrande | 4-task mean | WikiText-103 ppl ↓ |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | V2 base (section 7) | 28.85 | 47.39 | 60.77 | 51.46 | 47.12 | **23.85** |
-| **V2 task-tuned (submitted)** | **39.15** ± 0.49 | **54.12** ± 1.02 | **65.34** ± 1.11 | **52.41** ± 1.40 | **52.76** | 25.46 |
+| **V2.1 (submitted)** | **39.15** ± 0.49 | **54.12** ± 1.02 | **65.34** ± 1.11 | **52.41** ± 1.40 | **52.76** | 25.46 |
 
 **How it was chosen.** The registered development-only rule did *not* select it: its held-out Wikipedia bits/byte was 0.028 worse than V2's, against a 0.01 guard. The user adopted it after the official scores of V2 base, this model and a rule-selected 50/50 weight interpolation (mean 49.60, perplexity 24.09) had all been observed. [Adoption record](v2/phases/task_tune/ADOPTION.json) · [phase report](v2/phases/task_tune/REPORT.md) · [interpolation report](v2/phases/wiseft/REPORT.md).
 
