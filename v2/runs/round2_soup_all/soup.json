@@ -1,0 +1,285 @@
+{
+  "name": "all",
+  "export": "v2/runs/round2_soup_all/export",
+  "sha256": "2b83f8d564cfcf14e3da3453899c7c6f4955ca19fcb73816dc2fccc454eeffc1",
+  "half_a_acc": 0.5534714442924626,
+  "members": [
+    "v2/runs/round2_lr4e-5_e3/epoch_3/export",
+    "v2/runs/round2_lr2e-5_e6/epoch_5/export"
+  ],
+  "ranked": [
+    {
+      "export": "v2/runs/round2_lr4e-5_e3/epoch_3/export",
+      "recipe": {
+        "config": "v2/phases/round2/config.json",
+        "arm": "lr4e-5_e3",
+        "epoch": 3
+      },
+      "half_a_acc": 0.553147619797195,
+      "sha256": "0ddf81ee3ed4479bb4f0b6f5534d72804ac1cf2a6f6f0da03a159b78c2f8bf74"
+    },
+    {
+      "export": "v2/runs/round2_lr4e-5_e3/epoch_2/export",
+      "recipe": {
+        "config": "v2/phases/round2/config.json",
+        "arm": "lr4e-5_e3",
+        "epoch": 2
+      },
+      "half_a_acc": 0.5529905676471066,
+      "sha256": "8888e56216fd4022529c44241a66abe197b9e3543e2e10f135790569a099a148"
+    },
+    {
+      "export": "v2/runs/round2_lr2e-5_e6/epoch_6/export",
+      "recipe": {
+        "config": "v2/phases/round2/config.json",
+        "arm": "lr2e-5_e6",
+        "epoch": 6
+      },
+      "half_a_acc": 0.546703336513773,
+      "sha256": "c3aee521ff44200b2d5475bf9066e9ebcbc58f4908b742754a335b32cc75f2bd"
+    },
+    {
+      "export": "v2/runs/round2_lr2e-5_e6/epoch_5/export",
+      "recipe": {
+        "config": "v2/phases/round2/config.json",
+        "arm": "lr2e-5_e6",
+        "epoch": 5
+      },
+      "half_a_acc": 0.5453776332897249,
+      "sha256": "654501e485a13ba6e57b9128d730a2b4d9628d4767b2cf81cf782c5c305becbc"
+    },
+    {
+      "export": "v2/runs/round2_lr2e-5_e6/epoch_4/export",
+      "recipe": {
+        "config": "v2/phases/round2/config.json",
+        "arm": "lr2e-5_e6",
+        "epoch": 4
+      },
+      "half_a_acc": 0.5429811248424341,
+      "sha256": "83b34b3b7de98b38ad75f9a0b720b32a8dc4e5243db86885f11c8d55cd7a35b7"
+    },
+    {
+      "export": "v2/runs/round2_lr2e-5_e6/epoch_3/export",
+      "recipe": {
+        "config": "v2/phases/round2/config.json",
+        "arm": "lr2e-5_e6",
+        "epoch": 3
+      },
+      "half_a_acc": 0.5344979435962641,
+      "sha256": "afdc723a75bd861e8257faba53ed45b60a3e4b5ba4dcc9033b42a114809f4021"
+    },
+    {
+      "export": "v2/runs/round2_lr2e-5_e6/epoch_2/export",
+      "recipe": {
+        "config": "v2/phases/round2/config.json",
+        "arm": "lr2e-5_e6",
+        "epoch": 2
+      },
+      "half_a_acc": 0.5224556566618574,
+      "sha256": "c2d71bea44ebc18242a8b12b85cff94be92a450cf6fea77c129987bb18519dfa"
+    },
+    {
+      "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export",
+      "recipe": {
+        "config": "v2/phases/task_tune/config.json",
+        "arm": "lr2e-5_r0.5",
+        "epoch": 3
+      },
+      "half_a_acc": 0.5217933528042578,
+      "sha256": "aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897"
+    },
+    {
+      "export": "v2/runs/task_tune_lr2e-5_r0.7/epoch_3/export",
+      "recipe": {
+        "config": "v2/phases/task_tune/config.json",
+        "arm": "lr2e-5_r0.7",
+        "epoch": 3
+      },
+      "half_a_acc": 0.5192366227742441,
+      "sha256": "21a86871c0d975e3d717f6acb0b549dd3d9778bf499363f4c5ecb4fe7d5f6a13"
+    },
+    {
+      "export": "v2/runs/round2_lr4e-5_e3/epoch_1/export",
+      "recipe": {
+        "config": "v2/phases/round2/config.json",
+        "arm": "lr4e-5_e3",
+        "epoch": 1
+      },
+      "half_a_acc": 0.5178892318516557,
+      "sha256": "02fbdbf217d3fc84c696a75fd1d8d34e8bba762ef7c20d9e683647825d2869fe"
+    },
+    {
+      "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_2/export",
+      "recipe": {
+        "config": "v2/phases/task_tune/config.json",
+        "arm": "lr2e-5_r0.5",
+        "epoch": 2
+      },
+      "half_a_acc": 0.5170146506208735,
+      "sha256": "5f9fc95862213619d11338ea5b51cf7ee34be8f2106a6120cf7366f3c7b66e70"
+    },
+    {
+      "export": "v2/runs/task_tune_lr2e-5_r0.7/epoch_2/export",
+      "recipe": {
+        "config": "v2/phases/task_tune/config.json",
+        "arm": "lr2e-5_r0.7",
+        "epoch": 2
+      },
+      "half_a_acc": 0.5143407714004087,
+      "sha256": "27694ba733851001b092a913c1827db9ed9520e2062a3c44b5469a6f41a3fabf"
+    },
+    {
+      "export": "v2/runs/task_tune_lr1e-5_r0.5_rerun/epoch_3/export",
+      "recipe": {
+        "config": "v2/phases/task_tune/config.json",
+        "arm": "lr1e-5_r0.5",
+        "epoch": 3
+      },
+      "half_a_acc": 0.5096440333210189,
+      "sha256": "cdc02e5b096c6b84118c74d3202d8dae7cde19c9cc478b49223c34febbb888eb"
+    },
+    {
+      "export": "v2/runs/task_tune_lr1e-5_r0.5_rerun/epoch_2/export",
+      "recipe": {
+        "config": "v2/phases/task_tune/config.json",
+        "arm": "lr1e-5_r0.5",
+        "epoch": 2
+      },
+      "half_a_acc": 0.5043775784343785,
+      "sha256": "0595ca7b67023271974b90fd72edf904c3d29508800625d4be6b02b015e8d6ca"
+    },
+    {
+      "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_1/export",
+      "recipe": {
+        "config": "v2/phases/task_tune/config.json",
+        "arm": "lr2e-5_r0.5",
+        "epoch": 1
+      },
+      "half_a_acc": 0.5038439011879237,
+      "sha256": "c3e434d57a098a5dc94595246c6db691c67cc6f5dfe75d1be300ea3b55a496c9"
+    },
+    {
+      "export": "v2/runs/round2_lr2e-5_e6/epoch_1/export",
+      "recipe": {
+        "config": "v2/phases/round2/config.json",
+        "arm": "lr2e-5_e6",
+        "epoch": 1
+      },
+      "half_a_acc": 0.5031452621949308,
+      "sha256": "3b60cb01343dfcca8dcd601c33fbd850298855f9eaf5107d0b4e1ec87b82d70f"
+    },
+    {
+      "export": "v2/runs/task_tune_lr2e-5_r0.7/epoch_1/export",
+      "recipe": {
+        "config": "v2/phases/task_tune/config.json",
+        "arm": "lr2e-5_r0.7",
+        "epoch": 1
+      },
+      "half_a_acc": 0.49737611902379564,
+      "sha256": "a35d9ab189344af66bb5dae86c7dd7402da98e2640c2b2fd8be33fb5d61dd1eb"
+    },
+    {
+      "export": "v2/runs/task_tune_lr1e-5_r0.5_rerun/epoch_1/export",
+      "recipe": {
+        "config": "v2/phases/task_tune/config.json",
+        "arm": "lr1e-5_r0.5",
+        "epoch": 1
+      },
+      "half_a_acc": 0.4927442581291289,
+      "sha256": "bffc3ad13e758323df7513e28c0bc1225719c2f9de7102374df806a1fc0ae7db"
+    }
+  ],
+  "steps": [
+    {
+      "export": "v2/runs/round2_lr4e-5_e3/epoch_3/export",
+      "trial_half_a_acc": 0.553147619797195,
+      "kept": true
+    },
+    {
+      "export": "v2/runs/round2_lr4e-5_e3/epoch_2/export",
+      "trial_half_a_acc": 0.5516163913172664,
+      "kept": false
+    },
+    {
+      "export": "v2/runs/round2_lr2e-5_e6/epoch_6/export",
+      "trial_half_a_acc": 0.5500713555979251,
+      "kept": false
+    },
+    {
+      "export": "v2/runs/round2_lr2e-5_e6/epoch_5/export",
+      "trial_half_a_acc": 0.5534714442924626,
+      "kept": true
+    },
+    {
+      "export": "v2/runs/round2_lr2e-5_e6/epoch_4/export",
+      "trial_half_a_acc": 0.5518552756170144,
+      "kept": false
+    },
+    {
+      "export": "v2/runs/round2_lr2e-5_e6/epoch_3/export",
+      "trial_half_a_acc": 0.5449038123500041,
+      "kept": false
+    },
+    {
+      "export": "v2/runs/round2_lr2e-5_e6/epoch_2/export",
+      "trial_half_a_acc": 0.539683949986479,
+      "kept": false
+    },
+    {
+      "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export",
+      "trial_half_a_acc": 0.5396764747656482,
+      "kept": false
+    },
+    {
+      "export": "v2/runs/task_tune_lr2e-5_r0.7/epoch_3/export",
+      "trial_half_a_acc": 0.5393873384273947,
+      "kept": false
+    },
+    {
+      "export": "v2/runs/round2_lr4e-5_e3/epoch_1/export",
+      "trial_half_a_acc": 0.5472052391409151,
+      "kept": false
+    },
+    {
+      "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_2/export",
+      "trial_half_a_acc": 0.5387642292863264,
+      "kept": false
+    },
+    {
+      "export": "v2/runs/task_tune_lr2e-5_r0.7/epoch_2/export",
+      "trial_half_a_acc": 0.5389754111506602,
+      "kept": false
+    },
+    {
+      "export": "v2/runs/task_tune_lr1e-5_r0.5_rerun/epoch_3/export",
+      "trial_half_a_acc": 0.5328456188496333,
+      "kept": false
+    },
+    {
+      "export": "v2/runs/task_tune_lr1e-5_r0.5_rerun/epoch_2/export",
+      "trial_half_a_acc": 0.5330340869070891,
+      "kept": false
+    },
+    {
+      "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_1/export",
+      "trial_half_a_acc": 0.5395982866874304,
+      "kept": false
+    },
+    {
+      "export": "v2/runs/round2_lr2e-5_e6/epoch_1/export",
+      "trial_half_a_acc": 0.5416093651208529,
+      "kept": false
+    },
+    {
+      "export": "v2/runs/task_tune_lr2e-5_r0.7/epoch_1/export",
+      "trial_half_a_acc": 0.5368880252216968,
+      "kept": false
+    },
+    {
+      "export": "v2/runs/task_tune_lr1e-5_r0.5_rerun/epoch_1/export",
+      "trial_half_a_acc": 0.5344209681208063,
+      "kept": false
+    }
+  ],
+  "created": "2026-10-01T05:25:52.051173+00:00"
+}

@@ -180,3 +180,23 @@ Outcome: **failed before its first optimizer update**. The retained trainer reje
 **Interpretation:** this is not a failure to improve the benchmarks; the accuracy gains are large and well outside the standard errors. The approach failed the registered combined objective because it costs raw-language fit. A materially different follow-up would need a new registration and the user's decision. One example is interpolating between V2 and the fine-tuned weights (WiSE-FT), with the mixing weight chosen on development data. Scores from this model are not comparable with pretraining-only models at face value and must be labelled as fine-tuned on the benchmarks' training splits. Evidence: [report](v2/phases/task_tune/REPORT.md), [selection](v2/phases/task_tune/selection.json), [official summary](v2/phases/task_tune/official/task_tune_lr2e-5_r0.5_epoch_3/attempt_3/summary.json).
 
 **Follow-up (2026-10-01):** the registered WiSE-FT phase interpolated V2 with this A14 candidate and selected α = 0.5 under the same rule. Its official mean was 49.60 and WikiText-103 perplexity 24.09. This is a separate, successful phase and does not change A14's outcome. [Report](v2/phases/wiseft/REPORT.md)
+
+## A15: Round 2 of improving V2.1 (v2_round2_20261001)
+
+**Executed:** 2026-10-01, on branch `round2-20261001`.
+- **Greedy soups** (Wortsman et al., 2022) of the 9 task-tune models and of all 18 models.
+- **Two stronger arms from V2**, with V2.1's loss and replay: LR 2e-5 for 6 epochs, and LR 4e-5 for 3 epochs.
+- **A retrain of V2.1's recipe on 100%** of the training splits.
+- **Selection:** half B of the held-out items, with the user's rule: at least +0.5 points over V2.1 and Wikipedia bits/byte no worse than V2.1's.
+
+**Observed:**
+- **Stronger arms:** half-B up to 57.31 against V2.1's 53.67, but Wikipedia bits/byte 1.0155–1.0297 against 1.0116. Only lr2e-5_e6 epoch 1 (51.63) passed the Wikipedia condition.
+- **Soups:** the existing-model soup was effectively V2.1 plus its epoch-2 checkpoint (52.85 on half B). The all-model soup scored 56.91, with Wikipedia 1.0256.
+- **100% retrain:** Wikipedia 1.0153, failing the check.
+
+**Decision:** V2.1 kept; no official evaluation.
+- Do not repeat greedy soups of these fine-tunes; they did not beat the best single model on held-out items.
+- Do not expect longer or higher-LR tuning, or more task data, to stay within V2.1's Wikipedia level. Every stronger setting crossed it.
+
+**Interpretation:** at 46M parameters, benchmark-train tuning trades accuracy for text modelling along a steep frontier. More accuracy is available only by accepting more WikiText perplexity, a choice the rule left to the user. Evidence: [report](v2/phases/round2/REPORT.md), [selection](v2/phases/round2/selection.json), [final check](v2/phases/round2/final.json).
+

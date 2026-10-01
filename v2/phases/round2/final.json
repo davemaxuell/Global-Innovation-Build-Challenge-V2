@@ -1,0 +1,115 @@
+{
+  "schema": "v2-round2-final-1",
+  "label": "round2_final",
+  "panel": "selection",
+  "official_scores_used": false,
+  "selected_model": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export",
+  "selected_model_sha256": "aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897",
+  "decision_reason": "100%-retrained model failed the Wikipedia guard; falling back to the development-selected model",
+  "plan": {
+    "selected_model": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export",
+    "combination": "single",
+    "retrain": [
+      {
+        "config": "v2/phases/round2/retrain_task_tune_lr2e-5_r0.5.json",
+        "arm": "lr2e-5_r0.5",
+        "run_dir": "v2/runs/round2_full_task_tune_lr2e-5_r0.5",
+        "epochs_needed": [
+          3
+        ],
+        "source_config": "v2/phases/task_tune/config.json"
+      }
+    ],
+    "final_exports": [
+      "v2/runs/round2_full_task_tune_lr2e-5_r0.5/epoch_3/export"
+    ]
+  },
+  "development_selection": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export",
+  "results": [
+    {
+      "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/task_tune_lr2e-5_r0.5/epoch_3",
+      "export": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export",
+      "export_model_sha256": "aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897",
+      "multiple_choice_half_b": {
+        "hellaswag": {
+          "acc": 0.39860860602937387,
+          "n": 3881,
+          "acc_norm": 0.37567637206905435
+        },
+        "arc_easy": {
+          "acc": 0.5258215962441315,
+          "n": 213,
+          "acc_norm": 0.5211267605633803
+        },
+        "arc_challenge": {
+          "acc": 0.26717557251908397,
+          "n": 131,
+          "acc_norm": 0.22900763358778625
+        },
+        "piqa": {
+          "acc": 0.6694110196326789,
+          "n": 1579,
+          "acc_norm": 0.6668777707409753
+        },
+        "winogrande": {
+          "acc": 0.5529850746268656,
+          "n": 4020
+        },
+        "_proxy_mean_acc": 0.5367065741332624
+      },
+      "proxy_mean_acc": 0.5367065741332624,
+      "bits_per_byte_selection_panels": {
+        "edu": 1.0037701571477717,
+        "dclm": 1.1599300091358928,
+        "targeted": 1.10676523634185,
+        "wiki": 1.0116281347477363,
+        "stackexchange": 1.1397105658334,
+        "books": 1.2119266545337193
+      }
+    },
+    {
+      "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_full_task_tune_lr2e-5_r0.5/epoch_3",
+      "export": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_full_task_tune_lr2e-5_r0.5/epoch_3/export",
+      "export_model_sha256": "26695abbc7fad99b64c8c0710f0ba6868f86a9ea21ead811d8766eba88121459",
+      "multiple_choice_half_b": {
+        "hellaswag": {
+          "acc": 0.9023447565060552,
+          "n": 3881,
+          "acc_norm": 0.6856480288585416
+        },
+        "arc_easy": {
+          "acc": 0.7605633802816901,
+          "n": 213,
+          "acc_norm": 0.7511737089201878
+        },
+        "arc_challenge": {
+          "acc": 0.46564885496183206,
+          "n": 131,
+          "acc_norm": 0.5190839694656488
+        },
+        "piqa": {
+          "acc": 0.8258391386953768,
+          "n": 1579,
+          "acc_norm": 0.818239392020266
+        },
+        "winogrande": {
+          "acc": 0.6748756218905473,
+          "n": 4020
+        },
+        "_proxy_mean_acc": 0.7909057243434173
+      },
+      "proxy_mean_acc": 0.7909057243434173,
+      "bits_per_byte_selection_panels": {
+        "edu": 1.0055010516165557,
+        "dclm": 1.1615099992182571,
+        "targeted": 1.1083094979576964,
+        "wiki": 1.0153251528940863,
+        "stackexchange": 1.140923083559054,
+        "books": 1.2137766327606943
+      },
+      "note": "half-B accuracy is not held out for this model (trained on 100% of the train splits)"
+    }
+  ],
+  "is_reference": true,
+  "frozen_at_unix": 1790833712.5623841
+}

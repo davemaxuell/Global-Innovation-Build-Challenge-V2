@@ -1,0 +1,36 @@
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9730.13it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 8836.88it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "v2/runs/round2_lr2e-5_e6/epoch_1/export", "half_b": 0.5163376940537213, "wiki_bpb": 1.0063773330852097}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9037.15it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "v2/runs/round2_lr2e-5_e6/epoch_2/export", "half_b": 0.5325699663293315, "wiki_bpb": 1.0155171117761799}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 8686.80it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "v2/runs/round2_lr2e-5_e6/epoch_3/export", "half_b": 0.5565654148435553, "wiki_bpb": 1.0213917107647814}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 8459.67it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "v2/runs/round2_lr2e-5_e6/epoch_4/export", "half_b": 0.5639946965057774, "wiki_bpb": 1.0231205475848535}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 8556.79it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "v2/runs/round2_lr2e-5_e6/epoch_5/export", "half_b": 0.5682241884121745, "wiki_bpb": 1.0244552705906673}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 8635.75it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "v2/runs/round2_lr2e-5_e6/epoch_6/export", "half_b": 0.5730946295026997, "wiki_bpb": 1.024804620004578}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 8633.97it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "v2/runs/round2_lr4e-5_e3/epoch_1/export", "half_b": 0.5275324039774938, "wiki_bpb": 1.0229099215536333}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 8708.28it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "v2/runs/round2_lr4e-5_e3/epoch_2/export", "half_b": 0.5617222505829602, "wiki_bpb": 1.0295039236296484}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 8460.91it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "v2/runs/round2_lr4e-5_e3/epoch_3/export", "half_b": 0.5722727291155979, "wiki_bpb": 1.0297076305319874}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 8493.46it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "v2/runs/round2_soup_existing/export", "half_b": 0.5284599652539925, "wiki_bpb": 1.010412392183873}
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 8617.04it/s]
+Token indices sequence length is longer than the specified maximum sequence length for this model (2291 > 1024). Running this sequence through the model will result in indexing errors
+{"scored": "v2/runs/round2_soup_all/export", "half_b": 0.5690930140699165, "wiki_bpb": 1.0255554191593765}
+{"selected": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export", "reason": "reference: best eligible half-B gain -0.0082 < 0.005"}

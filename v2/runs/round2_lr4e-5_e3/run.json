@@ -1,0 +1,251 @@
+{
+  "arm": "lr4e-5_e3",
+  "config": {
+    "phase_id": "v2_round2_20261001",
+    "phase_dir": "v2/phases/round2",
+    "parent_export": "v2/runs/main/export",
+    "parent_sha256": "9aac2111b9ca6b06f4a12278f5213c17621ded643b7b54137987ce25028011bd",
+    "reference_export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export",
+    "reference_sha256": "aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897",
+    "reference_recipe": {
+      "config": "v2/phases/task_tune/config.json",
+      "arm": "lr2e-5_r0.5",
+      "epoch": 3
+    },
+    "data_dir": "v2/data/task_tune_v1",
+    "full_data_dir": "v2/data/task_tune_full_v1",
+    "benchmark_split_report": "v2/data/rich_v1/benchmarks/report.json",
+    "development_fraction": 0.2,
+    "piqa_files": {
+      "train": {
+        "path": "/data/shared/hf_cache/hub/datasets--ybisk--piqa/snapshots/ba2f7a4920f4968f04c174c53cc157c899e93501/plain_text/train-00000-of-00001.parquet",
+        "sha256": "3f6dbfa8ebdcc90386e27f3bd1ecda32a5c3b584db98b00d19d4afc624f33692"
+      },
+      "validation": {
+        "path": "/data/shared/hf_cache/hub/datasets--ybisk--piqa/snapshots/ba2f7a4920f4968f04c174c53cc157c899e93501/plain_text/validation-00000-of-00001.parquet",
+        "sha256": "37a3e882cdba9918d98f755b7261458a77f339c6914838d95bf45b9272813d72"
+      }
+    },
+    "replay_manifest": "v2/data/rich_v1/manifest.json",
+    "replay_weights": {
+      "dclm": 0.35,
+      "edu": 0.3,
+      "targeted": 0.15,
+      "wiki": 0.1,
+      "stackexchange": 0.05,
+      "books": 0.05
+    },
+    "seed": 20261001,
+    "questions_per_update": 32,
+    "replay_sequences": 8,
+    "gold_lm_weight": 0.5,
+    "warmup_fraction": 0.002,
+    "betas": [
+      0.9,
+      0.95
+    ],
+    "adam_epsilon": 1e-08,
+    "weight_decay": 0.1,
+    "gradient_clip": 1.0,
+    "log_every": 50,
+    "choice_temperature": 10.0,
+    "gold_lm_scope": "sequence",
+    "choice_weight": 1.0,
+    "epochs": 3,
+    "replay_loss_weight": 0.5,
+    "arms": {
+      "lr2e-5_e6": {
+        "learning_rate": 2e-05,
+        "epochs": 6,
+        "replay_loss_weight": 0.5,
+        "run_dir": "v2/runs/round2_lr2e-5_e6"
+      },
+      "lr4e-5_e3": {
+        "learning_rate": 4e-05,
+        "epochs": 3,
+        "replay_loss_weight": 0.5,
+        "run_dir": "v2/runs/round2_lr4e-5_e3"
+      }
+    },
+    "existing_candidates": [
+      {
+        "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_1/export",
+        "recipe": {
+          "config": "v2/phases/task_tune/config.json",
+          "arm": "lr2e-5_r0.5",
+          "epoch": 1
+        }
+      },
+      {
+        "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_2/export",
+        "recipe": {
+          "config": "v2/phases/task_tune/config.json",
+          "arm": "lr2e-5_r0.5",
+          "epoch": 2
+        }
+      },
+      {
+        "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export",
+        "recipe": {
+          "config": "v2/phases/task_tune/config.json",
+          "arm": "lr2e-5_r0.5",
+          "epoch": 3
+        }
+      },
+      {
+        "export": "v2/runs/task_tune_lr2e-5_r0.7/epoch_1/export",
+        "recipe": {
+          "config": "v2/phases/task_tune/config.json",
+          "arm": "lr2e-5_r0.7",
+          "epoch": 1
+        }
+      },
+      {
+        "export": "v2/runs/task_tune_lr2e-5_r0.7/epoch_2/export",
+        "recipe": {
+          "config": "v2/phases/task_tune/config.json",
+          "arm": "lr2e-5_r0.7",
+          "epoch": 2
+        }
+      },
+      {
+        "export": "v2/runs/task_tune_lr2e-5_r0.7/epoch_3/export",
+        "recipe": {
+          "config": "v2/phases/task_tune/config.json",
+          "arm": "lr2e-5_r0.7",
+          "epoch": 3
+        }
+      },
+      {
+        "export": "v2/runs/task_tune_lr1e-5_r0.5_rerun/epoch_1/export",
+        "recipe": {
+          "config": "v2/phases/task_tune/config.json",
+          "arm": "lr1e-5_r0.5",
+          "epoch": 1
+        }
+      },
+      {
+        "export": "v2/runs/task_tune_lr1e-5_r0.5_rerun/epoch_2/export",
+        "recipe": {
+          "config": "v2/phases/task_tune/config.json",
+          "arm": "lr1e-5_r0.5",
+          "epoch": 2
+        }
+      },
+      {
+        "export": "v2/runs/task_tune_lr1e-5_r0.5_rerun/epoch_3/export",
+        "recipe": {
+          "config": "v2/phases/task_tune/config.json",
+          "arm": "lr1e-5_r0.5",
+          "epoch": 3
+        }
+      }
+    ],
+    "soups": {
+      "existing": {
+        "ingredients": "existing",
+        "output": "v2/runs/round2_soup_existing"
+      },
+      "all": {
+        "ingredients": "existing+new",
+        "output": "v2/runs/round2_soup_all"
+      }
+    },
+    "final_soup_output": "v2/runs/round2_final_soup",
+    "selection_rule": {
+      "proxy": "four-task mean acc (ARC-E/PIQA/HellaSwag/WinoGrande) on half B of the held-out benchmark train items, harness format",
+      "min_gain": 0.005,
+      "wiki_guard": "Wikipedia selection-panel bits/byte no worse than V2.1's",
+      "panel_docs": 512
+    }
+  },
+  "arm_config": {
+    "learning_rate": 4e-05,
+    "epochs": 3,
+    "replay_loss_weight": 0.5,
+    "run_dir": "v2/runs/round2_lr4e-5_e3"
+  },
+  "parent_export": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/main/export",
+  "parent_sha256": "9aac2111b9ca6b06f4a12278f5213c17621ded643b7b54137987ce25028011bd",
+  "data_report": {
+    "created": "2026-10-01T00:59:30.000853+00:00",
+    "tasks": {
+      "hellaswag": {
+        "repo": "Rowan/hellaswag",
+        "config": null,
+        "revision": "218ec52e09a7e7462a5400043bb9a69a41d06b76",
+        "train": 31989,
+        "development": 7849,
+        "unusable": 0,
+        "dropped_official_overlap": 67
+      },
+      "arc_easy": {
+        "repo": "allenai/ai2_arc",
+        "config": "ARC-Easy",
+        "revision": "210d026faf9955653af8916fad021475a3f00453",
+        "train": 1780,
+        "development": 461,
+        "unusable": 0,
+        "dropped_official_overlap": 10
+      },
+      "arc_challenge": {
+        "repo": "allenai/ai2_arc",
+        "config": "ARC-Challenge",
+        "revision": "210d026faf9955653af8916fad021475a3f00453",
+        "train": 872,
+        "development": 246,
+        "unusable": 0,
+        "dropped_official_overlap": 1
+      },
+      "piqa": {
+        "repo": "ybisk/piqa",
+        "config": null,
+        "revision": "ba2f7a4920f4968f04c174c53cc157c899e93501",
+        "train": 12460,
+        "development": 3177,
+        "unusable": 0,
+        "dropped_official_overlap": 476
+      },
+      "winogrande": {
+        "repo": "allenai/winogrande",
+        "config": "winogrande_xl",
+        "revision": "01e74176c63542e6b0bcb004dcdea22d94fb67b5",
+        "train": 32324,
+        "development": 8074,
+        "unusable": 0,
+        "dropped_official_overlap": 0
+      }
+    },
+    "tokenizer_sha256": "f8de5462e2967f502b8a25f2a90a87fee12ecad1f50d980a54552805ed0ea196",
+    "files": {
+      "train.jsonl": "461765c88f87fa1927755cc0e7941b3a1441f8efd1b653357983dbda37e8fc6e",
+      "development.jsonl": "31ae3b168fba81d0aee252fcb7da2810b705882f08751a25418a41b34375f3f5"
+    }
+  },
+  "train_items": 79425,
+  "updates_per_epoch": 2483,
+  "total_updates": 7449,
+  "warmup_updates": 15,
+  "source_sha256": {
+    "__init__.py": "1d70c5fe6b95cd0a8148c6a81aab98cd926d3bb9a63d8d496c35149c2e04f451",
+    "benchmarks.py": "c396a58a00dede99f1268d14ef72d6bd9f8f35437d8fc241d1663a580a1b5c5e",
+    "build.py": "8e9e239965bc809b239050f8038eceabb49e39a5d75d17d4def8f9b70d078723",
+    "common.py": "c6780840c3d75b114f73e2f924ed9cd69b3806771ce067d01a91d92e27c11538",
+    "devevaluate.py": "fb72dccde49fc4df40f97a548d06d61fad2494c55ed9e9c0ee462ee8f8df66ca",
+    "download.py": "ef6cd034731ea23c8c5245e5858951349e03f95ab8cb26389ac286feb6580302",
+    "figures.py": "2a21c9c4a93e9a20e64803bd053afb0b7838f656d5bd48a69c7c0443b3724676",
+    "round2.py": "df74baa31acbce1745c197b5a75be43635b525e4443971914ffd8596c390dcc0",
+    "select_endpoint.py": "caf1e0f119ad4228567f4350f4867e820cfc1bec91b2f5c8d17130f158a30128",
+    "sources.py": "ffb31a1068e1b0087f1a49a73c5477b234c52eda868328269684c00ead568425",
+    "targeted.py": "4cdf490b7b8be758ecc529e8d20c25f6b34972deb932f03f2339b5dd129c0a1e",
+    "task_format.py": "a5abd6ed0d47880e09345aa272cc81efbae34f40b4c2b0b230cdab615e967598",
+    "task_select.py": "8245303eb1dfe316b20847f8b611f14ddef2a2f9a835650e235f9fd0362ed84f",
+    "task_tune.py": "8fbd2a86cf20b18b44f0ae6af054b79cfeb2566589f9527dfd60579e13dd99f1",
+    "tokenizer_study.py": "16cac8dad51c7608d78bd5883d2a6ba26b2e8c766dc69cdcad33ae37de4fcda8",
+    "train.py": "7e9d9f473a296f28540fad80db28067284cf260f932993d7eaefe5540712d19a",
+    "v1_vs_v2.py": "ddca76add7f2b77aabc44b59ccaefe8c474a460d580a2b8037dbfdd918b28be1",
+    "wiseft.py": "3718cf5b7f9943b1f919a6fe8d11bb5ad8fbf50689c3081ef6c01d2c34d40f97"
+  },
+  "started": "2026-10-01T04:51:30.500864+00:00",
+  "device": "NVIDIA H100 NVL"
+}

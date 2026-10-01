@@ -324,7 +324,7 @@ Registered 2026-10-01 ~11:35 KST on branch `task-tuning-20261001`, after the use
 
 ## V2 phase: v2_round2_20261001 (improving V2.1), registered
 
-Registered 2026-10-01 ~14:05 KST on branch `round2-20261001`, after the user approved four approaches.
+Registered 2026-10-01 ~13:47 KST on branch `round2-20261001`, after the user approved four approaches.
 - **Approaches:**
   1. A greedy model soup of the 9 existing fine-tuned models.
   2. Stronger tuning arms from V2: 6 epochs at 2e-5, and 3 epochs at 4e-5.
@@ -334,3 +334,10 @@ Registered 2026-10-01 ~14:05 KST on branch `round2-20261001`, after the user app
 - **Final model:** committed in advance to be the 100% retrain if it passes the Wikipedia check; one official evaluation.
 
 [Report](v2/phases/round2/REPORT.md) · [Registration](v2/phases/round2/registration.json) · [Config](v2/phases/round2/config.json)
+
+**Round-2 outcome, 2026-10-01 14:48 KST: V2.1 kept; no new official evaluation.**
+- **Stronger arms:** they reached 57.2–57.3 on half B against V2.1's 53.67, but their Wikipedia bits/byte was 0.013–0.018 worse than V2.1's.
+- **Soups:** neither soup beat the best single model.
+- **100% retrain of V2.1's recipe:** Wikipedia bits/byte 1.0153 against 1.0116, so it failed the check. Following the registration, the development winner (V2.1) stands.
+
+[Report](v2/phases/round2/REPORT.md) · FAILED_APPROACHES A15

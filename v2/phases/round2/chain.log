@@ -1,0 +1,10 @@
+[2026-10-01 13:47:37 KST] prepare 100% data
+[2026-10-01 13:48:39 KST] soup: existing
+[2026-10-01 13:51:23 KST] train: lr2e-5_e6 lr4e-5_e3
+[2026-10-01 14:20:32 KST] soup: all
+[2026-10-01 14:25:53 KST] selection
+[2026-10-01 14:35:29 KST] {"selected": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export", "reason": "reference: best eligible half-B gain -0.0082 < 0.005"}
+[2026-10-01 14:35:29 KST] retrain: {"selected_model": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export", "combination": "single", "retrain": [{"config": "v2/phases/round2/retrain_task_tune_lr2e-5_r0.5.json", "arm": "lr2e-5_r0.5", "run_dir": "v2/runs/round2_full_task_tune_l
+[2026-10-01 14:47:35 KST] final
+[2026-10-01 14:48:33 KST] {"final": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export", "reason": "100%-retrained model failed the Wikipedia guard; falling back to the development-selected model"}
+[2026-10-01 14:48:33 KST] CHAIN_DONE (V2.1 kept)

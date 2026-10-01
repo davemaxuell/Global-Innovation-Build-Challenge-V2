@@ -1,0 +1,58 @@
+{
+  "initialization": "scratch",
+  "created": "2026-10-01T05:25:51.898908+00:00",
+  "soup": {
+    "name": "all",
+    "method": "greedy soup on half A (uniform average of kept ingredients)",
+    "members": [
+      {
+        "export": "v2/runs/round2_lr4e-5_e3/epoch_3/export",
+        "sha256": "0ddf81ee3ed4479bb4f0b6f5534d72804ac1cf2a6f6f0da03a159b78c2f8bf74",
+        "recipe": {
+          "config": "v2/phases/round2/config.json",
+          "arm": "lr4e-5_e3",
+          "epoch": 3
+        },
+        "half_a_acc": 0.553147619797195
+      },
+      {
+        "export": "v2/runs/round2_lr2e-5_e6/epoch_5/export",
+        "sha256": "654501e485a13ba6e57b9128d730a2b4d9628d4767b2cf81cf782c5c305becbc",
+        "recipe": {
+          "config": "v2/phases/round2/config.json",
+          "arm": "lr2e-5_e6",
+          "epoch": 5
+        },
+        "half_a_acc": 0.5453776332897249
+      }
+    ]
+  },
+  "parent": {
+    "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/main",
+    "step": 686645,
+    "main_tokens": 44999966720,
+    "probe_tokens": 0,
+    "training_tokens_spent": 45131038720,
+    "science_digest": "b5bc1cea97a7d17db94e00f48efc7343543f3c322ce3ea85a38451ed1b340da4",
+    "tokenizer_sha256": "1d714be4561ca083ef3cb668be7cffa38caa158c0315c22907647cd4f0f9013b",
+    "initialization": "scratch",
+    "source_token_counts": {
+      "dclm": 15747631104,
+      "edu": 13499219968,
+      "targeted": 6753447936,
+      "wiki": 4502865920,
+      "stackexchange": 2245974016,
+      "books": 2250827776
+    },
+    "parent": null,
+    "cumulative_tokens": 44999966720
+  },
+  "parameter_audit": {
+    "trainable_parameters": 46346752,
+    "total_unique_parameters": 46346752,
+    "analytic_parameters": 46346752,
+    "parameter_cap": 50000000,
+    "headroom": 3653248,
+    "tied_embeddings": true
+  }
+}

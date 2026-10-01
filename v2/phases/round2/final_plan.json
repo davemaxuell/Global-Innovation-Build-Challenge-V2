@@ -1,0 +1,18 @@
+{
+  "selected_model": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export",
+  "combination": "single",
+  "retrain": [
+    {
+      "config": "v2/phases/round2/retrain_task_tune_lr2e-5_r0.5.json",
+      "arm": "lr2e-5_r0.5",
+      "run_dir": "v2/runs/round2_full_task_tune_lr2e-5_r0.5",
+      "epochs_needed": [
+        3
+      ],
+      "source_config": "v2/phases/task_tune/config.json"
+    }
+  ],
+  "final_exports": [
+    "v2/runs/round2_full_task_tune_lr2e-5_r0.5/epoch_3/export"
+  ]
+}

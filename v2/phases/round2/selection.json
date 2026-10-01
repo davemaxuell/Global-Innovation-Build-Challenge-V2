@@ -1,0 +1,513 @@
+{
+  "schema": "v2-round2-selection-1",
+  "label": "round2",
+  "panel": "selection",
+  "official_scores_used": false,
+  "selected_model": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export",
+  "selected_model_sha256": "aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897",
+  "decision_reason": "reference: best eligible half-B gain -0.0082 < 0.005",
+  "reference": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export",
+  "rule": {
+    "proxy": "four-task mean acc (ARC-E/PIQA/HellaSwag/WinoGrande) on half B of the held-out benchmark train items, harness format",
+    "min_gain": 0.005,
+    "wiki_guard": "Wikipedia selection-panel bits/byte no worse than V2.1's",
+    "panel_docs": 512
+  },
+  "results": [
+    {
+      "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/task_tune_lr2e-5_r0.5/epoch_3",
+      "export": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export",
+      "export_model_sha256": "aaf138266a2689162684232ea828712c59746f7c059aa3f87d712d4599ef1897",
+      "multiple_choice_half_b": {
+        "hellaswag": {
+          "acc": 0.39860860602937387,
+          "n": 3881,
+          "acc_norm": 0.37567637206905435
+        },
+        "arc_easy": {
+          "acc": 0.5258215962441315,
+          "n": 213,
+          "acc_norm": 0.5211267605633803
+        },
+        "arc_challenge": {
+          "acc": 0.26717557251908397,
+          "n": 131,
+          "acc_norm": 0.22900763358778625
+        },
+        "piqa": {
+          "acc": 0.6694110196326789,
+          "n": 1579,
+          "acc_norm": 0.6668777707409753
+        },
+        "winogrande": {
+          "acc": 0.5529850746268656,
+          "n": 4020
+        },
+        "_proxy_mean_acc": 0.5367065741332624
+      },
+      "proxy_mean_acc": 0.5367065741332624,
+      "bits_per_byte_selection_panels": {
+        "edu": 1.0037701571477717,
+        "dclm": 1.1599300091358928,
+        "targeted": 1.10676523634185,
+        "wiki": 1.0116281347477363,
+        "stackexchange": 1.1397105658334,
+        "books": 1.2119266545337193
+      }
+    },
+    {
+      "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr2e-5_e6/epoch_1",
+      "export": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr2e-5_e6/epoch_1/export",
+      "export_model_sha256": "3b60cb01343dfcca8dcd601c33fbd850298855f9eaf5107d0b4e1ec87b82d70f",
+      "multiple_choice_half_b": {
+        "hellaswag": {
+          "acc": 0.36098943571244524,
+          "n": 3881,
+          "acc_norm": 0.3509404792579232
+        },
+        "arc_easy": {
+          "acc": 0.5164319248826291,
+          "n": 213,
+          "acc_norm": 0.5117370892018779
+        },
+        "arc_challenge": {
+          "acc": 0.183206106870229,
+          "n": 131,
+          "acc_norm": 0.1984732824427481
+        },
+        "piqa": {
+          "acc": 0.6548448385053831,
+          "n": 1579,
+          "acc_norm": 0.6459784673844206
+        },
+        "winogrande": {
+          "acc": 0.5330845771144279,
+          "n": 4020
+        },
+        "_proxy_mean_acc": 0.5163376940537213
+      },
+      "proxy_mean_acc": 0.5163376940537213,
+      "bits_per_byte_selection_panels": {
+        "edu": 1.0015295238521809,
+        "dclm": 1.1607626161810125,
+        "targeted": 1.1052003640646098,
+        "wiki": 1.0063773330852097,
+        "stackexchange": 1.1383363090269203,
+        "books": 1.2111022776903797
+      }
+    },
+    {
+      "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr2e-5_e6/epoch_2",
+      "export": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr2e-5_e6/epoch_2/export",
+      "export_model_sha256": "c2d71bea44ebc18242a8b12b85cff94be92a450cf6fea77c129987bb18519dfa",
+      "multiple_choice_half_b": {
+        "hellaswag": {
+          "acc": 0.3841793352228807,
+          "n": 3881,
+          "acc_norm": 0.37722236536975007
+        },
+        "arc_easy": {
+          "acc": 0.5211267605633803,
+          "n": 213,
+          "acc_norm": 0.5211267605633803
+        },
+        "arc_challenge": {
+          "acc": 0.2366412213740458,
+          "n": 131,
+          "acc_norm": 0.22900763358778625
+        },
+        "piqa": {
+          "acc": 0.6675110829639012,
+          "n": 1579,
+          "acc_norm": 0.6649778340721976
+        },
+        "winogrande": {
+          "acc": 0.5574626865671641,
+          "n": 4020
+        },
+        "_proxy_mean_acc": 0.5325699663293315
+      },
+      "proxy_mean_acc": 0.5325699663293315,
+      "bits_per_byte_selection_panels": {
+        "edu": 1.0070538730958514,
+        "dclm": 1.163706131134641,
+        "targeted": 1.1101491529424379,
+        "wiki": 1.0155171117761799,
+        "stackexchange": 1.1426853537424189,
+        "books": 1.2160209073163584
+      }
+    },
+    {
+      "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr2e-5_e6/epoch_3",
+      "export": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr2e-5_e6/epoch_3/export",
+      "export_model_sha256": "afdc723a75bd861e8257faba53ed45b60a3e4b5ba4dcc9033b42a114809f4021",
+      "multiple_choice_half_b": {
+        "hellaswag": {
+          "acc": 0.40582324143262044,
+          "n": 3881,
+          "acc_norm": 0.3993816026797217
+        },
+        "arc_easy": {
+          "acc": 0.5305164319248826,
+          "n": 213,
+          "acc_norm": 0.5070422535211268
+        },
+        "arc_challenge": {
+          "acc": 0.2366412213740458,
+          "n": 131,
+          "acc_norm": 0.2595419847328244
+        },
+        "piqa": {
+          "acc": 0.668777707409753,
+          "n": 1579,
+          "acc_norm": 0.6649778340721976
+        },
+        "winogrande": {
+          "acc": 0.6211442786069652,
+          "n": 4020
+        },
+        "_proxy_mean_acc": 0.5565654148435553
+      },
+      "proxy_mean_acc": 0.5565654148435553,
+      "bits_per_byte_selection_panels": {
+        "edu": 1.0097257929131194,
+        "dclm": 1.1657656070969604,
+        "targeted": 1.1126911607332872,
+        "wiki": 1.0213917107647814,
+        "stackexchange": 1.1449415463716996,
+        "books": 1.2191888978665326
+      }
+    },
+    {
+      "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr2e-5_e6/epoch_4",
+      "export": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr2e-5_e6/epoch_4/export",
+      "export_model_sha256": "83b34b3b7de98b38ad75f9a0b720b32a8dc4e5243db86885f11c8d55cd7a35b7",
+      "multiple_choice_half_b": {
+        "hellaswag": {
+          "acc": 0.4042772481319248,
+          "n": 3881,
+          "acc_norm": 0.40066993043030147
+        },
+        "arc_easy": {
+          "acc": 0.5258215962441315,
+          "n": 213,
+          "acc_norm": 0.5211267605633803
+        },
+        "arc_challenge": {
+          "acc": 0.26717557251908397,
+          "n": 131,
+          "acc_norm": 0.25190839694656486
+        },
+        "piqa": {
+          "acc": 0.6763774540848638,
+          "n": 1579,
+          "acc_norm": 0.6675110829639012
+        },
+        "winogrande": {
+          "acc": 0.6495024875621891,
+          "n": 4020
+        },
+        "_proxy_mean_acc": 0.5639946965057774
+      },
+      "proxy_mean_acc": 0.5639946965057774,
+      "bits_per_byte_selection_panels": {
+        "edu": 1.0099045837848046,
+        "dclm": 1.1660454015517947,
+        "targeted": 1.1128399438726488,
+        "wiki": 1.0231205475848535,
+        "stackexchange": 1.1457667850362787,
+        "books": 1.2189277987038678
+      }
+    },
+    {
+      "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr2e-5_e6/epoch_5",
+      "export": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr2e-5_e6/epoch_5/export",
+      "export_model_sha256": "654501e485a13ba6e57b9128d730a2b4d9628d4767b2cf81cf782c5c305becbc",
+      "multiple_choice_half_b": {
+        "hellaswag": {
+          "acc": 0.4083998969337799,
+          "n": 3881,
+          "acc_norm": 0.4143262045864468
+        },
+        "arc_easy": {
+          "acc": 0.5164319248826291,
+          "n": 213,
+          "acc_norm": 0.5117370892018779
+        },
+        "arc_challenge": {
+          "acc": 0.2748091603053435,
+          "n": 131,
+          "acc_norm": 0.2900763358778626
+        },
+        "piqa": {
+          "acc": 0.6789107029765674,
+          "n": 1579,
+          "acc_norm": 0.6706776440785307
+        },
+        "winogrande": {
+          "acc": 0.6691542288557214,
+          "n": 4020
+        },
+        "_proxy_mean_acc": 0.5682241884121745
+      },
+      "proxy_mean_acc": 0.5682241884121745,
+      "bits_per_byte_selection_panels": {
+        "edu": 1.0101360912451325,
+        "dclm": 1.1660176889623552,
+        "targeted": 1.1126917145270772,
+        "wiki": 1.0244552705906673,
+        "stackexchange": 1.1458515243021619,
+        "books": 1.2188984328974917
+      }
+    },
+    {
+      "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr2e-5_e6/epoch_6",
+      "export": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr2e-5_e6/epoch_6/export",
+      "export_model_sha256": "c3aee521ff44200b2d5475bf9066e9ebcbc58f4908b742754a335b32cc75f2bd",
+      "multiple_choice_half_b": {
+        "hellaswag": {
+          "acc": 0.40530791033238855,
+          "n": 3881,
+          "acc_norm": 0.4174181911878382
+        },
+        "arc_easy": {
+          "acc": 0.5258215962441315,
+          "n": 213,
+          "acc_norm": 0.5117370892018779
+        },
+        "arc_challenge": {
+          "acc": 0.2748091603053435,
+          "n": 131,
+          "acc_norm": 0.2900763358778626
+        },
+        "piqa": {
+          "acc": 0.6789107029765674,
+          "n": 1579,
+          "acc_norm": 0.668777707409753
+        },
+        "winogrande": {
+          "acc": 0.6823383084577115,
+          "n": 4020
+        },
+        "_proxy_mean_acc": 0.5730946295026997
+      },
+      "proxy_mean_acc": 0.5730946295026997,
+      "bits_per_byte_selection_panels": {
+        "edu": 1.0101378728637371,
+        "dclm": 1.1659904341365754,
+        "targeted": 1.1126887315142502,
+        "wiki": 1.024804620004578,
+        "stackexchange": 1.1456583159338025,
+        "books": 1.218854667253893
+      }
+    },
+    {
+      "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr4e-5_e3/epoch_1",
+      "export": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr4e-5_e3/epoch_1/export",
+      "export_model_sha256": "02fbdbf217d3fc84c696a75fd1d8d34e8bba762ef7c20d9e683647825d2869fe",
+      "multiple_choice_half_b": {
+        "hellaswag": {
+          "acc": 0.3908786395258954,
+          "n": 3881,
+          "acc_norm": 0.36305076011337284
+        },
+        "arc_easy": {
+          "acc": 0.5117370892018779,
+          "n": 213,
+          "acc_norm": 0.5211267605633803
+        },
+        "arc_challenge": {
+          "acc": 0.21374045801526717,
+          "n": 131,
+          "acc_norm": 0.22137404580152673
+        },
+        "piqa": {
+          "acc": 0.6580113996200126,
+          "n": 1579,
+          "acc_norm": 0.656111462951235
+        },
+        "winogrande": {
+          "acc": 0.549502487562189,
+          "n": 4020
+        },
+        "_proxy_mean_acc": 0.5275324039774938
+      },
+      "proxy_mean_acc": 0.5275324039774938,
+      "bits_per_byte_selection_panels": {
+        "edu": 1.0149547871293638,
+        "dclm": 1.1748887781813477,
+        "targeted": 1.1195179321924849,
+        "wiki": 1.0229099215536333,
+        "stackexchange": 1.1514923102099275,
+        "books": 1.2256532042625836
+      }
+    },
+    {
+      "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr4e-5_e3/epoch_2",
+      "export": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr4e-5_e3/epoch_2/export",
+      "export_model_sha256": "8888e56216fd4022529c44241a66abe197b9e3543e2e10f135790569a099a148",
+      "multiple_choice_half_b": {
+        "hellaswag": {
+          "acc": 0.4019582581808812,
+          "n": 3881,
+          "acc_norm": 0.38443700077299664
+        },
+        "arc_easy": {
+          "acc": 0.5305164319248826,
+          "n": 213,
+          "acc_norm": 0.5305164319248826
+        },
+        "arc_challenge": {
+          "acc": 0.25190839694656486,
+          "n": 131,
+          "acc_norm": 0.1984732824427481
+        },
+        "piqa": {
+          "acc": 0.675110829639012,
+          "n": 1579,
+          "acc_norm": 0.6738442051931602
+        },
+        "winogrande": {
+          "acc": 0.6393034825870647,
+          "n": 4020
+        },
+        "_proxy_mean_acc": 0.5617222505829602
+      },
+      "proxy_mean_acc": 0.5617222505829602,
+      "bits_per_byte_selection_panels": {
+        "edu": 1.0165009010349555,
+        "dclm": 1.1729109950341006,
+        "targeted": 1.119761915226292,
+        "wiki": 1.0295039236296484,
+        "stackexchange": 1.1520220674888169,
+        "books": 1.2268709150379697
+      }
+    },
+    {
+      "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr4e-5_e3/epoch_3",
+      "export": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_lr4e-5_e3/epoch_3/export",
+      "export_model_sha256": "0ddf81ee3ed4479bb4f0b6f5534d72804ac1cf2a6f6f0da03a159b78c2f8bf74",
+      "multiple_choice_half_b": {
+        "hellaswag": {
+          "acc": 0.41355320793609895,
+          "n": 3881,
+          "acc_norm": 0.40530791033238855
+        },
+        "arc_easy": {
+          "acc": 0.5258215962441315,
+          "n": 213,
+          "acc_norm": 0.5164319248826291
+        },
+        "arc_challenge": {
+          "acc": 0.25190839694656486,
+          "n": 131,
+          "acc_norm": 0.2900763358778626
+        },
+        "piqa": {
+          "acc": 0.6808106396453452,
+          "n": 1579,
+          "acc_norm": 0.6725775807473084
+        },
+        "winogrande": {
+          "acc": 0.6689054726368159,
+          "n": 4020
+        },
+        "_proxy_mean_acc": 0.5722727291155979
+      },
+      "proxy_mean_acc": 0.5722727291155979,
+      "bits_per_byte_selection_panels": {
+        "edu": 1.0153659745224064,
+        "dclm": 1.1715927851711159,
+        "targeted": 1.118325542963081,
+        "wiki": 1.0297076305319874,
+        "stackexchange": 1.1510832676593663,
+        "books": 1.2255774400503423
+      }
+    },
+    {
+      "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_soup_existing",
+      "export": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_soup_existing/export",
+      "export_model_sha256": "13828db246170999c2b68cf4f4e09a94de0c11b3038ecc0188f590aedc4cca06",
+      "multiple_choice_half_b": {
+        "hellaswag": {
+          "acc": 0.397835609379026,
+          "n": 3881,
+          "acc_norm": 0.3767070342695182
+        },
+        "arc_easy": {
+          "acc": 0.5070422535211268,
+          "n": 213,
+          "acc_norm": 0.5211267605633803
+        },
+        "arc_challenge": {
+          "acc": 0.24427480916030533,
+          "n": 131,
+          "acc_norm": 0.24427480916030533
+        },
+        "piqa": {
+          "acc": 0.662444585180494,
+          "n": 1579,
+          "acc_norm": 0.662444585180494
+        },
+        "winogrande": {
+          "acc": 0.5465174129353234,
+          "n": 4020
+        },
+        "_proxy_mean_acc": 0.5284599652539925
+      },
+      "proxy_mean_acc": 0.5284599652539925,
+      "bits_per_byte_selection_panels": {
+        "edu": 1.0030989729148443,
+        "dclm": 1.1592957261019852,
+        "targeted": 1.1060116931352117,
+        "wiki": 1.010412392183873,
+        "stackexchange": 1.1389687434973161,
+        "books": 1.2113530620228325
+      }
+    },
+    {
+      "run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_soup_all",
+      "export": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/v2/runs/round2_soup_all/export",
+      "export_model_sha256": "2b83f8d564cfcf14e3da3453899c7c6f4955ca19fcb73816dc2fccc454eeffc1",
+      "multiple_choice_half_b": {
+        "hellaswag": {
+          "acc": 0.41381087348621487,
+          "n": 3881,
+          "acc_norm": 0.40298892038134504
+        },
+        "arc_easy": {
+          "acc": 0.5117370892018779,
+          "n": 213,
+          "acc_norm": 0.5305164319248826
+        },
+        "arc_challenge": {
+          "acc": 0.25190839694656486,
+          "n": 131,
+          "acc_norm": 0.26717557251908397
+        },
+        "piqa": {
+          "acc": 0.6801773274224192,
+          "n": 1579,
+          "acc_norm": 0.6738442051931602
+        },
+        "winogrande": {
+          "acc": 0.6706467661691542,
+          "n": 4020
+        },
+        "_proxy_mean_acc": 0.5690930140699165
+      },
+      "proxy_mean_acc": 0.5690930140699165,
+      "bits_per_byte_selection_panels": {
+        "edu": 1.0114495649948312,
+        "dclm": 1.1674602775061587,
+        "targeted": 1.1141239568045613,
+        "wiki": 1.0255554191593765,
+        "stackexchange": 1.1473775631107428,
+        "books": 1.2206353856390637
+      }
+    }
+  ],
+  "half_b_items": 9824,
+  "frozen_at_unix": 1790832928.1881278,
+  "note": "Development data only (half B of the held-out benchmark train items; corpus selection panels)."
+}

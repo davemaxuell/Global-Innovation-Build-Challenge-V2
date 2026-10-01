@@ -1,6 +1,6 @@
 {
   "phase_id": "v2_round2_20261001",
-  "registered_kst": "2026-10-01T14:05+09:00",
+  "registered_kst": "2026-10-01T13:47+09:00",
   "branch": "round2-20261001",
   "approved_by_user": "2026-10-01 ~13:20 KST: user selected all four approaches (greedy soup of existing models, stronger tuning arms, soup including new arms, final retrain on 100%) and the rule 'no worse than V2.1' for WikiText quality.",
   "objective": "Beat the submitted V2.1 on the four benchmarks without worse WikiText-quality than V2.1.",
@@ -43,5 +43,6 @@
     "train": "PYTHONPATH=src python -m scglm_v2.task_tune train --config v2/phases/round2/config.json --arm <lr2e-5_e6|lr4e-5_e3>",
     "select": "PYTHONPATH=src python -m scglm_v2.round2 select --config v2/phases/round2/config.json",
     "final": "python -m scglm_v2.round2 plan-final ...; task_tune train on the retrain configs; python -m scglm_v2.round2 final ..."
-  }
+  },
+  "registered_kst_note": "Corrected from 14:05 (typed before launch); the chain log shows the first step at 13:47:37 KST."
 }

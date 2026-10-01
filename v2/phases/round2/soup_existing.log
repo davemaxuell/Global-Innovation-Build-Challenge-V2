@@ -1,0 +1,21 @@
+Loading weights:   0%|          | 0/110 [00:00<?, ?it/s]Loading weights: 100%|██████████| 110/110 [00:00<00:00, 9177.91it/s]
+{"time": "2026-10-01T04:48:53.439050+00:00", "event": "soup_ingredient_scored", "soup": "existing", "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_1/export", "half_a_acc": 0.5038439011879237}
+{"time": "2026-10-01T04:49:02.147674+00:00", "event": "soup_ingredient_scored", "soup": "existing", "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_2/export", "half_a_acc": 0.5170146506208735}
+{"time": "2026-10-01T04:49:10.886424+00:00", "event": "soup_ingredient_scored", "soup": "existing", "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export", "half_a_acc": 0.5217933528042578}
+{"time": "2026-10-01T04:49:19.638817+00:00", "event": "soup_ingredient_scored", "soup": "existing", "export": "v2/runs/task_tune_lr2e-5_r0.7/epoch_1/export", "half_a_acc": 0.49737611902379564}
+{"time": "2026-10-01T04:49:28.610264+00:00", "event": "soup_ingredient_scored", "soup": "existing", "export": "v2/runs/task_tune_lr2e-5_r0.7/epoch_2/export", "half_a_acc": 0.5143407714004087}
+{"time": "2026-10-01T04:49:37.383102+00:00", "event": "soup_ingredient_scored", "soup": "existing", "export": "v2/runs/task_tune_lr2e-5_r0.7/epoch_3/export", "half_a_acc": 0.5192366227742441}
+{"time": "2026-10-01T04:49:46.146598+00:00", "event": "soup_ingredient_scored", "soup": "existing", "export": "v2/runs/task_tune_lr1e-5_r0.5_rerun/epoch_1/export", "half_a_acc": 0.4927442581291289}
+{"time": "2026-10-01T04:49:54.887771+00:00", "event": "soup_ingredient_scored", "soup": "existing", "export": "v2/runs/task_tune_lr1e-5_r0.5_rerun/epoch_2/export", "half_a_acc": 0.5043775784343785}
+{"time": "2026-10-01T04:50:03.631593+00:00", "event": "soup_ingredient_scored", "soup": "existing", "export": "v2/runs/task_tune_lr1e-5_r0.5_rerun/epoch_3/export", "half_a_acc": 0.5096440333210189}
+{"time": "2026-10-01T04:50:12.534710+00:00", "event": "soup_step", "soup": "existing", "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export", "trial_half_a_acc": 0.5217933528042578, "kept": true}
+{"time": "2026-10-01T04:50:21.198859+00:00", "event": "soup_step", "soup": "existing", "export": "v2/runs/task_tune_lr2e-5_r0.7/epoch_3/export", "trial_half_a_acc": 0.5206080095069812, "kept": false}
+{"time": "2026-10-01T04:50:29.841986+00:00", "event": "soup_step", "soup": "existing", "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_2/export", "trial_half_a_acc": 0.5217989474424118, "kept": true}
+{"time": "2026-10-01T04:50:38.465600+00:00", "event": "soup_step", "soup": "existing", "export": "v2/runs/task_tune_lr2e-5_r0.7/epoch_2/export", "trial_half_a_acc": 0.5196696317399012, "kept": false}
+{"time": "2026-10-01T04:50:47.089592+00:00", "event": "soup_step", "soup": "existing", "export": "v2/runs/task_tune_lr1e-5_r0.5_rerun/epoch_3/export", "trial_half_a_acc": 0.5159315606124741, "kept": false}
+{"time": "2026-10-01T04:50:55.957303+00:00", "event": "soup_step", "soup": "existing", "export": "v2/runs/task_tune_lr1e-5_r0.5_rerun/epoch_2/export", "trial_half_a_acc": 0.5165914943881664, "kept": false}
+{"time": "2026-10-01T04:51:04.582583+00:00", "event": "soup_step", "soup": "existing", "export": "v2/runs/task_tune_lr2e-5_r0.5/epoch_1/export", "trial_half_a_acc": 0.5156729088765267, "kept": false}
+{"time": "2026-10-01T04:51:13.201303+00:00", "event": "soup_step", "soup": "existing", "export": "v2/runs/task_tune_lr2e-5_r0.7/epoch_1/export", "trial_half_a_acc": 0.5171396177166285, "kept": false}
+{"time": "2026-10-01T04:51:21.800463+00:00", "event": "soup_step", "soup": "existing", "export": "v2/runs/task_tune_lr1e-5_r0.5_rerun/epoch_1/export", "trial_half_a_acc": 0.5172375658008339, "kept": false}
+Writing model shards:   0%|          | 0/1 [00:00<?, ?it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  9.20it/s]Writing model shards: 100%|██████████| 1/1 [00:00<00:00,  9.19it/s]
+{"time": "2026-10-01T04:51:22.119035+00:00", "event": "soup_built", "soup": "existing", "members": 2, "half_a_acc": 0.5217989474424118, "sha256": "13828db246170999c2b68cf4f4e09a94de0c11b3038ecc0188f590aedc4cca06"}
