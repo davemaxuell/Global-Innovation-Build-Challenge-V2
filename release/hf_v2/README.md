@@ -1,7 +1,7 @@
 ---
 language:
 - en
-license: apache-2.0
+license: mit
 library_name: transformers
 pipeline_tag: text-generation
 tags:
@@ -92,7 +92,7 @@ model-index:
 
 SCG-LM V2 is a **46,346,752-parameter** Llama-style language model trained **from random initialization** on **45.0 billion tokens** of human-written English. Training took 31.9 hours on a single H100. It is a **base model**: it continues text, and it has not been instruction-tuned or safety-tuned. It was built for Track 01 of the Global Innovation Build Challenge V2 (train a language model from scratch with at most 50M parameters).
 
-> **Successor:** [SCG-LM V2.1](https://huggingface.co/davemaxuell/scglm-v2.1-46m) is this model with one short fine-tuning stage on the four benchmarks' *training* splits. It scores higher on them (four-task mean 52.76 vs 47.12), but its scores are task-tuned and its WikiText-103 perplexity is worse (25.46 vs 23.85). This repository is the pretraining-only model.
+> **Successor:** [SCG-LM V2.1](https://huggingface.co/davemaxuellkr/Global-Innovation-Build-Challenge-V2) is this model with one short fine-tuning stage on the four benchmarks' *training* splits. It scores higher on them (four-task mean 52.76 vs 47.12), but its scores are task-tuned and its WikiText-103 perplexity is worse (25.46 vs 23.85). This repository is the pretraining-only model.
 
 | | |
 | --- | --- |
@@ -111,7 +111,7 @@ SCG-LM V2 is a **46,346,752-parameter** Llama-style language model trained **fro
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-repo = "davemaxuell/scglm-v2-46m"
+repo = "davemaxuellkr/scglm-v2-46m"
 tok = AutoTokenizer.from_pretrained(repo)
 model = AutoModelForCausalLM.from_pretrained(repo).eval()
 
@@ -201,7 +201,7 @@ The selected run used 31.9 H100-hours. All V2 GPU work, including a 1B-token pil
 
 ## Licenses and attribution
 
-The model weights are released under the Apache-2.0 license declared above. The training data keeps its own terms:
+The model weights are released under the MIT license declared above. The training data keeps its own terms:
 - FineWeb-Edu: ODC-By 1.0.
 - DCLM-baseline: CC-BY-4.0.
 - Wikipedia: CC-BY-SA 3.0 / GFDL.
@@ -226,7 +226,7 @@ We thank the maintainers of these datasets and of lm-evaluation-harness.
   title  = {SCG-LM V2: a 46M-parameter language model trained from scratch},
   author = {davemaxuell},
   year   = {2026},
-  url    = {https://huggingface.co/davemaxuell/scglm-v2-46m}
+  url    = {https://huggingface.co/davemaxuellkr/scglm-v2-46m}
 }
 ```
 

@@ -3,7 +3,7 @@
   "model": "SCG-LM V2.1 (46M)",
   "source": "checkpoints/v2_1 (= v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export)",
   "files_sha256": {
-    "README.md": "f0a4dcf5dac3cd81dc42e19bc316166bc51cd09ed248d54ba83d19bd50c83e3f",
+    "README.md": "ad51b92d10b2d2915b343a6c23258eebbc7f83735b9ad6c7ed6686f3912e2c64",
     "config.json": "40829ea36a2cabf18165acc07bec807f418dceba7cc9d2f8d2520a8a89c02538",
     "eval_results.json": "c693922426a0ae35a19af73fc65a5988e2f0da18abcdf9a5c4611d052139c21b",
     "generation_config.json": "065c32ced79f04ad5ab5db4530779cf2bbc74a4023f634dd87844e4d7d98d98d",
@@ -30,9 +30,11 @@
   ],
   "not_uploaded": "Prepared locally; publishing to the Hugging Face Hub is the user's decision. release/hf_v2 (V2 base) is kept unchanged.",
   "placeholders_filled": {
-    "hf_namespace": "davemaxuell",
+    "hf_namespace": "davemaxuellkr",
     "authors": "davemaxuell",
     "github": "https://github.com/davemaxuell/Global-Innovation-Build-Challenge-V2",
-    "decided_by_user": "2026-10-01: publish publicly under davemaxuell, both V2 and V2.1"
-  }
+    "decided_by_user": "2026-10-01 ~17:20 KST: V2.1 in davemaxuellkr/Global-Innovation-Build-Challenge-V2, V2 base in davemaxuellkr/scglm-v2-46m, weights under MIT",
+    "hf_repo": "davemaxuellkr/Global-Innovation-Build-Challenge-V2"
+  },
+  "license": "MIT (weights); training data keeps its own terms (listed in README.md)"
 }

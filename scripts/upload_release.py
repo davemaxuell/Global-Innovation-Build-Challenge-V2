@@ -52,9 +52,14 @@ def main():
 
     token = os.environ.get("HF_TOKEN") or getpass.getpass("Hugging Face write token (hidden, not saved): ")
     api = HfApi(token=token)
-    user = api.whoami()["name"]
+    who = api.whoami()
+    user, orgs = who["name"], [o["name"] for o in who.get("orgs", [])]
+    if args.repo.split("/")[0] not in [user] + orgs:
+        raise SystemExit(f"This token belongs to '{user}' (orgs: {orgs}); it cannot create or write {args.repo}")
     print(f"Authenticated as {user}; uploading {args.folder} to {args.repo} ({'public' if args.public else 'private'})")
     api.create_repo(args.repo, repo_type="model", private=args.private, exist_ok=True)
+    # create_repo(exist_ok=True) leaves an existing repo's visibility unchanged; set it explicitly.
+    api.update_repo_settings(args.repo, private=args.private, repo_type="model")
     commit = api.upload_folder(folder_path=str(args.folder), repo_id=args.repo, repo_type="model",
                                commit_message=args.message)
     print("Commit:", commit.commit_url if hasattr(commit, "commit_url") else commit)

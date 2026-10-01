@@ -1,7 +1,7 @@
 ---
 language:
 - en
-license: apache-2.0
+license: mit
 library_name: transformers
 pipeline_tag: text-generation
 tags:
@@ -95,7 +95,7 @@ model-index:
 
 # SCG-LM V2.1 (46M)
 
-SCG-LM V2.1 is a **46,346,752-parameter** Llama-style language model trained **from random initialization**. It is our [SCG-LM V2](https://huggingface.co/davemaxuell/scglm-v2-46m) base model, pretrained on 45.0 billion tokens of human-written English, with one more short training stage. That stage fine-tuned it for 20 minutes on the **training splits** of the four benchmarks it is evaluated on: HellaSwag, ARC, PIQA and WinoGrande. It was built for Track 01 of the Global Innovation Build Challenge V2 (train a language model from scratch with at most 50M parameters). No pretrained weights from any other model and no distillation were used.
+SCG-LM V2.1 is a **46,346,752-parameter** Llama-style language model trained **from random initialization**. It is our [SCG-LM V2](https://huggingface.co/davemaxuellkr/scglm-v2-46m) base model, pretrained on 45.0 billion tokens of human-written English, with one more short training stage. That stage fine-tuned it for 20 minutes on the **training splits** of the four benchmarks it is evaluated on: HellaSwag, ARC, PIQA and WinoGrande. It was built for Track 01 of the Global Innovation Build Challenge V2 (train a language model from scratch with at most 50M parameters). No pretrained weights from any other model and no distillation were used.
 
 > **Read this before comparing scores.**
 > - **Task-tuned scores:** V2.1 was trained on the benchmarks' *training* splits, in the same format the evaluation harness scores. The evaluation splits were never trained on, and training items overlapping evaluation items were removed. Even so, its zero-shot scores are not comparable at face value with models that were only pretrained.
@@ -119,7 +119,7 @@ SCG-LM V2.1 is a **46,346,752-parameter** Llama-style language model trained **f
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-repo = "davemaxuell/scglm-v2.1-46m"
+repo = "davemaxuellkr/Global-Innovation-Build-Challenge-V2"
 tok = AutoTokenizer.from_pretrained(repo)
 model = AutoModelForCausalLM.from_pretrained(repo).eval()
 
@@ -249,7 +249,7 @@ The answer score used in training is the quantity the harness's `acc` metric com
 
 ## Licenses and attribution
 
-The model weights are released under the Apache-2.0 license declared above. The training data keeps its own terms.
+The model weights are released under the MIT license declared above. The training data keeps its own terms.
 
 **Pretraining data:**
 - FineWeb-Edu: ODC-By 1.0.
@@ -283,7 +283,7 @@ We thank the authors of these datasets and the maintainers of lm-evaluation-harn
   title  = {SCG-LM V2.1: a 46M-parameter language model trained from scratch, with benchmark-train fine-tuning},
   author = {davemaxuell},
   year   = {2026},
-  url    = {https://huggingface.co/davemaxuell/scglm-v2.1-46m}
+  url    = {https://huggingface.co/davemaxuellkr/Global-Innovation-Build-Challenge-V2}
 }
 ```
 
