@@ -5,6 +5,9 @@ development split with ``benchmarks.is_development`` (the held-out 20% stays unt
 and becomes the selection panel), formats every item exactly as the pinned harness scores
 it (``task_format``), drops any training item whose context matches an official
 evaluation item (normalized exact match or a shared 13-word sequence), and tokenizes.
+With ``include_development: true`` (the final 100% retrain) the held-out items also go
+into train.jsonl, after the same official-overlap check; development.jsonl is still
+written for reference but is then no longer held out.
 
 ``train`` (GPU): GPT-1-style multiple-choice fine-tuning adapted to log-likelihood
 scoring. Each candidate's score is its summed continuation log-likelihood (the quantity
@@ -93,6 +96,8 @@ def prepare(cfg: dict) -> dict:
     with (out / "train.jsonl").open("w") as train_f, (out / "development.jsonl").open("w") as dev_f:
         for task, (repo, config, _) in TRAIN_TASKS.items():
             counts = {"train": 0, "development": 0, "unusable": 0, "dropped_official_overlap": 0}
+            if cfg.get("include_development"):
+                counts.update(train_from_development=0, dropped_development_overlap=0)
             ref = OFFICIAL_FOR.get(task, task)
             for doc in _load(repo, config, "train", cfg["piqa_files"]):
                 legacy = format_example(task, doc)
@@ -102,12 +107,19 @@ def prepare(cfg: dict) -> dict:
                 item = harness_item(task, doc)
                 record = {"task": task, "label": item["label"], "choices": item["choices"],
                           "encoded": [list(map(list, encode_pair(tok, c, k))) for c, k in item["pairs"]]}
-                if is_development(task, legacy["text"], cfg["development_fraction"]):
-                    dev_f.write(json.dumps(record, ensure_ascii=False) + "\n"); counts["development"] += 1
-                    continue
                 words = _words(_context_text(task, doc))
                 grams = {tuple(words[i:i + 13]) for i in range(len(words) - 12)}
-                if " ".join(words) in official_keys[ref] or grams & official_grams[ref]:
+                overlaps = " ".join(words) in official_keys[ref] or bool(grams & official_grams[ref])
+                if is_development(task, legacy["text"], cfg["development_fraction"]):
+                    dev_f.write(json.dumps(record, ensure_ascii=False) + "\n"); counts["development"] += 1
+                    if cfg.get("include_development"):
+                        if overlaps:
+                            counts["dropped_development_overlap"] += 1
+                        else:
+                            train_f.write(json.dumps({**record, "from_development": True}, ensure_ascii=False) + "\n")
+                            counts["train_from_development"] += 1
+                    continue
+                if overlaps:
                     counts["dropped_official_overlap"] += 1
                     continue
                 train_f.write(json.dumps(record, ensure_ascii=False) + "\n"); counts["train"] += 1
@@ -233,7 +245,8 @@ def train(cfg: dict, arm_name: str, device: str = "cuda", max_updates: int | Non
                                   fused=device.startswith("cuda"))
     q = cfg["questions_per_update"]
     per_epoch = math.ceil(len(items) / q)
-    total = per_epoch * cfg["epochs"]
+    epochs = int(arm.get("epochs", cfg["epochs"]))
+    total = per_epoch * epochs
     warmup = max(1, round(cfg["warmup_fraction"] * total))
     replay = ReplayStreams(ROOT / cfg["replay_manifest"], cfg["replay_weights"], seed)
     r, lm_w = arm.get("replay_loss_weight", cfg["replay_loss_weight"]), cfg["gold_lm_weight"]
@@ -254,7 +267,7 @@ def train(cfg: dict, arm_name: str, device: str = "cuda", max_updates: int | Non
 
     try:
         status("running")
-        for epoch in range(1, cfg["epochs"] + 1):
+        for epoch in range(1, epochs + 1):
             order = list(range(len(items)))
             random.Random(seed * 1000 + epoch).shuffle(order)
             for b in range(0, len(order), q):
@@ -301,6 +314,9 @@ def train(cfg: dict, arm_name: str, device: str = "cuda", max_updates: int | Non
             event(log, "export", epoch=epoch, step=step, path=str(export),
                   model_sha256=sha256_file(export / "model.safetensors"))
             if smoke:
+                break
+            if arm.get("stop_after_epoch") and epoch >= int(arm["stop_after_epoch"]):
+                event(log, "stopped_after_epoch", epoch=epoch, note="schedule length unchanged; later epochs not needed")
                 break
         status("smoke_completed" if max_updates is not None else "completed")
         event(log, "finished", steps=step, counters=counters, replay_source_tokens=replay.tokens,

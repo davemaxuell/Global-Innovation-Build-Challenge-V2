@@ -1,0 +1,17 @@
+{
+  "parent_export": "v2/runs/main/export",
+  "benchmark_split_report": "v2/data/rich_v1/benchmarks/report.json",
+  "development_fraction": 0.2,
+  "piqa_files": {
+    "train": {
+      "path": "/data/shared/hf_cache/hub/datasets--ybisk--piqa/snapshots/ba2f7a4920f4968f04c174c53cc157c899e93501/plain_text/train-00000-of-00001.parquet",
+      "sha256": "3f6dbfa8ebdcc90386e27f3bd1ecda32a5c3b584db98b00d19d4afc624f33692"
+    },
+    "validation": {
+      "path": "/data/shared/hf_cache/hub/datasets--ybisk--piqa/snapshots/ba2f7a4920f4968f04c174c53cc157c899e93501/plain_text/validation-00000-of-00001.parquet",
+      "sha256": "37a3e882cdba9918d98f755b7261458a77f339c6914838d95bf45b9272813d72"
+    }
+  },
+  "data_dir": "v2/data/task_tune_full_v1",
+  "include_development": true
+}

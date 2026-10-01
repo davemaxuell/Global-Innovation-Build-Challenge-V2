@@ -321,3 +321,16 @@ Registered 2026-10-01 ~11:35 KST on branch `task-tuning-20261001`, after the use
 - **Preserved:** V2 base (`checkpoints/v2_best`) and the α = 0.5 export.
 
 [Adoption record](v2/phases/task_tune/ADOPTION.json) · [checkpoint inventory](checkpoints/ADOPTION_2026-10-01.json)
+
+## V2 phase: v2_round2_20261001 (improving V2.1), registered
+
+Registered 2026-10-01 ~14:05 KST on branch `round2-20261001`, after the user approved four approaches.
+- **Approaches:**
+  1. A greedy model soup of the 9 existing fine-tuned models.
+  2. Stronger tuning arms from V2: 6 epochs at 2e-5, and 3 epochs at 4e-5.
+  3. A soup of all 18 fine-tuned models.
+  4. A retrain of the winner on 100% of the training splits.
+- **Selection:** the held-out items are split into half A (soup building) and half B (selection). The winner must beat V2.1 by at least +0.5 half-B points with Wikipedia bits/byte no worse than V2.1's.
+- **Final model:** committed in advance to be the 100% retrain if it passes the Wikipedia check; one official evaluation.
+
+[Report](v2/phases/round2/REPORT.md) · [Registration](v2/phases/round2/registration.json) · [Config](v2/phases/round2/config.json)

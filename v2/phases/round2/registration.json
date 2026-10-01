@@ -1,0 +1,47 @@
+{
+  "phase_id": "v2_round2_20261001",
+  "registered_kst": "2026-10-01T14:05+09:00",
+  "branch": "round2-20261001",
+  "approved_by_user": "2026-10-01 ~13:20 KST: user selected all four approaches (greedy soup of existing models, stronger tuning arms, soup including new arms, final retrain on 100%) and the rule 'no worse than V2.1' for WikiText quality.",
+  "objective": "Beat the submitted V2.1 on the four benchmarks without worse WikiText-quality than V2.1.",
+  "reference": {
+    "model": "SCG-LM V2.1, v2/runs/task_tune_lr2e-5_r0.5/epoch_3/export, SHA256 aaf13826...99ef1897",
+    "official": "mean 52.76, WikiText-103 25.46"
+  },
+  "parent_for_new_arms": "V2, v2/runs/main/export, SHA256 9aac2111...28011bd",
+  "approaches": {
+    "1_soup_existing": "Greedy soup (Wortsman et al., ICML 2022) over the 9 task-tune exports (3 arms x 3 epochs, including V2.1). Ingredients ranked by half-A accuracy; each added to a uniform average only if half-A accuracy does not fall.",
+    "2_stronger_arms": "From V2, same data and loss as V2.1 (temperature 10, gold LM 0.5, replay 0.5): lr2e-5_e6 = LR 2e-5 for 6 epochs; lr4e-5_e3 = LR 4e-5 for 3 epochs. Exports every epoch (9 new models). Evidence: V2.1's development accuracy was still rising at epoch 3; the higher-LR smoke run learned faster.",
+    "3_soup_all": "Greedy soup over all 18 fine-tuned exports.",
+    "4_full_retrain": "Retrain the winning recipe on 100% of the train splits (the held-out items added after the same official-overlap check). A soup winner is retrained ingredient by ingredient and averaged the same way. If V2.1 itself wins, its recipe is retrained."
+  },
+  "data": {
+    "train": "v2/data/task_tune_v1/train.jsonl (SHA256 461765c8...), as V2.1",
+    "development": "v2/data/task_tune_v1/development.jsonl (SHA256 31ae3b16...), split by a fixed content hash (round2.half_of) into half A (soup building) and half B (selection only)",
+    "full": "v2/data/task_tune_full_v1 (prepared by the chain: train + held-out items, overlap-filtered)"
+  },
+  "selection_rule": {
+    "data": "half B of the held-out items (harness format) and the corpus Wikipedia selection panel (512 docs)",
+    "rule": "Among the 9 new single models and the 2 soups, keep those whose Wikipedia bits/byte is no worse than V2.1's; take the highest half-B four-task mean; it wins only if that mean is >= V2.1's + 0.5 points. Otherwise V2.1's recipe wins.",
+    "record": "v2/phases/round2/selection.json, frozen before any official score of a round-2 model"
+  },
+  "final_rule": "The 100%-retrained version of the winning recipe becomes the final model if its Wikipedia selection bits/byte is no worse than V2.1's (half B is not held out for it, so accuracy cannot be re-checked); otherwise the 80%-trained development winner is used. This is committed before any result: official scores will not change it. If the final model is V2.1 itself, no new official evaluation is run.",
+  "official_evaluation": "Pinned runner once on the final model (v2/phases/round2/final.json). V2.1 stays preserved; replacing the submission remains the user's decision, disclosed.",
+  "compute_limits": {
+    "gpu": "GPU 0 only; at most 2 training processes at once",
+    "max_gpu_hours_total": 5
+  },
+  "disclosure": "The held-out items were already used to select V2.1 and the WiSE-FT model; reusing them adds selection pressure. Half A and half B separate soup construction from selection within this phase. All earlier official scores (V2, V2.1, WiSE-FT 0.5) were observed before this phase.",
+  "outputs": [
+    "v2/data/task_tune_full_v1",
+    "v2/runs/round2_*",
+    "v2/phases/round2"
+  ],
+  "commands": {
+    "chain": "GPU=0 bash scripts/run_round2.sh (tmux gibc-v2-round2); every step is skipped if its output exists, so rerunning resumes",
+    "soup": "PYTHONPATH=src python -m scglm_v2.round2 soup --config v2/phases/round2/config.json --name <existing|all>",
+    "train": "PYTHONPATH=src python -m scglm_v2.task_tune train --config v2/phases/round2/config.json --arm <lr2e-5_e6|lr4e-5_e3>",
+    "select": "PYTHONPATH=src python -m scglm_v2.round2 select --config v2/phases/round2/config.json",
+    "final": "python -m scglm_v2.round2 plan-final ...; task_tune train on the retrain configs; python -m scglm_v2.round2 final ..."
+  }
+}

@@ -36,7 +36,7 @@ def candidates(cfg: dict) -> list[Path]:
         return [ROOT / e for e in cfg["candidate_exports"] if (ROOT / e / "model.safetensors").exists()]
     found = []
     for arm in cfg["arms"].values():
-        for epoch in range(1, cfg["epochs"] + 1):
+        for epoch in range(1, int(arm.get("epochs", cfg["epochs"])) + 1):
             export = ROOT / arm["run_dir"] / f"epoch_{epoch}" / "export"
             if (export / "model.safetensors").exists():
                 found.append(export)
