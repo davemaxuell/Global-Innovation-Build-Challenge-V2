@@ -1,6 +1,0 @@
-3-step GPU smoke of scglm_v2.train from src/ on the real V2 manifest (scratch run dir, not retained)
-initialized 0 46346752 
-train step 1 loss 9.7999 lr 1.200e-06 tokens/s 26157
-train step 2 loss 9.7904 lr 2.400e-06 tokens/s 412659
-train step 3 loss 9.7847 lr 3.600e-06 tokens/s 401277
-finished 3  False

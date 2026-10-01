@@ -2,7 +2,7 @@
 
 **Recorded:** October 1, 2026. **Checkpoint:** [checkpoints/v2_best](checkpoints/v2_best/). **Selected by** the pre-registered V1-vs-V2 rule ([registration](v2/phases/final_selection/registration.json), [outcome](v2/phases/final_selection/v1_vs_v2.json)).
 
-V2 is a 46,346,752-parameter language model trained from random initialization on 44,999,966,720 next-token targets from a 22.45B-unique-token, human-written English corpus. V2 base itself is a **base model**: no SFT, DPO or RL. The submitted model adds one fine-tuning stage (section 0). How to rebuild it: [CURRENT_PIPELINE.md](CURRENT_PIPELINE.md). The V1 lineage it replaces is recorded in [docs/history/V1_BEST_CHECKPOINT_TRAINING.md](docs/history/V1_BEST_CHECKPOINT_TRAINING.md).
+V2 is a 46,346,752-parameter language model trained from random initialization on 44,999,966,720 next-token targets from a 22.45B-unique-token, human-written English corpus. V2 base itself is a **base model**: no SFT, DPO or RL. The submitted model adds one fine-tuning stage (section 0). How to rebuild it: [CURRENT_PIPELINE.md](CURRENT_PIPELINE.md). The V1 lineage it replaces appears in the README's comparison row; its detailed records are kept on the training server, not in this repository.
 
 ## 0. Submitted model: V2.1 (adopted 2026-10-01)
 

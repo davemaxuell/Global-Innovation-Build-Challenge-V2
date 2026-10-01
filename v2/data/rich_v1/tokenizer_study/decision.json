@@ -1,0 +1,56 @@
+{
+  "results": {
+    "v1": {
+      "per_source": {
+        "dclm": 3.9551882612165428,
+        "edu": 4.165344744054784,
+        "wiki": 3.844655860747365,
+        "stackexchange": 3.993333923049289,
+        "books": 3.5672471421307934
+      },
+      "mixture": 4.005453929371315,
+      "benchmark": 4.04695839903329,
+      "vocab": 16384
+    },
+    "v16384": {
+      "per_source": {
+        "dclm": 3.9785953216607144,
+        "edu": 4.132541312629435,
+        "wiki": 3.5034932724854406,
+        "stackexchange": 4.14610243803329,
+        "books": 3.653310241614958
+      },
+      "mixture": 3.980925965172798,
+      "benchmark": 4.184188995237181,
+      "vocab": 16384,
+      "gain_mixture": -0.006123641572471361,
+      "gain_benchmark": 0.03390956433766945
+    },
+    "v20480": {
+      "per_source": {
+        "dclm": 4.062706639686927,
+        "edu": 4.232140176442454,
+        "wiki": 3.6022948226962557,
+        "stackexchange": 4.205691590188775,
+        "books": 3.7283911635793614
+      },
+      "mixture": 4.070636507990897,
+      "benchmark": 4.288889860638142,
+      "vocab": 20480,
+      "gain_mixture": 0.016273456084866966,
+      "gain_benchmark": 0.05978105968735514
+    }
+  },
+  "passing": [],
+  "chosen": "v1",
+  "chosen_path": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/data/processed/main/tokenizer/tokenizer.json",
+  "benchmark_texts": 25006,
+  "heldout_docs": {
+    "dclm": 1500,
+    "edu": 1500,
+    "wiki": 1500,
+    "stackexchange": 1500,
+    "books": 1500
+  },
+  "chosen_sha256": "1d714be4561ca083ef3cb668be7cffa38caa158c0315c22907647cd4f0f9013b"
+}

@@ -2,7 +2,7 @@
 
 **Recorded:** September 29, 2026. **Purpose:** prevent repetition of unsuccessful recipes while preserving the evidence behind each decision.
 
-**Since 2026-10-01 the retained model is V2** ([BEST_CHECKPOINT_TRAINING.md](BEST_CHECKPOINT_TRAINING.md); `checkpoints/v2_best`, weight SHA256 `9aac2111b9ca6b06f4a12278f5213c17621ded643b7b54137987ce25028011bd`). Entries A01–A12 were run on V1, whose full-SFT checkpoint (weight SHA256 `defd0d91948ba8501a33b0c4996bf3bf37ebdf6e90338a05bab3a1773a2d7f72`, [V1 record](docs/history/V1_BEST_CHECKPOINT_TRAINING.md)) and 13B-token base remain preserved as baselines. A13 was run on V2. Code for these experiments is archived under `archive/` ([inventory](reports/cleanup/2026-10-01/moved_files.json)). This record describes bounded experiments on our 46M model; it does not establish that the underlying methods can never work.
+**Since 2026-10-01 the retained model is V2** ([BEST_CHECKPOINT_TRAINING.md](BEST_CHECKPOINT_TRAINING.md); `checkpoints/v2_best`, weight SHA256 `9aac2111b9ca6b06f4a12278f5213c17621ded643b7b54137987ce25028011bd`). Entries A01–A12 were run on V1, whose full-SFT checkpoint (weight SHA256 `defd0d91948ba8501a33b0c4996bf3bf37ebdf6e90338a05bab3a1773a2d7f72`, V1 record) and 13B-token base remain preserved as baselines. A13 was run on V2. Code for these experiments is archived under `archive/` (inventory). This record describes bounded experiments on our 46M model; it does not establish that the underlying methods can never work.
 
 ## Decisions to carry forward
 
@@ -22,7 +22,7 @@
 
 **Interpretation:** lower teacher-forced response loss did not translate into the measured task improvement. These results do not isolate which data or optimizer choice caused the outcome.
 
-Evidence: [phase report](artifacts/posttraining_13b_v1/REPORT.md), [actual training counts](artifacts/posttraining_13b_v1/training/sft_human/status.json).
+Evidence: phase report, actual training counts.
 
 ## A02 — Early human/procedural SFT without raw replay
 
@@ -34,7 +34,7 @@ Evidence: [phase report](artifacts/posttraining_13b_v1/REPORT.md), [actual train
 
 **Interpretation:** this recipe produced measurable task adaptation. It did not satisfy the combined objective. The later retained full-SFT recipe used a different mixture, a lower peak LR and raw replay.
 
-Evidence: [phase report](artifacts/posttraining_13b_v1/REPORT.md), [actual training counts](artifacts/posttraining_13b_v1/training/sft_mixed/status.json), [comparison metrics](reports/posttraining/2026-09-28_dpo_followup.md).
+Evidence: phase report, actual training counts, comparison metrics.
 
 ## A03 — Small procedural DPO follow-up
 
@@ -46,7 +46,7 @@ Evidence: [phase report](artifacts/posttraining_13b_v1/REPORT.md), [actual train
 
 **Interpretation:** the experiment did not demonstrate aggregate improvement; it does not prove that preference optimization is ineffective with better data or another parent.
 
-Evidence: [detailed report](reports/posttraining/2026-09-28_dpo_followup.md), [preference integrity](artifacts/posttraining_dpo_13b_v1/preference_integrity.json), [training integrity](artifacts/posttraining_dpo_13b_v1/training_integrity.json).
+Evidence: detailed report, preference integrity, training integrity.
 
 ## A04 — Larger self-generated DPO after the retained SFT recipe
 
@@ -58,7 +58,7 @@ Evidence: [detailed report](reports/posttraining/2026-09-28_dpo_followup.md), [p
 
 **Interpretation:** regression relative to the immediate parent is the relevant observation. The records do not identify a single causal explanation such as beta, preference difficulty or answer-length bias.
 
-Evidence: [shortlisted recipe](artifacts/posttraining_sota_v1/dpo_shortlist.json), [seed and parent-relative comparisons](artifacts/posttraining_sota_v1/development_groups.json), [completed study](reports/posttraining/2026-09-29_upgraded_pipeline_completion.md).
+Evidence: shortlisted recipe, seed and parent-relative comparisons, completed study.
 
 ## A05 — Positive-only SFT on the preference winners
 
@@ -70,7 +70,7 @@ Evidence: [shortlisted recipe](artifacts/posttraining_sota_v1/dpo_shortlist.json
 
 **Interpretation:** these small changes are not presented as proof of statistically significant harm. They did not provide the required positive evidence for advancement.
 
-Evidence: [replicated comparisons](artifacts/posttraining_sota_v1/development_groups.json), [training and compute ledger](artifacts/posttraining_sota_v1/COMPUTE_LEDGER.json).
+Evidence: replicated comparisons, training and compute ledger.
 
 ## A06 — Direct online RL pilots from SFT
 
@@ -82,7 +82,7 @@ Evidence: [replicated comparisons](artifacts/posttraining_sota_v1/development_gr
 
 **Interpretation:** many attempts lacked usable update signal. This is evidence about this model/task/reward combination, not a general comparison of RL algorithms.
 
-Evidence: [recorded decision](artifacts/posttraining_sota_v1/skipped_rl_sft.json), [actual update/token ledger](artifacts/posttraining_sota_v1/COMPUTE_LEDGER.json), [completed study](reports/posttraining/2026-09-29_upgraded_pipeline_completion.md).
+Evidence: recorded decision, actual update/token ledger, completed study.
 
 ## A07 — Output-only LM-head adaptation
 
@@ -94,7 +94,7 @@ Evidence: [recorded decision](artifacts/posttraining_sota_v1/skipped_rl_sft.json
 
 **Interpretation:** strict answer-plus-termination accuracy is a formatting/task metric, not proof that the model has no knowledge. The intervals are wide, and the earlier full-SFT recipe had more tuning opportunities.
 
-Evidence: [full report](artifacts/lm_head_lora_v2/REPORT.md), [fresh confirmation and intervals](artifacts/lm_head_lora_v2/confirmation_summary.json), [fixed selection](artifacts/lm_head_lora_v2/frozen_selection.json).
+Evidence: full report, fresh confirmation and intervals, fixed selection.
 
 ## A08 — Knowledge-heavy SFT with 50% replay loss
 
@@ -106,7 +106,7 @@ Evidence: [full report](artifacts/lm_head_lora_v2/REPORT.md), [fresh confirmatio
 
 **Interpretation:** development knowledge gains did not satisfy the combined retention/benchmark objective. Its 0.01-nat guard was stricter than the retained SFT study's 0.02-nat guard; those decisions should not be compared as if the thresholds were identical.
 
-Evidence: [phase report](artifacts/sft_benchmark_20260929/REPORT.md), [comparisons](artifacts/sft_benchmark_20260929/comparisons.json), [diagnostic benchmarks](artifacts/sft_benchmark_20260929/official/attempt_003/summary.json).
+Evidence: phase report, comparisons, diagnostic benchmarks.
 
 ## What was not an unsuccessful executed method
 
@@ -127,21 +127,21 @@ Evidence: [phase report](artifacts/sft_benchmark_20260929/REPORT.md), [compariso
 4. **Metadata integration gaps:** the output-adapter harness needed correct `tie_weights` handling; the later benchmark reporter needed its required metadata fields. Both were repaired and their evaluations completed. Smoke-test the actual loader/report path before a larger run.
 5. **Mutable or reused evidence:** keep model/data hashes, actual update/token counts and consumed confirmation identities. A renamed panel or a changed promotion rule does not create independent evidence.
 
-The active source tree now contains the retained model construction, necessary data preparation and evaluation code. Original checkpoint exports, dataset manifests, measured results and frozen source snapshots remain historical evidence. They are not an instruction to relaunch retired studies. [Cleanup inventory](reports/cleanup/2026-09-29/removed_files.json).
+The active source tree now contains the retained model construction, necessary data preparation and evaluation code. Original checkpoint exports, dataset manifests, measured results and frozen source snapshots remain historical evidence. They are not an instruction to relaunch retired studies. Cleanup inventory.
 
 ## A09 — Choice-discrimination study (choice_discrimination_20260929_v1)
 
-Outcome: **failed**. Stop: `execution_or_retention_stop`. [Full evidence and actual counts](artifacts/choice_discrimination_20260929_v1/REPORT.md). No selected checkpoint was replaced and no further recipe is scheduled. An incomplete or unlaunched arm is not evidence that the choice objective failed.
+Outcome: **failed**. Stop: `execution_or_retention_stop`. Full evidence and actual counts. No selected checkpoint was replaced and no further recipe is scheduled. An incomplete or unlaunched arm is not evidence that the choice objective failed.
 
-A09 measured detail: the matched CE/replay control stopped at **update 8**, with **65,746 response targets / 32,760 replay targets**. Historical science instruction generation (correct answer plus EOS) declined **9/100 → 4/100**, exceeding the registered two-point guard. Its fresh natural primary score was **43.55%** versus **44.15%** for the parent and **41.90%** for the base. All raw NLL guards passed. **The choice-loss candidate was not trained**, so this outcome provides no completed paired test of the added loss. Confirmation and new official scores remain unopened. [Final verified report](artifacts/choice_discrimination_20260929_v1/FINAL_REPORT.md).
+A09 measured detail: the matched CE/replay control stopped at **update 8**, with **65,746 response targets / 32,760 replay targets**. Historical science instruction generation (correct answer plus EOS) declined **9/100 → 4/100**, exceeding the registered two-point guard. Its fresh natural primary score was **43.55%** versus **44.15%** for the parent and **41.90%** for the base. All raw NLL guards passed. **The choice-loss candidate was not trained**, so this outcome provides no completed paired test of the added loss. Confirmation and new official scores remain unopened. Final verified report.
 
 ## A11 — Revised small RL study (rl_revised_20260929_v1)
 
-Outcome: **no_difference_established**. Stop: `matched_update_comparison`. [Evidence and actual counts](artifacts/rl_revised_20260929_v1/REPORT.md). No selected checkpoint was replaced and no further recipe is scheduled automatically.
+Outcome: **no_difference_established**. Stop: `matched_update_comparison`. Evidence and actual counts. No selected checkpoint was replaced and no further recipe is scheduled automatically.
 
 ## A10 — Data-quality mid-training (midtrain_quality_20260929_v2): implementation stop, not a result
 
-Outcome: **failed before its first optimizer update**. The retained trainer rejected the parent because the study's run seed (20260929) differed from the continuation lineage seed (20260923), which the trainer stores in the model configuration. No arm trained; this is not evidence about data-quality selection. Superseded by the v3 run with seed 20260923 (see A12). [Evidence](artifacts/midtrain_quality_20260929_v2/REPORT.md).
+Outcome: **failed before its first optimizer update**. The retained trainer rejected the parent because the study's run seed (20260929) differed from the continuation lineage seed (20260923), which the trainer stores in the model configuration. No arm trained; this is not evidence about data-quality selection. Superseded by the v3 run with seed 20260923 (see A12). Evidence.
 
 ## A12 — Data-quality mid-training (midtrain_quality_20260929_v3)
 
@@ -151,7 +151,7 @@ Outcome: **failed before its first optimizer update**. The retained trainer reje
 
 **Decision:** `not_established`; no checkpoint replaced, no SFT descendant.
 
-**Interpretation:** at this scale and budget, stricter heuristic document selection within already-filtered sources narrowed the distribution (worse general held-out NLL) without improving knowledge-panel accuracy. It does not rule out other selection signals or larger budgets. Evidence: [report](artifacts/midtrain_quality_20260929_v3/REPORT.md), [decision](artifacts/midtrain_quality_20260929_v3/decision.json).
+**Interpretation:** at this scale and budget, stricter heuristic document selection within already-filtered sources narrowed the distribution (worse general held-out NLL) without improving knowledge-panel accuracy. It does not rule out other selection signals or larger budgets. Evidence: report, decision.
 
 ## A13: Quality-weighted decay mix for V2 (v2_anneal_quality_20260929)
 

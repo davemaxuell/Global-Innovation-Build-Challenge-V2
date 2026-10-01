@@ -60,10 +60,9 @@ In a fresh clone, first follow **Setup** in [CURRENT_PIPELINE.md](CURRENT_PIPELI
 | `configs/` | Pinned evaluation protocol, model, V1-lineage data configs |
 | `tests/` | CPU tests for everything above |
 | `v2/` | V2 run configs, corpus, runs, phase records and submission drafts |
-| `checkpoints/` | `v2_1` (submitted), `v2_best` (V2 base); V1 `competition_base` and `best_sft` (baselines) |
+| `checkpoints/` | `v2_1` (submitted) and `v2_best` (V2 base): configs, tokenizer, provenance and hash inventories (weights are distributed separately) |
 | `release/hf_v2_1/`, `release/hf_v2/` | Hugging Face releases of V2.1 (submitted) and V2 base: model card, configs, tokenizer, `eval_results.json` (weights not in git) |
-| `runs/`, `artifacts/`, `data/` | Historical runs, measured results and prepared data (evidence; unchanged) |
-| `docs/history/`, `archive/` | V1-era documents and retired code (inventory in `reports/cleanup/2026-10-01/`) |
+| `runs/`, `artifacts/phase_evaluation_v1/` | V1 baseline run records and V1's official evaluation summary (the reference for the V1 row) |
 | `vendor/` | Pinned lm-evaluation-harness checkout; fastText for data preparation |
 
 ## Competition notes

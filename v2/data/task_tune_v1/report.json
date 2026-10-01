@@ -1,0 +1,55 @@
+{
+  "created": "2026-10-01T00:59:30.000853+00:00",
+  "tasks": {
+    "hellaswag": {
+      "repo": "Rowan/hellaswag",
+      "config": null,
+      "revision": "218ec52e09a7e7462a5400043bb9a69a41d06b76",
+      "train": 31989,
+      "development": 7849,
+      "unusable": 0,
+      "dropped_official_overlap": 67
+    },
+    "arc_easy": {
+      "repo": "allenai/ai2_arc",
+      "config": "ARC-Easy",
+      "revision": "210d026faf9955653af8916fad021475a3f00453",
+      "train": 1780,
+      "development": 461,
+      "unusable": 0,
+      "dropped_official_overlap": 10
+    },
+    "arc_challenge": {
+      "repo": "allenai/ai2_arc",
+      "config": "ARC-Challenge",
+      "revision": "210d026faf9955653af8916fad021475a3f00453",
+      "train": 872,
+      "development": 246,
+      "unusable": 0,
+      "dropped_official_overlap": 1
+    },
+    "piqa": {
+      "repo": "ybisk/piqa",
+      "config": null,
+      "revision": "ba2f7a4920f4968f04c174c53cc157c899e93501",
+      "train": 12460,
+      "development": 3177,
+      "unusable": 0,
+      "dropped_official_overlap": 476
+    },
+    "winogrande": {
+      "repo": "allenai/winogrande",
+      "config": "winogrande_xl",
+      "revision": "01e74176c63542e6b0bcb004dcdea22d94fb67b5",
+      "train": 32324,
+      "development": 8074,
+      "unusable": 0,
+      "dropped_official_overlap": 0
+    }
+  },
+  "tokenizer_sha256": "f8de5462e2967f502b8a25f2a90a87fee12ecad1f50d980a54552805ed0ea196",
+  "files": {
+    "train.jsonl": "461765c88f87fa1927755cc0e7941b3a1441f8efd1b653357983dbda37e8fc6e",
+    "development.jsonl": "31ae3b168fba81d0aee252fcb7da2810b705882f08751a25418a41b34375f3f5"
+  }
+}

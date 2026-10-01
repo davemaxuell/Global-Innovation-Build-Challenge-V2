@@ -1,6 +1,6 @@
 # Frozen Track 01 Evaluation Protocol
 
-> **Current (2026-10-01):** V2 is the selected model and the only active pipeline; see [README.md](README.md), [CURRENT_PIPELINE.md](CURRENT_PIPELINE.md) and [BEST_CHECKPOINT_TRAINING.md](BEST_CHECKPOINT_TRAINING.md). The rest of this document is a dated record; V1-era material is in [docs/history/](docs/history/).
+> **Current (2026-10-01):** V2 is the selected model and the only active pipeline; see [README.md](README.md), [CURRENT_PIPELINE.md](CURRENT_PIPELINE.md) and [BEST_CHECKPOINT_TRAINING.md](BEST_CHECKPOINT_TRAINING.md). The rest of this document is a dated record; V1-era material is kept on the training server, not in this repository.
 
 **Protocol:** `gibc-track01-eval-v1`  
 **Frozen:** September 23, 2026, before any project model benchmark scores were observed.  
@@ -11,17 +11,17 @@ These are our declared reporting choices. The organizer has not specified the ex
 
 ## Selection gate
 
-Run official evaluation only after a frozen selection record exists for the reserved `selection` development panel. V2 writes it with `python -m scglm_v2.select_endpoint` ([src/scglm_v2/select_endpoint.py](src/scglm_v2/select_endpoint.py)); V1 used [scripts/select_endpoint.py](archive/v1_code/scripts/select_endpoint.py), now archived. The final runner requires `--final-evaluation` and that record. It checks `official_scores_used: false`, the panel name, and the model weights' SHA256 against the selection record.
+Run official evaluation only after a frozen selection record exists for the reserved `selection` development panel. V2 writes it with `python -m scglm_v2.select_endpoint` ([src/scglm_v2/select_endpoint.py](src/scglm_v2/select_endpoint.py)); V1 used scripts/select_endpoint.py, now archived. The final runner requires `--final-evaluation` and that record. It checks `official_scores_used: false`, the panel name, and the model weights' SHA256 against the selection record.
 
 The selected model and other completed endpoints listed in the same record may all be evaluated. Report every completed primary arm. Official benchmark scores cannot change the already selected checkpoint. Each evaluation attempt receives its own fresh results directory, including repeated evaluations of the same model.
 
-**Post-training selection extension:** [INSTRUCTION_TUNING.md](artifacts/pipeline_v1/submission_package/INSTRUCTION_TUNING.md) specifies the implemented `scglm-post-selection-v1` extension for a completed 10B+ base and its SFT arms. `python -m scglm_post.select` freezes a challenger using instruction development and reserved raw-LM selection panels, then applies one independent confirmation gate. Its `selection.json` records `selection_kind=posttraining-v1`, `panel=selection`, and `official_scores_used=false`, and is accepted by the same final runner. Benchmark settings below remain unchanged. This is an added-compute parent/SFT comparison; use the separate selector rather than inserting post-training runs into the original matched 1B-pretraining selector. DPO/RL remain proposals in [POST_TRAINING_PLAN.md](artifacts/pipeline_v1/submission_package/POST_TRAINING_PLAN.md).
+**Post-training selection extension:** INSTRUCTION_TUNING.md specifies the implemented `scglm-post-selection-v1` extension for a completed 10B+ base and its SFT arms. `python -m scglm_post.select` freezes a challenger using instruction development and reserved raw-LM selection panels, then applies one independent confirmation gate. Its `selection.json` records `selection_kind=posttraining-v1`, `panel=selection`, and `official_scores_used=false`, and is accepted by the same final runner. Benchmark settings below remain unchanged. This is an added-compute parent/SFT comparison; use the separate selector rather than inserting post-training runs into the original matched 1B-pretraining selector. DPO/RL remain proposals in POST_TRAINING_PLAN.md.
 
-**12B continuation:** this is an unmatched longer-training extension of B0 with a changed corpus. Do not insert it into the matched B0/C selector unchanged. Register and implement its endpoint-selection extension before official evaluation, preserving the task settings below. The active training supervisor uses monitoring panels only; [CONTINUATION_RUNBOOK.md](docs/history/CONTINUATION_RUNBOOK.md) records its divergence gates.
+**12B continuation:** this is an unmatched longer-training extension of B0 with a changed corpus. Do not insert it into the matched B0/C selector unchanged. Register and implement its endpoint-selection extension before official evaluation, preserving the task settings below. The active training supervisor uses monitoring panels only; CONTINUATION_RUNBOOK.md records its divergence gates.
 
 ## Harness version and task definitions
 
-Use the clean checkout at [vendor/lm-evaluation-harness](vendor/lm-evaluation-harness), release **v0.4.12**, immutable commit **`6d642546f4688648fced259eb3302efd36ece5af`**. The installed 0.4.12 task files and relevant helpers were compared byte-for-byte with this checkout. [Upstream release commit](https://github.com/EleutherAI/lm-evaluation-harness/tree/6d642546f4688648fced259eb3302efd36ece5af)
+Use the clean checkout at `vendor/lm-evaluation-harness`, release **v0.4.12**, immutable commit **`6d642546f4688648fced259eb3302efd36ece5af`**. The installed 0.4.12 task files and relevant helpers were compared byte-for-byte with this checkout. [Upstream release commit](https://github.com/EleutherAI/lm-evaluation-harness/tree/6d642546f4688648fced259eb3302efd36ece5af)
 
 The vendor directory is excluded from project version control. To recreate it in a fresh checkout, run `git clone --depth 1 --branch v0.4.12 https://github.com/EleutherAI/lm-evaluation-harness.git vendor/lm-evaluation-harness`. The runner verifies that the resulting commit is exactly the hash above before doing any work.
 

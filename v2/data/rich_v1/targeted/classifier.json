@@ -1,0 +1,21 @@
+{
+  "positives": 46407,
+  "positives_per_set": {
+    "arc_easy": 1790,
+    "arc_challenge": 873,
+    "piqa": 8000,
+    "hellaswag": 8000,
+    "winogrande": 8000,
+    "openbookqa": 3958,
+    "sciq": 8000,
+    "commonsense_qa": 7786
+  },
+  "negatives": 46408,
+  "validation_auc": 0.9942585823101563,
+  "threshold": 0.05620912089943886,
+  "top_fraction_chars": 0.2,
+  "pool_sample_documents": 40000,
+  "classifier_sha256": "cafb3c5d8878ed56c16a0484e13f53eb5f171c016650fe8c60bb84d3a4f8b191",
+  "window_words": 60,
+  "document_score": "mean positive probability over windows"
+}

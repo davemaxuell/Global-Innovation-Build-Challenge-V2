@@ -12,7 +12,7 @@ __pycache__/
 *.bin
 
 # Large prepared data and historical evidence kept locally
-data/
+/data/
 artifacts/*
 # ...except V1's official 13B summary, the reference for the V1-vs-V2 rule (scglm_v2.v1_vs_v2)
 !artifacts/phase_evaluation_v1/
@@ -44,6 +44,12 @@ v2/data/rich_v1/benchmarks/*
 !v2/data/rich_v1/downloads/
 v2/data/rich_v1/downloads/*
 !v2/data/rich_v1/downloads/plan.json
+!v2/data/task_tune_v1/
+v2/data/task_tune_v1/*
+!v2/data/task_tune_v1/report.json
+!v2/data/task_tune_full_v1/
+v2/data/task_tune_full_v1/*
+!v2/data/task_tune_full_v1/report.json
 
 # V1 runs: keep only the small run records
 runs/*
@@ -63,3 +69,21 @@ v2/runs/*/checkpoints/
 vendor/
 archive/pre_reorg_2026-10-01/
 docs/references/*.pdf
+
+# Not part of the public competition repository (kept locally on the training server):
+# internal notes and drafts, V1-era history, retired code, V1 checkpoint metadata, raw logs.
+/AGENTS.md
+/COMPETITION_BRIEF.md
+/POST_TRAINING_ELIGIBILITY.md
+/RUN_STATUS.md
+/v2/submission/DEVPOST_DRAFT.md
+/v2/submission/README_V2_SECTION.md
+/v2/reports/CPU_PREP_*.md
+/archive/
+/docs/history/
+/reports/
+/checkpoints/best_sft/
+/checkpoints/competition_base/
+/checkpoints/SELECTION_2026-09-29.json
+/v2/runs/pilot_1b_aborted_manifest_fix/
+/v2/phases/main/train_resume1.log

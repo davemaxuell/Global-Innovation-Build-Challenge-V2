@@ -1,6 +1,6 @@
 # V2 pipeline: code map and reproduction
 
-**Scope since 2026-10-01:** the active code builds, trains, selects and evaluates the V2 model, including its task-tuning stage, and nothing else. What it produced: [BEST_CHECKPOINT_TRAINING.md](BEST_CHECKPOINT_TRAINING.md). Retired code is under `archive/` ([inventory](reports/cleanup/2026-10-01/moved_files.json)); V1's pipeline guide is in [docs/history/V1_CURRENT_PIPELINE.md](docs/history/V1_CURRENT_PIPELINE.md).
+**Scope since 2026-10-01:** the active code builds, trains, selects and evaluates the V2 model, including its task-tuning stage, and nothing else. What it produced: [BEST_CHECKPOINT_TRAINING.md](BEST_CHECKPOINT_TRAINING.md). Retired V1 code and V1-era documents are kept on the training server, not in this repository.
 
 Run everything from the project root with the recorded environment `/home/bufsgpu/yes/envs/sw/bin/python` ([requirements.lock.txt](requirements.lock.txt)). `PYTHONPATH=src` is enough for training and evaluation; data preparation also needs `vendor/pydeps` (fastText). `pytest` sets both.
 

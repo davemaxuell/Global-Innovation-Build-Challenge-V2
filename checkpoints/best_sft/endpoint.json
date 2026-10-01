@@ -1,6 +1,0 @@
-{
-  "weights_sha256": "defd0d91948ba8501a33b0c4996bf3bf37ebdf6e90338a05bab3a1773a2d7f72",
-  "provenance_sha256": "a64781a1f6b7844b16ab10f366476fb162fea9b9be896c583abe236b47b9be56",
-  "source_run": "/data/team_a/dave-workspace/Global Innovation Build Challenge V2/artifacts/posttraining_sota_v1/runs/sft_full_5_seed20260928",
-  "step": 105
-}

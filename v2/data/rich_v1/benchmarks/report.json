@@ -1,0 +1,90 @@
+{
+  "arc_easy": {
+    "repo": "allenai/ai2_arc",
+    "config": "ARC-Easy",
+    "split": "train",
+    "revision": "210d026faf9955653af8916fad021475a3f00453",
+    "status": "loaded",
+    "positives": 1790,
+    "development": 461,
+    "unusable": 0
+  },
+  "arc_challenge": {
+    "repo": "allenai/ai2_arc",
+    "config": "ARC-Challenge",
+    "split": "train",
+    "revision": "210d026faf9955653af8916fad021475a3f00453",
+    "status": "loaded",
+    "positives": 873,
+    "development": 246,
+    "unusable": 0
+  },
+  "piqa": {
+    "repo": "ybisk/piqa",
+    "config": null,
+    "split": "train",
+    "revision": "ba2f7a4920f4968f04c174c53cc157c899e93501",
+    "status": "loaded",
+    "positives": 12936,
+    "development": 3177,
+    "unusable": 0
+  },
+  "hellaswag": {
+    "repo": "Rowan/hellaswag",
+    "config": null,
+    "split": "train",
+    "revision": "218ec52e09a7e7462a5400043bb9a69a41d06b76",
+    "status": "loaded",
+    "positives": 32056,
+    "development": 7849,
+    "unusable": 0
+  },
+  "winogrande": {
+    "repo": "allenai/winogrande",
+    "config": "winogrande_xl",
+    "split": "train",
+    "revision": "01e74176c63542e6b0bcb004dcdea22d94fb67b5",
+    "status": "loaded",
+    "positives": 32324,
+    "development": 8074,
+    "unusable": 0
+  },
+  "openbookqa": {
+    "repo": "allenai/openbookqa",
+    "config": "main",
+    "split": "train",
+    "revision": "388097ea7776314e93a529163e0fea805b8a6454",
+    "status": "loaded",
+    "positives": 3958,
+    "development": 999,
+    "unusable": 0
+  },
+  "sciq": {
+    "repo": "allenai/sciq",
+    "config": null,
+    "split": "train",
+    "revision": "2c94ad3e1aafab77146f384e23536f97a4849815",
+    "status": "loaded",
+    "positives": 9434,
+    "development": 2245,
+    "unusable": 0
+  },
+  "commonsense_qa": {
+    "repo": "tau/commonsense_qa",
+    "config": null,
+    "split": "train",
+    "revision": "94630fe30dad47192a8546eb75f094926d47e155",
+    "status": "loaded",
+    "positives": 7786,
+    "development": 1955,
+    "unusable": 0
+  },
+  "social_i_qa": {
+    "repo": "allenai/social_i_qa",
+    "config": null,
+    "split": "train",
+    "revision": "8835ceb9141d7896d9d968634a9b21ae440e3ec5",
+    "status": "unavailable",
+    "error": "RuntimeError: Dataset scripts are no longer supported, but found social_i_qa.py"
+  }
+}

@@ -1,6 +1,6 @@
 # V2: rich-data scratch pretraining
 
-**Started:** 2026-09-29 (KST). **Status:** completed; V2 is the selected model ([../BEST_CHECKPOINT_TRAINING.md](../BEST_CHECKPOINT_TRAINING.md)). Since 2026-10-01 the V2 code lives in the main tree (`src/scglm_v2/`, `scripts/`, `tests/`); this directory holds V2's configs, data, runs, phase records and submission drafts. V1's checkpoints are preserved as baselines: [checkpoints/competition_base](../checkpoints/competition_base/) (13B base) and [checkpoints/best_sft](../checkpoints/best_sft/).
+**Started:** 2026-09-29 (KST). **Status:** completed; V2 is the selected model ([../BEST_CHECKPOINT_TRAINING.md](../BEST_CHECKPOINT_TRAINING.md)). Since 2026-10-01 the V2 code lives in the main tree (`src/scglm_v2/`, `scripts/`, `tests/`); this directory holds V2's configs, data, runs, phase records and submission drafts. V1's checkpoints are preserved as baselines: checkpoints/competition_base (13B base) and checkpoints/best_sft.
 
 V2 trains a new 46M-parameter model from random initialization. It keeps the V1 architecture and the AdamW recipe, and changes three things:
 
@@ -19,7 +19,7 @@ This directory holds V2's configs, data, runs and records. V1 files under `data/
 | `data/` | V2 corpora (large; not for the repository) |
 | `runs/` | V2 training runs: `pilot_1b`, `main` (selected), `anneal_quality` |
 | [../scripts/supervise_main.sh](../scripts/supervise_main.sh) | Auto-resume supervisor for the main run (moved 2026-10-01) |
-| `../archive/v2_experiments/run_after_main.sh` | Post-pretraining chain that ran on 2026-10-01 (archived with the decay A/B code) |
+| `run_after_main.sh` (retired; kept on the training server) | Post-pretraining chain that ran on 2026-10-01 (archived with the decay A/B code) |
 | [submission/](submission/) | Devpost and README drafts, Built With list, and figures (regenerate with `python -m scglm_v2.figures`) |
 | `reports/rehearsal/` | End-to-end rehearsal of selection and official reporting on V1's 1B model (not a V2 result) |
 

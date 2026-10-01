@@ -1,8 +1,0 @@
-include: /data/team_a/dave-workspace/Global Innovation Build Challenge V2/vendor/lm-evaluation-harness/lm_eval/tasks/hellaswag/hellaswag.yaml
-task: hellaswag
-dataset_path: Rowan/hellaswag
-dataset_name: null
-dataset_kwargs:
-  revision: 218ec52e09a7e7462a5400043bb9a69a41d06b76
-num_fewshot: 0
-target_delimiter: ' '
