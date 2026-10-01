@@ -44,8 +44,12 @@ def main():
         kwargs.update(temperature=a.temperature, top_p=a.top_p)
     with torch.inference_mode():
         output = model.generate(input_ids=inputs, attention_mask=torch.ones_like(inputs), **kwargs)
-    print(f"[model: {a.model.name} · {provenance.get('cumulative_tokens', provenance.get('main_tokens')) / 1e9:.1f}B "
-          f"pretraining tokens · {sum(x.numel() for x in model.parameters()):,} parameters]")
+    # A fine-tuned export (V2.1) records its pretraining lineage under "parent".
+    source = provenance if "cumulative_tokens" in provenance or "main_tokens" in provenance else provenance.get("parent") or {}
+    tokens = source.get("cumulative_tokens", source.get("main_tokens"))
+    pretrained = f"{tokens / 1e9:.1f}B pretraining tokens" if tokens else "pretraining tokens not recorded"
+    tuned = " + benchmark-train fine-tuning" if "task_tuning" in provenance else ""
+    print(f"[model: {a.model.name} · {pretrained}{tuned} · {sum(x.numel() for x in model.parameters()):,} parameters]")
     print(a.prompt + tokenizer.decode(output[0, inputs.shape[1]:], skip_special_tokens=True))
 
 
